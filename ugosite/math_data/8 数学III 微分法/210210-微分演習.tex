@@ -1,0 +1,2531 @@
+\newif\iffuru
+\furutrue%フルバージョン
+%\furufalse%解説のみ
+
+\newif\iffigure
+\figuretrue%図表あり
+%\figurefalse%図表なし
+
+\documentclass[10pt,
+b5paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+%\usepackage{アプローチ}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{ascmac}
+%\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathC}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPp}
+\usepackage{emathPl}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage{emathPs}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=12truemm,bottom=12truemm,left=12truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage{fancyhdr}%ヘッダの設定
+\usepackage{cancel}%消し取り線
+\usepackage{ifthen}
+%\usepackage{exam}
+\usepackage{tcolorbox}
+\usepackage{extarrows}%伸縮性のある矢印
+
+%ページレイアウト
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+
+%\pagestyle{headings}
+%\pagestyle{empty}%ページ番号を消す
+% \pagestyle{fancy}
+%  \fancyhead{}
+%  \fancyhead[RO,RE]{\rightmark}
+%%  \fancyhead[LE,LO]{\leftmark}
+%  \cfoot{\thepage}
+%  \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+%  \renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+ 
+%\markboth{}{\thesection}
+ 
+%\fancyhead{} % clear all fields
+%\fancyhead[CE]{偶数ページ}
+%\fancyhead[CO]{奇数ページ}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%問題レイアウト
+\tcbuselibrary{raster,skins}
+\tcbuselibrary{xparse}
+\newtcolorbox{mybox}{
+enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+}
+\newcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\newcommand{\bqu}{\begin{mybox}\begin{question}}
+\newcommand{\equ}{\end{question}\end{mybox}}
+\newcommand{\mondaisettei}{\kaisetufalse
+\renewcommand{\sub}{\subsection}
+\renewcommand{\bqu}{\vspace{0.5zw}\begin{question}}
+\renewcommand{\equ}{\end{question}\vspace{3zw}\vfill}
+}%問題設定
+\newcommand{\kaisetutukinosettei}{\kaisetutrue
+\renewcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\renewcommand{\bqu}{\begin{mybox}\begin{question}}
+\renewcommand{\equ}{\end{question}\end{mybox}}
+}%解答解説の設定
+
+%箇条書きの調整
+%\setlength{\itemsep}{5pt}      %2. ブロック間の余白
+%\setlength{\parskip}{0pt}      %4. 段落間余白．
+%\setlength{\itemindent}{0pt}   %5. 最初のインデント
+%\setlength{\labelsep}{5pt}     %6. item と文字の間
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+%\newcommand{\bb}{\gtfamily\ebseries\boldmath}%全部極太にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{\bb 第\arabic{subsection}回
+\ }
+\renewcommand{\theQuestion}{%\arabic{subsection}-
+\large\arabic{Question}．}
+
+%横に縦線
+\usepackage{framed}
+\makeatletter
+\renewenvironment{leftbar}{%
+\def\FrameCommand{\vrule width 1pt \hspace{1zw}}
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+\newenvironment{leftbbar}{%
+\def\FrameCommand{\color{mygray} \vrule width 5pt \hspace{1zw}
+\color{black}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+%アプローチ
+\newenvironment{アプローチ}{
+\hspace{-2zw}\underbar{\large \bf Approach}\vspace{-1zw}\begin{leftbar}}{\end{leftbar}}
+
+\newenvironment{解答}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newenvironment{解答1}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答1\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答2}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答2\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答3}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答3\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{別解}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 別解\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newcommand{\kaitoui}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答1\ }}
+\newcommand{\kaitouii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答2\ }}
+\newcommand{\kaitouiii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答3\ }}
+\newcommand{\bekkai}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 別解\ }}
+
+%QRコード
+\usepackage{qrcode}
+\setlength\normallineskiplimit{0pt}
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+\definecolor{mygray}{gray}{0.75}
+
+\newif\ifkaisetu
+
+\newcommand{\mondaitokaitou}{
+\mondaisettei
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\kaisetutukinosettei
+\myfor{1} % ループ実行   
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+%\myfor{1} % ループ実行   
+}
+\begin{document}
+
+\ 
+\vfill 
+
+{\bb \Huge 微分演習\ \ 問題\ \& 解説\ \& 解答}\ \\
+
+微分演習はどうでしたか？\ なかなか中身の濃いものになったと思います．
+みなさんの発表を踏まえてをまとめたものを共有します．発表とは違うアプローチや，別解やグラフをできるだけ載せていますので，復習に使ってください．\hfill 大橋
+
+
+\vfill \vfill 
+
+\iffigure
+\begin{zahyou}[ul=15mm](-1,8)(-4,4)
+\teisuuretu{aval=0.15}
+\def\Fx{cos(X)/X}
+\def\Gx{sin(X)+(\aval)*X}
+\YGraph<minx=0.01>{1/X}
+\YGraph<minx=0.01>{-1/X}
+\YGraph{(\aval)*X}
+\YGraph{(\aval)*X+1}
+\YGraph{(\aval)*X-1}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=1pt>\Gx
+\YPointPut\Fx{$pi}[syaei=x,xlabel=\pi]{}
+\YPointPut\Fx{2*$pi}[syaei=x,xlabel=2\pi]{}
+\YPointPut\Fx{$pi/7}[sw]{$y=\bunsuu{\cos x}{x}$}
+\YPointPut\Gx{$pi*2}[wn]{$y=\sin x+ax$}
+\end{zahyou}
+\fi
+
+\vfill \vfill 
+
+\ \\
+\hfill 京大Moodleより，PDFをダウンロードできます→
+ \fbox{\qrcode[height=0.8in]{https://sk.let.media.kyoto-u.ac.jp/moodle/course/view.php?id=225&section=2}}\\
+\ \\
+
+
+\newpage
+
+\kaisetutukinosettei
+%\mondaisettei
+
+\iffuru
+\newcommand{\myfor}[1]{
+\fi
+
+\bqu $a$を実数とし，関数$f(x)$を
+\[f(x)=\barr a\sin x+\cos x \left(x\leqq \bunsuu{\pi}{2}\right)\\ x-\pi \left(x >\bunsuu{\pi}{2}\right)\earr\]
+で定義する．
+\benu
+\item $f(x)$が$x=\bunsuu{\pi}{2}$で連続となる$a$の値を求めよ．
+\item (1)で求めた$a$の値に対し，$x=\bunsuu{\pi}{2}$で$f(x)$は微分可能でないことを示せ．\hfill(神戸大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(1)\ $f(x)$のグラフで唯一途切れているところがあるとすれば，$x=\bunsuu{\pi}{2}$だけである．そこで「$x=\bunsuu{\pi}{2}$においてグラフが繋がるように$a$の値を定めよ」というわけである．連続性についての厳密な議論は極限を用いた定義に戻る以外にない；
+\begin{tcolorbox}[title={\bb 連続性の定義},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-1,10)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/32-(X-2)/4+2}
+\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{4.5}[syaei=x,xlabel=\rightarrow a \leftarrow]{}
+\YPoint\Fx{4.5}\A
+\Kuromaru<size=1pt>\A
+\YPointPut\Fx{7}[w]{$f(x)$}
+\end{zahyou}
+\fi
+}
+関数$f(x)$が$x=a$において連続であるとは，
+\[\dlim_{x \to a} f(x) =f(a)\ \ \cdots\MARU{1}\]
+が成立することをいう．
+\end{mawarikomi}
+\end{tcolorbox}
+等式\MARU{1}が意味することは，次のようにも言い換えられる．
+\[$左側極限$\dlim_{x \to a-0} f(x)$と右側極限$\dlim_{x \to a+0} f(x)$が存在し，かつ，いづれも$f(a)$に一致すること．$\]
+この方が「グラフがつながっている」というイメージに近い．
+
+(2)\ (1)ではグラフがつながっているかどうかが問題だったが，今度はなめらかかどうかが問題になっている．微分可能性についての議論も極限を用いた定義に戻ることが重要；
+\begin{tcolorbox}[title={\bb 微分可能性の定義},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-1,10)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/32-(X-2)/4+2}
+\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{4.5}[syaei=x,xlabel=a\leftarrow]{}
+\YPointPut\Fx{6}[syaei=x,xlabel=a+h,xpos={[es]}]{}
+\YPoint\Fx{4.5}\A
+\YPoint\Fx{6}\B
+\Kuromaru<size=1pt>\A
+\Kuromaru<size=1pt>\B
+\YPoint\Fx{5}\C
+\Kuromaru<size=1pt>\C
+\YPoint\Fx{5.5}\D
+\Kuromaru<size=1pt>\D
+\Lline\A\B
+\Lline\A\C
+\Lline\A\D
+\YPointPut\Fx{7}[w]{$f(x)$}
+\end{zahyou}
+\fi
+}
+関数$f(x)$が$x=a$において微分可能であるとは，
+\[極限\dlim_{h \to 0} \bunsuu{f(a+h)-f(a)}{h}\ \ が存在すること\]
+をいう．
+\end{mawarikomi}
+\end{tcolorbox}
+これは，次のように言い換えられる．
+\[$左側極限$\dlim_{h \to -0} $と右側極限$\dlim_{h \to +0} \bunsuu{f(a+h)-f(a)}{h}$が存在し，かつ互いに一致すること$\]
+こちらの方が「グラフがなめらかであること」をイメージしやすいかもしれない．
+ということで，(2)では，近づける方向によって極限が異なることを示すことになる．\kaitoui\\
+ちなみに，極限計算を避けて微分公式のみで証明することもできるらしい．解答者の強いこだわりを感じる．\kaitouii
+\end{アプローチ}
+
+\begin{解答1}
+\benu
+\item $f\left(\bunsuu{\pi}{2}\right)=a\sin\bunsuu{\pi}{2}+\cos\bunsuu{\pi}{2}=a$と，%$f(x)$が$x=\bunsuu{\pi}{2}$で連続となる条件は，\ $\dlim_{x \to \frac{\pi}{2} -0}f(x)=\dlim_{x \to \frac{\pi}{2}+0}f(x)=f\left(\bunsuu{\pi}{2}\right)$
+\begin{align*}
+\dlim_{x \to \frac{\pi}{2} -0}f(x)&=\dlim_{x \to \frac{\pi}{2} -0}\left(a\sin\bunsuu{\pi}{2}+\cos\bunsuu{\pi}{2}\right)=a\\
+\dlim_{x \to \frac{\pi}{2} +0}f(x)&=\dlim_{x \to \frac{\pi}{2} +0}(x-\pi)=\bunsuu{\pi}{2}-\pi=-\bunsuu{\pi}{2}
+\end{align*}
+より，求める$a$は{\bb $a=-\bunsuu{\pi}{2}$}．
+
+\item $f(x)=\barr -\frac{\pi}{2}\sin x+\cos x \left(x\leqq \bunsuu{\pi}{2}\right)\\ x-\pi \left(x >\bunsuu{\pi}{2}\right)\earr$を踏まえて，
+\begin{align*}
+\dlim_{h\to-0}\bunsuu{f(\frac{\pi}{2}+h)-f(\frac{\pi}{2})}{h}&=\dlim_{h\to-0}\bunsuu{-\frac{\pi}{2}\sin\left(\frac{\pi}{2}+h\right)+\cos\left(\frac{\pi}{2}+h\right)-(\frac{\pi}{2}-\pi)}{h}\\&=\dlim_{h\to-0}\bunsuu{-\frac{\pi}{2}\cos h-\sin h+\frac{\pi}{2}}{h}\\
+&=\dlim_{h\to-0}\left\{-\bunsuu{\pi}{2h}\left(1-2\sin^2\frac{h}{2}\right)+\bunsuu{\pi}{2h}-\bunsuu{\sin h}{h}\right\}\\
+&=\dlim_{h\to-0}\left\{-\bunsuu{\pi}{4}\cdot\bunsuu{\sin^2\frac{h}{2}}{\left(\frac h2\right)^2}\cdot  h\bunsuu{\sin h}{h}\right\}\\
+&=-\bunsuu{\pi}{4}\cdot 1^2\cdot 0 -1=-1\cdots\MARU{1}\\
+\dlim_{h\to+0}\bunsuu{f(\frac{\pi}{2}+h)-f(\frac{\pi}{2})}{h}&=\dlim_{h\to+0}\bunsuu{\left(\frac{\pi}{2}+h\right)-\pi-(\frac{\pi}{2}-\pi)}{h}=1\cdots\MARU{2}
+\end{align*}
+$\MARU{1}\neq\MARU{2}$より，$f(x)$は$x=\bunsuu{\pi}{2}$において微分可能でない．\hfill □
+\eenu
+\end{解答1}
+
+\begin{解答2}
+(2)\ $f_1(x)=-\bunsuu{\pi}{2}\sin x+\cos x$は常に微分可能で，${f_1}'(x)=a\cos x-\sin x$なので，
+\[\dlim_{h\to-0}\bunsuu{f(\frac{\pi}{2}+h)-f(\frac{\pi}{2})}{h}=\dlim_{h\to-0}\bunsuu{f_1(\frac{\pi}{2}+h)-f_1(\frac{\pi}{2})}{h}
+={f_1}'\left(\frac{\pi}{2}\right)=a\cos\frac{\pi}{2}-\sin\frac{\pi}{2}=-1\cdots\MARU{1}\]
+また，$f_2(x)=x-\pi$も常に微分可能で，${f_2}'(x)=1$なので，
+\[\dlim_{h\to+0}\bunsuu{f(\frac{\pi}{2}+h)-f(\frac{\pi}{2})}{h}=\dlim_{h\to-0}\bunsuu{f_2(\frac{\pi}{2}+h)-f_2(\frac{\pi}{2})}{h}
+={f_2}'\left(\frac{\pi}{2}\right)=1\cdots\MARU{2}\]
+$\MARU{1}\neq\MARU{2}$より，$f(x)$は$x=\bunsuu{\pi}{2}$において微分可能でない．\hfill □
+\end{解答2}
+
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=8mm,yscale=1,xscale=1](-2,4)(-2,2)
+\def\Fx{-X}
+\def\Gx{-$pi/2*sin(X)+cos(X)}
+\def\Hx{X-$pi}
+\YGraph<linethickness=0.2pt>\Fx
+\YGraph<linethickness=1pt,minx=\xmin,maxx=$pi/2>\Gx
+\YGraph<linethickness=0.2pt>\Gx
+\YGraph<linethickness=1pt,minx=$pi/2,maxx=\xmax>\Hx
+\YGraph\Hx
+\YPointPut\Gx{$pi/2}[syaei=xy,xlabel=\frac\pi2,ylabel=-\frac\pi2]{}
+\YPointPut\Gx{-2}[s]{$y=-\bunsuu{\pi}{2}\sin x+\cos x$}
+\YPointPut\Hx{3.8}[wn]{$y=x-\pi$}
+\end{zahyou}
+\fi
+}
+グラフ$y=-\bunsuu{\pi}{2}\sin x+\cos x$の$x=\bunsuu{\pi}{2}$における接線の傾きが$-1$であり，これは1と異なる．したがって，右図のように，確かにのグラフは$x=\bunsuu{\pi}{2}$において尖っている．
+\end{mawarikomi}
+
+\newpage
+\fi
+
+\bqu $x$軸上の定点A$(a,\ 0)$から曲線$y=x e^{-x}$に接線が2本引けるとき，これらの接線を$l$，$m$とし，$l$の接点をB$(b,\ be^{-b})$，$m$の接線をC$(c,\ ce^{-c})$とする．ただし，$b<c$とする．
+\benu
+\item $a$の値の範囲を求めよ．
+\item $b$を$a$の関数で表せ．さらに，$a \to \infty$のとき$b$の極限値を求めよ．\hfill(広島大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+典型的な接線の本数の問題である．
+\begin{tcolorbox}[title={\bb 接線の本数},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+関数$y=f(t)$のグラフの接線の本数に関する問題は，次の手順で処理する；
+\benu[(i)]
+\item 接点を$(t,f(t))$とおき，接線の方程式を作る．
+\item 接線が与えられた条件を満たすことから，$t$の条件式$g(t)=0$を導く．
+\item 方程式$g(t)=0$を満たす実数$t$の個数\ =\ 接点の個数\ $\underset{*}{=}$\ 接線の本数
+\eenu
+ただし，等号$*$は2重接線という例外を除いて成立する．
+\end{tcolorbox}
+%とすれば難しくはない．
+\end{アプローチ}
+
+\begin{解答}
+(1)\ 接点を$(t,\ f(t))$とおく．$f'(x)=(1-x)e^{-x}$より，接線の方程式は，
+\[y=(1-t)e^{-t}(x-t)+te^{-t}\]
+これが$(a,\ 0)$を通るとき，
+\begin{align*}
+0&=(1-t)e^{-t}(a-t)+te^{-t}\\
+& e^{-t}(t^2-at+a)=0\\
+e^{-t} \neq 0\ より\ \ \ & t^2-at+a=0\cdots(*)
+\end{align*}
+$(*)$を満たす異なる$t$の個数が2個となる条件は，
+\[(判別式)=a^2-4a > 0\ \ \therefore\ \ \text{\bb $a<0，4<a$}\]
+(2)\ $(*)$の解が$t=b,c$である．$b<c$より，{\bb $b=\bunsuu{a-\sq{a^2-4a}}{2}$}なので，
+\begin{align*}
+\lim_{a \to \infty} b
+&=\lim_{a \to \infty} \bunsuu{a-\sq{a^2-4a}}{2}\\
+&=\lim_{a \to \infty} \bunsuu{4a}{2(a+\sq{a^2-4a})}\\
+&=\lim_{a \to \infty} \bunsuu{4}{2\left(1+\sq{1-\bunsuu{4}a}\right)}\\
+&=\bunsuu{4}{2\cdot (1+1)}={\bb 1}
+\end{align*}
+\end{解答}
+
+\newpage
+
+(補足)\ $y=x$と$y=e^{-x}$のグラフから$y=xe^{-x}$の概形は微分せずとも描けると楽だ．
+
+\[
+\iffigure
+\begin{zahyou}[ul=10mm,yscale=1,xscale=1](-1,10)(-2,2)
+\def\Fx{(exp(-X))*X}
+\def\Gx{exp(-X)}
+\def\Hx{X}
+\YGraph<linethickness=1pt>\Fx
+\YGraph\Gx
+\YGraph\Hx
+\YPointPut\Fx{3}[n]{$y=xe^{-x}$}
+\YPointPut\Gx{-0.5}[w]{$y=e^{-x}$}
+\YPointPut\Hx{2}[e]{$y=x$}
+%\YPointPut\Fx{$pi/2}[syaei=x,xlabel=\frac\pi2]{}
+\end{zahyou}
+\fi
+\]
+
+$x \to \infty$のとき，$e^{-x} \to 0$だが，収束の速度は指数関数の方が上なので，$xe^{-x}\to 0$と判断できる．
+%というとこは，どこかに変曲点が存在するはずで，その点における接線を境目にして引くことのできる接線の本数が変わる．
+%
+%\[
+%\iffigure
+%\begin{zahyou}[ul=10mm,yscale=1,xscale=1](-1,10)(-2,1.5)
+%\def\Fx{(exp(-X))*X}
+%\YGraph<linethickness=1pt>\Fx
+%\teisuuretu{aval=-0.3}
+%\teisuuretu{bval=(\aval-sqrt(\aval*(\aval)-4*(\aval)))/2}
+%\teisuuretu{cval=(\aval+sqrt(\aval*(\aval)-4*(\aval)))/2}
+%\Put{(\aval,0)}[nw]{A}
+%\Kuromaru{(\aval,0)}
+%\YGraph{(1-(\bval))*exp(-(\bval))*(X-(\bval))+\bval*exp(-(\bval))}
+%\YGraph{(1-(\cval))*exp(-(\cval))*(X-(\cval))+\cval*exp(-(\cval))}
+%\YPointPut\Fx{\bval}[syaei=x,xlabel=]{}
+%\YPointPut\Fx{\cval}[syaei=x,xlabel=]{}
+%\end{zahyou}
+%\fi
+%\]
+%\[
+%\iffigure
+%\begin{zahyou}[ul=10mm,yscale=1,xscale=1](-1,10)(-2,1.5)
+%\def\Fx{(exp(-X))*X}
+%\YGraph<linethickness=1pt>\Fx
+%\teisuuretu{aval=6}
+%\teisuuretu{bval=(\aval-sqrt(\aval*(\aval)-4*(\aval)))/2}
+%\teisuuretu{cval=(\aval+sqrt(\aval*(\aval)-4*(\aval)))/2}
+%\Put{(\aval,0)}[s]{A}
+%\Kuromaru{(\aval,0)}
+%\YGraph{(1-(\bval))*exp(-(\bval))*(X-(\bval))+\bval*exp(-(\bval))}
+%\YGraph{(1-(\cval))*exp(-(\cval))*(X-(\cval))+\cval*exp(-(\cval))}
+%\YPointPut\Fx{\bval}[syaei=x,xlabel=]{}
+%\YPointPut\Fx{\cval}[syaei=x,xlabel=]{}
+%\end{zahyou}
+%\fi
+%\]
+
+%また，
+$a \to \infty$のとき，接点$(b,be^{-b})$は限りなく極大点に近づいていく様子も想像できる．
+
+\[
+\iffigure
+\begin{zahyou}[ul=10mm,yscale=1,xscale=1](-1,10)(-2,1.5)
+\def\Fx{(exp(-X))*X}
+\YGraph<linethickness=1pt>\Fx
+\teisuuretu{aval=4.1}
+\teisuuretu{tval=(\aval-sqrt(\aval*\aval-4*\aval))/2}
+\Put{(\aval,0)}[s]{$\rightarrow$A}
+\YPointPut\Fx{\tval}[syaei=x,xlabel=]{}
+\Kuromaru{(\aval,0)}
+\YGraph<linethickness=0.25pt>{(1-\tval)*exp(-\tval)*(X-\tval)+\tval*exp(-\tval)}
+\teisuuretu{aval=5}
+\teisuuretu{tval=(\aval-sqrt(\aval*\aval-4*\aval))/2}
+\Put{(\aval,0)}[s]{$\rightarrow$A}
+\YPointPut\Fx{\tval}[syaei=x,xlabel=]{}
+\Kuromaru{(\aval,0)}
+\YGraph<linethickness=0.5pt>{(1-\tval)*exp(-\tval)*(X-\tval)+\tval*exp(-\tval)}
+\teisuuretu{aval=7}
+\teisuuretu{tval=(\aval-sqrt(\aval*\aval-4*\aval))/2}
+\Put{(\aval,0)}[s]{$\rightarrow$A}
+\YPointPut\Fx{\tval}[syaei=x,xlabel=]{}
+\Kuromaru{(\aval,0)}
+\YGraph<linethickness=0.75pt>{(1-\tval)*exp(-\tval)*(X-\tval)+\tval*exp(-\tval)}
+\teisuuretu{aval=9.5}
+\teisuuretu{tval=(\aval-sqrt(\aval*\aval-4*\aval))/2}
+\Put{(\aval,0)}[s]{$\rightarrow$A}
+\YPointPut\Fx{\tval}[syaei=x,xlabel=]{}
+\Kuromaru{(\aval,0)}
+\YGraph<linethickness=1pt>{(1-\tval)*exp(-\tval)*(X-\tval)+\tval*exp(-\tval)}
+\YPointPut\Fx{\tval}[syaei=x,xlabel=]{}
+\end{zahyou}
+\fi
+\]
+
+\newpage
+\fi
+
+\bqu $a$を実数とする．関数$f(x)=ax+\cos x+\bunsuu 12\sin 2x$が極値をもたないように，$a$の値の範囲を定めよ．\hfill(神戸大)
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+極値に関する条件なので，増減を調べるべく，$f(x)$を微分してみると，
+\[f'(x)=a-\sin x+\cos 2x\]
+となる．次のことを念頭においてこの式を観察したい；
+\begin{tcolorbox}[title={\bb 極値の条件},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+定義域全体で微分可能な関数$f(x)$が\\
+$x=a$において極値をもつための必要十分条件は，
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-1,10)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/32-(X-2)/4+2}
+\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{4}[syaei=x,xlabel=a]{}
+\YPoint\Fx{4}\A
+\Kuromaru<size=1pt>\A
+\YPointPut\Fx{6}[e]{$f(x)$}
+\end{zahyou}
+\fi
+}
+\[f'(a)=0\ かつ\ x=a\ の前後で\ f'(x)\ に符号変化が起こる\]
+ことである
+\end{mawarikomi}
+\end{tcolorbox}
+今回，もちろん，$f'(x)$の振る舞いを直接調べるのも可能である．\kaitouii\\
+しかし，今回の$f'(x)$は$a$が分離できる形
+\[f'(x)=a-\underbrace{(\sin x-\cos 2x)}_{=g(x)}\]
+なので，$f'(x)$の符号は$y=g(x)$と$y=a$の大小によって調べるのが筋がよさそう．\kaitoui
+\end{アプローチ}
+
+\begin{解答1}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=10mm,yscale=1,xscale=1.5,yokozikukigou=$\sin x$](-2,2)(-2,3)
+\def\Fx{2*X*X+X-1}
+\YGraph<linethickness=1pt,minx=-1,maxx=1>\Fx
+\YGraph<linethickness=0.2pt>\Fx
+\YPoint\Fx{1}\A
+\YPoint\Fx{-1}\B
+\YPoint\Fx{-1/4}\C
+\Put\A[syaei=xy]{}
+\Put\B[syaei=x]{}
+\Put\C[syaei=xy,xlabel=\frac 14,ylabel=-\frac 98]{}
+\Kuromaru\A
+\Kuromaru\B
+\Kuromaru\C
+\end{zahyou}
+\fi
+}
+$f'(x)=a-(\sin x-\cos 2x)$．\\
+$f(x)$は実数全体で微分可能なので，極値をもたない条件は，
+$f'(x)$に符号変化が起こらないこと，つまり，常に$f'(x) \geqq 0$もしくは常に$f'(x) \leqq 0$となることである．
+$g(x)=\sin x-\cos 2x$とおくと$f(x)=a-g(x)$であり，
+\begin{align*}
+g'(x)&=\sin x-(1-2\sin^2 x)\\
+&=2\left(\sin x +\bunsuu14\right)^2-\bunsuu 98
+\end{align*}
+$-1\leqq \sin x \leqq 1$より，$g(x)$の値域は$-\bunsuu 98 \leqq g(x) \leqq 2$．\\
+よって，求める$a$の値の範囲は{\bb $a \leqq -\bunsuu 98$\ または\ $2\leqq a$}．
+\end{mawarikomi}
+\end{解答1}
+
+\newpage
+
+\begin{解答2}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=10mm,yokozikukigou=$X$,tatezikukigou=$Y$,tatezikuhaiti={[n]},yokozikuhaiti={[e]},migiyohaku=2zw](-1.5,1.5)(-1.5,1.5)
+\teisuuretu{cval=pi/12}
+\teisuuretu{aval=cval+pi}
+\teisuuretu{bval=-cval+2*pi}
+\tenretu*<perl>{A(cos(\aval),sin(\aval))en;B(cos(\bval),sin(\bval))ws;C(cos(\cval),sin(\cval))ws}
+\En<linethickness=1pt>\O{1}
+\Put{(0,-0.25)}[se]{$-\frac 14$}
+%\Put\B[se]{$2\pi-\alpha$}
+\Put\C[ne]{$\alpha$}
+\Drawlines{\O\A;\O\B;\O\C}
+\YGraph{-1/4}
+%\Enko<linethickness=1pt>\O1{hazimeten=\A}{owariten=\B}
+\Kuromarus{\A;\B}
+\PutStr*{(-5pt,-10pt)}[s]{$x=\pi+\alpha$}to\A
+\PutStr*{(5pt,-10pt)}[s]{$x=2\pi-\alpha$}to\B
+\end{zahyou}
+\fi
+}
+$f'(x)=a-\sin x+\cos 2x$．\\
+$f''(x)=-\cos x-2\sin 2x=-\cos x(1+4\sin x)$．\\
+ここで，$\sin\alpha=\bunsuu 14$かつ$0< \alpha < \bunsuu{\pi}{2}$なる$\alpha$をとると，\\
+$0 \leqq x \leqq 2 \pi$における$f'(x)$の増減は以下のようになる．
+\[\hspace{-2zw}\begin{array}{c|ccccccccccc}
+\phantom{\bunsuu 11}x&0&\cdots& \frac{\pi}{2} &\cdots&\pi+\alpha & \cdots & \frac 32\pi & \cdots &2\pi-\alpha&\cdots& 2\pi\\\hline
+\phantom{\bunsuu 11}f''(x)& &-&0&+&0&-&0&+&0&-& \\\hline
+\phantom{\bunsuu 11}f'(x)& &\SE&a-2&\NE&a+\frac 98&\SE&a&\NE&a+\frac 98&\SE&\\
+\end{array}\ \ \ \ 
+\]
+ゆえに，$f(x)$が極値をもつための条件は，$f'(x)$に符号変化が起こること，つまり
+\[a-2<0<a+\bunsuu 98，すなわち，-\bunsuu 98<a<2\]
+よって，求める$a$の値の範囲は{\bb $a \leqq -\bunsuu 98$\ または\ $2\leqq a$}．
+\end{mawarikomi}
+\end{解答2}
+
+%\newpage
+
+実際に$f'(x)=a-\sin x+\cos 2x$と$f(x)=ax+\cos x+\bunsuu 12\sin 2x$のグラフを並べてみると，対応が見えてくる．\
+以下は，$a=-2,-1,0,1,2$としたときの両者のグラフを縦に並べたもの．\\
+
+\beda<5>[\ ]
+\item \ \ \ \ \ $a=-2$\\
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=-2}
+\YGraph<linethickness=1pt>{\aval-sin(X)+cos(2*X)}
+\YPointPut{\aval-sin(X)+cos(2*X)}{-3}[nw]{$f'(x)$}
+\end{zahyou}
+\fi
+
+符号変化がない
+
+\vspace{2zw}
+
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=-2}
+\YGraph<linethickness=1pt>{\aval*X+cos(X)+1/2*sin(2*X)}
+\Put{(-5,1)}{$f(x)$}
+\end{zahyou}
+\fi
+
+極値をもたない
+
+\item \ \ \ \ \ $a=-1$\\
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=-1}
+\YGraph<linethickness=1pt>{\aval-sin(X)+cos(2*X)}
+\YPointPut{\aval-sin(X)+cos(2*X)}{-3}[nw]{$f'(x)$}
+\end{zahyou}
+\fi
+
+符号変化がある
+
+\vspace{2zw}
+
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=-1}
+\YGraph<linethickness=1pt>{\aval*X+cos(X)+1/2*sin(2*X)}
+\Put{(-5,1)}{$f(x)$}
+\end{zahyou}
+\fi
+
+極値をもつ
+
+\item \ \ \ \ \ $a=0$\\
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=0}
+\YGraph<linethickness=1pt>{\aval-sin(X)+cos(2*X)}
+\YPointPut{\aval-sin(X)+cos(2*X)}{-3}[nw]{$f'(x)$}
+\end{zahyou}
+\fi
+
+符号変化がある
+
+\vspace{2zw}
+
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=0}
+\YGraph<linethickness=1pt>{\aval*X+cos(X)+1/2*sin(2*X)}
+\Put{(-5,1)}{$f(x)$}
+\end{zahyou}
+\fi
+
+極値をもつ
+
+\item \ \ \ \ \ $a=1$\\
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=1}
+\YGraph<linethickness=1pt>{\aval-sin(X)+cos(2*X)}
+\YPointPut{\aval-sin(X)+cos(2*X)}{-3}[nw]{$f'(x)$}
+\end{zahyou}
+\fi
+
+符号変化がある
+
+\vspace{2zw}
+
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=1}
+\YGraph<linethickness=1pt>{\aval*X+cos(X)+1/2*sin(2*X)}
+\Put{(-5,1)}{$f(x)$}
+\end{zahyou}
+\fi
+
+極値をもつ
+
+\item \ \ \ \ \ $a=2$\\
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=2}
+\YGraph<linethickness=1pt>{\aval-sin(X)+cos(2*X)}
+\YPointPut{\aval-sin(X)+cos(2*X)}{-3}[nw]{$f'(x)$}
+\end{zahyou}
+\fi
+
+符号変化がない
+
+\vspace{2zw}
+
+\iffigure
+\begin{zahyou}[ul=3mm,yscale=1,xscale=1](-5,5)(-5,5)
+\teisuuretu{aval=2}
+\YGraph<linethickness=1pt>{\aval*X+cos(X)+1/2*sin(2*X)}
+\Put{(-5,1)}{$f(x)$}
+\end{zahyou}
+\fi
+
+極値をもたない
+\eeda
+
+\newpage
+\fi
+
+\bqu $x>0$の範囲で関数$f(x)=e^{-x}\sin x$を考える．
+\benu
+\item $0<x<2\pi$における関数$f(x)$の極値を求めよ．
+\item $f(x)$が極大値をとる$x$の値を小さい方から順に$x_1$，$x_2$，$\cdots$とおく．一般の$n \geqq 1$に対し$x_n$を求めよ．
+\item 数列$\{f(x_n)\}$が等比数列であることを示し，$\dsum_{n=1}^{\infty} f(x_n)$を求めよ．\hfill(広島大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+
+
+微分をする前に$f(x)=e^{-x}\sin x$のグラフの概形はつかんでおきたい．\\
+関数$y=e^{-x}$と$y=\sin x$のグラフを踏まえると．．．
+\[
+\iffigure
+\begin{zahyou}[ul=10mm,yscale=2,xscale=1](-1,13)(-1.2,1.2)
+\def\Fx{(exp(-X/4))*(sin(X))}
+\def\Fix{sin(X)}\YPointPut\Fix{$pi*3/4}[e]{$y=\sin x$}
+\def\Gx{exp(-X/4)}\YPointPut\Gx{-0.5}[w]{$y=e^{-x}$}
+\def\Hx{-exp(-X/4)}\YPointPut\Hx{$pi/2}[se]{$y=-e^{-x}$}
+\YGraph<linethickness=1pt>\Fx
+\YGraph\Gx
+\YGraph\Hx
+\YGraph\Fix
+\YGraph{1}
+\YGraph{-1}
+\YPointPut\Fix{$pi/2}[syaei=x,xlabel=\frac\pi2]{}
+\YPointPut\Fix{$pi}[syaei=x,xlabel=\pi,xpos={[se]}]{}
+\YPointPut\Fix{3*$pi/2}[syaei=x,xlabel=\frac32 \pi]{}
+\YPointPut\Fix{2*$pi}[syaei=x,xlabel=2\pi]{}
+\YPointPut\Fix{5*$pi/2}[syaei=x,xlabel=\frac52 \pi]{}
+\YPointPut\Fix{3*$pi}[syaei=x,xlabel=3\pi]{}
+\YPointPut\Fix{7*$pi/2}[syaei=x,xlabel=\frac72 \pi]{}
+\YPointPut\Fix{4*$pi}[syaei=x,xlabel=4\pi]{}
+%\YPointPut\Fx{9*$pi/2}[syaei=x,xlabel=\frac92 \pi]{}
+\YPointPut\Gx{0}[syaei=y,ypos={[sw]}]{}
+\YPointPut\Hx{0}[syaei=y,ypos={[nw]}]{}
+\end{zahyou}
+\fi
+\]
+という具合か．このようなグラフを{\bb 減衰曲線}と呼ぶ．
+
+(1)\ 極値は増減表を書けばえられる；
+(2)\ $\sin x$が周期関数であることから，極大値(や極小値)が周期的に現れることは予想できる；
+(3)\ 振幅が指数関数的に縮小していくということは，極大値が等比数列であることも納得できる．
+\end{アプローチ}
+
+\newpage
+
+\begin{解答}\vspace{-2.5zw} 
+\benu
+\item \ \vspace{-2zw}
+\begin{align*}
+f'(x)&=-e^{-x}\sin x+e^{-x}\cos x\\
+&=\underbrace{e^{-x}}_{>0}\underbrace{(-\sin x+\cos x)}_{符号判断}\\
+&=e^{-x}\sin\left(x+\bunsuu 34\pi\right)
+\end{align*}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=10mm,yokozikukigou=$X$,tatezikukigou=$Y$,tatezikuhaiti={[n]},yokozikuhaiti={[e]},migiyohaku=2zw](-1.5,1.5)(-1.5,1.5)
+\teisuuretu{cval=0}
+\teisuuretu{aval=cval+pi}
+\teisuuretu{bval=3*pi/4}
+\tenretu*<perl>{A(cos(\aval),sin(\aval))en;B(cos(\bval),sin(\bval))ws;C(cos(\cval),sin(\cval))ws}
+\En<linethickness=1pt>\O{1}
+\Drawlines{\O\A;\O\B;\O\C}
+\Kuromarus{\A;\C}
+\PutStr*{(-10pt,20pt)}[n]{$\underset{i.e.\ x=\frac{\pi}{4}}{x+\frac 34\pi=\pi}$}to\A
+\PutStr*{(10pt,-20pt)}[s]{$\underset{i.e.\ x=\frac5{4}{\pi}}{x+\frac34\pi=2\pi}$}to\C
+\end{zahyou}
+\fi
+}
+よって，次の増減表を得る．
+\[\begin{array}{c|ccccccc}
+\phantom{\bunsuu 11} x&0&\cdots& \frac{\pi}{4} &\cdots&\frac{5}{4}\pi & \cdots &2\pi\\\hline
+\phantom{\bunsuu 11}f'(x)& &+&0&-&0&+& \\\hline
+\phantom{\bunsuu 11}f(x)& &\NE&極大&\SE&極小&\NE&\\
+\end{array}\ \ \ \ 
+\]
+よって，{\bb $x=\bunsuu{\pi}{4}$\ で極大値\ $\bunsuu{e^{-\frac{\pi}{4}}}{\sq 2}$をとり，$x=\bunsuu{5}{4}\pi$で極小値$-\bunsuu{e^{-\frac{5}{4}\pi}}{\sq 2}$}をとる．
+\end{mawarikomi}
+\item (1)と同様に$n$を自然数として$2(n-1)\pi \leqq x \leqq  2n\pi$における増減を調べると，
+\[\begin{array}{c|ccccccc}
+\phantom{\bunsuu 11}x&\text{ $2(n-1)\pi$}&\cdots& \text{ $ 2(n-1)\pi+\frac{\pi}{4}$}&\cdots & \text{ $ 2(n-1)\pi+\frac{5}{4}\pi $}& \cdots &\text{ $2n\pi$}\\\hline
+\phantom{\bunsuu 11}f'(x)& &+&0&-&0&+& \\\hline
+\phantom{\bunsuu 11}f(x)& &\NE&極大&\SE&極小&\NE&\\
+\end{array}\ \ \ \ 
+\]
+となるので，$x_n=2(n-1)\pi+\bunsuu{\pi}{4}=\text{\bb $-\bunsuu 74\pi+2n\pi$}$．
+\item \ \vspace{-2zw}
+\begin{align*}
+f(x_n)&=e^{-x_n}\sin x_n\\
+&=e^{\frac74\pi-2n\pi}\sin\left(-\bunsuu 74\pi+2n\pi\right)\\
+&=e^{\frac74\pi}\times \left(e^{-2\pi}\right)^n\times \bunsuu1{\sq 2}\\
+\therefore\ \ &\ \ \bunsuu{f(x_{n+1})}{f(x_n)}=e^{-2\pi}\ \ (一定)
+\end{align*}
+ゆえに，数列$\{f(x_n)\}$は等比数列である．\hfill □
+\begin{align*}
+また，\ \ \dsum_{n=1}^{N} f(x_n)
+=&\ e^{\frac 74\pi}\times e^{-2\pi}\times \bunsuu1{\sq 2} \times \bunsuu{1-\left(e^{-2\pi}\right)^ N}{1-e^{-2\pi}}\\
+\xlongrightarrow[]{N\to \infty}&\ e^{\frac 74\pi}\times e^{-2\pi}\times \bunsuu1{\sq 2} \times \bunsuu{1}{1-e^{-2\pi}}=\text{\bb $\bunsuu{e^{-\frac
+{\pi}4}}{\sq 2\left(1-e^{-2\pi}\right)}$}
+\end{align*}
+\eenu
+\end{解答}
+\newpage
+\fi
+
+\bqu $y=f(x)=\sq{x^2(x+1)}$\ $(x \geqq -1)$とする．
+\benu
+\item 関数は原点$x=0$で微分可能であるかどうか答えよ．
+\item 関数の増減，凹凸，極値を調べ，関数のグラフの概形をかけ．また，極値が存在すれば極値を求めよ．\\
+\hfill(奈良県立医科大・改)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(1) $f(x)=|x|\sq{x+1}$で絶対値があって，あえて微分可能性を問うぐらいなので，おそらく微分不可能なのだろう．問題{\bb 1}と同様に
+\begin{tcolorbox}[title={\bb 微分可能性の定義},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-1,10)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/32-(X-2)/4+2}
+\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{4.5}[syaei=x,xlabel=a\leftarrow]{}
+\YPointPut\Fx{6}[syaei=x,xlabel=a+h,xpos={[es]}]{}
+\YPoint\Fx{4.5}\A
+\YPoint\Fx{6}\B
+\Kuromaru<size=1pt>\A
+\Kuromaru<size=1pt>\B
+\YPoint\Fx{5}\C
+\Kuromaru<size=1pt>\C
+\YPoint\Fx{5.5}\D
+\Kuromaru<size=1pt>\D
+\Lline\A\B
+\Lline\A\C
+\Lline\A\D
+\YPointPut\Fx{7}[w]{$f(x)$}
+\end{zahyou}
+\fi
+}
+関数$f(x)$が$x=a$において微分可能であるとは，
+\[極限\dlim_{h \to 0} \bunsuu{f(a+h)-f(a)}{h}\ \ が存在すること\]
+をいう．
+\end{mawarikomi}
+\end{tcolorbox}
+を念頭において，右側極限と左側極限が異なることを言えばよい．
+
+(2) さて，増減を調べるために微分するのだが，
+\begin{itemize}
+\item 元の式$f(x)=\sq{x^2(x+1)}$をゴリゴリ微分する．\kaitoui
+\item $f(x)=|x|\sq{x^2+1}$を場合分けして微分する．\kaitouii
+\end{itemize}
+のどちらが楽だろうか？
+\end{アプローチ}
+
+\begin{解答1}
+\benu
+\item \ \vspace{-2.5zw}
+\begin{align*}
+\dlim_{h \to +0} \bunsuu{f(h)-f(0)}{h}&=\dlim_{h \to +0} \bunsuu{h\sq{h+1}-0}{h}
+=\dlim_{h \to +0} \sq{h+1}=1\cdots\MARU{1}\\
+\dlim_{h \to -0} \bunsuu{f(h)-f(0)}{h}&=\dlim_{h \to -0} \bunsuu{-h\sq{h+1}-0}{h}
+=\dlim_{h \to -0}(-\sq{h+1})=-1\cdots\MARU{2}
+\end{align*}
+$\MARU{1}\neq \MARU{2}$より，$f(x)$は$x=0$において{\bb 微分可能でない}．
+\item $f(x)=\sq{x^2(x+1)}$より，
+\begin{align*}
+f'(x)&=\bunsuu{2x(x+1)+x^2}{\sq{x^2(x+1)}}=\bunsuu{3x+2)}{\sq{x^2(x+1)}}=\bunsuu{x(3x+2)}{2\sq{x^2(x+1)}}\\
+f''(x)&=\bunsuu12\cdot \bunsuu{(6x+2) \sq{x^2(x+1)}-x(3x+2)\cdot \bunsuu{x(3x+2)}{2\sq{x^2(x+1)}}}{x^2(x+1)}\\
+&=\bunsuu12\cdot \bunsuu{2(6x+2)\cdot \cancel{x^2}(x+1)- \cancel{x}(3x+2)\cdot \cancel{x}(3x+2)}{\cancel{x^2}(x+1)\sq{x^2(x+1)}}\\
+&=\bunsuu12\cdot \bunsuu{3x^2+4x}{(x+1)\sq{x^2(x+1)}}
+=\bunsuu12\cdot \bunsuu{x(3x+4)}{(x+1)\sq{x^2(x+1)}}\\
+\end{align*}
+
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=30mm,yscale=1,xscale=1](-1.2,0.8)(-0.2,0.8)
+\def\Fx{sqrt(X*X*(X+1))}
+\YGraph<linethickness=1pt,minx=-1>\Fx
+\YPointPut\Fx{-2/3}[syaei=x,xlabel=-\bunsuu 23]{}
+\YPointPut\Fx{-1}[syaei=x,xpos={[s]}]{}
+\end{zahyou}
+\fi
+}
+よって，$f(x)$の増減と凹凸，グラフは次のようになる．\\
+\ \ \ $\begin{array}{c|cccccc}
+\phantom{\bunsuu 11} x	&-1		&\cdots	& -\frac 23 	&\cdots	&0	 	& \cdots 	\\\hline
+\phantom{\bunsuu 11}f'(x)	&		&+		&0			&-		&0		&+		\\\hline
+\phantom{\bunsuu 11}f''(x)	&		&-		&			&-		&		&+		\\\hline
+\phantom{\bunsuu 11}f(x)	&		&\NEE	&極大		&\SES	&極小	&\NEN	\\
+\end{array}$
+\end{mawarikomi}
+したがって，{\bb $x=-\bunsuu 23$で極大値$\bunsuu{2}{3\sq 3}$をとり，$x=0$で極小値0をとる．}
+\eenu
+\end{解答1}
+
+\begin{解答2}
+\benu
+\item[(2)] $f(x)=|x|\sq{(x+1)}$なので，
+\benu[(i)]
+\item $x \leqq 0$のとき，$f(x)=x\sq{x+1}$より，
+\begin{align*}
+f'(x)&=\sq{x+1}+\bunsuu{x}{2\sq{x+1}}=\bunsuu{2(x+1)+x}{2\sq{x+1}}=\bunsuu{3x+2}{2\sq{x+1}}>0\\
+f''(x)&=\bunsuu 12 \cdot \bunsuu{3\cdot \sq{x+1}-(3x+2) \cdot \bunsuu{1}{2\sq{x+1}}}{x+1}\\
+&=\bunsuu 12 \cdot \bunsuu{6(x+1)-(3x+2)}{2(x+1)\sq{x+1}}
+=\bunsuu 12 \cdot \bunsuu{3x+4}{2(x+1)\sq{x+1}}>0
+\end{align*}
+\item $-1< x < 0$のとき，$f(x)=-x\sq{x+1}$より，(i)と同様に
+\begin{align*}
+f'(x)&=-\bunsuu{3x+2}{2\sq{x+1}}&
+f''(x)&=-\bunsuu 12 \cdot \bunsuu{3x+4}{2(x+1)\sq{x+1}}<0
+\end{align*}
+\eenu
+%\begin{mawarikomi}{}{
+%\iffigure
+%\begin{zahyou}[ul=30mm,yscale=1,xscale=1](-1.2,0.8)(-0.2,0.8)
+%\def\Fx{sqrt(X*X*(X+1))}
+%\YGraph<linethickness=1pt,minx=-1>\Fx
+%\YPointPut\Fx{-2/3}[syaei=x,xlabel=-\bunsuu 23]{}
+%\YPointPut\Fx{-1}[syaei=x,xpos={[s]}]{}
+%\end{zahyou}
+%\fi
+%}
+以降は，\kaitoui に同じ．
+%よって，$f(x)$の増減と凹凸，グラフは次のようになる．\\
+%\ \ \ $\begin{array}{c|cccccc}
+%\phantom{\bunsuu 11} x	&-1		&\cdots	& -\frac 23 	&\cdots	&0	 	& \cdots 	\\\hline
+%\phantom{\bunsuu 11}f'(x)	&		&+		&0			&-		&0		&+		\\\hline
+%\phantom{\bunsuu 11}f''(x)	&		&-		&			&-		&		&+		\\\hline
+%\phantom{\bunsuu 11}f(x)	&		&\NEE	&極大		&\SES	&極小	&\NEN	\\
+%\end{array}$
+%\end{mawarikomi}
+%したがって，{\bb $x=-\bunsuu 23$で極大値$\bunsuu{2}{3\sq 3}$をとり，$x=0$で極小値0をとる．}
+\eenu
+\end{解答2}
+
+この関数は
+\[{\bb 微分可能でない点においても極値をとることがある}\]
+という重要な例になっている．すると，「$x=-1$でも極値をとるのでは？」と思うのが自然である．結論から言えば「定義の仕方による」というのが答えだ．高校数学で一般的な定義は次の通り．
+\begin{tcolorbox}[title={\bb 極値の定義},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-2,10)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/32-(X-2)/4+2}
+\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{4}[syaei=x,xlabel=]{}
+\YPoint\Fx{4}\A
+\Put{(4,0)}[s]{$\underbrace{\ \ \ }_{I}$}
+\Kuromaru<size=1pt>\A
+\YPointPut\Fx{5}[syaei=x,xlabel=]{}
+\YPointPut\Fx{3}[syaei=x,xlabel=]{}
+\YPointPut\Fx{7}[w]{$f(x)$}
+\end{zahyou}
+\fi
+}
+連続関数$f(x)$が$x=a$で極小値(極大値)をとるとは，\\
+{\bb $f(x)$の定義域内の}ある{\bb 開区間$I$}で，
+\[\ I\ は\ a\ を含み，かつ，\ f(x)\ が\ I\ において\ x=a\ で最小(最大)となる\]
+ようなものが存在することをいう．
+\end{mawarikomi}
+\end{tcolorbox}
+この定義に則れば，端点を含む開区間をとることはできないので，極値は内点に限られる．
+\newpage
+\fi
+
+\bqu $-\bunsuu{\pi}{2} \leqq x \leqq \bunsuu{\pi}{2}$における$\cos x+\bunsuu{\sq{3}}{4}x^2$の最大値を求めよ．ただし，$\pi >3.1$および$\sq 3>1.7$が成り立つことは証明なしに用いて良い．\hfill(京大)
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+まず，$\cos x$も$x^2$も偶関数だということに気がつければ，調べる範囲は$0\leqq x \leqq \bunsuu{\pi}{2}$の半分にできる．
+
+とはいえ，方針で迷うことはない．関数$f(x)=\cos x+\bunsuu{\sq{3}}{4}x^2$の最大値が知りたいので，微分して増減を調べよう．
+\begin{align*}
+f'(x)&=\underbrace{-\sin x+\bunsuu{\sq{3}}{2}x}_{符号判断？}
+\end{align*}
+このままでは$f'(x)$は符号判断しにくい．\\
+もちろん，$f'(x)$自体の振る舞いを調べるためにさらに微分するのも間違いではない． \kaitoui\\
+しかし，三角関数$y=\sin x$と1次関数$y=\bunsuu{\sq{3}}{2}x$のグラフの上下関係を調べてみる方が直接的だ；\\
+
+\iffigure
+\beda<3>[(i)]
+\item こうなる？\\
+\begin{zahyou}[ul=20mm,yscale=1,xscale=1](-0.5,2)(-0.4,2)
+\teisuuretu{aval=1.2}
+\def\Fx{sin(X)}
+\def\Gx{\aval*X}
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Fx
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Gx
+\YPointPut\Fx{$pi/2}[syaei=y,ylabel=1]{}
+\YPointPut\Gx{$pi/2}[syaei=xy,xlabel=\bunsuu{\pi}2,ylabel=]{}
+\YPointPut\Fx{$pi/4}[es]{$y=\sin x$}
+\YPointPut\Gx{$pi/3}[wn]{$y=\frac{\sqrt{3}}{2} x$}
+\end{zahyou}
+\item こうかもしれない？\\
+\begin{zahyou}[ul=20mm,yscale=1,xscale=1](-0.5,2)(-0.4,2)
+\teisuuretu{aval=sqrt(3)/2}
+\def\Fx{sin(X)}
+\def\Gx{\aval*X}
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Fx
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Gx
+\YPointPut\Fx{$pi/2}[syaei=y,ylabel=1]{}
+\YPointPut\Gx{$pi/2}[syaei=xy,xlabel=\bunsuu{\pi}2,ylabel=]{}
+\YPointPut\Fx{$pi/3}[es]{$y=\sin x$}
+\YPointPut\Gx{$pi/3}[wn]{$y=\frac{\sqrt{3}}{2} x$}
+\end{zahyou}
+\item それともこうなる？\\
+\begin{zahyou}[ul=20mm,yscale=1,xscale=1](-0.5,2)(-0.4,2)
+\teisuuretu{aval=0.5}
+\def\Fx{sin(X)}
+\def\Gx{\aval*X}
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Fx
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Gx
+\YPointPut\Fx{$pi/2}[syaei=xy,xlabel=\bunsuu{\pi}2,ylabel=1]{}
+\YPointPut\Gx{$pi/2}[syaei=y,ylabel=]{}
+\YPointPut\Fx{$pi/3}[wn]{$y=\sin x$}
+\YPointPut\Gx{$pi/4}[es]{$y=\frac{\sqrt{3}}{2} x$}
+\end{zahyou}
+\eeda
+\fi
+もし(i)や(iii)になるようなら，問題作成者のセンスを疑う．$f'(x)$に符号変化が起こらなければ，$f(x)$が極値をもたず，問題としてしょうもないものとなってしまう．ちゃんとした問題であれば，
+%$y=\sin x$の$x=0$における接線の傾きは1であることを知っていると
+%%右図のようになる．
+%数秒で右図のような図を描くことができ，
+おそらく，中央の図になるのであろう．これなら
+\[\text{\bb ある地点$x=\alpha$を境にして$y=\sin x$と$y=\bunsuu{\sq{3}}{2}x$の大小が入れ替わる}\]
+ということになるのだが．．．グラフの判断に必要な計算は次の2点ではなかろうか．
+\begin{itemize}
+%\item {\bb $x=0$において}2つのグラフは{\bb 交点}をもつ．
+\item {\bb $x=0$における変化率}は，$y=\sin x$と$y=\bunsuu{\sq{3}}{2}x$でどちらが大きいか．
+\item {\bb $x=\bunsuu{\pi}{2}$における値}は，$y=\sin x$と$y=\bunsuu{\sq{3}}{2}x$でどちらが大きいか．
+\end{itemize}
+%この3点により，そのような$\alpha$が$0< x < \bunsuu{\pi}{2}$の範囲のうちのどこかにただ1つ存在することが保証される．この$\alpha$は，{\bb 存在が大切であって，具体的な値はもとまらないが，定まった一つの実数である}，というものである．ひとまず$\alpha$を使って増減表を書いてみよう．
+\end{アプローチ}
+
+\newpage
+
+\begin{解答1}
+$f(x)$は偶関数なので，$0\leqq x \leqq \bunsuu{\pi}{2}$における最大値を求めれば良い．
+\[f'(x)=-\sin x+\bunsuu{\sq{3}}{2}x\]
+ここで，$g(x)=\sin x$，$h(x)=\bunsuu{\sq{3}}{2}x$とおくと，
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=20mm,yscale=1,xscale=1,migiyohaku=2zw](-0.1,2)(-0.1,2)
+\teisuuretu{aval=sqrt(3)/2}
+\def\Fx{sin(X)}
+\def\Gx{\aval*X}
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Fx
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Gx
+\YGraph<minx=0,maxx=$pi/2>{X}
+\YPointPut\Fx{$pi/2}[syaei=y,ylabel=1]{}
+\YPointPut\Gx{$pi/2}[syaei=xy,xlabel=\bunsuu{\pi}2,ylabel=]{}
+\YPoint\Fx{0.92}\A
+\Put\A[syaei=x,xlabel=\alpha]{}
+\Kuromaru\A
+\YPointPut{X}{$pi/2}[e]{$y=x$}
+\YPointPut\Fx{$pi/2}[e]{$g(x)$}
+\YPointPut\Gx{$pi/2}[e]{$h(x)$}
+\end{zahyou}
+\fi
+}
+\begin{itemize}
+\item $g(0)=h(0)$
+\item $g(\frac{\pi}{2})=1<\bunsuu{5.1}{4}=\bunsuu{1.7}{4}\times 3<\bunsuu{\sq{3}}{4}\pi =h(\frac{\pi}{2})$
+\item $g'(0)=1=\bunsuu{2}{2}>\bunsuu{\sq{3}}{2}=h'(0)$
+\end{itemize}
+より，$g(x)$と$h(x)$のグラフは右図のようになる．\\
+よって，$0<\alpha<\bunsuu{\pi}{2}$で$g(\alpha)=h(\alpha)$なる$\alpha$がただ1つ存在し，$f(x)$の増減は以下のようになる．
+\[\begin{array}{c|cccccc}
+\phantom{\bunsuu 11} x	&0		&\cdots	&\alpha 	&\cdots	&\frac{\pi}{2} 	\\\hline
+\phantom{\bunsuu 11}f'(x)	&		&-		&		&+		&				\\\hline
+\phantom{\bunsuu 11}f(x)	&1		&\SE	&		&\NE	&\frac{3}{16}\pi^2\\
+\end{array}
+\]
+ここで，$\frac{3}{16}\pi^2>\frac{3}{16}\cdot 3^2=\frac{27}{16}>1$より，求める最大値は{\bb $\frac{3}{16}\pi^2$}．
+\end{mawarikomi}
+\end{解答1}
+
+\begin{解答2}
+$f(x)$は偶関数なので，$0\leqq x \leqq \bunsuu{\pi}{2}$における最大値を求めれば良い．
+\begin{align*}
+f'(x)&=-\sin x+\bunsuu{\sq{3}}{2}x\\
+f''(x)&=-\cos x +\bunsuu{\sq{3}}{2}
+\end{align*}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=20mm,yscale=1,xscale=1](-0.5,2)(-0.4,1)
+\teisuuretu{aval=sqrt(3)/2}
+\def\Fx{-sin(X)+sqrt(3)/2*X}
+\YGraph<linethickness=1pt,minx=0,maxx=$pi/2>\Fx
+\YPointPut\Fx{$pi/2}[syaei=xy,xlabel=\bunsuu{\pi}{2},ylabel=-1+\frac{\sqrt3}4\pi]{}
+\YPoint\Fx{0.92}\A
+\Put\A[syaei=x,xlabel=\alpha]{}
+\Kuromaru\A
+\YPointPut\Fx{$pi/2.5}[wn]{$f'(x)$}
+\end{zahyou}
+\fi
+}
+よって，$f'(x)$の増減は以下のようになる．
+\[\begin{array}{c|cccccc}
+\phantom{\bunsuu 11} x	&0		&\cdots	&\frac {\pi}{6} 	&\cdots	&\frac{\pi}{2} 	\\\hline
+\phantom{\bunsuu 11}f''(x)	&		&-		&				&+		&				\\\hline
+\phantom{\bunsuu 11}f'(x)	&0		&\SE	&				&\NE	&-1+\frac{\sqrt{3}}{4}\pi\\
+\end{array}\]
+ここで，$-1+\bunsuu{\sq{3}}{4}\pi >-1+\bunsuu{1.7}{4}\times 3=\bunsuu{-4+5.1}{4}>0$．\\
+よって，$0<\alpha<\bunsuu{\pi}{2}$で$f(\alpha)=0$なる$\alpha$がただ1つ存在し，$f(x)$の増減は以下のようになる．
+\[\begin{array}{c|cccccc}
+\phantom{\bunsuu 11} x	&0		&\cdots	&\alpha 	&\cdots	&\frac{\pi}{2} 	\\\hline
+\phantom{\bunsuu 11}f'(x)	&		&-		&		&+		&				\\\hline
+\phantom{\bunsuu 11}f(x)	&1		&\SE	&		&\NE	&\frac{3}{16}\pi^2\\
+\end{array}
+\]
+ここで，$\frac{3}{16}\pi^2>\frac{3}{16}\cdot 3^2=\frac{27}{16}>1$より，求める最大値は{\bb $\frac{3}{16}\pi^2$}．
+\end{mawarikomi}
+\end{解答2}
+\newpage
+\fi
+
+
+\bqu $f(x)=2x^3+x^2-3$とおく．直線$y=mx$が曲線$y=f(x)$と相異なる3点で交わるような実数$m$の値の範囲を求めよ．\hfill(大阪大)
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+直線$y=mx$は$m$の値によってどのように動くのかは完全に把握できる．相方が放物線や円であれば扱いやすいが，3次関数のグラフとなると少し注意が必要になる．凹凸や極限まで調べる必要がある．発表者は，交点の存在に関する議論が甘かった．
+\kaitoui
+
+複数文字を含む問題では{\bb 「あわよくば定数分離してしまおう」}という"下心"を忘れないでおきたい．
+\begin{tcolorbox}[title={\bb 定数分離},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm,migiyohaku=2zw](-2,6)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/8-(X-2)+2}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=0.5pt>{0.5}
+\YGraph<linethickness=0.5pt>{1.5}
+\YGraph<linethickness=0.5pt>{2.5}
+\YGraph<linethickness=0.5pt>{3.5}
+\YPointPut{1.5}{6}[e]{$y=a$}
+\YPointPut\Fx{5.7}[w]{$y=f(x)$}
+\end{zahyou}
+\fi
+}
+定数$a$を含む$x$の方程式の解は，
+\[f(x) =a\ (定数)\ の形に\ a\ を分離することができれば，\]
+$y=f(x)$と$y=a$のグラフの交点として扱うことができる．
+\end{mawarikomi}
+\end{tcolorbox}
+本問では$m$の1次式しか登場していないので，定数分離は難しくない．\kaitouii
+\end{アプローチ}
+
+\begin{解答1}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=13mm,yscale=0.2,xscale=1](-2,2)(-10,10)
+\teisuuretu{aval=sqrt(3)/2}
+\def\Fx{2*X*X*X+X*X-3}
+\YGraph<linethickness=1pt>\Fx
+\YGraph{5*X}
+\YGraph{4*X}
+\YPointPut\Fx{-1/3}[syaei=x,xlabel=-\frac 13]{}
+\YPointPut\Fx{-1/6}[syaei=x,xlabel=-\frac 16]{}
+%\YPointPut\Fx{0}[syaei=x]{}
+\YPointPut{5*X}{1}[nw]{$y=mx$}
+\YPointPut\Fx{0.4}[se]{$y=f(x)$}
+\end{zahyou}
+\fi
+}
+$f(x)=2x^3+x^2-3$より，
+\begin{align*}
+f'(x)&=6x^2+2x=2x(3x+1)\\
+f''(x)&=12x+2=2(6x+1)
+\end{align*}
+よって，$f(x)$の増減，凹凸は次のようになる．
+\[\begin{array}{c|cccccccc}
+\phantom{\bunsuu 11} x	&\cdots	&-\frac 13	&\cdots	&-\frac 16	&\cdots	&0		&\cdots	 	\\\hline
+\phantom{\bunsuu 11}f'(x)	&+		&0			&-		&			&-		&0		&+			\\\hline
+\phantom{\bunsuu 11}f''(x)	&-		&			&-		&0			&+		&		&+			\\\hline
+\phantom{\bunsuu 11}f(x)	&\NEE	&			&\SES	&			&\SEE	&		&\NEN		\\
+\end{array}
+\]
+\end{mawarikomi}
+よって，曲線$y=f(x)$の概形は右図のようになる．\\
+$y=mx$が接するような$m$の値を求める．接点を$(t,2t^3+t^2-3)$とおくと，接線は，
+\[y=(6t^2+2t)(x-t)+2t^3+t^2-3\]
+これが原点を通る条件は
+\begin{align*}
+0&=(6t^2+2t)(0-t)+2t^3+t^2-3\\
+4t^3+t^2+3&=0\\
+(t+1)(4t^2-3t+3)&=0\ \ \ \therefore\ \ t=-1
+\end{align*}
+よって，$y=mx$が$y=f(x)$に接するのは，$m=6(-1)^2+2\cdot(-1)=4$のとき．\\
+これと，$\dlim_{x \to \pm\infty}(f(x)-mx)= \pm \infty$と右図より，
+求める$a$の値の範囲は{\bb $m>4$}．
+\end{解答1}
+
+\newpage
+
+\begin{解答2}
+$y$を消去して，$2x^3+x^2-3=mx$．$x=0$はこの式を満たさないので，$x\neq 0$で両辺を割って
+\[2x^2+x-\bunsuu{3}x=m\]
+$g(x)=2x^2+x-\bunsuu{3}x$とおくと，
+\[g'(x)=4x+1+\bunsuu{3}{x^2}=\bunsuu{4x^3+x^2+3}{x^2}=\bunsuu{(x+1)(4x^2-3x+3)}{x^2}\]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=5mm,yscale=1,xscale=2](-3,3)(-1,10)
+\teisuuretu{aval=sqrt(3)/2}
+\def\Gx{2*X*X+X-3/X}
+\YGraph<linethickness=1pt>\Gx
+\YGraph{5}
+\YPointPut\Gx{-1}[syaei=xy]{}
+\YPointPut\Gx{-2}[w]{$y=g(x)$}
+\YPointPut\Gx{2}[w]{$y=g(x)$}
+\YPointPut{5}{2.7}[s]{$y=m$}
+\end{zahyou}
+\fi
+}
+よって，$g(x)$の増減は以下のようになる．
+\[\begin{array}{c|cccccc}
+\phantom{\bunsuu 11} x	&\cdots	&-1	 	&\cdots	&0		&\cdots	 	\\\hline
+\phantom{\bunsuu 11}g'(x)	&-		&0		&+		&／		&+			\\\hline
+\phantom{\bunsuu 11}g(x)	&\SE	&4		&\NE	&／		&\NE		
+\end{array}
+\]
+\begin{align*}
+これと，\ \ \ 
+&\dlim_{x\to -0} g(x)=\infty， \dlim_{x\to +0} g(x)=-\infty，\\
+&\dlim_{x\to \pm \infty} g(x)=\infty
+\end{align*}
+より，$y=g(x)$のグラフは右図のようになる．\\
+したがって，求める$a$の値の範囲は{\bb $m>4$}．
+\end{mawarikomi}
+\end{解答2}
+\newpage
+\fi
+
+\bqu $t$を正の定数とする．
+\benu
+\item 正の実数$x$に対して定義された関数$g(x)=e^x x^{-t}$について，$g(x)$の最小値を$t$を用いて表せ．
+\item 全ての正の実数$x$に対して$e^x >x^t$が成り立つための必要十分条件は，$t <e$であることを示せ．
+\ifkaisetu \vspace{-2zw}\fi\\
+\hfill(大阪市立大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(1)\ 増減を調べれば最小値は求まる；(2)\ (1)の関数の形を見出そうとすると
+\[e^x>x^t\iff \underbrace{e^xx^{-t}}_{=g(x)} >1\]
+という変形が見える．ここで
+\begin{tcolorbox}[title={\bb 絶対不等式と最小値},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-2,6)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/8-(X-2)+2}
+\YGraph<linethickness=0.5pt,maxx=0>\Fx
+\YGraph<linethickness=1pt,minx=0>\Fx
+\YPointPut\Fx{4}[syaei=y,ylabel=\text{min}]{}
+\YPoint\Fx{4}\A
+\YPointPut\Fx{5.5}[w]{$f(x)$}
+\end{zahyou}
+\fi
+}
+区間$I$において常に不等式$f(x) \geqq M$が成立するための必要十分条件は，
+\[(I\ における\ f(x)\ の最小値) \geqq \ M\]
+である．
+\end{mawarikomi}
+\end{tcolorbox}
+を念頭において，(1)を利用することになる．
+\end{アプローチ}
+
+\begin{解答}\vspace{-3zw}
+\benu
+\item $g(x)=e^x x^{-t}$より，
+\begin{align*}
+g'(x)&=e^x x^{-t}+e^x(-tx^{-t-1})\\
+&=e^xx^{-t-1}(x-t)
+\end{align*}
+%$g'(x)=0$となるのは，$x=0,t$\ $(t>0)$
+よって，$g(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccc}
+\phantom{\bunsuu 11} x	&0	 	&\cdots	&t		&\cdots	 	\\\hline
+\phantom{\bunsuu 11}g'(x)	&0		&-		&0		&+			\\\hline
+\phantom{\bunsuu 11}g(x)	&		&\SE	&		&\NE		\\
+\end{array}
+\]
+よって，求める最小値は$g(t)=\text{\bb $e^t t^{-t}$}$．
+\item $全ての正の実数\ x\ に対して\ e^x > x^t$
+\begin{align*}
+&\iff 全ての正の実数\ x\ に対して\ e^x x^{-t}> 1\\
+&\iff (x>0\ における\ g(x)\ の最小値)> 1\\
+&\iff e^t t^{-t}> 1\\
+&\iff e^t > t^t\\
+&\iff e> t \ \ \ \  □
+\end{align*}
+\eenu
+\end{解答}
+\newpage
+\ 
+\newpage
+\fi
+
+\bqu 関数$f(x)=x\sin^2 x$\ $(0 \leqq x \leqq \pi)$の最大値を与える$x$を$\alpha$とするとき，$f(\alpha)$を$\alpha$の分数式で表せ．
+\ifkaisetu \vspace{-2zw}\fi\\
+\hfill(11 横浜市立大)
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+微分して増減などを調べたい．$f(x)=x\sin^2 x$を微分すると，
+\[f'(x)=\sin^2 x+x\cdot 2\sin x \cos x =\underbrace{\sin x}_{符号確定}\underbrace{(\sin x+2x\cos x)}_{符号判断}\]
+符号判断部分の扱いが問われている．考えられる方針は
+\begin{itemize}
+\item $\sin x+2x\cos x > 0 $という不等式を解いてみる．\kaitoui
+\item $\sin x+2x\cos x=\sq{1+4x^2}\cos\left(x+\alpha\right)$と合成してみる．\kaitouii
+\item $g(x)=\sin x+2x\cos x$を微分して$g(x)$を振る舞いを調べてみる．
+\end{itemize}
+3つ目も有効な場合もあるが，今回の場合は，
+\[g'(x)=3\cos x-2x\sin x\]
+となってしまい，むしろ問題を複雑化させてしまう．
+\end{アプローチ}
+
+\begin{解答1}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=5mm,yscale=1,xscale=1,migiyohaku=1zw](-4,4)(-5,5)
+\teisuuretu{aval=sqrt(3)/2}
+\def\Gx{tan(X)}
+\def\Hx{-2*X}
+\XGraph<linethickness=0.2pt>{$pi/2}
+\XGraph<linethickness=0.2pt>{-$pi/2}
+\YGraph<linethickness=1pt>\Gx
+\YGraph<linethickness=1pt>\Hx
+\YPointPut\Gx{$pi}[syaei=x,xlabel=\pi]{}
+\YPointPut\Gx{-$pi}[syaei=x,xlabel=-\pi,xpos={[nw]}]{}
+\YPointPut\Hx{$pi/2}[syaei=x,xlabel=\frac{\pi}{2},xpos={[sw]}]{}
+\YPointPut\Hx{-$pi/2}[syaei=x,xlabel=-\frac{\pi}{2}]{}
+\YPointPut\Hx{$pi/2*1.15}[syaei=x,xlabel=\alpha]{}
+\YPointPut\Hx{$pi/2*1.3}[e]{$y=-2x$}
+\YPointPut\Gx{$pi/2*1.3}[e]{$y=\tan x$}
+\end{zahyou}
+\fi
+}
+$f(x)=x\sin^2 x$より，
+\[f'(x)=\sin^2 x+x\cdot 2\sin x \cos x =\sin x(\sin x+2x\cos x)\]
+$x\neq \bunsuu{\pi}{2}$のとき，
+\[f'(x)=\sin x\cos x(\tan x+2x)\]
+ここで，%$g(x)=\tan x$と$h(x)=-2x$とおくと，\\
+右図のように$0<\alpha<\pi$かつ$\tan\alpha=-2\alpha$となる$\alpha$が\\
+ただ1つ存在し，$f(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccccc}
+\phantom{\bunsuu 11} x	&0	 &\cdots	&\frac{\pi}{2}	&\cdots	 &\alpha	&\cdots	&\pi		\\\hline
+\phantom{\bunsuu 11}f'(x)	&0	&+		&			&+		&0		&-		&0		\\\hline
+\phantom{\bunsuu 11}f(x)	&	&\NE	&			&\NE	&		&\SE	&
+\end{array}
+\]
+よって，最大値は
+\begin{align*}
+f(\alpha)
+&=\alpha\sin^2\alpha \\
+&=\alpha(1-\cos^2\alpha)\\
+&=\alpha\left(1-\bunsuu{1}{1+\tan^2\alpha}\right)\\
+&=\alpha\left(1-\bunsuu{1}{1+(-2\alpha)^2}\right)\\
+&=\text{\bb $\bunsuu{4\alpha^3}{1+4\alpha^2}$}．
+\end{align*}
+\end{mawarikomi}
+\end{解答1}
+
+\begin{解答2}
+$f(x)=x\sin^2 x$より，
+\begin{align*}
+f'(x)
+&=\sin^2 x+x\cdot 2\sin x \cos x\\
+&=\sin x(\sin x+2x\cos x)\\
+&=\sin x \sq{1+4x^2} \sin(x+\beta)\\
+ただし，&\ \ \sin\beta=\bunsuu{2x}{\sq{1+4x^2}}，\ \ \cos\beta=\bunsuu{1}{\sq{1+4x^2}}
+\end{align*}
+よって，$f(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccccc}
+\phantom{\bunsuu 11} x	&0	 	&\cdots	&\pi-\beta	&\cdots		&\pi		\\\hline
+\phantom{\bunsuu 11}f'(x)	&0		&+		&0			&-			&0		\\\hline
+\phantom{\bunsuu 11}f(x)	&		&\NE	&			&\SE		&
+\end{array}
+\]
+よって，$\alpha=\pi-\beta$であり，最大値は
+\begin{align*}
+f(\alpha)
+&=\alpha\sin^2\alpha\\
+&=\alpha\sin^2\beta \\
+&=\alpha\left(\bunsuu{2\alpha}{\sq{1+4\alpha^2}}\right)^2 \\
+&=\text{\bb $\bunsuu{4\alpha^3}{1+4\alpha^2}$}．
+\end{align*}
+\end{解答2}
+
+\newpage
+\fi
+
+\bqu
+$a$を実数とし，$x>0$で定義された関数$f(x)$，$g(x)$を次のように定める．
+\[f(x)=\bunsuu{\cos x}{x}\]
+\[g(x)=\sin x+ ax\]
+このとき，のグラフと$y=g(x)$のグラフが$x>0$において共有点をちょうど3つ持つような$a$を全て求めよ．
+\hfill(13 東大)
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+微分する前に，$y=f(x)$と$y=g(x)$のグラフの概形は把握できる．
+\iffigure
+\[\begin{zahyou}[ul=10mm](-1,8)(-1,2)
+\teisuuretu{aval=0.15}
+\def\Fx{cos(X)/X}
+\def\Gx{sin(X)+(\aval)*X}
+%\YGraph{cos(X)}
+\YGraph<minx=0.01>{1/X}
+\YGraph<minx=0.01>{-1/X}
+%\YGraph{sin(X)}
+\YGraph{(\aval)*X}
+\YGraph{(\aval)*X+1}
+\YGraph{(\aval)*X-1}
+\YGraph<linethickness=1pt,minx=0.01>\Fx
+\YGraph<linethickness=1pt,minx=0.01>\Gx
+\YPointPut\Fx{$pi}[syaei=x,xlabel=\pi]{}
+\YPointPut\Fx{2*$pi}[syaei=x,xlabel=2\pi]{}
+\YPointPut\Fx{$pi/2}[sw]{$f(x)$}
+\YPointPut\Gx{$pi*2}[wn]{$g(x)$}
+\end{zahyou}\]
+\fi
+しかし，曲線と曲線の共有点は視覚的に議論するのには限界がある．そこで$y$を消去した
+\[\bunsuu{\cos x}{x}=\sin x+ ax\]
+をいろいろといじってみる．
+\[\bunsuu{\cos x}{x}-\sin x=ax\]
+と直線分離するのもいいが，どうせ微分するなら，いっそのこと，
+\[\bunsuu{\cos x}{x^2}-\bunsuu{\sin x}x=a\]
+と定数$a$を分離してしまったほうが後々楽である．\\
+これで，曲線$y=f(x)$と直線$y=a$の共有点の問題に帰着された．
+\begin{tcolorbox}[title={\bb 定数分離},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm,migiyohaku=2zw](-2,6)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/8-(X-2)+2}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=0.5pt>{0.5}
+\YGraph<linethickness=0.5pt>{1.5}
+\YGraph<linethickness=0.5pt>{2.5}
+\YGraph<linethickness=0.5pt>{3.5}
+\YPointPut{1.5}{6}[e]{$y=a$}
+\YPointPut\Fx{5.7}[w]{$y=f(x)$}
+\end{zahyou}
+\fi
+}
+定数$a$を含む$x$の方程式の解は，
+\[f(x) =a\ (定数)\ の形に\ a\ を分離することができれば，\]
+$y=f(x)$と$y=a$のグラフの交点として扱うことができる．
+\end{mawarikomi}
+\end{tcolorbox}
+%定数分離は$g(x)$が定数関数$g(x)=a$である場合の話である．
+\end{アプローチ}
+
+\newpage
+
+\begin{解答}
+$f(x)=g(x)$とすると，
+\begin{align*}
+\sin x+ ax&=\bunsuu{\cos x}{x}\\
+a&=-\bunsuu{\sin x}{x}+\bunsuu{\cos x}{x^2}=:f(x) \ \ \ とおくと，\\
+f'(x)&=-\bunsuu{\cos x \cdot x-\sin x\cdot 1}{x^2}+\bunsuu{-\sin x \cdot x^2-\cos x \cdot 2x}{x^4}\\
+%&=-\bunsuu{\cos x \cdot x-\sin x}{x^2}+\bunsuu{-\sin x \cdot x-\cos x \cdot 2}{x^3}\\
+&=\bunsuu{-\cos x \cdot x^2+\sin x\cdot x-\sin x \cdot x-\cos x \cdot 2}{x^3}\\
+&=-\bunsuu{x^2+2}{x^3}\cos x
+\end{align*}
+
+よって，$f(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccccccccc}
+\phantom{\bunsuu 11} x	&0	 	&\cdots	&\frac{\pi}{2}	&\cdots		&\frac 32 \pi		&\cdots	&\frac 52 \pi	&\cdots	&\frac 72\pi	&\cdots	&\frac 92\pi	\\\hline
+\phantom{\bunsuu 11} f'(x)	&	 	&-		&0				&+			&0					&-		&0				&+		&0				&-		&0				\\\hline
+\phantom{\bunsuu 11} f(x)	&	 	&\SE	&-\frac{2}{\pi}	&\NE		&\frac{2}{3\pi}		&\SE	&-\frac{2}{5\pi}&\NE	&\frac{2}{7\pi}	&\SE		&\frac{2}{9\pi}	
+\end{array}
+\]
+とくに，極値は$f\left(\frac{\pi}{2}+n\pi\right)$\ $(n=0,1,2,3,\cdots )$であり，\\
+これと$\dlim_{x \to +0}f(x)=\infty$より，$f(x)$のグラフは下図のようになる．
+\iffigure
+\[\begin{zahyou}[ul=10mm,yscale=6](-1,12)(-0.8,0.5)
+\teisuuretu{aval=1}
+\def\Fx{cos(X)/X}
+\def\Gx{sin(X)+aval*X}
+\def\Hx{(\Fx-\Gx)/X}
+\def\Ai{2/(5*$pi)+0.05}
+\def\Aii{-2/(5*$pi)}
+\YGraph<linethickness=1pt,minx=0.01>\Hx
+\YGraph\Ai
+\YGraph\Aii
+\YPointPut\Ai{12}[s]{$y=a$}
+\YPointPut\Aii{12}[s]{$y=a$}
+\YPointPut\Hx{$pi/2}[syaei=xy,xlabel=\frac{\pi}2,ylabel=-\frac{2}{\pi}]{}
+\YPointPut\Hx{3*$pi/2}[syaei=xy,xlabel=\frac{3}2 \pi,ylabel=\frac{2}{3\pi}]{}
+\YPointPut\Hx{5*$pi/2}[syaei=xy,xlabel=\frac{5}2 \pi,ylabel=-\frac{2}{5\pi},ypos={[ws]}]{}
+\YPointPut\Hx{7*$pi/2}[syaei=xy,xlabel=\frac{7}2 \pi,ylabel=\frac{2}{7\pi},ypos={[w]}]{}
+\end{zahyou}\]
+\fi
+\[\left|f\left(\textstyle\frac{\pi}{2}+n\pi\right)\right|=\left|-\bunsuu{\sin(\frac{\pi}{2}+n\pi)}{\frac{\pi}{2}+n\pi}\right|=\bunsuu{1}{\frac{\pi}{2}+n\pi}\]
+より，数列$\{|f(\frac{\pi}{2}+n\pi)|\}$は常に減少する．
+特に，$\frac 92 \pi<x$のとき，$|f(\frac 92 \pi)|>|f(x)|$\\ 
+これとグラフより，求める$a$の条件は{\bb $a=-\bunsuu{2}{5\pi}，\ \ \bunsuu{2}{7\pi}<a<\bunsuu{2}{3\pi}$}．
+\end{解答}
+\fi
+
+\newpage
+
+\bqu
+$a$を実数とし，2つの曲線
+\[C_1：y=(x-1)e^x,\ \ \ C_2：y=\bunsuu 1{2e}x^2+a\]
+がある．ただし，$e$は自然対数の底である．$C_1$上の点$(t,\ (t-1)e^t)$における$C_1$の接線が$C_2$に接するとする．
+\benu
+\item $a$を$t$で表せ．
+\item $t$が実数全体を動くとき，$a$の極小値，およびそのときの$t$の値を求めよ．\hfill(15 北大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{解答}\vspace{-2.5zw}
+\benu
+\item $f(x)=(x-1)e^x$とおくと，$f'(x)=e^x+(x-1)e^x=xe^x$．よって，接線の方程式は
+\begin{align*}
+y&=te^t(x-t)+(t-1)e^t\\
+y&=te^t x+(-t^2+t-1)e^t
+\end{align*}
+これと$y=\bunsuu 1{2e}x^2+a$から$y$を消去すると，
+\begin{align*}
+&\bunsuu 1{2e}x^2+a=te^t x+(-t^2+t-1)e^t\\
+&\bunsuu 1{2e}x^2-te^t x+(t^2-t+1)e^t+a=0
+\end{align*}
+これが重解をもつので，
+\begin{align*}
+(-te^t)^2-4\cdot \bunsuu 1{2e} \cdot ((t^2-t+1)e^t+a) &=0\\
+\text{\bb $\bunsuu e2 \left\{t^2e^{2t}-2(t^2-t+1)e^{t-1}\right\}$}&=a
+\end{align*}
+\item (1)の結果より
+\begin{align*}
+a'&=\bunsuu e2 \left\{2t e^{2t}+2t^2e^{2t}-2(2t-1)e^{t-1}-2(t^2-t+1)e^{t-1}\right\}\\
+&=\bunsuu e2 \left\{2(t^2+t) e^{2t}-2(t^2+t)e^{t-1}\right\}\\
+&=\bunsuu e2 \cdot 2(t^2+t)e^{t-1}(e^{t+1}-1)\\
+&= 2t(t+1) e^t(e^{t+1}-1)1
+\end{align*}
+よって，$a$の増減は次のようになる．
+\[\begin{array}{c|cccccccc}
+\phantom{\bunsuu 11} x	&\cdots	&-1	&\cdots	 	&0	&\cdots	\\\hline
+\phantom{\bunsuu 11}f'(x)	&-		&0	&-			&0	&+		\\\hline
+\phantom{\bunsuu 11}f(x)	&\SE	&	&\SE		&	&\NE		
+\end{array}
+\]
+よって，{\bb $t=0$で極小値$-1$をとる}．
+\eenu
+\end{解答}
+\newpage
+\fi
+
+\bqu 以下の問いに答えよ．
+\benu
+\item 関数$f(x)$が$x=a$で微分可能であることの定義を述べよ．
+\item 関数$f(x)=|x^2-1| e^{-x}$は$x=1$で微分可能でないことを示せ．
+\item 関数$f(x)=|x^2-1| e^{-x}$の極値と，極値を取るときの$x$の値を求めよ．
+\hfill(15 神戸大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{解答} \vspace{-3zw}
+\benu
+\item {\bb 極限$\dlim_{h \to 0} \bunsuu{f(a+h)-f(a)}{h}$が存在すること}．
+\item $\bunsuu{f(1+h)-f(1)}{h}=\bunsuu{|(1+h)^2-1| e^{-(1+h)}}{h}=\bunsuu{|h|(2+h) e^{-(1+h)}}{h}$より
+\begin{align*}
+\dlim_{h \to +0}\bunsuu{f(1+h)-f(1)}{h}
+%&=\dlim_{h \to +0}\bunsuu{h(2+h) e^{-(1+h)}}{h}\\
+&=\dlim_{h \to +0}(2+h) e^{-(1+h)}=2 e^{-1}\cdots\MARU{1}\\
+\dlim_{h \to -0}\bunsuu{f(1+h)-f(1)}{h}
+%&=\dlim_{h \to -0}\bunsuu{-h(2+h) e^{-(1+h)}}{h}\\
+&=\dlim_{h \to -0}\{-(2+h) e^{-(1+h)}\}=-2 e^{-1}\cdots\MARU{2}
+\end{align*}
+$\MARU{1} \neq\MARU{2}$より，極限$\dlim_{h \to 0}\bunsuu{f(1+h)-f(1)}{h}$は存在しない．\\
+つまり，$f(x)$は$x＝1$において微分可能でない．\hfill □
+\item $g(x)=(x^2-1)e^{-x}$とおくと，$f(x)=|g(x)|$である．
+%\benu[(i)]
+%\item $x^2-1 \geqq 0$，すなわち，$x \leqq -1$，$1\leqq x$のとき，
+\begin{align*}
+%f(x)&=(x^2-1)e^{-x}\ \ より\\
+g'(x)&=2xe^{-x}+(x^2-1)(-e^x)=(-x^2+2x+1)e^{-x}
+\end{align*}
+よって，$g(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccccc}
+\phantom{\bunsuu 11} x	&\cdots	&1-\sq 2 &\cdots	&1+\sq 2	&\cdots	\\\hline
+\phantom{\bunsuu 11}g'(x)	&-		&0		&+		&0			&-			\\\hline
+\phantom{\bunsuu 11}g(x)	&\SE	&-2(\sq 2-1)e^{\sqrt 2-1}		&\NE	&2(\sq 2+1)e^{-\sqrt 2-1}			&\SE			
+\end{array}
+\]
+さらに，$\dlim_{x \to \infty} g(x)=0$，$\dlim_{x \to -\infty} g(x)=\infty$より，$g(x)$，$f(x)$のグラフは次のようになる．
+\iffigure
+\[\begin{zahyou}[ul=15mm](-1.5,3)(-1.6,1.6)
+\def\Fx{abs(X*X-1)*exp(-X)}
+\def\Gx{(X*X-1)*exp(-X)}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=0.5pt>\Gx
+\YPointPut\Fx{-1}[syaei=x,xpos={[s]}]{}
+\YPointPut\Fx{1}[syaei=x,xpos={[s]}]{}
+\YPointPut\Fx{1-sqrt(2)}[syaei=xy,xlabel=,ylabel=2(\sq 2-1)e^{\sqrt 2-1}]{}
+\YPointPut\Gx{1-sqrt(2)}[syaei=xy,xlabel=1-\sq 2,ylabel=-2(\sq 2-1)e^{\sqrt 2-1}]{}
+\YPointPut\Fx{1+sqrt(2)}[syaei=x,xlabel=1+\sq2 ,ylabel=2(\sq 2+1)e^{-\sqrt 2-1}]{}
+\YPointPut\Fx{0.5}[en]{$f(x)$}
+\YPointPut\Gx{0.5}[es]{$g(x)$}
+\end{zahyou}\]
+\fi
+よって，$f(x)$は
+{\bb $\barr
+x=-1,1\ で極小値0，\\
+x=1-\sq 2\ で極大値\ 2(\sq 2-1)e^{\sqrt 2-1}\ ，\\
+x=1+\sq 2\ で極大値\ 2(\sq 2+1)e^{-\sqrt 2-1}\ ．
+\earr$}
+をとる
+\eenu
+\end{解答}
+\newpage
+\fi
+
+\bqu $\triangle$ABCの3辺の長さをBC$=a$，AC$=b$，AB$=c$とし，条件$a+b+c=1$，$9ab=1$が成り立つとする．
+\benu
+\item $a$の値の範囲を求めよ．
+\item $\theta=\angle\text{C}$とするとき，$\cos\theta$の値の範囲を求めよ．\hfill(15 熊本大・医)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+今回，束縛条件が2つであることから，$a$，$b$，$c$のいづれか1つを決めれば，他も決まる．実際，$b$と$c$を$a$で表すことができる；
+\[b=\bunsuu{1}{9a}，\ \ \ c=1-a-b=1-a-\bunsuu{1}{9a}\]
+このことを踏まえれば，この問題の流れが見える；
+\begin{itemize}
+\item 最終的に(2)で$\cos \theta$を$a$の関数として扱う．
+\item そのための準備として(1)で$a$の範囲を求める．
+\end{itemize}
+まず，(1)\ は
+\begin{tcolorbox}[title={\bb 三角形の成立条件},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+辺長が$a$，$b$，$c$である三角形が存在するための条件は，次のいずれかの形で表せる．
+
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou*}[ul=5mm](-1,5)(-1,5)
+\tenretu*{A(-1,1);B(4,1);C(3,4)}
+\Drawline<linethickness=1pt>{\A\B\C\A}
+\HenKo{\A}{\B}{a}
+\HenKo{\B}{\C}{b}
+\HenKo{\C}{\A}{c}
+\end{zahyou*}
+\fi
+}
+\vspace{-2zw}
+\benu[(i)]
+\item $a<b+c$かつ$b<c+a$かつ$c<a+b$
+\item $|b-c|<a<b+c$
+\item $a$が最大だと分かっているときは，$a<b+c$のみでよい．
+\eenu
+を念頭において最適な条件を選んでいく．
+\end{mawarikomi}
+\end{tcolorbox}
+今回のシチュエーションなら，最大辺はわかってないし，$|b-c|$の扱いには逆に困るので地道に(i)にするしかないか．
+\end{アプローチ}
+
+%\newpage
+
+\begin{解答}\vspace{-2.5zw}
+\benu 
+\item $a+b+c=1\cdots\MARU{1}$，$9ab=1\cdots\MARU{2}$\\
+三角形の成立条件を
+$\barr
+a<b+c\\
+b<c+a\\
+c<a+b
+\earr\cdots\MARU{3}$とおく．\\
+求める$a$の範囲は，$\MARU{1}，\MARU{2}，\MARU{3}$を満たす$b$，$c$が存在するような$a$の値の全体である．
+\[まず\ \MARU{1}と\MARU{3}より\ \ \barr
+a<1-a\vspace{1zw}\\
+b<1-b\vspace{1zw}\\
+c<1-c
+\earr\ \ \ \therefore\ \ \ \barr
+a<\bunsuu 12\cdots\MARU{4}\vspace{0.2zw}\\
+b<\bunsuu 12\cdots\MARU{5}\vspace{0.2zw}\\
+c<\bunsuu 12\cdots\MARU{6}
+\earr\]
+
+
+一方，\MARU{1}，\MARU{2}から$b$，$c$をそれぞれ$a$で表すと，
+\[b=\bunsuu{1}{9a}，\ \ c=1-a-\bunsuu{1}{9a}\]
+これらを\MARU{5}，\MARU{6}に代入して，
+\[\bunsuu{1}{9a} <\bunsuu 12，\ \ \ 1-a-\bunsuu{1}{9a}<\bunsuu 12\]
+\[\therefore\ \ \ a>\bunsuu 29\cdots\MARU{2}'，\ \ \ 18a^2-9a+2>0\cdots\MARU{3}'\]
+このうち，\MARU{3}'は常に成立するので，
+%よって，$a<b+c=1-a$より，$a<\bunsuu 12$\\
+%同様に，$b<\bunsuu 12，c<\bunsuu 12$．\\
+%$a \neq 0$より，
+%\MARU{2}と$b=\bunsuu{1}{9a}$より，$\bunsuu{1}{9a} <\bunsuu 12$．\ \ \ $\therefore$\ \ \ $a>\bunsuu 29\cdots\MARU{2}'$．\\
+%\MARU{3}と$c=1-a-b=$より，$1-a-\bunsuu{1}{9a}<\bunsuu 12$．\\
+%\ \ \ $\therefore$\ \ \ $18a^2-9a+2>0\cdots\MARU{3}'$．これは常に成立する．\\
+以上より，
+求める$a$の値の範囲は
+{\bb $\bunsuu 29<a<\bunsuu 12$}．
+\item 余弦定理より，
+\begin{align*}
+\cos\theta
+&=\bunsuu{a^2+b^2-c^2}{2ab}
+=\bunsuu{a^2+b^2-(1-a-b)^2}{2ab}\\
+&=\bunsuu{2a+2b-2ab-1}{2ab}
+=\bunsuu{2a+2\cdot \frac{1}{9a}-2a\cdot \frac{1}{9a}-1}{2a\cdot \frac{1}{9a}}\\
+&=\bunsuu{2a\cdot 9a+2-2a-9a}{2a}
+=9a+ \bunsuu{1}{a}-\bunsuu{11}{2}\\
+f(a)&=9a+ \bunsuu{1}{a}-\bunsuu{11}{2}\ \ とおくと，\\
+f'(a)&=9- \bunsuu{1}{a^2}=\bunsuu{(3a+1)(3a-1)}{a^2}
+\end{align*}
+
+よって，$f(a)$の増減は次のようになる．
+\[\begin{array}{c|cccccccccccc}
+\phantom{\bunsuu 11} x	&\frac29	&\cdots		&\frac 13	&\cdots	&\frac 12 	\\\hline
+\phantom{\bunsuu 11} f'(x)	&			&-			&0			&+		&			\\\hline
+\phantom{\bunsuu 11} f(x)&1&\SE		&\frac 12	&\NE	&1
+\end{array}
+\]
+よって，求める$\cos\theta$の範囲は，{\bb $\bunsuu 12 \leqq \cos\theta<1$}．
+\eenu
+\end{解答}
+
+(補足)\ 相加平均相乗平均の不等式を用いれば
+\[\cos\theta =9a+ \bunsuu{1}{a}-\bunsuu{11}{2} \geqq 2\sq{9a\cdot \bunsuu{1}{a}}-\bunsuu{11}{2}=\bunsuu 12\]
+等号成立条件は$9a=\bunsuu{1}{a}=3$，すなわち，$a=\bunsuu 13$より，$\cos \theta$の最小値は$\bunsuu 12$とわかる．しかし，最小値が求めることと，とり得る値の範囲を求めることにはギャップがある．\\
+相加平均相乗平均の不等式などの絶対不等式は，あくまで大小関係を保証するものであり，とり得る値の範囲については何も述べてくれない．
+
+\newpage
+\fi
+
+%\iffigure
+%\[\begin{zahyou}[ul=15mm,xscale=3](-0.01,1)(-1,2)
+%\def\Fx{9*X+1/X-11/2}
+%\YGraph<linethickness=1pt>\Fx
+%\YPointPut\Fx{2/9}[syaei=x,xlabel=\frac29]{}
+%\YPointPut\Fx{1/3}[syaei=x,xlabel=\frac13]{}
+%\YPointPut\Fx{1/2}[syaei=x,xlabel=\frac12]{}
+%\end{zahyou}\]
+%\fi
+
+\bqu 一辺の長さが1の正四面体ABCDにおいて，Pを辺ABの中点とし，点Qが辺AC上を動くとする．
+このとき，$\cos\angle\text{PDQ}$の最大値を求めよ．\hfill(15 京大)
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+動くものはAC上の点Qだけなので，自由度は1．$\text{AQ}=x$とでもおけば，全ての量が$x$を用いて表せるはずだ．さて，次を踏まえて方針を立てる；
+\begin{tcolorbox}[title={\bb 図形問題の解法の選択},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\benu[(I)]
+\item 正弦定理，余弦定理によるアナログな方法
+\item 座標設定によるデジタルな方法
+\item ベクトルを設定する方法
+\item 平面幾何，空間幾何を利用する方法
+\eenu
+など多岐にわたる．方法の{\bb 選択によって計算量が大きく違ってくる}ので，慎重に判断すること．
+\end{tcolorbox}
+今回は，どこにも$90\doo$が見当たらないので(II)は向かない．実直に(I)でもいい\kaitoui．
+対称性を生かすなら(III)という選択か\kaitouii．
+「$\angle\text{PDQ}$が最小となる」と言い換えて(IV)に挑戦してみてもいいかもしれない．
+ちなみに，得られた式を変形して2次関数に帰着することもできるらしい\kaitouiii．
+\end{アプローチ}
+\begin{解答1}
+\begin{mawarikomi}{}{
+%\iffigure
+\begin{Zahyou*}[ul=20mm,Ex={(1,0)},Ey={r(0.8,30)}](0,1.5)(0,1.5)(0,1.5)
+\teisuuretu{aval=sqrt(3);bval=sqrt(3)*0.8;cval=sqrt(3)/2}
+\iiitenretu{A(1,0,\aval)n;C(2,0,0)se;D(1,\aval,0)ne;B(0,0,0)sw;P(0.5,0,\cval)wn;Q(1.2,0,\bval)s}
+\iiiDrawlines<linethickness=1pt>{\B\C\D;\A\B;\A\C;\A\D}
+\iiiDrawlines{\D\Q\P\D;\B\D}
+\iiiHenKo\Q\A{$x$}
+\iiiHenKo\A\P{$\frac 12$}
+\iiiHenKo\P\D{$\frac {\sqrt{3}}2$}
+\iiiKakukigou<2>\Q\D\P{}
+\iiiKuromaru\Q
+\iiitouhenkigou<kosuu=2>{\A\P;\B\P}
+\end{Zahyou*}
+%\fi
+}
+$\text{AQ}=x$\ \ ($0 \leqq x \leqq 1$)とおく．余弦定理より
+\begin{align*}
+\triangle\text{APQ}について\ \ \ &\text{PQ}^2=\bunsuu{4x^2-2x+1}{4}\\
+\triangle\text{AQD}について\ \ \ &\text{DQ}^2=x^2-x+1\\
+\triangle\text{ADP}について\ \ \ &\text{PD}^2=\bunsuu 34\\
+よって\ \ \ \cos\angle\text{PDQ}&=\bunsuu{\text{PD}^2+\text{DQ}^2-\text{PQ}^2}{2\text{PD}\cdot\text{DQ}}\\
+&=\bunsuu{\frac 34+x^2-x+1-(\frac{4x^2-2x+1}{4})}{2\sqrt{\frac 34}\cdot \sqrt{x^2-x+1}}\\
+&=\bunsuu{-x+3}{2\sqrt{3(x^2-x+1)}}:=f(x)\\
+f'(x)&=\bunsuu{(-5x+1)\sqrt{3(x^2-x+1)}}{12(x^2-x+1)}
+\end{align*}
+\end{mawarikomi}
+
+よって，$f(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccccccccc}
+\phantom{\bunsuu 11} x	&0&\cdots	&\frac 15		&\cdots	&1	\\\hline
+\phantom{\bunsuu 11} f'(x)	&&+		&0				&-			\\\hline
+\phantom{\bunsuu 11} f(x)	&&\NE	&\frac{\sqrt 7}{3}	&\SE	
+\end{array}
+\]
+したがって，$\cos\angle\text{PDQ}$の最大値は$f\left(\frac 15\right)=\text{\bb $\frac{\sqrt 7}{3}$}$．
+\end{解答1}
+
+\newpage
+
+\begin{解答2}
+$\vv{\text{DA}}=\vv a$，$\vv{\text{DB}}=\vv b$，$\vv{\text{DC}}=\vv c$とおくと，\\
+$|\vv a|=|\vv c|=|\vv b|=1$，
+$\vv a\cdot \vv c=\vv c\cdot \vv b=\vv b\cdot \vv a=1\cdot 1\cdot \cos60^{\doo}=\bunsuu 12$\\
+PはABの中点であるから，$\vv{\text{DP}}=\bunsuu 12 \vv a+\bunsuu 12 \vv b$．\\
+QはAC上にあるから，$\vv{\text{DQ}}=(1-x) \vv a+x\vv c$\ \ $(0\leqq x \leqq 1)$．
+\begin{align*}
+\cos\angle\text{PDQ}&=\bunsuu{\vv{\text{DP}}\cdot \vv{\text{DQ}}}{|\vv{\text{DP}}||\vv{\text{DQ}}|}\ \ において，\\
+|\vv{\text{DP}}|^2&=\bunsuu 14|\vv a|^2+\bunsuu 12 \vv a \cdot \vv b+\bunsuu 14|\vv b|^2=\bunsuu 34\\
+|\vv{\text{DQ}}|^2&=(1-x)^2|\vv a|^2+2(1-x)x \vv a\cdot \vv c + x^2 |\vv c|^2=x^2-x+1\\
+\vv{\text{DP}}\cdot \vv{\text{DQ}}&=\left(\bunsuu 12 \vv a+\bunsuu 12 \vv b\right)\cdot \left((1-x) \vv a+x\vv c\right)\\
+&=\bunsuu 12\left((1-x)|\vv a|^2 +x\vv a\cdot \vv c +(1-x) \vv b\cdot \vv a +x \vv b\cdot \vv c\right)=\bunsuu 14(-x+3)\ \ より，\\
+\cos\angle\text{PDQ}
+&=\bunsuu{\frac 14(-x+3)}{\sqrt{\frac 34} \sqrt{x^2-x+1}}=\bunsuu{-x+3}{2\sqrt{3(x^2-x+1)}}:=f(x)\\
+f'(x)&=\bunsuu{(-5x+1)\sqrt{3(x^2-x+1)}}{12(x^2-x+1)}
+\end{align*}
+よって，$f(x)$の増減は次のようになる．
+\[\begin{array}{c|cccccccccccc}
+\phantom{\bunsuu 11} x	&0&\cdots	&\frac 15		&\cdots	&1	\\\hline
+\phantom{\bunsuu 11} f'(x)	&&+		&0				&-			\\\hline
+\phantom{\bunsuu 11} f(x)	&&\NE	&\frac{\sqrt 7}{3}	&\SE	
+\end{array}
+\]
+したがって，$\cos\angle\text{PDQ}$の最大値は$f\left(\frac 15\right)=\text{\bb $\frac{\sqrt 7}{3}$}$．
+\end{解答2}
+
+\begin{解答3}
+$f(x)=\bunsuu{-x+3}{2\sqrt{3(x^2-x+1)}}$まで略．\\
+$-x+3=t$\ \ $(2\leqq t \leqq 3)$とおくと，
+\begin{align*}
+f(x)&=\bunsuu{t}{2\sqrt{3}\sqrt{(-t+3)^2-(-t+3)+1}}
+=\bunsuu{t}{2\sqrt{3}\sqrt{(t^2-5t+7)}}\\
+&=\bunsuu{1}{2\sqrt{3}\sqrt{(1-\frac{5}{t}+\frac{7}{t^2})}}
+=\bunsuu{1}{2\sqrt{3}\sqrt{7\left(\frac 1t-\frac{5}{14}\right)^2+\frac{3}{28}}}
+\end{align*}
+%さらに，$s=\frac 1t$\ $\left(\frac 13 \leqq s \leqq \frac 12\right)$とおくと，
+%\[f(x)=\bunsuu{1}{2\sqrt{3(7s^2-5s+1)}}
+%\]
+よって，$f(x)$は$\frac 1t=\frac{5}{14}$で最大値
+$\bunsuu{1}{2\sqrt{3}\sqrt{\frac{3}{28}}}=\text{\bb $\frac{\sqrt 7}{3}$}$をとる．
+\end{解答3}
+\newpage
+\fi
+
+
+%\iffigure
+%\[\begin{zahyou}[ul=15mm](-1,2)(-1,3)
+%\def\Fx{(1/(2*sqrt(3)))*(X-3)*(X-3)/(X*X-X+1)}
+%\YGraph<linethickness=1pt>\Fx
+%\YGraph{14/9*(sqrt(3))}
+%%\YPointPut\Fx{-1}[syaei=x,xpos={[s]}]{}
+%\end{zahyou}\]
+%\fi
+
+
+\bqu 
+\benu
+\item $a$を実数とするとき，$(a,\ 0)$を通り，$y=e^x+1$に接する直線がただ1つ存在することを示せ．
+\item $a_1=1$として，$n=1,\ 2,\ 3,\ \cdots$について，$(a_n,\ 0)$を通り，$y=e^x+1$に接する直線の接点の$x$座標を$a_{n+1}$とする．このとき，$\dlim_{n\to \infty}(a_{n+1}-a_n)$を求めよ．\hfill(15 京大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(1)\ は\ 典型問題に過ぎない．
+\begin{tcolorbox}[title={\bb 接線の本数},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+関数$y=f(t)$のグラフの接線の本数に関する問題は，次の手順で処理する；
+\benu[(i)]
+\item 接点を$(t,f(t))$とおき，接線の方程式を作る．
+\item 接線が与えられた条件を満たすこと(定点を通るなど)から，$t$の条件式$g(t)=0$を導く．
+\item 方程式$g(t)=0$を満たす実数$t$の個数\ =\ 接点の個数\ $\underset{*}{=}$\ 接線の本数
+\eenu
+ただし，等号$*$は2重接線という例外を除いて成立する．
+\end{tcolorbox}
+勝負は(2)である．まず，状況を把握する．
+\[
+\iffigure
+\begin{zahyou}[ul=10mm,yscale=0.1,xscale=2](-0.5,5)(-5,50)
+\def\Fx{exp(X)+1}\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{3.5}[w]{$y=e^{x}+1$}
+\teisuuretu{tval=1.9}
+\def\Gx{exp(\tval)*(X-\tval)+exp(\tval)+1}
+\YPointPut\Gx{\tval}[syaei=x,xlabel=a_n]{}
+\teisuuretu{tval=2.93}
+\def\Gx{exp(\tval)*(X-\tval)+exp(\tval)+1}
+\YGraph\Gx
+\YPointPut\Gx{\tval}[syaei=x,xlabel=a_{n+1}]{}
+\end{zahyou}
+\fi
+\]
+(1)の結果からすぐに\ $a_{n+1}-a_n=1+e^{-a_{n+1}}\cdots\MARU{3}$とわかるが，この時点で，$\dlim_{n \to \infty} a_n = \infty$を示すの必要性に気づく．ここで$a_n$の一般項を厳密に求めようとするのはナンセンス．求めたいのはあくまで極限$\dlim_{n \to \infty} a_n = \infty$であり，追い出しの手法を用いるためには，大雑把でも下からの評価が得られれば良い．大切にしたいのは，次の数列の基本原則である；
+\[差分\ \{a_{n+1}-a_n\}\ から\ a_n\ 本体を取り出したければ，n\ を走らせて和をとれ！\]
+%という原則に従って，$a_n$の下から評価を得る．
+%実験していると，$\dlim_{n \to \infty} a_n = \infty$は明らかな感じがするが，これを証明する必要が出てくる．
+%$a_n=a_{n+1}-1+e^{-a_{n+1}}$．\\
+%よって，$a_{n+1}-a_n=1+e^{-a_{n+1}}$．\\
+%とくに，すべての自然数$n$に対して，$a_{n+1}-a_n>1$．
+\end{アプローチ}
+
+\newpage
+
+\begin{解答}\vspace{-3zw}
+\benu
+\item $y=e^x+1$より，$y'=e^x$\\
+接点を$(t,\ e^t+1)$とすると，接線の方程式は
+\[y=e^t(x-t)+e^t+1\cdots\MARU{1}\]
+この方程式において，
+これが$(a,\ 0)$を通るので，
+\begin{align*}
+0&=e^t(a-t)+e^t+1\\
+\therefore\ \ a&=t-1+e^{-t}\cdots\MARU{2}
+\end{align*}
+\MARU{1}において，$t$が異なれば傾き$e^t$が異なるので，異なる接線を表す．\\
+したがって，\MARU{2}を満たす実数$t$がただ1つ存在することを示せば十分である．\\
+$f(t)=t-1-e^{-t}$とおくと，$f'(t)=1+e^{-t}>0$より，$f(t)$は常に単調増加．\\
+これと，$\dlim_{t \to\pm \infty} f(t)=\pm \infty$より，
+$f(t)=a$を満たす実数$t$はただ1つ存在する．\\
+以上より，$(a,\ 0)$を通り，曲線$y=e^x+1$に接する直線はただ1つ存在する．\hfill □
+\item \MARU{2}より，$a_n=a_{n+1}-1+e^{-a_{n+1}}$．\\
+よって，$a_{n+1}-a_n=1+e^{-a_{n+1}}\cdots\MARU{3}$．\\
+とくに，すべての自然数$n$に対して，$a_{n+1}-a_n>1$．
+\begin{align*}
+つまり，\ \ \ a_2-a_1&>1\\
+a_3-a_2&>1\\
+\vdots\\
+a_{n+1}-a_n&>1
+%a_{n+1}-a_n&>1
+\end{align*}
+辺々を足して，
+\begin{align*}
+a_{n+1}-a_1&>n\\
+\therefore\ \ a_{n+1}&>a_1+n \xlongrightarrow[]{n\to \infty} \infty\\
+\therefore\ \ a_{n+1}&\xlongrightarrow[]{n\to \infty} \infty\\
+したがって\\
+a_{n+1}-a_n&=1+e^{-a_{n+1}}\xlongrightarrow[]{n\to \infty} \text{\bb $1$}
+\end{align*}
+\eenu
+\end{解答}
+(補足)\ 本質は同じことであるが，$\dlim_{n\to \infty} a_n=\infty$を得るのに，\MARU{3}に階差数列と一般項の公式を当てはめても良い；
+\begin{align*}
+a_n&=a_1+\dsum_{k=1}^{n-1}(1+e^{-a_{k+1}})>1+\dsum_{k=1}^{n-1}1=1+(n-1)=n\xlongrightarrow[]{n\to \infty} \infty\\
+\therefore\ \ \ a_n &\xlongrightarrow[]{n\to \infty} \infty
+\end{align*}
+\fi
+
+\newpage
+
+\bqu
+$t$を$0<t<1$を満たす実数とする．$0$，$\bunsuu 1t$以外の全ての実数$x$で定義された関数
+\[f(x)=\bunsuu{x+t}{x(1-tx)}\]
+を考える．
+\benu
+\item $f(x)$は極大値と極小値を1つずつもつことを示せ．
+\item $f(x)$は極大値を与える$x$の値を$\alpha$，極小値を与える$x$の値を$\beta$とし，座標平面に2点P$(\alpha,\ f(\alpha))$，Q$(\beta,\ f(\beta))$をとる．$t$が$0<t<1$を満たしながら変化するとき，線分PQの中点Mの軌跡を求めよ．\hfill(19 北大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(1)\ 極値に関する議論は慎重になりたい．定義域全体で微分可能な関数$f(x)$であっても，
+\[f(x)\ が\ x=a\ において極値をもつ\ \Longrightarrow\ f'(a)=0\]
+は成り立つが，この逆は成り立たない．$f(x)=x^3$，$a=0$が反例である．あくまで，
+\begin{tcolorbox}[title={\bb 極値の条件},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+定義域全体で微分可能な関数$f(x)$が\\
+$x=a$において極値をもつための必要十分条件は，
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm](-1,10)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/32-(X-2)/4+2}
+\YGraph<linethickness=1pt>\Fx
+\YPointPut\Fx{4}[syaei=x,xlabel=a]{}
+\YPoint\Fx{4}\A
+\Kuromaru<size=1pt>\A
+\YPointPut\Fx{6}[e]{$f(x)$}
+\end{zahyou}
+\fi
+}
+\[f'(a)=0\ かつ\ x=a\ の前後で\ f'(x)\ に符号変化が起こる\]
+ことである
+\end{mawarikomi}
+\end{tcolorbox}
+ということを踏まえて慎重に解答したい．手っ取り早いのは増減表を書いてしまうことだ．\\
+(2)\ 計算力=工夫力の勝負．中点の座標は端点の座標の対称式で表せるはずなので．．．
+\end{アプローチ}
+\begin{解答}\vspace{-3zw}
+\benu
+\item $f(x)=\bunsuu{x+t}{x(1-tx)}$より
+\begin{align*}
+f'(x)&=\bunsuu{(x+t)'(x(1-tx))-(x+t)(x(1-tx))'}{(x(1-tx))^2}\\
+&=\bunsuu{(x(1-tx))-(x+t)(1-2tx)}{(x(1-tx))^2}\\
+&=\bunsuu{\cancel{x}-tx^2-(\cancel{x}-2tx^2+t-2t^2x)}{(x(1-tx))^2}\\
+&=\bunsuu{t(x^2+2tx-1)}{(x(1-tx))^2}
+\end{align*}
+ここで，$-t-\sq{t^2+1}<0<-t+\sq{t^2+1}<1<\bunsuu 1t$より，
+%$\alpha=-t-\sq{t^2+1}$，$\beta=-t+\sq{t^2+1}$とおくと，
+%$x^2+2tx-1=0$の判別式を$D$とすると，
+%\[D/4=t^2+1>0\]
+%より，常に2つの実数解$\alpha$，$\beta$をもち，
+$f(t)$の増減は次のようになる．
+\[\begin{array}{c|ccccccccccccccc}
+\phantom{\bunsuu 11} x	&\cdots	&-t-\sq{t^2+1}	&\cdots	&0	&\cdots 	&-t+\sq{t^2+1}	&\cdots	&\frac 1t&\cdots	\\\hline
+\phantom{\bunsuu 11} f'(x)	&+		&0		&-		&／	&-		&0		&+		&／		&+		\\\hline
+\phantom{\bunsuu 11} f(x)	&\NE	&極大	&\SE	&／	&\SE	&極小	&\NE	&／		&\NE	
+\end{array}\]
+よって，$f(x)$は$\barr x=-t-\sq{t^2+1}\ \ で極大\\  x=-t+\sq{t^2+1}\ \ で極小 \earr $をとる．\hfill □
+ \item $\alpha=-t-\sq{t^2+1}$，$\beta=-t+\sq{t^2+1}$とおくと，これは$x^2+2tx-1=0$の解であるから，
+ \[\barr \alpha+\beta=-2t\\ \alpha\beta=-1\earr\]
+であり，M$(x,\ y)$とおくと，
+\begin{align*}
+x&=\bunsuu{\alpha+\beta}{2}=\bunsuu{-2t}{2}=-t\cdots\MARU{1}，\\
+y&=\bunsuu{f(\alpha)+f(\beta)}{2}
+=\bunsuu 12 \left(\bunsuu{\alpha+t}{\alpha(1-t\alpha)}+\bunsuu{\beta+t}{\beta(1-t\beta)}\right)\\
+&=\bunsuu{(\alpha+t)\beta(1-t\beta)+(\beta+t)\alpha(1-t\alpha)}{2{\alpha(1-t\alpha)}\beta(1-t\beta)}\cdots\MARU{2}\\
+\MARU{2}の分子&=2\alpha\beta+(\alpha+\beta-\alpha\beta(\alpha+\beta))t-(\alpha^2+\beta^2)t^2\\
+&=2(-1)+(-2t-(-1)(-2t))t-(4t^2+2)t^2\\
+&=-4t^4-6t^2-2\\
+\MARU{2}の分母&=2\alpha\beta(1-t(\alpha+\beta)+t^2\alpha\beta)\\
+&=2(-1)(1-t(-2t)+t^2(-1))\\
+&=-2-2t^2\\
+\therefore\ \ \ y&=\bunsuu{-4t^4-6t^2-2}{-2-2t^2}=2t^2+1\cdots\MARU{3}
+\end{align*}
+\MARU{1}と\MARU{3}から$t$を消去すると，$y=2x^2+1$．\\
+また，$0<t<1$から，$0<-x<1$より，$-1<x<0$．\\
+以上より，Mの軌跡は{\bb 放物線$y=2x^2+1$の$-1<x<0$の部分}．
+\eenu
+\end{解答}
+
+(参考)
+\iffigure
+\[\begin{zahyou}[ul=15mm](-4,2)(-1,4)
+\teisuuretu{tval=0.1}
+\def\Fx{(X+\tval)/(X*(1-\tval*X))}
+\YGraph<linethickness=1pt,minx=0.01>\Fx
+\YGraph<linethickness=1pt,maxx=-0.01>\Fx
+%\XGraph{1/\tval}
+\YPoint\Fx{0-(\tval)-sqrt(\tval*\tval+1)}\A
+\YPoint\Fx{0-(\tval)+sqrt(\tval*\tval+1)}\B
+\Put\A[syaei=x,xlabel=\alpha]{}
+\Put\B[syaei=x,xlabel=\beta]{}
+\Tyuuten\A\B\M
+\Put\M{M}
+\Kuromarus{\M;\A;\B}
+\Drawline{\A\B}
+\touhenkigou<kosuu=2>{\A\M;\B\M}
+
+\teisuuretu{tval=0.3}
+\def\Fx{(X+\tval)/(X*(1-\tval*X))}
+\YGraph<linethickness=1pt>\Fx
+%\XGraph{1/\tval}
+\YPoint\Fx{0-(\tval)-sqrt(\tval*\tval+1)}\A
+\YPoint\Fx{0-(\tval)+sqrt(\tval*\tval+1)}\B
+\Put\A[syaei=x,xlabel=\alpha]{}
+\Put\B[syaei=x,xlabel=\beta]{}
+\Tyuuten\A\B\M
+\Put\M{M}
+\Kuromarus{\M;\A;\B}
+\Drawline{\A\B}
+\touhenkigou<kosuu=2>{\A\M;\B\M}
+
+\teisuuretu{tval=0.5}
+\def\Fx{(X+\tval)/(X*(1-\tval*X))}
+\YGraph<linethickness=1pt>\Fx
+%\XGraph{1/\tval}
+\YPoint\Fx{0-(\tval)-sqrt(\tval*\tval+1)}\A
+\YPoint\Fx{0-(\tval)+sqrt(\tval*\tval+1)}\B
+\Put\A[syaei=x,xlabel=\alpha]{}
+\Put\B[syaei=x,xlabel=\beta]{}
+\Tyuuten\A\B\M
+\Put\M{M}
+\Kuromarus{\M;\A;\B}
+\Drawline{\A\B}
+\touhenkigou<kosuu=2>{\A\M;\B\M}
+
+\teisuuretu{tval=0.7}
+\def\Fx{(X+\tval)/(X*(1-\tval*X))}
+\YGraph<linethickness=1pt>\Fx
+%\XGraph{1/\tval}
+\YPoint\Fx{0-(\tval)-sqrt(\tval*\tval+1)}\A
+\YPoint\Fx{0-(\tval)+sqrt(\tval*\tval+1)}\B
+\Put\A[syaei=x,xlabel=\alpha]{}
+\Put\B[syaei=x,xlabel=\beta]{}
+\Tyuuten\A\B\M
+\Put\M{M}
+\Kuromarus{\M;\A;\B}
+\Drawline{\A\B}
+\touhenkigou<kosuu=2>{\A\M;\B\M}
+
+%\teisuuretu{tval=0.9}
+%\def\Fx{(X+\tval)/(X*(1-\tval*X))}
+%\YGraph<linethickness=1pt>\Fx
+%%\XGraph{1/\tval}
+%\YPoint\Fx{0-(\tval)-sqrt(\tval*\tval+1)}\A
+%\YPoint\Fx{0-(\tval)+sqrt(\tval*\tval+1)}\B
+%\Put\A[syaei=x,xlabel=\alpha]{}
+%\Put\B[syaei=x,xlabel=\beta]{}
+%\Tyuuten\A\B\M
+%\Put\M{M}
+%\Kuromarus{\M;\A;\B}
+\end{zahyou}
+\]
+\fi
+
+\newpage
+\fi
+
+\bqu $n$は3以上の自然数とする．面積1の正$n$角形$P_n$を考え，その周の長さを$L_n$とする．
+\benu
+\item $(L_n)^2$を求めよ．
+\item $\dlim_{ n \to\infty} L_n$を求めよ．
+\item $n<k$ならば$(L_n)^2 >(L_k)^2$となることを示せ．\hfill(19 早稲田大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(1)\ は次のことを念頭に，正弦定理を用いるのが手っ取り早い．
+\begin{tcolorbox}[title={\bb 円の内接/外接多角形の辺長},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+円に$\barr 内接\\外接\earr$する多角形の辺長は中心角の$\barr \sin\\ \tan\earr$で表すことができる
+\end{tcolorbox}
+(3)\ は$\{(L_n)^2\}$が減少数列であることを証明すればよい．
+\begin{tcolorbox}[title={\bb 数列の増減},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+数列$\{a_n\}$の増減を調べる方法は，次の3つ；
+\benu[(i)]
+\item 階差をとって$a_{n+1}-a_n$の符号を調べる
+\item 各項が正なら，比をとって$\bunsuu{a_{n+1}}{a_n}$と1の大小を調べる
+\item 最終手段として，$f(x)=a_x$を微分して$f'(x)$の符号を調べる
+\eenu
+\end{tcolorbox}
+(1)で求めた$(L_n)^2$の式の形からして(iii)を選択することになるが，今回は単純に$f(x)=(L_x)^2$としたのでは計算が厄介になる\bekkai．できるだけ楽をしようという下心を忘れないでいたい．(2)の極限計算の中にもヒントが隠されている．
+\end{アプローチ}
+
+\begin{解答}\vspace{-3zw}
+\benu
+\item $P_n$の外接円の半径を$a$，1辺の長さを$b$$(a,b >0)$とすると，$L_n=nb$であり．正弦定理より
+\begin{mawarikomi}{}{
+%\iffigure
+\begin{zahyou*}
+[ul=20mm,yokozikukigou=$X$,tatezikukigou=$Y$,tatezikuhaiti={[n]},yokozikuhaiti={[e]},migiyohaku=0zw](-1,1)(-1,1)
+\teisuuretu{aval=pi/6}
+\teisuuretu{bval=pi/3}
+\teisuuretu{cval=pi*7/6}
+\tenretu*<perl>{A(cos(\aval),sin(\aval))en;B(cos(\bval),sin(\bval))ws;C(cos(\cval),sin(\cval))ws}
+\En\O{1}
+\Drawlines<linethickness=1pt>{\O\A\C\B\A;\O\B}
+%\HenKo{\O}{\A}{$a$}
+\seitakakkei<dousa=T>\A\B{12}{O}
+\HenKo{\C}{\A}{$2a$}
+\HenKo{\O}{\B}{$a$}
+\HenKo{\A}{\B}{$b$}
+%\Kuromarus{\A;\B;\C}
+\Tyokkakukigou\C\B\A
+%\PutStr*{(-10pt,20pt)}[n]{$\underset{i.e.\ x=\frac{\pi}{4}}{x+\frac 34\pi=\pi}$}to\A
+%\PutStr*{(10pt,-20pt)}[s]{$\underset{i.e.\ x=\frac5{4}{\pi}}{x+\frac34\pi=2\pi}$}to\C
+\end{zahyou*}
+%\fi
+}
+\[2a=\bunsuu{b}{\sin\bunsuu{\pi}{n}}\ \ から\ \ b=2a\sin\bunsuu{\pi}{n}\cdots\MARU{1}\]
+%より，
+%よって
+%\[(L_n)^2=(nb)^2=n^2\cdot b^2=4n^2a^2\sin^2\bunsuu{\pi}{n}\]
+%とした方が直接的ではある．
+%余弦定理より，
+%\begin{align*}
+%b^2
+%&=a^2+a^2-2\cdot a \cdot a \cdot \cos\bunsuu{2\pi}{n}\\
+%&=2a^2\left(1-\cos \bunsuu{2\pi}{n}\right)\cdots\MARU{1}
+%\end{align*}
+また，$P_n$の面積が1であることより，
+\begin{align*}
+\left(\bunsuu 12 \cdot a \cdot a \cdot \sin \bunsuu{2\pi}{n}\right)\times n&=1\\
+\therefore\ \ \ a^2=\bunsuu{2}{n\cdot \sin\bunsuu{2\pi}{n}}&=\bunsuu{1}{\sin\bunsuu{\pi}{n}\cos\bunsuu{\pi}{n}}
+\end{align*}
+%ここで，$n\geqq 3$より，$\sin\bunsuu{2\pi}{n} >0$，$\bunsuu{n}{2}\neq 0$なので
+%$$．
+\begin{align*}
+よって\ \ (L_n)^2&=(nb)^2=n^2\cdot b^2
+=4n^2a^2\sin^2\bunsuu{\pi}{n}\\
+&
+%=4n^2\cdot \bunsuu{2}{n\cdot \sin\bunsuu{2\pi}{n}}\cdot \sin^2\bunsuu{\pi}{n}
+=4n \cdot \bunsuu{1}{\sin\bunsuu{\pi}{n}\cos\bunsuu{\pi}{n}}\cdot \sin^2\bunsuu{\pi}{n}
+=\text{\bb $4n\tan \bunsuu{\pi}{n}$}
+\end{align*}
+\end{mawarikomi}
+
+\item $\dlim_{n\to \infty} L_n =\dlim_{n\to \infty} 2\sq{n\tan\bunsuu{\pi}{n}}$．\\
+$\bunsuu{\pi}{n}=t$とおくと，$n\to \infty$のとき，$t \to 0$より，
+\begin{align*}
+\dlim_{n\to \infty} L_n 
+&=\dlim_{t\to 0} 2\sq{\bunsuu{\pi}{t}\tan t}
+=\dlim_{t\to 0} 2\sq{\pi\cdot \bunsuu{\sin t}{t}\cdot \cos t}
+=\text{\bb $2\sq{\pi}$}．
+\end{align*}
+\item $3 \leqq n <k$より，$0<\bunsuu{\pi}{k}<\bunsuu{\pi}{n} \leqq \bunsuu{\pi}{3}$
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=10mm,xscale=2](-0.5,1.5)(-0.5,2)
+\def\Gx{X-1/2*sin(2*X)}
+\YGraph<linethickness=1pt,minx=0.001>\Gx
+\YPointPut\Gx{1}[nw]{$g(x)$}
+\end{zahyou}
+\fi
+}
+\begin{align*}
+f(x)&:=\bunsuu{\tan x}{x}\ \left(0<x \leqq \bunsuu{\pi}{3}\right)\\
+f'(x)&=\bunsuu{\bunsuu{x}{\cos^2x}-\tan x}{x^2}=\bunsuu{x-\sin x \cos x}{x^2\cos^2 x}=\bunsuu{x-\frac 12\sin2x}{x^2\cos^2 x}\\
+g(x)&:=x-\frac 12\sin 2x，\\
+g'(x)&=1-\cos 2x>0 より，g(x)\ は単調増加．\\
+&\ g(0)=0 より，\ \ x>0において，g(x)>0\\
+\therefore\ \ & f'(x)>0\ \ \therefore\ \ f(x)\ も\ 0<x \leqq \bunsuu{\pi}{3}\ において単調増加．
+\end{align*}
+\end{mawarikomi}
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=10mm,xscale=2](-0.5,1.5)(-0.5,3)
+\def\Fx{tan(X)/X}
+\YGraph<linethickness=1pt,minx=0.001>\Fx
+\YPointPut\Fx{1}[syaei=xy,xlabel=\frac{\pi}{n},ylabel=f(\frac{\pi}{n})]{}
+\YPointPut\Fx{0.5}[syaei=xy,xlabel=\frac{\pi}{k},ylabel=f(\frac{\pi}{k})]{}
+\YPointPut\Fx{1.2}[w]{$f(x)$}
+\end{zahyou}
+\fi
+}
+\vspace{-2zw}
+\[(L_n)^2=4\pi f\left(\bunsuu{\pi}{n}\right)，\ \ \ 
+(L_k)^2=4\pi f\left(\bunsuu{\pi}{k}\right)\]
+であり，$f(x)$が単調増加することと，$\bunsuu{\pi}{n} >\bunsuu{\pi}{k}$より，
+\[f\left(\bunsuu{\pi}{n}\right)>f\left(\bunsuu{\pi}{k}\right)\]
+以上より，$n<k$ならば$(L_n)^2 >(L_k)^2$が示された．
+\end{mawarikomi}
+\eenu
+\end{解答}
+
+\begin{別解}\vspace{-2zw}
+(3)\ $f(x)=L_x=4x\tan\bunsuu{\pi}{x}$\ $(x \geqq 3)$とおくと，
+\begin{align*}
+f'(x)&=4\tan\bunsuu{\pi}{x}+4x\cdot \bunsuu{1}{\cos^2\bunsuu{\pi}{x} }\times \left(-\bunsuu{\pi}{x^2}\right)\\
+&=\bunsuu{4\left(x\tan\bunsuu{\pi}{x}\cos^2\bunsuu{\pi}{x}-\pi\right)}{x\cos^2\bunsuu{\pi}{x}}\
+=\bunsuu{4\left(x\sin\bunsuu{\pi}{x}\cos\bunsuu{\pi}{x}-\pi\right)}{x\cos^2\bunsuu{\pi}{x}}\\
+&=\bunsuu{4\left(\bunsuu x2\sin\bunsuu{2\pi}{x}-\pi\right)}{x\cos^2\bunsuu{\pi}{x}}\
+=\bunsuu{2x\left(\sin\bunsuu{2\pi}{x}-\bunsuu{2\pi}{x}\right)}{x\cos^2\bunsuu{\pi}{x}}\\
+g(x)&=\sin\bunsuu{2\pi}{x}-\bunsuu{2\pi}{x}\ とおくと\\
+g'(x)&=\cos\bunsuu{2\pi}{x}\times \left(-\bunsuu{2\pi}{x^2}\right)+\bunsuu{2\pi}{x^2}
+=\bunsuu{2\pi}{x^2}\left(-\cos\bunsuu{2\pi}{x}+1\right) >0\ より\ g(x)\ は単調増加．\\
+&\ これと\ \dlim_{x \to\infty} g(x)=0\ より，\ \ x>0において，g(x)<0\\
+\therefore\ \ & f'(x)<0\ \ \therefore\ \ f(x)\ は\ 0<x \leqq \bunsuu{\pi}{3}\ において単調減少．
+\end{align*}
+したがって，$f(n)>f(k)$，つまり，$(L_n)^2>(L_k)^2$が示された．
+\end{別解}
+\newpage
+\fi
+
+%\iffigure
+%\[\begin{zahyou}[ul=15mm](-1,2)(-1,3)
+%\def\Fx{tan(X)/X}
+%\YGraph<linethickness=1pt>\Fx
+%\YPointPut\Fx{$pi/3}[syaei=x,xlabel=\frac{\pi}{3}]{}
+%\end{zahyou}\]
+%\fi
+
+\bqu 次の問いに答えよ．
+\benu
+\item $y=\bunsuu{\log x}{x}$のグラフの概形を描け．
+\item 正の数$a$に対して，$a^x=x^a$となる正の数$x$は何個あるか．
+\item  $e$を自然対数の底，$\pi$を円周率とするとき，$e^{\pi}$と$\pi^{e}$とはどちらが大きいか．\hfill(滋賀医大)
+\eenu
+\equ
+
+\ifkaisetu
+\begin{アプローチ}
+(2)が山場である．
+もちろん，$y=a^x$と$y=x^a$のグラフは両方曲線なので，交点の個数を数えるのは難しい，そこで，
+%が問われているとみなすことができる．しかし，曲線同士の交点は把握しにくい．そこで，
+\begin{tcolorbox}[title={\bb 定数分離},coltitle=black,
+enhanced,
+frame style={left color=orange!50!white,right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+]
+\begin{mawarikomi}{}{
+\iffigure
+\begin{zahyou}[ul=3mm,migiyohaku=2zw](-2,6)(-1,5)
+\def\Fx{(X-2)*(X-2)*(X-2)/8-(X-2)+2}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=0.5pt>{0.5}
+\YGraph<linethickness=0.5pt>{1.5}
+\YGraph<linethickness=0.5pt>{2.5}
+\YGraph<linethickness=0.5pt>{3.5}
+\YPointPut{1.5}{6}[e]{$y=a$}
+\YPointPut\Fx{5.7}[w]{$y=f(x)$}
+\end{zahyou}
+\fi
+}
+定数$a$を含む$x$の方程式の解は，
+\[f(x) =a\ (定数)\ の形に\ a\ を分離することができれば，\]
+$y=f(x)$と$y=a$のグラフの交点として扱うことができる．
+\end{mawarikomi}
+\end{tcolorbox}
+を考えるわけだが，今回は綺麗に$(xの式)=a$と変形できそうもない．\\
+それでも，$(xの式)=(aの式)$でも作れたら十分嬉しい．$y=(aの式)$でも立派な定数関数だからだ．
+\end{アプローチ}
+
+\begin{解答} \vspace{-3zw}
+\benu
+\item $f(x)=\bunsuu{\log x}{x}$とおくと，
+\begin{align*}
+f'(x)&=\bunsuu{1-\log x}{x^2}\\
+f''(x)&=\bunsuu{2\log x-3}{x^3}
+\end{align*}
+よって，$f(x)$の凹凸，増減は次のようになる．
+\[\begin{array}{c|cccccc}
+\phantom{\bunsuu 11}	x	&0	&\cdots	&e	&\cdots 	&e\sq e	&\cdots\\\hline
+\phantom{\bunsuu 11}	f'(x)	&／	&+	&0	&- 	&-	&-\\\hline
+\phantom{\bunsuu 11}	f''(x)	&／	&-	&-	&- 	&0	&+\\\hline
+\phantom{\bunsuu 11}	f(x)	&／	&\NEE	&\frac 1e	&\SES 	&\frac{3}{2e\sqrt e}	&\SEE \\
+\end{array}\]
+これと，$\dlim_{x\to \infty} f(x) =0$，$\dlim_{x +0}  f(x)=-\infty$より，グラフは以下のようになる．
+\iffigure
+\[\begin{zahyou}[ul=10mm,yscale=6,xscale=0.5](-1,20)(-0.1,0.5)
+\def\Fx{log(X)/X}
+\YGraph<linethickness=1pt,minx=0.1>\Fx
+\YPointPut\Fx{2.7}[syaei=xy,xlabel=e,ylabel=\frac 1e,ypos={[nw]}]{}
+\YPointPut\Fx{2.7*sqrt(2.7)}[syaei=xy,ylabel=\frac{3}{2e\sqrt e},xlabel=e\sqrt e,ypos={[sw]}]{}
+\end{zahyou}\]
+\fi
+\item $a>0$，$x>0$より両辺の自然対数をとって
+\begin{align*}
+\log a^x &=\log x^a\\
+x\log a &=a\log x\\
+\bunsuu{\log a}a &=\bunsuu{\log x}x\\
+f(a)&=f(x)
+\end{align*}
+$y=f(x)$と$y=f(a)\ \ (定数)$のグラフの交点は，
+\[\barr
+f(a)>\bunsuu 1e となる\ a\ は存在しない\vspace{0.2zw}\\
+f(a)=\bunsuu 1e，\ すなわち\ a=e\ のとき，1個\vspace{0.2zw}\\
+0<f(a)<\bunsuu 1e，\ すなわち\ 1<a<e,e<a\ のとき，2個\vspace{0.2zw}\\
+f(a) \leqq 0，\ すなわち\ 0<a \leqq 1\ のとき，1個
+\earr\]
+\iffigure
+\[\begin{zahyou}[ul=10mm,yscale=6,xscale=0.5](-1,20)(-0.2,0.5)
+\def\Fx{log(X)/X}
+\YGraph<linethickness=1pt,minx=0.1>\Fx
+\YGraph{1/2.7}
+\YGraph{1/5}
+\YGraph{-0.1}
+\YPointPut\Fx{2.7}[syaei=xy,xlabel=e,ylabel=\frac 1e,ypos={[ws]}]{}
+\YPointPut\Fx{1}[syaei=x,xlabel=1,xpos={[es]}]{}
+\YPointPut{1/5}{20}[e]{$y=f(a)$}
+\YPointPut{1/2.7}{20}[e]{$y=f(a)$}
+\YPointPut{-0.1}{20}[e]{$y=f(a)$}
+\end{zahyou}\]
+\fi
+よって，求める$x$の個数は{\bb $\barr
+%\ e<a\ のとき，0個\\
+\ 0<a \leqq 1，a=e\ のとき，1個\\
+\ 1<a<e,e<a\ のとき，2個
+\earr$}
+\item $e<\pi$と(1)の増減表より，
+\begin{align*}
+f(e)&<f(\pi)\\
+\bunsuu{\log e}{e} &<\bunsuu{\log \pi}{\pi}\\
+\pi{\log e} &<e{\log \pi}\\
+\log e^{\pi} &<\log \pi^e\\
+e^{\pi} &< \pi^e
+\end{align*}
+よって，{\bb $e^{\pi}$より$\pi^e$の方が大きい}．
+\eenu
+\end{解答}
+\fi
+
+\iffuru
+}\mondaitokaitou
+\fi                                                                 
+
+\end{document}

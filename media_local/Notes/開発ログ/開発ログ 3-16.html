@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><h1>開発ログ 3/16</h1></div>
+<div><br></div>
+<div>１．3DMobjectの重なり表現について，</div>
+<div>3DDotや3DLine，3DAxesなどは全てSurfaceをもとにしているようで，</div>
+<div>Surfaceとして描いて初めて重なりを表現できるようだ．</div>
+<div>つまり，単にDotやLine，Circleで3Dcamera上に描くと，立体的な前後関係が考慮されず，</div>
+<div>3DMobjectより，常に手前に表示される？ようである．</div>
+<div>そこで，Circle3DというのをToras()を使って定義した．これはリファレンスマニュアルになかった．</div>
+<div><br></div>
+<div>2．点Qの動きをよりリアルにした．</div>
+<div>地球の上における外分点Qの位置をどう定義するか，が問題である．</div>
+<div>無限円点に一致するところまでをリアルに表現することは，計算上できない．？</div>
+<div>いや，できるか？いや，できない．</div>
+<div>やはり，例外的に描くしかない．</div>
+<div>今は，無限遠点以外に関しては嘘なしで点Qの位置を定めた．</div>
+<div>ここではリーマン球面的な対応のさせ方をnp.arctanやnp.sinなどを使ってかいた．</div>
+<div><br></div>
+<div>3．Surfaceのresorutionは少し上げるだけで，大変になる．</div>
+<div>自分で定義した3Dmobectも含め，Manimの処理が指数関数上に重くなってきているのを感じる．</div>
+<div><br></div>
+<div>4．self.renderer.camera.light_source.move_to(2*IN)でどんな影ができるのか，がわかっていない．</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br> </div>

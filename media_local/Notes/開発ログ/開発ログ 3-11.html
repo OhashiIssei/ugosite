@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><h1>開発ログ 3/11</h1></div>
+<div><br></div>
+<div>1．今日から平面幾何の図形の描画を始める．作っておきたい関数は、、、</div>
+<div>1．3辺の長さを指定して、三角形が生成されるような関数</div>
+<div>2．与えられた角の、二等分線が生成される関数</div>
+<div>3．与えられた2つの直線の交点の座標を取得する関数</div>
+<div>つまり、GeoGebraをプログラムしたい、ということである．</div>
+<div>誰かがやっているはずである．まずは、調べよう．</div>
+<div><br></div>
+<div>2．Intersectionとline_Intersectionを見つけたが，これではやりたいことはできなかった．</div>
+<div>問題はCircleやArcは内部も含むMobjectであるという点である．</div>
+<div>円周と円周の共通部分を求める方法を探す．</div>
+<div><br></div>
+<div>3．2の解決策が見つかった．</div>
+<div>中心が一致する2つの同心円で挟まれる部分を表すAnnulus（輪？）を使って</div>
+<div>def Ensyuu(ten,radius,stroke_width=0.05,color = WHITE):</div>
+<div>            return Annulus(</div>
+<div>                inner_radius = radius-stroke_width, outer_radius=radius,</div>
+<div>                color = color</div>
+<div>            ).move_to(ten.get_center())</div>
+<div>という円周関数を定義した．</div>
+<div>関数定義はキレイにいくと楽しい．</div>
+<div>途中，陰関数でf(x,y)**2+g(x,y)**2=0として，共通部分を描こうととしたが，</div>
+<div>計算が大変なのと，精度に欠けるということで不採用になった．</div>
+<div><br></div>
+<div>4．2直線の交点を求める関数 line_intersection で2直線は交わらない，というエラーが出て困っています．</div>
+<div><br></div>
+<div><br></div>
+<div><br> </div>

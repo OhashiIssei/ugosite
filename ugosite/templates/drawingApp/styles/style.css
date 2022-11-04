@@ -1,0 +1,213 @@
+/* フォント */
+
+@import url(https://fonts.googleapis.com/css2?family=DotGothic16&display=swap);
+
+@font-face {
+  font-family: 'rubikitalic';
+  src: url('../webfontkit/rubik-italic-webfont.woff2') format('woff2'),
+       url('../webfontkit/rubik-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'rubikregular';
+  src: url('../webfontkit/rubik-regular-webfont.woff2') format('woff2'),
+       url('../webfontkit/rubik-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+/* || 基本要素デザイン */
+
+html {
+    font-size: 10px; /* px means "pixels": the base font size is now 10 pixels high  */
+    font-family: 'DotGothic16', sans-serif;
+    background-color:  hsla(117, 33%, 23%, 0.443);
+}
+
+button,input{
+  font-family: inherit;
+  /* width : 150px; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* position: absolute; */
+  /* overflow: hidden; */
+  background: rgba(0, 0, 0, 0);
+}
+
+/* ツールバーのデザイン */
+
+.toolbar{
+  width: 100%;
+  height: 75px;
+  background: rgba(0,0,0,0);
+  padding: 5px;
+  z-index: 10;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "style mode edit"
+    "style mode page";
+  grid-template-columns: 250px 100px 1fr;
+  /* align-items: flex-end; */;
+}
+
+
+/* style-info */
+#style-info {
+  /* width: 150px; */
+  /* flex:2; */
+  grid-area: style;
+  /* display: ; */
+}
+
+
+#mode-change {
+  grid-area: mode;
+  /* flex:5; */
+}
+
+#mode-change li{
+  padding:2px;
+}
+
+/* input:checked {
+  border: 6px solid black;
+} */
+
+button:hover,
+button:focus {
+  color: #999;
+}
+
+#edit-operate {
+  /* width: 150px; */
+  grid-area: edit;
+  display: flex;
+  flex:1
+}
+
+/* note-operate */
+
+#note-operate {
+  grid-area: page;
+  /* width: 150px; */
+  display: flex;
+  /* grid-template-columns: 2fr 2fr 2fr */
+  /* flex:1 */
+}
+
+
+fieldset{
+  background-color: rgb(219, 219, 219);
+  padding: 0;
+}
+
+ul{
+  list-style: none;
+  padding-left: 10px;
+}
+
+li{
+  margin-left: 0;
+}
+
+input[type="color"]{
+  width: 20px;
+  margin: 0px;
+  /* border: 0; */
+  padding: 0;
+  /* display:white; */
+}
+
+
+button {
+  /* height:100%; */
+  width: 90%;
+  margin: 0 auto;
+  /* display:white; */
+}
+
+label{
+  padding: 2px
+}
+
+input[type="number"] {
+  width: 30px;
+  margin: 2.5px;
+}
+
+input[type="radio"]{
+  appearance: none;
+}
+
+*[status="on"]{
+  border: 2px solid rgba(0, 43, 14,0.5);
+  transform: translate(3px, 3px) scale(1);
+  transition: all 0.1s cubic-bezier(0.25, 0.25, 0.56, 2);
+}
+
+*[status="off"]{
+  border: 0px solid rgba(0, 43, 14,0.5);
+  /* padding : 4px;s */
+  margin : 2px;
+  transform: translate(3px, 3px) scale(1);
+  transition: all 0.1s ease-in;
+}
+
+/* レイヤーのデザイン */
+.layers{
+  position:relative;
+  z-index: 6
+}
+
+svg{
+  position:absolute;
+}
+
+canvas{
+  position:absolute;
+}
+
+.symurator{ z-index: -5}
+
+#back{
+  display: none;
+}
+
+/* svg */
+
+.nwse-resize:hover{cursor:nwse-resize;fill-opacity: 1;}
+.nesw-resize:hover{cursor:nesw-resize;fill-opacity: 1;}
+.ew-resize:hover{cursor:ew-resize;fill-opacity: 1;}
+.ns-resize:hover{cursor:ns-resize;fill-opacity: 1;}
+.grab:hover{cursor:grab;fill-opacity: 1;}
+.all-scroll:hover{cursor:all-scroll;fill-opacity: 1;}
+.zoom-in:hover{cursor:zoom-in;fill-opacity: 1;}
+
+
+/* pageの表示/表示 */
+
+.current-page{
+  display:inherit;
+}
+
+.not-current-page{
+  display: none;
+}
+
+#page-text{
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+

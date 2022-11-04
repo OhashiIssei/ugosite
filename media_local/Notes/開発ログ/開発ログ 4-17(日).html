@@ -1,0 +1,37 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><h1>開発ログ 4/17(日)</h1></div>
+<div><br></div>
+<div>1．表現の自由２本目の動画編集をスタートした．</div>
+<div>やはり，MANIM動画作りは，桁違いで時間がかかる．</div>
+<div>という意味では，順番をミスったかもしれない．</div>
+<div>テロップを先に入れるべきだった！</div>
+<div>締め切りを作る，ということをしないでここまできた．</div>
+<div>自分ができる最大のクオリティのものを作っている限りは，</div>
+<div>数人しか見ていなくても，十分楽しめる．</div>
+<div>1．激しいカメラワークの動画は，run_time = 1.5に変更した．</div>
+<div>2．陰関数の描画</div>
+<div>ax.plot_implicit_curve(lambda a,x: f1(x,a))</div>
+<div>は滑らかだが，</div>
+<div>ax.get_vertical_line</div>
+<div>などは(おそらく)使えないのが弱点．</div>
+<div>そこで，</div>
+<div>ax.plot(lambda a: sympy.solve(f1(x,a),x)[0],x_range=[-1,2])</div>
+<div>を非表示で定義して，これを使った．</div>
+<div>sympy.var('x')</div>
+<div>sympy.solve(f1(x,a),x)[0]</div>
+<div>の流れはクセになる程使いやすい．</div>
+<div>sympy.solveは文字式でも使える，とのこと．すごい．</div>
+<div>もちろん，n次方程式のみ有効だと思われる．</div>
+<div><br></div>
+<div>2．2度目の米たき．1回目は成功だった．今回は10合．ちょうど20食ぶん完成した．</div>
+<div><br></div>
+<div>3．昨晩の作問の会での意見交換によって，</div>
+<div>JSとMANIMのコラボレーションの可能性を感じた．</div>
+<div>　JSでできる単純な動きと</div>
+<div>　大量の画像ファイルのパラパラ漫画法</div>
+<div>のコラボレーションによって，すぐにでも実装できそうな気がしてきた．もちろん，1本，1本は時間がかかるが，，</div>
+<div><br></div>
+<div><br></div>
+<div><br> </div>

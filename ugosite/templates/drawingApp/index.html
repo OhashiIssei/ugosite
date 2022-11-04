@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drawingApp</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/mode.js" defer></script>
+    <script src="scripts/transform.js" defer></script>
+    <script src="scripts/graph.js" defer></script>
+    <script src="scripts/ball.js" defer></script>
+    <script src="scripts/functions.js" defer></script>
+    <script src="https://fred-wang.github.io/TeXZilla/TeXZilla-min.js"></script>
+    <script src="https://fred-wang.github.io/TeXZilla/examples/customElement.js"></script>
+
+  </head>
+  <body>
+
+    <div id ="layers">
+      <canvas class="symurator"></canvas>
+      <svg id="back" x="0px" y="0px" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div id="pages">
+        <svg id = "page1" class="current-page" x="0px" y="0px" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <svg x="0px" y="0px" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <g id="active">
+          <g id="selected"></g>
+          <g id="ui"></g>
+        </g>
+      </svg>
+    </div>
+
+
+    <form class="toolbar">
+      <fieldset id ="style-info">
+        <ul>
+          <li>
+            <span >カラー</span>
+            <input class = "penColor" type="color" aria-label="select pen color" value="#ffffff">
+            <input class = "penColor" type="color" aria-label="select pen color" value="#ffffff">
+            <input class = "penColor" type="color" aria-label="select pen color" value="#ffffff">
+          </li>
+          <li>
+            <span >ペン</span>
+            <input class = "penSize" type="number" min="1" value="10" aria-label="select pen size">
+            <input class = "penSize" type="number" min="1" value="10" aria-label="select pen size">
+            <input class = "penSize" type="number" min="1" value="10" aria-label="select pen size">
+          </li>
+          <li>
+            <span >消し</span>
+            <input class = "eraserSize" type="number" min="1" value="30" aria-label="select pen size">
+            <input class = "eraserSize" type="number" min="1" value="30" aria-label="select pen size">
+            <input class = "eraserSize" type="number" min="1" value="30" aria-label="select pen size">
+          </li>
+          <!-- <li>
+            <span >ボール</span>
+            <input class = "ballSize" type="number" min="1" value="30" aria-label="select pen size">
+            <input class = "ballSize" type="number" min="1" value="30" aria-label="select pen size">
+            <input class = "ballSize" type="number" min="1" value="30" aria-label="select pen size">
+          </li> -->
+        </ul>
+      </fieldset>
+
+      <fieldset id = "mode-change">
+        <ul >
+          <li><input type="radio" id="write" name = "mode" checked ="true"><label id="write" >手書き</label></li>
+          <li><input type="radio" id="shape" name = "mode"><label id="shape" >図形</label></li>
+          <li><input type="radio" id="erase" name = "mode"><label id="erase" >消しゴム</label></li>
+          <li><input type="radio" id="select" name = "mode"><label id="select" >選択</label></li>
+          <li><input type="radio" id="graph" name = "mode"><label id="graph" >グラフ</label></li>
+          <li><input type="radio" id="ball" name = "mode"><label id="ball" >ボール</label></li>
+        </ul>
+      </fieldset>
+      <fieldset id = "edit-operate">
+          <button class="back">戻る</button>
+          <button class="undo">取り消す</button>
+          <button class="clear">全消去</button>
+          <button class="symurater">？</button>
+        </div>
+      </fieldset>
+        
+      <fieldset id ="note-operate">
+        <button class="back-page">前ページ</button>
+        <span id ="page-text">1/1</span>
+        <button class="next-page">次ページ</button>
+        <button class="delete-page">ページ削除</button>
+        <button class="save">保存</button>
+        <button class="create">新規作成</button>
+        <button class="to-home">ホームへ</button>
+      </fieldset>
+    </form> 
+
+
+  </body>
+</html>

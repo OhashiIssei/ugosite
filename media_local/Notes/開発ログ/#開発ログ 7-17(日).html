@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><br><h1> 7/17(日) </h1></div>
+<div><br></div>
+<div>ふとやりたいと思ったこと一覧</div>
+<ul>
+<li>本紹介ブログ</li>
+<li>ざますたー カルト映画を見る</li>
+<li><font face=".HiraKakuInterface-W3">ここにきて、真正面から数学</font>IIIコンテンツを作りたい衝動に駆られてきた</li>
+</ul>
+<div><b><br></b></div>
+<ul>
+<li><b>数学の考え方講座はTwitter連載をすることにした。</b></li>
+</ul>
+<div><b><br></b></div>
+<ul>
+<li><font face=".HiraKakuInterface-W3">簡単なドット絵アニメアイコンを</font>PDFに埋め込んで遊んだ。</li>
+</ul>
+<div>https://twitter.com/issei_math/status/1548621752166924289?s=20&ampt=6zMQWVbGF5ZtAOqnA02SaA<br></div>
+<div><b>「</b>@dotpict<br></div>
+<div> というアプリで作ったドット絵GIFを、</div>
+<div>latexのanimateパッケージ https://texwiki.texjp.org/?animate で埋め込みました。<b>」</b></div>
+<div>GIFの画角調整；<b><br></b></div>
+<div>   ffmpeg -i 解答アイコン/解答2.gif -vf crop=23:10:5:22 -y 解答アイコン/解答2切り抜き.gif</div>
+<div>をした後、epsに刻んで、；</div>
+<div>   convert 解答アイコン/解答1切り抜き.gif -coalesce 解答アイコン/解答1_%03d.eps<b><br></b></div>
+<div><font face=".HiraKakuInterface-W3">最後に</font>TeX内で読み込む</div>
+<div>\animategraphics[height=0.2in,autoplay,loop]{8}{解答アイコン/解答1_}{000}{015}</div>
+<div>この一連の流れをTeX内のコマンドに任せたいところである。</div>
+<div>それこそ、コマンドを定義すれば解決するのでは？</div>
+<div><br></div>
+<div>いよいよ本格的な開発になってきた。</div>

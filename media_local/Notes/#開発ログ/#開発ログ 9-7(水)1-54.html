@@ -1,0 +1,25 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><br><h1> 9/7(水)1:54</h1></div>
+<div><br></div>
+<div>Drowing AppのSVG移行計画が終了した。</div>
+<div><br></div>
+<div>さよならCanvas!</div>
+<div><br></div>
+<div>(ball周りはいまだにCanvasのままだが、、、)</div>
+<div><br></div>
+<div>これで、SVGElementをDOMでいじり倒せる。</div>
+<div>一番の魅力は、生成したUIのボタン1つ1つににEventLisnerを付けることだ。</div>
+<div>共同の全てをmode,operateを切り替えて管理してきたが、これでシンプルさが別格になる。</div>
+<div><br></div>
+<div>つまり、生成したボタンにどんな機能をつけるのかは、生成した時に自由に決められる。</div>
+<div>その機能を無効にしたければ、modeを切り替える必要はなく、そのボタンを消去すれば良いのだ。</div>
+<div>背後で動くデータをできるだけ少なくし、見た目とデータが同期されている状態が好ましい。</div>
+<div><br></div>
+<div>SVGのtransformとCSSのtransformを混同していたらしい。</div>
+<div>Element.style.transformでは、あくまでCSS内のtransformプロパティーの値を操作しているにすぎない。</div>
+<div>連続したtransformの管理のために「transformCash」というようなものを作ってデータを繋げていたが、</div>
+<div>どうやら、SVGTransformListというものがあり、これを利用するためにも、SVGtransformに詳しくなる必要がありそうだ。</div>
+<div><br></div>
+<div>何にしろ、まずはeventLisnerの大改革から始めよう。</div>

@@ -1,0 +1,516 @@
+\newif\iffuru
+%\furutrue%フルバージョン
+\furufalse%解説のみ
+
+\newif\iffigure
+%\figuretrue%図表あり
+\figurefalse%図表なし
+
+\documentclass[10pt,
+b5paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+%\usepackage{アプローチ}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{ascmac}
+\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathC}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPp}
+\usepackage{emathPl}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage{emathPs}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=12truemm,bottom=12truemm,left=12truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage{fancyhdr}%ヘッダの設定
+\usepackage{cancel}%消し取り線
+\usepackage{ifthen}
+%\usepackage{exam}
+\usepackage{tcolorbox}
+\usepackage{extarrows}%伸縮性のある矢印
+
+%ページレイアウト
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+
+%\pagestyle{headings}
+\pagestyle{empty}%ページ番号を消す
+% \pagestyle{fancy}
+%  \fancyhead{}
+%  \fancyhead[RO,RE]{\rightmark}
+%%  \fancyhead[LE,LO]{\leftmark}
+%  \cfoot{\thepage}
+%  \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+%  \renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+ 
+%\markboth{}{\thesection}
+ 
+%\fancyhead{} % clear all fields
+%\fancyhead[CE]{偶数ページ}
+%\fancyhead[CO]{奇数ページ}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%問題レイアウト
+\tcbuselibrary{raster,skins}
+\newenvironment{黒tcolorbox}{
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow]}{\end{tcolorbox}}
+\newcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\newcommand{\bqu}{\begin{黒tcolorbox}\begin{question}}
+\newcommand{\equ}{\end{question}\end{黒tcolorbox}}
+\newcommand{\mondaisettei}{\kaisetukaitoufalse
+\renewcommand{\sub}{\subsection}
+\renewcommand{\bqu}{\vspace{0.5zw}\begin{question}}
+\renewcommand{\equ}{\end{question}\vspace{3zw}\vfill}
+}%問題設定
+\newcommand{\kaisetutukinosettei}{\kaisetukaitoutrue
+\renewcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\renewcommand{\bqu}{\begin{黒tcolorbox}\begin{question}}
+\renewcommand{\equ}{\end{question}\end{黒tcolorbox}}
+}%解答解説の設定
+
+%箇条書きの調整
+%\setlength{\itemsep}{5pt}      %2. ブロック間の余白
+%\setlength{\parskip}{0pt}      %4. 段落間余白．
+%\setlength{\itemindent}{0pt}   %5. 最初のインデント
+%\setlength{\labelsep}{5pt}     %6. item と文字の間
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+%\newcommand{\bb}{\gtfamily\ebseries\boldmath}%全部極太にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{\bb 第\arabic{subsection}回
+\ }
+\renewcommand{\theQuestion}{%\arabic{subsection}-
+\large\arabic{Question}．}
+
+%横に縦線
+\usepackage{framed}
+\makeatletter
+\renewenvironment{leftbar}{%
+\def\FrameCommand{\vrule width 1pt \hspace{1zw}}
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+\newenvironment{leftbbar}{%
+\def\FrameCommand{\color{mygray} \vrule width 5pt \hspace{1zw}
+\color{black}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+%アプローチ
+\newenvironment{アプローチ}{
+\hspace{-2zw}\underbar{\large \bf Approach}\vspace{-1zw}\begin{leftbar}}{\end{leftbar}}
+
+\newenvironment{解答}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答\ }\vspace{-1zw}\begin{leftbbar}\vspace{0zw}}{\end{leftbbar}}
+
+\newenvironment{証明}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 証明\ }\vspace{-1zw}\begin{leftbbar}\vspace{-2zw}}{\end{leftbbar}}
+
+\newenvironment{解答1}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答1\ }\vspace{-1zw}\begin{leftbbar}\vspace{-2zw}}{\end{leftbbar}}
+\newenvironment{解答2}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答2\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答3}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答3\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newcommand{\kaitoui}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答1\ }}
+\newcommand{\kaitouii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答2\ }}
+\newcommand{\kaitouiii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答3\ }}
+
+%QRコード
+\usepackage{qrcode}
+\setlength\normallineskiplimit{0pt}
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+\definecolor{mygray}{gray}{0.75}
+
+\newif\ifkaisetukaitou
+
+\newcommand{\kaisetukaitou}{%問題のみ
+\mondaisettei
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\kaisetutukinosettei
+\myfor{1} % ループ実行   
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+%\myfor{1} % ループ実行   
+}
+\begin{document}
+
+{\bb\Large 第3回\ \ $\sin x$と$\cos x$を多項式関数で近似する}
+
+%\hfill 大橋\\
+
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow]
+\bb 
+{\large 問．} $x>0$のとき，次の不等式が成り立つことを示せ．
+\beda
+\item $\sin x<x$
+\item $\cos x >1-\bunsuu{x^2}{2!}$
+\item $\sin x>x-\bunsuu{x^3}{3!}$
+\item $\cos x <1-\bunsuu{x^2}{2!}+\bunsuu{x^4}{4!}$
+\eeda
+\end{tcolorbox}
+
+\begin{解答}\vspace{-2.5zw}
+\benu
+\item 
+$y=\sin x$の$x=0$における微分係数は1なので，
+右のグラフより
+，$\sin x <x$．\hfill □
+\item $f(x)=\cos x-1+\bunsuu{x^2}{2!}$とおくと，
+\begin{mawarikomi}{}{
+\vspace{2zw}
+%\iffigure
+\begin{zahyou}[ul=5mm](-1,3)(-1,2)
+\YGraph<linethickness=1pt>{sin(X)}
+\YGraph{X}
+\end{zahyou}
+%\fi
+}
+\[f'(x)=-\sin x+x>0 \ \ \ \because\ \ \ (1)\]
+よって，$f(x)$は単調増加するので，$f(x)>f(0)=0$．ゆえに，$\cos x >1-\bunsuu{x^2}{2!}$．\hfill □
+\end{mawarikomi}
+\item $g(x)=\sin x-x+\bunsuu{x^3}{3!}$とおくと，
+\[g'(x)=\cos x-1+\bunsuu{x^2}{2!} >0 \ \ \ \because\ \ \ (2)\]
+よって，$g(x)$は単調増加するので，$g(x)>g(0)=0$．ゆえに，$\sin x>x-\bunsuu{x^3}{3!}$．\hfill □
+\item $h(x)=\cos x -1+\bunsuu{x^2}{2!}-\bunsuu{x^4}{4!}$とおくと，
+\[h'(x)=-\sin x+x-\bunsuu{x^3}{3!} <0 \ \ \ \because\ \ \ (3)\]
+よって，$h(x)$は単調減少するので，$h(x)<h(0)=0$．ゆえに，$\cos x <1-\bunsuu{x^2}{2!}+\bunsuu{x^4}{4!}$．\hfill □
+\eenu
+\end{解答}
+
+この問題から得られたのは，$\sin x$と$\cos x$の多項式関数による評価である；
+\beda
+\item[] \bb ${\color{blue} x-\bunsuu{x^3}{3!}}<\sin x<{\color{red}x}$\\
+%\iffigure
+\begin{zahyou}[ul=8mm](-4,4)(-2,2)
+\YGraph<linethickness=1pt>{sin(X)}
+\YGraph<linethickness=1pt,color=red>{X}
+\YGraph<linethickness=1pt,color=blue>{X-X*X*X/(3*2*1)}
+\end{zahyou}
+\item[] \bb ${\color{orange}1-\bunsuu{x^2}{2!}}<\cos x <{\color{green}1-\bunsuu{x^2}{2!}+\bunsuu{x^4}{4!}}$\\
+\begin{zahyou}[ul=8mm](-4,4)(-2,2)
+\YGraph<linethickness=1pt>{cos(X)}
+\YGraph<linethickness=1pt,color=orange>{1-X*X/(2*1)}
+\YGraph<linethickness=1pt,color=green>{1-X*X/(2*1)+X*X*X*X/(4*3*2*1)}
+\end{zahyou}
+%\fi
+\eeda
+これを繰り返していくと，$\sin x$，$\cos x$の多項式近似が見えてくる；
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow,
+title={\bb $\sin x$，$\cos x$のテイラー展開},
+coltitle=black]
+\bb 
+$\sin x=x-\bunsuu{x^3}{3!}+\bunsuu{x^5}{5!}-\cdots+(-1)^{n-1}\bunsuu{x^{2n-1}}{(2n-1)!}+\cdots \ \ \ \cdotss\MARU{1}$\\
+$\cos x=1-\bunsuu{x^2}{2!}+\bunsuu{x^4}{4!}-\cdots+(-1)^{n-1}\bunsuu{x^{2n-2}}{(2n-2)!}+\cdots\ \ \ \cdotss\MARU{2}$
+\end{tcolorbox}
+
+\newpage
+
+{\bb\Large 第4回\ \ $e^x$を多項式関数で近似する}
+
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow]
+\bb 
+{\large 問．}\ \ $x>0$のとき，次の各不等式を証明せよ．ただし，$n$は自然数とする．
+\beda
+%\item $e^x>1$
+\item $e^x>1+x$
+\item $e^x>1+x+\bunsuu{x^2}{2!}$
+%\item $e^x>1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}$
+\item $e^x>1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\cdots+\bunsuu{x^n}{n!}$
+\eeda
+\end{tcolorbox}
+
+\begin{解答} \vspace{-2.5zw}
+\benu
+\item $f(x)=e^x-1-x$とおくと，$f'(x)=e^x-1>0$．\\
+よって，$f(x)$は単調増加ので，$f(x)>f(0)=0$．ゆえに，$e^x>1+x$．\hfill □
+\item $g(x)=e^x-1-x-\bunsuu{x^2}{2}$とおくと，$f'(x)=e^x-1-x>0\ \ \ \because\ \ \ \text{(i)}$．\\
+よって，$g(x)$は単調増加するので，$g(x)>g(0)=0$．ゆえに，$e^x>1+x+\bunsuu{x^2}{2}$．\hfill □
+\item $f_{n}(x)=e^x-1-x-\bunsuu{x^2}{2!}-\cdots-\bunsuu{x^n}{n!}$とおく．
+$k$を自然数とし$f_k(x)>0$と仮定すると，
+\begin{align*}
+f_{k+1}'(x)
+&=\left(e^x-1-x-\bunsuu{x^2}{2!}-\cdots-\bunsuu{x^{k+1}}{(k+1)!}\right)'\\
+&=e^x-1-x-\bunsuu{x^2}{2!}-\cdots-\bunsuu{x^k}{k!}=f_k(x)>0．
+\end{align*}
+よって，$f_{k+1}(x)$は単調増加するので，$f_{k+1}(x)>f_{k+1}(0)=0$．\\
+これと(i)より$f_1(x)>0$から，全ての自然数$n$に対して，$f_{n}(x)>0$が成立する．\\
+ゆえに，$e^x>1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\cdots+\bunsuu{x^n}{n!}$が成立する．\hfill □
+\eenu
+\end{解答}
+\beda<4>
+%\iffigure
+\item[] \hspace{-2zw}{\color{blue}$y=1+x$}\\
+\begin{zahyou}[ul=5mm](-3,3)(-1,5)
+%\YGraph{1}
+\YGraph<linethickness=1pt>{exp(X)}
+\YGraph<color=blue,linethickness=1pt>{1+X}
+%\YGraph<color=red,linethickness=1pt>{1+X+X*X/(2*1)}
+%\YGraph<color=orange,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)}
+%\YGraph<color=green,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)+X*X*X*X/(4*3*2*1)}
+\end{zahyou}
+\item[] \hspace{-2zw}{\color{red}$y=1+x+\bunsuu{x^2}{2!}$}\\
+\begin{zahyou}[ul=5mm](-3,3)(-1,5)
+%\YGraph{1}
+\YGraph<linethickness=1pt>{exp(X)}
+%\YGraph<color=pink,linethickness=1pt>{1+X}
+\YGraph<color=red,linethickness=1pt>{1+X+X*X/(2*1)}
+%\YGraph<color=orange,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)}
+%\YGraph<color=green,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)+X*X*X*X/(4*3*2*1)}
+\end{zahyou}
+\item[] \hspace{-2zw}{\color{orange} $y=1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}$}\\
+\begin{zahyou}[ul=5mm](-3,3)(-1,5)
+%\YGraph{1}
+\YGraph<linethickness=1pt>{exp(X)}
+%\YGraph<color=pink,linethickness=1pt>{1+X}
+%\YGraph<color=red,linethickness=1pt>{1+X+X*X/(2*1)}
+\YGraph<color=orange,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)}
+%\YGraph<color=green,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)+X*X*X*X/(4*3*2*1)}
+\end{zahyou}
+\item[] \hspace{-2zw}\scalebox{0.8}[1]{\color{green} $y=1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\bunsuu{x^4}{4!}$}\\
+\begin{zahyou}[ul=5mm](-3,3)(-1,5)
+%\YGraph{1}
+\YGraph<linethickness=1pt>{exp(X)}
+%\YGraph<color=pink,linethickness=1pt>{1+X}
+%\YGraph<color=red,linethickness=1pt>{1+X+X*X/(2*1)}
+%\YGraph<color=orange,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)}
+\YGraph<color=green,linethickness=1pt>{1+X+X*X/(2*1)+X*X*X/(3*2*1)+X*X*X*X/(4*3*2*1)}
+\end{zahyou}%\fi
+\eeda
+(3)の不等式において，右辺の級数は増加数列であり，かつ，$e^x$を超えないので，収束することがわかる．実は，その極限は左辺に一致することが知られている；
+%\[e^x \geqq 1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\cdots+\bunsuu{x^n}{n!}+\cdots\]
+%となることがわかる．実は，これは等式になる；
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow,
+title={\bb $e^x$のテイラー展開},
+coltitle=black]
+\bb 
+$e^x=1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\cdots+\bunsuu{x^n}{n!}+\cdots$
+\end{tcolorbox}
+この等式の証明は大学以降に譲る．ここに$x=1$を代入すると
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow,
+title={\bb 自然対数の底$e$の値の近似式},
+coltitle=black]
+\bb 
+$e=1+1+\bunsuu{1}{2!}+\bunsuu{1}{3!}+\cdots+\bunsuu{1}{n!}+\cdots$
+\end{tcolorbox}
+が得られる．これはなかなか収束の速い近似式で，実用性が高い．
+%また，$x$を$x i$に形式的に置き換えて，前ページの$\MARU{1}$，$\MARU{2}$と組み合せれば
+%\begin{tcolorbox}[enhanced,
+%frame style={left color=orange!50!white,
+%right color=black!50!orange},
+%colback=black!0!white,
+%drop fuzzy shadow,
+%title={\bb 指数関数と三角関数の関係式},
+%coltitle=black]
+%\bb 
+%$e^{ix}=\cos x +i\sin x$
+%\end{tcolorbox}
+%を得る．さらに，$x=\pi$とすると，有名な公式が導かれる；
+%\begin{tcolorbox}[enhanced,
+%frame style={left color=orange!50!white,
+%right color=black!50!orange},
+%colback=black!0!white,
+%drop fuzzy shadow,
+%title={\bb オイラーの公式},
+%coltitle=black]
+%\bb 
+%$e^{i\pi}=-1$
+%\end{tcolorbox}
+
+%\newpage
+%
+%\begin{tcolorbox}[enhanced,
+%frame style={left color=orange!50!white,
+%right color=black!50!orange},
+%colback=black!0!white,
+%drop fuzzy shadow,
+%title={\bb $n$次導関数},
+%coltitle=black]
+%\bb 
+%\begin{align*}
+%(\sin x)^{(n)}&=
+%%\barr  (-1)^{\frac {n-1}2}\cos x\ (n\ は奇数)\\
+%%(-1)^{\frac n2}\sin x\ (n\ は偶数)
+%% \earr\\
+%\left\{\begin{array}{rl} 
+%\sin x\ &(n=4k)\\
+%\cos x\ &(n=4k+1)\\
+%-\sin x\ &(n=4k+2)\\
+%-\cos x\ &(n=4k+3)\
+% \end{array}\right.=\sin\left(x+\bunsuu{n}{2}\pi\right)\\
+%(\cos x)^{(n)}&=
+%\left\{\begin{array}{rl}
+%\cos x\ &(n=4k)\\
+%-\sin x\ &(n=4k+1)\\
+%-\cos x\ &(n=4k+2)\\
+%\sin x\ &(n=4k+3)
+% \end{array}\right.=\cos\left(x+\bunsuu{n}{2}\pi\right)\\
+%%\barr
+%% (-1)^{\frac {n+1}2}\sin x\ (n\ は奇数)\\
+%% (-1)^{\frac n2}\cos x\ (n\ は偶数)
+%% \earr\\
+%(e^x)^{(n)}&=e^x
+%\end{align*}
+%%\\
+%%\log x&=1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\bunsuu{x^4}{4!}+\cdots\\
+%\end{tcolorbox}
+
+
+
+%\newpage
+%
+%\begin{tcolorbox}[enhanced,
+%frame style={left color=orange!50!white,
+%right color=black!50!orange},
+%colback=black!0!white,
+%drop fuzzy shadow,
+%title={\bb テイラーの定理},
+%coltitle=black]
+%\bb 
+%$n$階微分可能な関数$f(x)$に対して
+%\[f(x)=f(a)+f'(a)(x-a)+\bunsuu{f''(0)}{2!}(x-a)^2+\cdots\]
+%\end{tcolorbox}
+%
+%\begin{証明}
+%$x \neq 0$とすると，平均値の定理より，$0$と$x$の間の$c$で
+%\[\bunsuu{f(x)-f(0)}{x}=f'(c)\]
+%となるものが存在する．
+%\end{証明}
+%
+%
+%\begin{tcolorbox}[enhanced,
+%frame style={left color=orange!50!white,
+%right color=black!50!orange},
+%colback=black!0!white,
+%drop fuzzy shadow,
+%title={\bb テイラー展開},
+%coltitle=black]
+%\bb 
+%\begin{align*}
+%\sin x&=x-\bunsuu{x^3}{3!}+\bunsuu{x^5}{5!}-\cdots\\
+%\cos x&=1-\bunsuu{x^2}{2!}+\bunsuu{x^4}{4!}-\cdots\\
+%e^x&=1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\bunsuu{x^4}{4!}+\cdots
+%\end{align*}
+%%\\
+%%\log x&=1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\bunsuu{x^4}{4!}+\cdots\\
+%\end{tcolorbox}
+
+
+
+
+
+
+\iffuru
+}\kaisetukaitou
+\fi                                                                 
+
+\end{document}

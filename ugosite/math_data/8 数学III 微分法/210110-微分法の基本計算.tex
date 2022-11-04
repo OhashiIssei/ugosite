@@ -1,0 +1,520 @@
+\newif\iffuru
+%\furutrue%フルバージョン
+\furufalse%解説のみ
+
+\newif\iffigure%図表
+\figuretrue%図表あり
+%\figurefalse%図表なし
+
+\documentclass[10pt,
+a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+%\usepackage{アプローチ}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{ascmac}
+%\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathC}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPp}
+\usepackage{emathPl}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage{emathPs}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=20truemm,bottom=20truemm,left=12truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage{fancyhdr}%ヘッダの設定
+\usepackage{cancel}%消し取り線
+\usepackage{ifthen}
+%\usepackage{exam}
+\usepackage{tcolorbox}
+
+%ページレイアウト
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+
+%\pagestyle{headings}
+\pagestyle{empty}%ページ番号を消す
+% \pagestyle{fancy}
+%  \fancyhead{}
+%  \fancyhead[RO,RE]{\rightmark}
+%%  \fancyhead[LE,LO]{\leftmark}
+%  \cfoot{\thepage}
+%  \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+%  \renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+ 
+%\markboth{}{\thesection}
+ 
+%\fancyhead{} % clear all fields
+%\fancyhead[CE]{偶数ページ}
+%\fancyhead[CO]{奇数ページ}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%問題レイアウト
+\newcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\newcommand{\bqu}{\begin{tcolorbox}\vspace{0.5zw}\begin{question}}
+\newcommand{\equ}{\end{question}\vspace{0.5zw}\end{tcolorbox}}
+\newcommand{\mondaisettei}{\kaisetukaitoufalse
+\renewcommand{\sub}{\subsection}
+\renewcommand{\bqu}{\vspace{0.5zw}\begin{question}}
+\renewcommand{\equ}{\end{question}\vspace{3zw}\vfill}
+}%問題設定
+\newcommand{\kaisetutukinosettei}{\kaisetukaitoutrue
+\renewcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\renewcommand{\bqu}{\begin{tcolorbox}\vspace{0.5zw}\begin{question}}
+\renewcommand{\equ}{\end{question}\vspace{0.5zw}\end{tcolorbox}}
+}%解答解説の設定
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\vspace{-1zw}\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+%\newcommand{\bb}{\gtfamily\ebseries\boldmath}%全部極太にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{\bb 第\arabic{subsection}回
+\ }
+\renewcommand{\theQuestion}{%\arabic{subsection}-
+\arabic{Question}．}
+
+%横に縦線
+\usepackage{framed}
+
+\makeatletter
+\renewenvironment{leftbar}{%
+\def\FrameCommand{\vrule width 1pt \hspace{1zw}}
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+
+\newenvironment{leftbbar}{%
+\def\FrameCommand{\color{mygray} \vrule width 5pt \hspace{1zw}
+\color{black}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+%アプローチ
+\newenvironment{アプローチ}{
+\hspace{-2zw}\underbar{\bf Approach}\vspace{-1zw}\begin{leftbar}}{\end{leftbar}}
+\newenvironment{アプローチ1}{
+\hspace{-2zw}\underbar{\bf Approach1}\vspace{-1zw}\begin{leftbar}}{\end{leftbar}}
+\newenvironment{アプローチ2}{
+\hspace{-2zw}\underbar{\bf Approach2}\vspace{-1zw}\begin{leftbar}}{\end{leftbar}}
+\newenvironment{解答}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答1}{\ifkaisetukaitou
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答1\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答2}{\ifkaisetukaitou
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答2\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答3}{\ifkaisetukaitou
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答3\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+
+\usepackage{qrcode}%QRコード
+\setlength\normallineskiplimit{0pt}
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+\definecolor{mygray}{gray}{0.75}
+
+%はやくち解説ボタン
+\usepackage[dvipdfmx]{hyperref}%ハイパーリンク
+\usepackage{pxjahyper}
+\newcommand{\botanA}{\LARGE\color{usumido}l\includegraphics[width=1.7cm,height=0.4cm,bb=0 0 1489 436]{はやくち解説ボタン3.jpeg}l}
+%\hypersetup{% hyperrefオプションリスト
+%setpagesize=false,
+% bookmarksnumbered=true,%
+% bookmarksopen=true,%
+% colorlinks=true,%
+% linkcolor=blue,
+% citecolor=red,
+%}
+
+\newif\ifkaisetukaitou
+
+\newcommand{\kaisetukaitou}{%問題のみ
+\mondaisettei
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\kaisetutukinosettei
+\myfor{1} % ループ実行   
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+%\myfor{1} % ループ実行   
+}
+\begin{document}
+
+%\kaisetutukinosettei
+\mondaisettei
+
+\iffuru
+\newcommand{\myfor}[1]{
+\fi
+
+{\bb\Large 微分法の基本}
+
+%\bqu{\bb 微分係数の定義}\\
+%次の関数の導関数を，導関数の定義に基づいて求めよ．
+%\beda
+%\item $y=\sin x$
+%\item $y=\log x$
+%\eeda
+%\equ
+
+\bqu{\bb 微分公式の証明(導関数の定義)}\\
+次の関数の導関数を，導関数の定義に基づいて求めよ．
+\beda<4>
+\item $y=\sin x$
+%\item $y=\cos x$
+\item $y=x^n$
+%\item $y=\bunsuu 1x$
+%\item $y=\sq{x}$
+\item $y=\log x$
+\item $y=e^x$
+\eeda
+\equ
+
+%\bqu{\bb 積/商の微分公式の証明}\\
+%次を示せ．
+%\beda
+%\item $\{f(x)g(x)\}'=f'(x)g(x)+f(x)g'(x)$
+%\item $\left\{\bunsuu{f(x)}{g(x)}\right\}'=\bunsuu{f'(x)g(x)-f(x)g'(x)}{\{g(x)\}^2}$
+%\eeda
+%\equ
+
+%\bqu{\bb 合成関数微分公式の証明}\\
+%%$\bunsuu{dy}{dx}=\bunsuu{dx}{dt}\cdot \bunsuu{dt}{dx}$を示せ．%，\ \ \ \ \ すなわち，
+%微分公式$\{(f(g(x))\}'=f'(g(x))\cdot g'(x)$
+%%\item $\bunsuu{dy}{dx}=\bunsuu{1}{\bunsuu{dx}{dy}}$を示せ．
+%%\eeda
+%\equ
+
+\bqu{\bb 微分公式の証明(合成関数，積/商の微分利用)}\\
+%次の問いに答えよ．
+合成関数，積/商の微分公式を用いて，次の導関数を求めよ．ただし，$a$は1でない正の定数，$\alpha$は実数の定数である．
+\beda<3>
+\item $y=\cos x$
+\item $y=\tan x$
+\item $y=\log|x|$
+\item $y=a^x$\ \ 
+%\item $(e^x)'=e^x$を用いて，$y=\log x$を微分せよ．
+\item $y=\log_a x$\ 
+%\item $(x^{\alpha})'=\alpha x^{\alpha-1}$\ $(\alpha\ は実数)$を示せ．
+\item $y=x^{\alpha}$\ 
+\eeda
+\equ
+
+%\bqu{\bb 微分公式の証明}\\
+%%次の問いに答えよ．
+%合成関数，積/商の微分公式を用いて，次の導関数を求めよ．
+%\benu
+%\item $(\sin x)'=\cos x$を用いて$y=\cos x$を微分せよ．
+%\item $\tan x=\bunsuu{\sin x}{\cos x}$用いて$y=\tan x$を微分せよ．
+%\item $(\log x)'=\bunsuu 1x$を用いて$y=\log|x|$を微分せよ．
+%\item $(e^x)'=e^x$を用いて$y=2^x$を微分せよ．
+%%\item $(e^x)'=e^x$を用いて，$y=\log x$を微分せよ．
+%\item $(\log x)'=\bunsuu 1x$を用いて$y=\log_2 x$を微分せよ．
+%%\item $(x^{\alpha})'=\alpha x^{\alpha-1}$\ $(\alpha\ は実数)$を示せ．
+%\item $(e^x)'=e^x$を用いて$y=x^{\alpha}$を微分せよ．
+%\eenu
+%\equ
+
+\bqu{\bb 合成関数の微分練習}\\
+次の関数を微分せよ．
+\beda
+\item $y=\sq{x^2+1}$
+\item $y=\log(3x-2)$
+\eeda
+\equ
+
+%\bqu{\bb 合成関数の微分}\\
+%次の関数を微分せよ．
+%\beda<3>
+%\item $y=\bunsuu1{2x+1}$
+%\item $y=\bunsuu1{x^2+1}$
+%\item $y=\bunsuu1{\sq{x^2-1}}$
+%\item $y=\sq{3-2x}$
+%\item $y=\sq{2-x^2}$
+%\item $y=\cos2x$
+%\item $y=\sin^2 x$
+%\item $y=\cos^3 x$
+%\item $y=e^{-2x}$
+%\item $y=e^{-\bunsuu{x^2}{2}}$
+%\item $y=\log(3x)$
+%\item $y=(\log x)^2$
+%\item $y=\log x(1-x)$
+%\item $y=\log (x^2+x+1)$
+%\item $y=\log|\cos x|$
+%\eeda
+%\equ
+
+%\bqu{\bb 微分公式の証明\ (積/商の微分利用)}\\
+% $\tan x=\bunsuu{\sin x}{\cos x}$を用いて，関数$y=\tan x$を微分せよ．
+%\equ
+
+\bqu{\bb 積/商の微分練習}\\
+次の関数を微分せよ．
+\beda<3>
+\item $y=(x^2+1)e^x$
+\item $y=\bunsuu{\sin x}{x}$
+\item $y=e^{2x}\cos x$
+\eeda
+\equ
+
+%\bqu{\bb 対数微分法}\\
+%
+%\equ
+
+%\bqu{\bb 積/商の微分}\\
+%次の関数を微分せよ．
+%\beda<3>
+%\item $y=(x-2)^4(2x+1)$
+%\item $y=\bunsuu{2x}{x-1}$
+%\item $y=\bunsuu{x^2+1}{(x-3)^2}$
+%\item $y=\bunsuu{2x^2+x+8}{x^2+3}$
+%\item $y=x\sq{4-x}$
+%\item $y=\bunsuu{(x+1)\sq{x+1}}{x^2}$
+%\item $y=\bunsuu 1{\tan x}$
+%\item $y=\sin 3x\cos 2x$
+%\item $y=\bunsuu{\cos x}{1+\sin x}$
+%\item $y=\bunsuu{e^x}{e^x+1}$
+%\item $y=\bunsuu{e^x-e^{-x}}{e^x+e^{-x}}$
+%\item $y=\bunsuu{\log x}{\sq x}$
+%\item $y=x\log(2x)$
+%\item $y=\bunsuu{2x-1}{e^x}$
+%\item $y=e^{-x}\sin 3x$
+%\eeda
+%\equ
+
+%\bqu{\bb やや複雑な微分計算}\\
+%次の関数を微分せよ．
+%\beda<3>
+%\item $y=\bunsuu{x\sin x}{1+\cos x}$
+%\item $y=\log(x+\sq{x^2+1})$
+%\item $y=xe^{-\frac{x^2}{2}}$
+%\eeda
+%\equ
+
+%\bqu{\bb やや複雑な微分計算}\\
+%次の関数を微分せよ．
+%\beda<3>
+%\item $y=x\sq{2-x^2}$
+%\item $y=\bunsuu{x}{\sq{x^2-4}}$
+%\item $y=\sq{\bunsuu{1+x}{1-x}}$
+%\item $y=\bunsuu{x}{x+\sq{x^2+1}}$
+%\item $y=\bunsuu 12\left\{x\sq{x^2+4}+4\log(x+\sq{x^2+4})\right\}$
+%\item $y=\bunsuu{(1+x^2)^{\frac 32}}{x}$
+%\item $y=\log\bunsuu{1+\sq{1-x^2}}{x}-\sq{1-x^2}$
+%\item $y=\sin x \cos^3 x$
+%\item $y=\bunsuu{\sin x}{\sq{1-\cos x}}$
+%\item $y=\log\left|\tan\bunsuu x2\right|$
+%\item $y=e^x \cos^2 x$
+%\item $y=\log\bunsuu{1+\cos x}{1-\cos x}$
+%\eeda
+%\equ
+
+\bqu{\bb 少し進んだ微分計算}\\
+次の各々について，$\bunsuu{dy}{dx}$を求めよ．
+\beda
+\item $x^2+y^2=1$\ \ \ $(xとyで表せ)$
+\item $\barr
+x=\cos^3 t\\ y=\sin^3 t 
+\earr$\ $(tで表せ)$
+\eeda
+\equ
+
+\bqu{\bb 対数微分法}\\
+ 関数$y=x^x$\ $(x>0)$を微分せよ．
+\equ
+
+%\bqu{\bb そのほかの微分法}\\
+%次の各々について，$\bunsuu{dy}{dx}$を求めよ．
+%\beda
+%\item $x=\sin y\ \left(-\bunsuu{\pi}{2} < y<\bunsuu{\pi}{2}\right)$\ \ $(xで表せ)$
+%\item $\barr x=(1+\cos \theta)\cos \theta \\
+%(1+\cos \theta)\sin \theta \earr$\ $(\theta で表せ)$
+%\item $\bunsuu{x^2}{9}+\bunsuu{y^2}{4}=1\ \ (x,\ y で表せ)$
+%\item $y=x^x\ \ (x >0)$
+%\eeda
+%\equ
+
+\newpage
+
+\bqu{\bb 接線・法線}\\
+次の直線の方程式を求めよ．
+\benu
+\item 曲線$y=\sq{x^2-3}$の点$(2,\ 1)$における接線$l_1$
+\item 点$(0,\ 1)$から曲線$y=\log x$に引いた接線$l_2$
+\item 曲線$y=\cos x$の，$x=t$における法線$l_3$
+\eenu
+\equ
+
+\bqu{\bb 増減を調べる}\\
+次の関数の増減を調べよ．
+\benu
+\item $f(x)=\sq x-\log x$\ \ $(x>0)$
+\item $g(x)=\cos 3x-3\cos x$\ \ $\left( 0\leqq x \leqq \bunsuu{\pi}{2}\right)$
+\eenu
+\equ
+
+\bqu{\bb $f'(x)$を用いたグラフ(1)}\\
+ 関数$y=\bunsuu{x^2}{x-1}$の増減を調べ，そのグラフを描け．また，漸近線についても調べよ．
+\equ
+
+\bqu{\bb $f'(x)$を用いたグラフ(2)}\\
+次の関数の増減を調べ，そのグラフを描け．
+\beda
+\item $y=\bunsuu{\log x}{x}$
+\item $y=\sin x(1-\cos x)$\ \ $(-\pi \leqq x \leqq \pi)$
+\eeda
+\equ
+
+\bqu{\bb $f''(x)$まで用いたグラフ}\\
+次の関数のグラフの概形を描け．
+\[y=\bunsuu{x}{e^x}\]
+\equ
+
+\bqu{\bb パラメタ曲線}\\
+媒介変数表示された曲線$C$の概形をかけ．
+\[\barr x=t-\sin t\\ y=1-\cos t \earr\ \ (0 \leqq t\leqq 2\pi)\]
+\equ
+
+%\bqu{\bb 最大・最小}\\
+%次の関数の最大・最小を求めよ．
+%\beda
+%\item $f(\theta)=\bunsuu{\sin\theta}{3-2\cos^2\theta}$\ \ $(0<\theta<\pi)$
+%\item $y=x(\sq{12-x^2})^3$\ \ $(1<x<2\sq 3)$
+%\eeda
+%\equ
+
+\newpage
+
+%\bqu{\bb 分数関数の極値}\\
+%関数$f(x)=\bunsuu{4x+3}{x^2-x+1}$の極小値を求めよ．
+%\equ
+%
+%\bqu{\bb 極値，変曲点をもつ条件}\\
+%次の各々の問いに答えよ．
+%\benu
+%\item $f(x)=\sin x+ax$が極値をもたないのは，定数$a$がどんな値のときか．
+%\item $f(x)=x^4-4x^3+6ax^2$とする．$y=f(x)$が変曲点をもつのは，$a$がどんな値のときか．
+%\eenu
+%\equ
+%
+%\bqu{\bb 極値から係数決定}\\
+%関数$f(x)=\cos2x+a\cos x+b$は，$x=\bunsuu{\pi}{3}$で極値1ような定数$a$，$b$の値を求めよ．
+%\equ
+%
+%\bqu{\bb 最大・最小}\\
+%関数$f(x)=x+\sq{2x-x^2}$\ $(0\leqq x \leqq 2)$の増減を調べ，その最大値，最小値を求めよ．
+%\equ
+%
+%\bqu{\bb 三角関数の最小値}\\
+%$y=2\sin x+\sq 3\sin 2x$の最小値を求めよ．
+%\equ
+%
+%\bqu{\bb $\sin x$，$\cos x$の多項式評価}\\
+%$x>0$のとき，次の不等式が成り立つことを示せ．
+%\benu
+%\item $\cos x >1-\bunsuu{x^2}{2!}$
+%\item $\sin x >x-\bunsuu{x^3}{3!}$
+%\item $\cos x >1-\bunsuu{x^2}{2!}+\bunsuu{x^4}{4!}$
+%\eenu
+%ただし，$x>0$のとき，不等式$\sin x<x$が成り立つことは証明せずに用いて良い．
+%\equ
+%
+%\bqu{\bb $e^x$の多項式評価}\\
+%$x>0$のとき，次の不等式が成り立つことを証明せよ．
+%\beda
+%\item $e^x >1+x+\bunsuu{x^2}{2!}$
+%\item $e^x >1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}$
+%\eeda
+%\equ
+%
+%\bqu{\bb $e^x$の多項式評価}\\
+%$n$を任意の自然数とする．$x>0$のとき，不等式
+%\[e^x >1+x+\bunsuu{x^2}{2!}+\cdots+\bunsuu{x^n}{n!}\]
+%が成り立つことを数学的帰納法で証明せよ．
+%\equ
+%                     
+
+\iffuru
+}\kaisetukaitou
+\fi
+
+\end{document}

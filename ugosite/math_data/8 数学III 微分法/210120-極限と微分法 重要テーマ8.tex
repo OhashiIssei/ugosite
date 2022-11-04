@@ -1,0 +1,254 @@
+\documentclass[10pt,
+a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+\usepackage{comment}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+%\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=5truemm,bottom=10truemm,left=7truemm,right=5truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+
+%ページレイアウト
+\setlength{\columnseprule}{0.4pt}
+\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+\pagestyle{empty}%ページ番号を消す
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+\newcommand{\sub}{%\newpage%サブセクション毎に改ページ
+\subsection}
+\newcommand{\bqu}{\begin{question}}
+\newcommand{\equ}{\end{question}\vfill}
+\newcommand{\bQ}{\setcounter{equation}{0}\begin{Q}}
+\newcommand{\eQ}{\end{Q}}
+\newcommand{\bquu}{\begin{leftbar}}
+\newcommand{\equu}{\end{leftbar}}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+\newtheorem{tyuu}{}[subsection]
+\newcommand{\btyu}{\begin{tyuu}}
+\newcommand{\etyu}{\end{tyuu}}
+\renewcommand{\thetyuu}{\protect\makebox[2em][c]
+{注意}
+\ \ }
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\vspace{-1zw}\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{
+\Large\bb\Alph{subsection}
+\ }
+\renewcommand{\theQ}{{\underline{$\overline{\bb \ 追加問題\ }$}}
+\ \ }
+\renewcommand{\theQuestion}{
+\arabic{Question}．}
+\renewcommand{\thequuestion}{{\underline{$\overline{\bb \ 性質\ }$}}
+\ \ }
+
+%横に縦線
+\usepackage{framed}
+\newcommand{\bche}{\begin{leftbar}
+%\underbar{ホワイトボード}\\
+}
+\newcommand{\eche}{\end{leftbar}}
+\newcommand{\bcha}{\begin{leftbar}}
+\newcommand{\echa}{\end{leftbar}}
+\newcommand{\bapp}{\hspace{-2zw}\underbar{\bf Approach}\vspace{-1zw}\begin{leftbar}}
+\newcommand{\eapp}{\end{leftbar}}
+\newcommand{\bmem}{\hspace{-2zw}\underbar{\bf Memo}\vspace{-1zw}\begin{leftbar}}
+\newcommand{\emem}{\end{leftbar}}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\renewcommand{\bar}{\overline}
+\renewcommand{\Re}{\text{Re}}
+\renewcommand{\Im}{\text{Im}}
+\renewcommand{\dlim}{\displaystyle\lim}
+
+\makeatletter
+\renewenvironment{leftbar}{%
+%  \def\FrameCommand{\vrule width 3pt \hspace{10pt}}%  デフォルトの線の太さは3pt
+\def\FrameCommand{\vrule width 1pt \hspace{-3zw}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+
+%はやくち解説ボタン
+\usepackage[dvipdfmx]{hyperref}%ハイパーリンク
+\usepackage{pxjahyper}
+\newcommand{\botanA}{\LARGE\color{usumido}l\includegraphics[width=1.7cm,height=0.4cm,bb=0 0 1489 436]{はやくち解説ボタン3.jpeg}l}
+%\hypersetup{% hyperrefオプションリスト
+%setpagesize=false,
+% bookmarksnumbered=true,%
+% bookmarksopen=true,%
+% colorlinks=true,%
+% linkcolor=blue,
+% citecolor=red,
+%}
+
+\newcommand{\barabara}{%一問ずつのページを別で作成
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\renewcommand{\bqu}{\begin{question}}
+\renewcommand{\equ}{\end{question}\newpage}
+\renewcommand{\eQ}{\end{Q}\newpage}
+\renewcommand{\equu}{\end{quuestion}\newpage}
+\renewcommand{\equu}{\end{quuestion}\newpage}
+%\myfor{1} % ループ実行   
+
+\newpage
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+\myfor{1} % ループ実行   
+}
+\usepackage{qrcode}%QRコード
+\setlength\normallineskiplimit{0pt}
+
+\begin{document}
+
+\newcount\K % int K
+\def\myfor#1{%
+\K=0 \loop\ifnum\K<1 % for(K=0;K<2;K++)
+
+{\bb\Large 極限と微分法 重要テーマ8つ}
+
+\bqu{\bb  解けない漸化式と極限}\\
+数列$\{a_n\}$は，$0<a_1<3$，$a_{n+1}=1+\sq{1+a_n}$\ $(n=1,2,3,\cdots)$を満たすものとする．このとき，以下を示せ．
+\benu
+\item $n=1,\ 2,\ 3,\ \cdots$に対して，$0<a_n<3$
+\item $n=1,\ 2,\ 3,\ \cdots$に対して，$3-a_n \leqq \left(\bunsuu 13\right)^{n-1}(3-a_1)$
+\item $\dlim_{n \to\infty} a_n=3$
+\eenu
+\equ
+
+\bqu{\bb 格子点と極限}\\
+$a$，$m$は自然数で$a$は定数とする．$xy$平面上の点$(a,\ m)$を頂点とし，原点と点$(2a,\ 0)$を通る放物線を考える．この放物線と$x$軸で囲まれる領域の面積を$S_m$，この領域の内部および境界線上にある格子点数を$L_m$とする．このとき極限値$\dlim_{m \to\infty}\bunsuu{L_m}{S_m}$を求めよ．\\
+\hfill(京大)
+\equ
+
+\bqu{\bb 関数の極限}\\
+$k$を正の定数とする．曲線$y=\cos kx$と3直線$x=-\theta$，$x=0$，$x=\theta$\ $\left(0<\theta<\bunsuu{2\pi}{k}\right)$との交点を通る円の中心をPとする．$\theta$が0に近づくとき，Pはどのような点に近づくか．\hfill(東北大)
+\equ
+
+\bqu{\bb 連続性と微分可能性，関数方程式}\\
+実数全体で定義された実数値をとる関数$f(x)$，$g(x)$がある．任意の実数$a$，$b$に対し，
+\[f(a+b)=f(a)g(b)+f(b)g(a)，\]
+\[f(a-b)=f(a)g(b)-f(b)g(a)\]
+を常に満たすものとし，$f(x)$は恒等的には0でないとする．次の問いに答えよ．
+\benu
+\item $f(0)$，$g(0)$をそれぞれ求めよ．
+\item 任意の実数$x$，$h$に対して$f(x+2h)-f(x)=2f(h)g(x+h)$が成り立つことを示せ．
+\item $f(x)$が$x=0$で微分可能であるとき，$f'(x)$を$f'(0)$と$g(x)$で表せ．\hfill(名古屋市立大)
+\eenu
+\equ
+
+\newpage
+
+\bqu{\bb 関数の極大・極小}\\
+関数$f(x)=\bunsuu{1}{1+e^{-px}}-ax$が極値をもつような定数$a$の値の範囲を定めよ．ただし，$p$は正の定数である．\hfill(北大)
+\equ
+
+\bqu{\bb 関数の最大・最小}\\
+二等辺三角形の等辺は一定であるとき，内接円の面積が最大となる場合の等辺と底辺の比を求めよ．\hfill(岩手大)
+\equ
+
+\bqu{\bb 方程式への応用}\\
+関数$f(x)=\bunsuu{x}{\log x}\ (x >1)$について，次の問いに答えよ．
+\benu
+\item $y=f(x)$の増減，グラフの凹凸を調べ，グラフの概形をかけ．
+\item $x$軸上の点P$(a,\ 0)$を通り曲線$y=f(x)$に接する直線が，2本引けるように$a$の値の範囲を定めよ．\hfill(旭川医大)
+\eenu
+\equ
+
+\bqu{\bb 不等式への応用}
+\benu
+\item $x$を正数とするとき，$\log\left(1+\bunsuu 1x\right)$と$\bunsuu{1}{x+1}$の大小を比較せよ．
+\item $\left(1+\bunsuu{2001}{2002}\right)^{\frac{2002}{2001}}$と$\left(1+\bunsuu{2002}{2001}\right)^{\frac{2001}{2002}}$の大小を比較せよ．\hfill(名大)
+\eenu
+\equ
+
+\advance\K by 1\repeat }
+
+\barabara
+                                                                                  
+
+\end{document}

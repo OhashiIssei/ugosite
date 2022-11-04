@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+
+{% block title %}
+  <title> {{ term.name }}</title>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ term }} ( {{ term.hurigana }} )</h2>
+  
+    <p>
+        {{ term.description | safe}}
+    </p>
+    
+    <div style="margin-left:20px;margin-top:20px">
+      <h3>関連記事</h3>
+      <ul>
+        {% for article in term.article_set.all  %}
+        <li>
+          <a href="{{ article.get_absolute_url }}">{{ article.headline }}</a>
+          {{ article.description |truncatechars:15}}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div style="margin-left:20px;margin-top:20px">
+      <h3>関連動画</h3>
+      <ul>
+        {% for video in term.video_set.all  %}
+        <li>
+          <a href="{{ video.get_absolute_url }}">{{ video.title }}</a>
+          <p>{{ video.problem.text | safe}}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+{% endblock %}

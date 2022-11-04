@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><h1>開発ログ 3/7</h1></div>
+<div><br></div>
+<div>1．わからないことは大抵、チュートリアルに書いてあった．というオチ．</div>
+<div>	https://docs.manim.community/en/stable/tutorials.html<br></div>
+<div><br></div>
+<div>2．カメラの動きと関係なくディスプレイに表示させるが部分的に解決した．</div>
+<div>というか，やりたかったことは「カメラとは独立に」ではなく，</div>
+<div>「カメラに追付いさせて」が正解だった．</div>
+<div>Movingカメラのメソッドであるget_frame_centerを使って，</div>
+<div>カメラに対して，相対的に座標を取得し，Mobjectをupdaterで位置とサイズをつい付いさせた．</div>
+<div>ここで問題が一つ．updaterの性質上なのか，なんなのか，updater内で.scaleを使うとバグが発生した．</div>
+<div>おそらく，その瞬間のカメラのサイズを読み取り，それを次の瞬間に反映させるがゆえのバグだと思われる．</div>
+<div>やむなく，always_redrawで大概した．</div>
+<div><br></div>
+<div>3．2の方法で，画面上のテキストのサイズをすべて一定にしてしまうと，</div>
+<div>モブジェクトが伸び縮みしているような錯角が起こることがある．</div>
+<div>サイズの基準となるものを画面上に配置しておくことが効果的である．</div>
+<div>例えば，単なるキャラが置いてあっても良い．</div>
+<div><br></div>
+<div>4．defによる関数定義をマスターして、もっと綺麗なコードを書いてみたい．</div>
+<div>おそらく省略できるであろう部分をリストしてみる．</div>
+<div>1．labeltextをupdaterで追付いさせるとき，mobjectとlabeltextの2変数関数を定義する</div>
+<div>2．stroke_widthをcamera_frame_widthに合わせたいとき，このupdater自体を関数化する．</div>
+<div>3．Sceneを細かく分け，定義を複数にシーン全体に反映させる．</div>
+<div><br></div>
+<div>5．__int__が意味するものが知りたい．</div>
+<div><br></div>
+<div><br></div>
+<div><br> </div>

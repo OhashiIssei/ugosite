@@ -1,0 +1,369 @@
+\newif\iffuru
+%\furutrue%フルバージョン
+\furufalse%解説のみ
+
+\newif\iffigure
+%\figuretrue%図表あり
+\figurefalse%図表なし
+
+\documentclass[10pt,
+b5paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+%\usepackage{アプローチ}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{ascmac}
+%\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathC}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPp}
+\usepackage{emathPl}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage{emathPs}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=12truemm,bottom=12truemm,left=12truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage{fancyhdr}%ヘッダの設定
+\usepackage{cancel}%消し取り線
+\usepackage{ifthen}
+%\usepackage{exam}
+\usepackage{tcolorbox}
+\usepackage{extarrows}%伸縮性のある矢印
+
+%ページレイアウト
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+
+%\pagestyle{headings}
+\pagestyle{empty}%ページ番号を消す
+% \pagestyle{fancy}
+%  \fancyhead{}
+%  \fancyhead[RO,RE]{\rightmark}
+%%  \fancyhead[LE,LO]{\leftmark}
+%  \cfoot{\thepage}
+%  \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+%  \renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+ 
+%\markboth{}{\thesection}
+ 
+%\fancyhead{} % clear all fields
+%\fancyhead[CE]{偶数ページ}
+%\fancyhead[CO]{奇数ページ}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%問題レイアウト
+\tcbuselibrary{raster,skins}
+\newenvironment{黒tcolorbox}{
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!80!orange},
+colback=black!0!white,
+drop fuzzy shadow]}{\end{tcolorbox}}
+\newcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\newcommand{\bqu}{\begin{黒tcolorbox}\begin{question}}
+\newcommand{\equ}{\end{question}\end{黒tcolorbox}}
+\newcommand{\mondaisettei}{\kaisetukaitoufalse
+\renewcommand{\sub}{\subsection}
+\renewcommand{\bqu}{\vspace{0.5zw}\begin{question}}
+\renewcommand{\equ}{\end{question}\vspace{3zw}\vfill}
+}%問題設定
+\newcommand{\kaisetutukinosettei}{\kaisetukaitoutrue
+\renewcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\renewcommand{\bqu}{\begin{黒tcolorbox}\begin{question}}
+\renewcommand{\equ}{\end{question}\end{黒tcolorbox}}
+}%解答解説の設定
+
+%箇条書きの調整
+%\setlength{\itemsep}{5pt}      %2. ブロック間の余白
+%\setlength{\parskip}{0pt}      %4. 段落間余白．
+%\setlength{\itemindent}{0pt}   %5. 最初のインデント
+%\setlength{\labelsep}{5pt}     %6. item と文字の間
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+%\newcommand{\bb}{\gtfamily\ebseries\boldmath}%全部極太にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{\bb 第\arabic{subsection}回
+\ }
+\renewcommand{\theQuestion}{%\arabic{subsection}-
+\large\arabic{Question}．}
+
+%横に縦線
+\usepackage{framed}
+\makeatletter
+\renewenvironment{leftbar}{%
+\def\FrameCommand{\vrule width 1pt \hspace{1zw}}
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+\newenvironment{leftbbar}{%
+\def\FrameCommand{\color{mygray} \vrule width 5pt \hspace{1zw}
+\color{black}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+%アプローチ
+\newenvironment{アプローチ}{
+\hspace{-2zw}\underbar{\large \bf Approach}\begin{leftbar}}{\end{leftbar}}
+
+\newenvironment{解答}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newenvironment{証明}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 証明\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newenvironment{解答1}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答1\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答2}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答2\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答3}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答3\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newcommand{\kaitoui}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答1\ }}
+\newcommand{\kaitouii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答2\ }}
+\newcommand{\kaitouiii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答3\ }}
+
+%QRコード
+\usepackage{qrcode}
+\setlength\normallineskiplimit{0pt}
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+\definecolor{mygray}{gray}{0.75}
+
+\newif\ifkaisetukaitou
+
+\newcommand{\kaisetukaitou}{%問題のみ
+\mondaisettei
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\kaisetutukinosettei
+\myfor{1} % ループ実行   
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+%\myfor{1} % ループ実行   
+}
+\begin{document}
+
+{\bb\Large 第1回\ \ $1.1^n$と$n^{10}$のどちらがより速く発散するか？}
+
+%発散速度に関する極限公式とその証明をここにまとめておく．結果だけでなく，証明にも「二項定理」「はさみうちの手法」など多様な数学のテーマが現れるので，ぜひ一度証明を辿ってみてほしい．
+%大学入試においては，問題文中でこれらの結果が用意されていることもあるが，誘導に従ってこれを証明してから利用することも求められる．いずれはこれらの証明を，自分で1から再構成できるようになっておくとよい．
+%\hfill 大橋\\
+
+数列$\{1.1^n\}$も$\{n^{10}\}$も，無限大に発散することには変わりない．
+それでは，どちらの方が速く発散するだろうか？概数を表に示す．
+\[\small \begin{array}{c||r|r|r|r}
+\phantom{\bunsuu 11}n		&1		&10		&100	&1000	\\\hline
+\phantom{\bunsuu 11}1.1^n	&1.1	&2.5937424601	&13780.6123398224&246993291800603000000000000000000000000000\\\hline
+\phantom{\bunsuu 11}n^{10}	&1		&10000000000	&100000000000000000000&1000000000000000000000000000000
+\end{array}\]
+言葉を用意する．正の無限大に発散するような2つの数列$\{a_n\}$，$\{b_n\}$が$\dlim_{n \to \infty} \bunsuu{a_n}{b_n}=0$を満たすとき，$\{a_n\}$は$\{b_n\}$より速く発散する，といい，
+\[ nが十分に大きいとき，\ \ \ a_n \ll b_n\]
+と表す．これは$\dlim_{n \to \infty} \bunsuu{b_n}{a_n}=\infty$と同値である．
+%まずは，数列についてまとめると，次のようになる；
+
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!80!orange},
+colback=black!0!white,
+drop fuzzy shadow,
+title={\bb 各種数列の発散速度},
+coltitle=black]
+\bb 1より大きい実数$r$と自然数$k$に対して，\ \ \ $\dlim_{n\to\infty} \bunsuu{n^k}{r^n}=0，\ \ \ \ \ 
+\dlim_{n\to\infty} \bunsuu{r^n}{n!}=0$\vspace{0.5zw}\\
+つまり，$n\ が十分大きいとき，\ \ \ {n^k}\ll {r^n}\ll{n!}$
+\end{tcolorbox}
+
+%これらの数列の各項が正の数であることに注意して逆数を取ると，
+%\[\dlim_{n\to\infty} \bunsuu{r^n}{n^k}=\infty，\ \ \ \ \ 
+%\dlim_{n\to\infty} \bunsuu{n!}{r^n}=\infty\]
+%とも表現できる．これらが意味するのは，
+%\[n\ が十分大きいところでは，{r^n}\ は\ {n^k}\ に比べてずいぶん大きく，{n!}\ は\ {r^n}\ に比べてずいぶん大きい\]
+%\[\{r^n\}\ は\ \{n^k\}\ に比べてはるかに速く，\{n!\}\ は\ \{r^n\}\ に比べてはるかに速く，無限大に発散する\]
+%というようなことである．このことを，
+%と表現することもある．
+これを表題に当てはめると，答えは意外にも${1.1^n}\gg {n^{10000}}$となる．\\
+%証明は$r^n=((r-1)+1)^n$を二項定理によって展開したときに現れる
+%${}_n\C_l$が$n$についての$l$次式であることを利用する．
+
+\begin{証明}\vspace{-2.5 zw}\ \ 
+$n \geqq  k+1$のとき，$r^n
+=((r-1)+1)^n=\dsum_{l=0}^n{}_n\C_l(r-1)^l>{}_n\C_{k+1}(r-1)^{k+1}$より，
+\begin{align*}
+\bunsuu{n^k}{r^n}
+& \leqq \bunsuu{n^k}{{}_n\C_{k+1}(r-1)^{k+1}}\\
+&=\bunsuu{(k+1)k(k-1)\cdots 2\cdot 1}{\underbrace{n(n-1)\cdots (n-k)}_{k+1個}}\cdot \bunsuu{ n^k}{(r-1)^{k+1}}\\
+&=\bunsuu{(k+1)k(k-1)\cdots 2\cdot 1}{n(1-\frac1n)\cdots (1-\frac{k}{n})}\cdot \bunsuu{1}{(r-1)^{k+1}}
+\xlongrightarrow[]{n\to \infty} 0\ \ \ \therefore\ \ \ \dlim_{n\to\infty} \bunsuu{n^k}{r^n}=0
+ \end{align*}
+ 
+ 一方，$N \leqq r < N+1 $なる自然数$N$をとすると，$n\geqq N+1$のとき，
+ \begin{align*}
+ \bunsuu{r^n}{n!}
+% &=\bunsuu{r\cdot r\cdot r\cdot \cdots\cdots\cdots\cdots\cdots\cdots\cdots \cdot r}{1\cdot 2\cdot 3\cdot \cdots\cdots\cdots\cdots\cdots\cdots\cdots \cdot n}\\
+&=\bunsuu{r\cdot r\cdot r\cdot \cdots \cdot r}{1\cdot 2\cdot 3\cdot \cdots \cdot N} \cdot\bunsuu{r\cdot r\cdot r\cdot \cdots \cdot r}{(N+1) \cdot \cdots \cdot n}\\
+& \leqq \bunsuu{r\cdot r\cdot r\cdot \cdots \cdot r}{1\cdot 2\cdot 3\cdot \cdots \cdot N} \cdot\bunsuu{r\cdot r\cdot r\cdot \cdots \cdot r}{\underbrace{(N+1) \cdot \cdots \cdot (N+1)}_{(n-N)個}}\\
+&=\bunsuu{r\cdot r\cdot r\cdot \cdots \cdot r}{1\cdot 2\cdot 3\cdot \cdots \cdot N} \cdot \left(\bunsuu{r}{(N+1)}\right)^{n-N}\xlongrightarrow[]{n\to \infty} 0\ \ \ \therefore\ \ \ \dlim_{n\to\infty} \bunsuu{r^n}{n!}=0\hspace{5zw}\hfill □
+\end{align*}
+\end{証明}
+
+\newpage
+
+{\bb\Large 第2回\ $\sq{x}$と$\log x$で，発散速度がより遅いのはどちらか？}
+
+\begin{mawarikomi}{}{
+\begin{zahyou}[ul=10mm](0.01,8)(-0.3,3)
+\YGraph<linethickness=1pt>{sqrt(X)}
+\YGraph<linethickness=1pt>{log(X)}
+\YGraph<linethickness=0.5pt>{X}
+\end{zahyou}
+}
+無理関数$y=\sq x$も，対数関数$y=\log x$も，$x\to \infty$のとき，$y \to \infty$であることには変わりない．そしてその発散速度はいづれも$y=x$より遅いことは想像するに容易い．では，より遅いのはどちらだろうか？
+\end{mawarikomi}
+
+\vspace{3zw}
+%まずは，関数についても重要なものを挙げておく；
+\begin{tcolorbox}[enhanced,
+frame style={left color=orange!50!white,
+right color=black!80!orange},
+colback=black!0!white,
+drop fuzzy shadow,
+title={\bb 各種関数の発散速度},
+coltitle=black]
+\bb 
+正の実数$\alpha$に対して，\ \ \ 
+$\dlim_{x\to\infty} \bunsuu{x^\alpha}{e^x}=0，\ \ \ \ \ \dlim_{x\to\infty} \bunsuu{\log x}{x^\alpha}=0$\vspace{0.5zw}\\
+つまり，$x\ が十分大きいとき，\ \ \ \log x\ll x^{\alpha}\ll e^x$
+\end{tcolorbox}
+
+
+%これらの数列の各項が正の数であることに注意して逆数を取ると，
+%\[\dlim_{x\to\infty} \bunsuu{e^x}{x^\alpha}=\infty，\ \ \ \ \ \dlim_{x\to\infty} \bunsuu{x^\alpha}{\log x}=\infty
+%\]
+%とも表現できる．これらが意味するのは，
+%\[x\ が十分大きいところでは，e^x\ は\ x^{\alpha}\ に比べてずいぶん大きく，x^{\alpha}\ は\ \log x\ に比べてずいぶん大きい\]
+%ということである．このことを，
+
+%前回紹介した表現を借りるなら，これは
+%\[\]
+%%\[x\ が十分に0に近いとき，\ \ \ \busnuu{1}{x^{\alpha}}\gg \log x\]
+%ということになる．
+
+\begin{証明}
+\vspace{-1.8 zw}
+\ \ まず，$n -1\leqq x <n$，$k-1\leqq \alpha<k$なる自然数$n,k$をとれば，\\$x \to \infty$のとき$n\to \infty$となるので，
+\[\bunsuu{x^\alpha}{e^x} < \bunsuu{n^k}{e^{n-1}}=\bunsuu{n^k}{e^n}\cdot e \xlongrightarrow[]{x\to \infty} 0\ \ \ \therefore\ \ \ \dlim_{x\to\infty} \bunsuu{x^\alpha}{e^x}=0\]
+
+さらに，$\log x =t$とおくと，$x \to \infty$のとき，$t \to \infty$より，
+\[\bunsuu{\log x}{x^{\alpha}}=\bunsuu{t}{(e^{t})^{\alpha}}=\left(\bunsuu{t^{\frac{1}{\alpha}}}{e^{t}}\right)^{\alpha}
+\xlongrightarrow[]{x\to \infty} 0^{\alpha}=0\ \ \ \therefore\ \ \ \dlim_{x\to\infty} \bunsuu{\log x}{x^\alpha}=0\]
+%\[\dlim_{x\to\infty} \bunsuu{x^\alpha}{e^x}=0
+%\ \ \xlongleftrightarrow[]{y=e^x} \ \ \dlim_{y\to\infty} \bunsuu{(\log y)^\alpha}{y}=0
+%\iff \dlim_{y\to\infty} \bunsuu{\log y}{y^{\frac{1}{\alpha}}}=0
+%\ \ \xlongleftrightarrow[]{\beta=\frac{1}{\alpha}}\ \ \dlim_{y\to\infty} \bunsuu{\log y}{y^{\beta}}=0
+%\ \ \xlongleftrightarrow[]{t=\frac1y} \ \ \dlim_{t\to +0} {t^{\beta}}{\log t}=0
+%\]
+%証明はどちらかだけで十分である．%のは$\dlim_{x\to\infty} \bunsuu{x^\alpha}{e^x}=0$の方である．\\
+%よって，どれかを1つを示せば全て証明したことになる．一番手っ取り早いのは，前回の数列の場合に帰着させることである．
+
+\end{証明}
+証明の別のアプローチとして，不等式
+\[e^x>1+x+\bunsuu{x^2}{2!}+\bunsuu{x^3}{3!}+\cdots+\bunsuu{x^n}{n!}\ (n\ は自然数)\]
+を利用する方法も考えられる．
+
+これで，表題の答えは$\sq x=x^{\frac 12} \gg \log x$ということがわかった．驚きなのは$\alpha=0.00001$であっても$x^{0.00001} \gg \log x$ということだ．対数関数が如何に遅いかがわかる．
+
+%，\ \ \ \ \ \dlim_{x\to +0}{x^\alpha} {\log x}=0$
+
+%\begin{証明}
+% $n-1 \leqq \alpha < n$となる自然数$n$をとると，\MARU{1}より，$e^x >\bunsuu{x^n}{n!}$であるので，
+%\[
+%\bunsuu{x^{\alpha}}{e^x} <x^{\alpha}\cdot \bunsuu{n!}{x^n}= \bunsuu{n!}{x^{n-\alpha}} \xlongrightarrow[]{x\to \infty} 0
+%\ \ \ \therefore\ \ \ \dlim_{x\to\infty} \bunsuu{x^{\alpha}}{e^x}=0\hfill □\]
+%\end{証明}
+
+\iffuru
+}\kaisetukaitou
+\fi                                                                 
+
+\end{document}

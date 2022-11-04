@@ -1,0 +1,68 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+
+<div><h1>開発ログ 3/21</h1></div>
+<div><br></div>
+<div>1．always_redrawに頼りすぎか？いや，これしか方法はないのか？</div>
+<div>そもそもalways_redrawのソースコード？というか，仕組みをわかっていない．</div>
+<div>always_redrawだけがオブジェクトでは内容に見えるが，，，</div>
+<div>always_redrawは，関数を変数とする関数だった．</div>
+<div>def always_redraw(func):</div>
+<div>    mob = func()</div>
+<div>    mob.add_updater(lambda m: mob.become(func()))</div>
+<div>    return mob</div>
+<div>長年の疑問であったlambda は無名関数というものだった．</div>
+<div>lambda a, b : a+b</div>
+<div>のように使うらしい．無名関数は，上記のような関数を指定するときに使いやすい．</div>
+<div><br></div>
+<div>2．プログラミングを学ぶ，というのは，上記のようにそのソースコードを理解していく過程に他ならない．</div>
+<div>今なら，あらゆるものを読めるようになっているような気がする．</div>
+<div>ちょっと記述の整理の時間にしてみようかなぁ．</div>
+<div><br></div>
+<div>3．manim render のオプション．使えそうなのは，，</div>
+<div>-s ラストのフレームのみ出力，これが一番使う？</div>
+<div>-n 3,5 3〜5までのanimationのみレンダリング</div>
+<div>それが何番目のanimationなのか知る術はあるのか，，，？</div>
+<div>全てのanimationの数が分かれば，最後だけレンダリングすることもできる．</div>
+<div>-q, [l|m|h|p|k] 以下の解像度とf/s を指示してレンダリング</div>
+<div>854x480 15FPS,</div>
+<div>1280x720 30FPS,</div>
+<div>1920x1080 60FPS,</div>
+<div>2560x1440 60FPS,</div>
+<div>3840x2160 60FPS</div>
+<div>-a 全てのシーンをレンダリング</div>
+<div><br></div>
+<div>4．レンダリングの正体さえ分かれば，，，</div>
+<div>PCのどのスペックを上げれば作業が楽になるのか，わかる．</div>
+<div>そもそも，コンピュータを理解する，というのはこういうことだと思う．</div>
+<div>ブラックボックスである部分の中身を覗いて，それを理解していく．</div>
+<div>https://github.com/ManimCommunity/manim/wiki/Developer-documentation-(WIP)#rendering-logic<br></div>
+<div>を読むと，OpenGLRendererとシェーダーによる，レンダリングのようだ．．．<br></div>
+<div>「シェーダーは、グラフィックカードで動作するように設計されたプログラム」とある．</div>
+<div>GPU性能がカギを握っている，ということでいいのか？</div>
+<div>GPUモリモリモデルで行くと，Mac Studioでも50万，100万など，すぐいく．</div>
+<div>お金に，上限はないらしい．</div>
+<div>それより先に，やることはありそうだ．</div>
+<div>レンダリングの設定を最適化し，テスト方法を再考する．</div>
+<div><br></div>
+<div>5．指定した質によって，f/sに1：1外分点でエラーが出る．</div>
+<div>その場凌ぎで数字の方を調整するか，外分点の例外的設定をしておくか，，，</div>
+<div>tenQ = always_redraw(</div>
+<div>            lambda : </div>
+<div>                Dot3D(</div>
+<div>                    TikyuujouHenkan(tenA.get_center()*nval.get_value()*i+tenB.get_center()*mval.get_value())/(mval.get_value()+nval.get_value()*i),</div>
+<div>                    radius = 0</div>
+<div>                )</div>
+<div>                if not mval.get_value()+nval.get_value()*i == 0 else Dot3D([0,0,-2*Hankei]) for i in [1,-1]</div>
+<div>     )</div>
+<div>という具合に，，，，</div>
+<div><br></div>
+<div>6．プレゼンテーションプラグインというのを見つけた．</div>
+<div><font color="#E4AF0A">https://pypi.org/project/manim-presentation/</font><br></div>
+<div>これは，ボタン1つで次のアニメーションを見せる，ということができるのではないか？</div>
+<div>これでずっと心配だった，ナレ取りが，一気に現実的になるかも．</div>
+<div>また，物理シュミレータもある．</div>
+<div>https://pypi.org/project/manim-physics/<br></div>
+<div>これは可能性が膨らみそうだ．</div>
+<div><br></div>
+<div><br> </div>

@@ -1,0 +1,1503 @@
+\newif\iffuru
+\furutrue%フルバージョン
+%\furufalse%解説のみ
+
+\newif\iffigure
+\figuretrue%図表あり
+%\figurefalse%図表なし
+
+\documentclass[10pt,
+b5paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+%\usepackage{アプローチ}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{ascmac}
+\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathC}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPp}
+\usepackage{emathPl}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage{emathPs}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=12truemm,bottom=12truemm,left=12truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage{fancyhdr}%ヘッダの設定
+\usepackage{cancel}%消し取り線
+\usepackage{ifthen}
+%\usepackage{exam}
+\usepackage{tcolorbox}
+\usepackage{extarrows}%伸縮性のある矢印
+
+%ページレイアウト
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+%\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+
+%\pagestyle{headings}
+\pagestyle{empty}%ページ番号を消す
+% \pagestyle{fancy}
+%  \fancyhead{}
+%  \fancyhead[RO,RE]{\rightmark}
+%%  \fancyhead[LE,LO]{\leftmark}
+%  \cfoot{\thepage}
+%  \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+%  \renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+ 
+%\markboth{}{\thesection}
+ 
+%\fancyhead{} % clear all fields
+%\fancyhead[CE]{偶数ページ}
+%\fancyhead[CO]{奇数ページ}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%問題レイアウト
+\tcbuselibrary{raster,skins}
+\tcbuselibrary{xparse}
+\newtcolorbox{mybox}{
+enhanced,
+frame style={left color=orange!50!white,
+right color=black!50!orange},
+colback=black!0!white,
+drop fuzzy shadow
+}
+\newcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\newcommand{\bqu}{\begin{question}}
+\newcommand{\equ}{\end{question}}
+\newcommand{\bQ}{\begin{Q}}
+\newcommand{\eQ}{\end{Q}}
+
+\newcommand{\mondaisettei}{\kaisetufalse
+\renewcommand{\sub}{\subsection}
+\renewcommand{\bqu}{\vspace{0.5zw}\begin{question}}
+\renewcommand{\equ}{\end{question}\vspace{3zw}}
+\renewcommand{\bQ}{\vspace{0.5zw}\begin{Q}}
+\renewcommand{\eQ}{\end{Q}\vspace{3zw}}
+}%問題設定
+
+\newcommand{\kaisetutukinosettei}{\kaisetutrue
+\renewcommand{\sub}{\newpage\ \vspace{-4zw}\subsection}
+\renewcommand{\bqu}{\begin{mybox}\begin{question}}
+\renewcommand{\equ}{\end{question}\end{mybox}}
+\renewcommand{\bQ}{\begin{mybox}\begin{Q}}
+\renewcommand{\eQ}{\end{Q}\end{mybox}}
+}%解答解説の設定
+
+%箇条書きの調整
+%\setlength{\itemsep}{5pt}      %2. ブロック間の余白
+%\setlength{\parskip}{0pt}      %4. 段落間余白．
+%\setlength{\itemindent}{0pt}   %5. 最初のインデント
+%\setlength{\labelsep}{5pt}     %6. item と文字の間
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+%\newcommand{\bb}{\gtfamily\ebseries\boldmath}%全部極太にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+\newcommand{\adots}{\reflectbox{$\ddots$}}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{\bb 第\arabic{subsection}回
+\ }
+\renewcommand{\theQuestion}{%\arabic{subsection}-
+問題\arabic{Question}．}
+\renewcommand{\theQ}{%\arabic{subsection}-
+例題\arabic{Q}．}
+
+%横に縦線
+\usepackage{framed}
+\makeatletter
+\renewenvironment{leftbar}{%
+\def\FrameCommand{\vrule width 1pt \hspace{1zw}}
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+\newenvironment{leftbbar}{%
+\def\FrameCommand{\color{mygray} \vrule width 5pt \hspace{1zw}
+\color{black}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+%アプローチ
+\newenvironment{証明}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 証明\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+
+\newenvironment{アプローチ}{
+\hspace{-2zw}\underbar{\large \bf Approach}\vspace{-1zw}\begin{leftbar}}{\end{leftbar}}
+
+\newenvironment{解答}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newenvironment{解答1}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答1\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答2}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答2\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{解答3}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答3\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+\newenvironment{別解}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 別解\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+\newcommand{\kaitoui}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答1\ }}
+\newcommand{\kaitouii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答2\ }}
+\newcommand{\kaitouiii}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 解答3\ }}
+\newcommand{\bekkai}{{\bb \color{mygray} $\hookrightarrow$}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \ 別解\ }}
+
+%QRコード
+\usepackage{qrcode}
+\setlength\normallineskiplimit{0pt}
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+\definecolor{mygray}{gray}{0.75}
+
+\newif\ifkaisetu
+
+\newcommand{\mondaitokaitou}{
+\mondaisettei
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\setcounter{Q}{0}
+\kaisetutukinosettei
+\myfor{1} % ループ実行   
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+%\myfor{1} % ループ実行   
+}
+\begin{document}
+
+\kaisetutukinosettei
+
+%{\large 17期\ 2年\ 春季学習講座}\\
+\ 
+
+\vspace{10zw}
+
+\hfill {\bb \HUGE 平均値の定理}\hfill\ \\
+
+\hfill {\LARGE〜基礎から「解けない漸化式」への応用まで〜}\hfill \ 
+
+\vfill
+\vfill
+
+
+\hfill {\HUGE $1+\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\bunsuu{1}{}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}=\sq{2}$}\hfill \ 
+
+\vfill
+\vfill
+\vfill
+
+
+
+\newpage
+
+{\bb\Large 平均値の定理の基本}\\
+
+関数$f(x)$が，閉区間$[a,\ b]$で連続，かつ，開区間$(a,\ b)$で微分可能であるとする．\\
+このとき，開区間$(a,\ b)$内の値$c$で，
+\[\bunsuu{f(b)-f(a)}{b-a}=f'(c)\]
+を満たすものが存在する．
+\vspace{15zw}
+
+
+\iffuru
+\newcommand{\myfor}[1]{
+\fi
+
+\ifkaisetu
+\ \newpage
+\fi
+
+\bQ 
+関数$f(x)=\log x$の区間$1\leqq x\leqq e$について，平均値の定理における$c$の値を求めよ．
+\eQ
+
+\ifkaisetu
+\begin{解答}
+ $f'(x)=\bunsuu 1x$より，{\bb 平均値の定理}より，$1 < c< e$なる$c$で，
+\[\bunsuu{\log e -\log 1}{e-1}=\bunsuu 1{c}\]
+を満たすものが存在する．このとき，$c=\text{\bb $e-1$}$．
+\end{解答}
+\fi
+
+\bQ
+極限値$\dlim_{x \to 0} \bunsuu{\sin x-\sin(\sin x)}{x-\sin x}$を求めよ．
+\eQ
+
+\ifkaisetu
+\begin{解答} $f(x)=\sin x$とおくと，$f'(x)=\cos x$である．\\
+{\bb 平均値の定理}より，$x$と$\sin x$の間の値$c$で，
+\[\bunsuu{f(x)-f(\sin x)}{x-\sin x}=f'(c)\ \ \ すなわち\ \ \ \bunsuu{\sin x-\sin (\sin x)}{x-\sin x}=\cos c\]
+となるものが存在する．
+$x \to 0$のとき，$c \to 0$より，
+\[\dlim_{x \to 0} \bunsuu{\sin x-\sin (\sin x)}{x-\sin x}=\dlim_{c \to 0}\cos c=\text{\bb 1}\]
+\end{解答}
+\fi
+
+\newpage
+
+\bqu 
+ 双曲線$y=\frac 1x$上の2点$(1,\ 1)$，$(2,\ \frac 12)$を結ぶ線分と平行な直線で，この双曲線に接するものの方程式を求めよ．
+ \equ
+ 
+ \ifkaisetu
+\begin{解答}\vspace{-2zw}
+ $y'=-\bunsuu{1}{x^2}$より，接点の座標を$(c,\ \frac 1c)$とおくと，
+\[\bunsuu{\frac 12-1}{2-1}=-\bunsuu{1}{c^2}\ \ \ \therefore\ \ \ c=\sq 2\]
+ゆえに，求める直線の方程式は
+\[y=-\bunsuu{1}{\sq 2 ^2}(x-\sq 2)+\bunsuu{1}{\sq 2}\ \ \ \therefore\ \ \ \text{\bb $y=-\bunsuu 12x +\sq 2$}\]
+\end{解答}
+\fi
+ 
+\bqu
+ $A_n=\bunsuu 12(\log n)^2$であるとき，
+$\dlim_{n \to \infty}(A_{n+1}-A_n)$を求めよ．
+ただし，$\dlim_{x \to \infty}\bunsuu{\log x}{x}=0$は用いてよい．
+\ifkaisetu \hfill(名大)\fi
+\equ
+
+\ifkaisetu
+\begin{解答}\vspace{-2zw}
+ $f(x)=\bunsuu 12(\log x)^2$とおくと，$f'(x)=\bunsuu{\log x}{x}$．\\
+{\bb 平均値の定理}より，$n<x<n+1$かつ
+\[\bunsuu{f(n+1)-f(n)}{(n+1)-n}=\bunsuu{\log c}{c}\]
+となる$c$が存在する．$n \to \infty$のとき，$c \to \infty$より，
+\[\dlim_{x\to \infty}(A_{n+1}-A_n)=\dlim_{c\to \infty}\bunsuu{\log c}{c}={\bb 0}\]
+\end{解答}
+
+%\newpage
+
+\fi
+
+\vfill
+
+\bQ $e$を自然対数の底とする．$e \leqq p<q$のとき，不等式
+\[\log(\log q)-\log(\log p) < \bunsuu{q-p}{e}\]
+が成り立つことを証明せよ．
+\ifkaisetu \hfill(名大)\fi
+\eQ
+
+\ifkaisetu
+\begin{解答}\vspace{-2zw}
+$f(x)=\log(\log x)$とおくと，$f'(x)=\bunsuu{1}{x\log x}$．\\
+{\bb 平均値の定理}より，$p<c<q$となる$c$で
+\[\bunsuu{f(q)-f(p)}{q-p}=f'(c)\ \ \ すなわち\ \ \ \bunsuu{\log(\log q)-\log(\log p)}{q-p} = \bunsuu{1}{c\log c}\]
+を満たすものが存在する．$p \geqq e$より，$c>e$なので，
+\[\bunsuu{1}{c\log c}<\bunsuu{1}{e\log e}=\bunsuu 1e\ \ \ \therefore\ \ \ \bunsuu{\log(\log q)-\log(\log p)}{q-p}<\bunsuu 1e\]
+したがって，$\log(\log q)-\log(\log p) < \bunsuu{q-p}{e}$．\hfill □
+%$x>e$において，$f''(x)=-\bunsuu{\log x- 1}{(x\log x)^2}<0$より，$f'(x)$は単調減少する．\\
+%\[\bunsuu{\log(\log q)-\log(\log p)}{q-p} = f'(c) < f'(e) = \bunsuu 1e\]
+%\underset{\MARU{1}}{<} \bunsuu{1}{e\log e} =\bunsuu 1e\]
+%ここで，$x > e$において，$y=x$も，$y=\log x$も正の数で単調増加するので，$f'(x)=\bunsuu{1}{x\log x}$は単調減少するので，\MARU{1}が成り立つ．
+%よって\ \ \ $\log(\log q)-\log(\log p) =(q-p) f'(c) < (q-p) f'(e)=\bunsuu{q-p}{e}$．
+\end{解答}
+
+\newpage
+
+\fi
+
+%\bqu $n$を2以上の整数とするとき，
+%\[\bunsuu{\log n}{n-1}>\bunsuu{\log(n+1)}{n}\]
+%を証明せよ．\hfill (千葉大)
+%\equ
+
+%\bqu
+%$A_n=\bunsuu 12(\log n)^2$であるとき，
+%$\dlim_{n \to \infty}(A_{n+1}-A_n)$を求めよ．
+%ただし，$\dlim_{x \to \infty}\bunsuu{\log x}{x}=0$は用いてよい．
+%\hfill(名大)
+%\equ
+
+{\bb\Large 「解けない漸化式」への応用}
+
+\bQ $f(x)=\bunsuu 12\cos x$とする．
+\benu
+\item 任意の$x$，$y$に対し，$\left|f(x)-f(y)\right|\leqq \bunsuu 12|x-y|$が成り立つことを証明せよ．
+\item $x=f(x)$はただ1つの解をもつことを証明せよ．
+\item 任意の$a$に対して，$a_0=a$，$a_n=f(a_{n-1})$\ $(n=1,2,3,\cdots)$で定められる数列$\{a_n\}$は，$f(x)=x$の解に収束することを示せ．\ifkaisetu \hfill(三重大)\fi
+\eenu
+\eQ
+
+\ifkaisetu
+\begin{解答}
+\benu
+\item $x=y$のとき，両辺＝0より，成立するので，以下$x \neq y$とする．\\
+$f'(x)=-\bunsuu 12 \sin x$．{\bb 平均値の定理}より，$x$と$y$の間の値$c$で
+\begin{align*}
+\bunsuu{f(x)-f(y)}{x-y}&=-\bunsuu 12 \sin c
+\end{align*}
+となるものが存在する．したがって，
+\[\bunsuu{|f(x)-f(y)|}{|x-y|} \leqq \bunsuu 12\]
+$\therefore\ \ \ |f(x)-f(y)| \leqq \bunsuu 12|x-y|．$\hfill □
+%\item $0\leqq  x \leqq \bunsuu {\pi}2$において，$g(x)$は単調増加，$f(x)$は単調減少であり，
+%\[g(0)=0<\bunsuu 12=f(0)\ \ \ かつ\ \ \ g\left(\bunsuu{\pi}{2} \right)=\bunsuu{\pi}{2}>0=f\left(\bunsuu{\pi}{2}\right)\]
+%よって，$g(x)=f(x)$となる$x$がただ1つ存在する．
+%\item $-\bunsuu {\pi}2 < x<0$において，$g(x)<0<f(x)$\ \ \ より\ \ \ $g(x)\neq f(x)$．
+%\item $|x| \geqq \bunsuu{\pi}{2}$において，$|g(x)| \geqq \bunsuu{\pi}{2} >1 \geqq |f(x)|$\ \ \ より\ \ \ $g(x)\neq f(x)$．
+%\eenu
+%以上より，$g(x)=f(x)$となる$x$はただ1つ存在する．\hfill □
+\item $g(x)=x-f(x)$とおくと，$g'(x)=1+\bunsuu 12 \sin x >0$より，$g'(x)$は単調増加．\\
+これと，$g(0)=-\bunsuu 12<0<\bunsuu{\pi}{2}=g\left(\bunsuu{\pi}{2}\right)$より，\\
+$g(x)=0$となる$x$がただ1つ存在する．\\
+これが$x=f(x)$となる唯一の$x$である．\hfill □
+\item $f(x)=x$を満たす$x$を$\alpha$とおく．$x=a_{n-1}$，$y=\alpha$を(2)に適用すると
+\[|a_{n}- \alpha| \leqq \bunsuu 12|a_{n-1}-\alpha|\]
+これを繰り返し用いると
+\[|a_{n}- \alpha| \leqq \bunsuu 12|a_{n-1}-\alpha|\leqq \cdots \leqq \left(\bunsuu 12\right)^{n} \left|a_0-\alpha \right|\]
+\[0\leqq \left|a_n-\alpha \right| \leqq \left(\bunsuu 12\right)^{n} \left|a-\alpha \right|\xlongrightarrow[]{n\to \infty} 0\]
+したがって$\dlim_{n\to \infty}a_n=\alpha$\hfill □
+\eenu
+\end{解答}
+
+\newpage
+
+蜘蛛の巣図；\\
+
+\begin{zahyou}[ul=50mm,gentenhaiti={[wn]}](-0.1,2.1)(-0.1,2.1)
+\def\Fx{1/2*cos(X)}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=1.3}
+\teisuuretu{bval=1/2*cos(\aval)}
+\teisuuretu{cval=1/2*cos(\bval)}
+\teisuuretu{dval=1/2*cos(\cval)}
+\teisuuretu{eval=1/2*cos(\dval)}
+\teisuuretu{fval=1/2*cos(\eval)}
+\teisuuretu{gval=1/2*cos(\fval)}
+\teisuuretu{hval=1/2*cos(\gval)}
+\teisuuretu{ival=1/2*cos(\hval)}
+\teisuuretu{jval=1/2*cos(\ival)}
+\teisuuretu{lval=1/2*cos(\jval)}
+\teisuuretu{mval=1/2*cos(\lval)}
+\teisuuretu{nval=1/2*cos(\mval)}
+\teisuuretu{oval=1/2*cos(\nval)}
+\teisuuretu{pval=1/2*cos(\oval)}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+\ArrowLine{(\aval,0)}{\A}
+\Drawline{\A\B\C\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{\xmax-0.3}[ne]{\color{red} $y=\bunsuu 12 \cos x$}
+\YPointPut\Gx{\xmax}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+\emathPut{\A}[syaei=x,xlabel=a]{}
+\emathPut{\Z}[syaei=x,xlabel=\alpha]{}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{0.06}
+\end{zahyou}
+\begin{zahyou*}[ul=500mm,gentenhaiti={[wn]},hidariyohaku=-8zw,sitayohaku=5zw](0.39,0.51)(0.39,0.51)
+\def\Fx{1/2*cos(X)}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=1.3}
+\YPoint\Fx{\aval}\A
+%\ArrowLine{(\aval,0)}{\A}
+\teisuuretu{bval=1/2*cos(\aval)}
+\teisuuretu{cval=1/2*cos(\bval)}
+\teisuuretu{dval=1/2*cos(\cval)}
+\teisuuretu{eval=1/2*cos(\dval)}
+\teisuuretu{fval=1/2*cos(\eval)}
+\teisuuretu{gval=1/2*cos(\fval)}
+\teisuuretu{hval=1/2*cos(\gval)}
+\teisuuretu{ival=1/2*cos(\hval)}
+\teisuuretu{jval=1/2*cos(\ival)}
+\teisuuretu{lval=1/2*cos(\jval)}
+\teisuuretu{mval=1/2*cos(\lval)}
+\teisuuretu{nval=1/2*cos(\mval)}
+\teisuuretu{oval=1/2*cos(\nval)}
+\teisuuretu{pval=1/2*cos(\oval)}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint<yval=yi>\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+\Drawline{(\xmin,\yi)\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{\xmax}[s]{\color{red} $y=\bunsuu 12 \cos x$}
+\YPointPut\Gx{\xmax}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+%\emathPut{\Z}[es]{収束}
+\En{\Z}{0.06}
+\end{zahyou*}
+
+\vfill
+
+$\lim$を用いずにそのまま表してみる遊び；\\
+
+{\huge 
+
+
+\hfill $\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(
+\scalebox{0.8}{$\bunsuu 12\cos\left(\ 
+\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)=\alpha$\hfill 
+}\\
+\hfill ただし，$\alpha$は$\bunsuu 12\cos \alpha=\alpha$の解．
+
+
+\hfill {\tiny ※ 消失点における値が初項$a$であり，$a$が任意の実数でこの等式は成り立つ．}
+
+\vfill
+
+\newpage
+
+\fi
+
+\vfill
+
+\newpage
+
+%{\Large\bb 「解けない漸化式」}
+
+\bqu $a_1=1$，\ \ $a_{n+1}=1+\bunsuu{1}{1+a_n}$\ $(n=1,2,3,\cdots)$で定められる数列$\{a_n\}$を考える．
+\benu
+%\item 任意の自然数$n$に対して，$a_n \geqq 1$を示せ．
+%\item $x=f(x)$の$x\geqq 1$の範囲にただ1つの解をもつことを証明せよ．
+%\item $x \geqq 1$のとき，$f(x) \geqq 1$を示せ．
+%\item 方程式$f(x)=x$を解け．
+\item $f(x)=1+\bunsuu{1}{1+x}$とする．
+\benu
+\item 1以上の実数$x$で，$f(x)=x$を満たすものを求めよ．
+\item 1以上の実数$a$，$b$に対し，常に$\left|f(a)-f(b)\right|\leqq \bunsuu 14|a-b|$が成り立つことを証明せよ．
+\eenu
+\item 極限値$\dlim_{n \to \infty}a_n$を求めよ．
+\eenu
+\equ
+
+\ifkaisetu
+\begin{解答}
+\vspace{-2zw}
+\benu
+\item 
+\benu
+\item $x=1+\bunsuu{1}{1+x}$とすると，$x^2=2$．\ \ \ 
+%\begin{align*}
+%%x-1&=\bunsuu{1}{1+x}\\
+%%x^2-1&=1\\
+%
+%\end{align*}
+$x \geqq 1$\ \ より，$x={\bb \sq 2}$
+\item $a=b$のとき，両辺＝0より，成立するので，以下$a \neq b$とする．\\
+$f'(x)=-\bunsuu{1}{(1+x)^2}$．{\bb 平均値の定理}より，$a$と$b$の間の値$c$で，
+\begin{align*}
+\bunsuu{f(a)-f(b)}{a-b}&=-\bunsuu{1}{(1+c)^2}
+\end{align*}
+を満たすものが存在する．このとき，
+\[ \bunsuu{|f(a)-f(b)|}{|a-b|}=\bunsuu{1}{(1+c)^2}\leqq \bunsuu{1}{(1+1)^2}=\bunsuu 14\]
+%c \geqq 1\ より\ \ \  \bunsuu{|f(a)-f(b)|}{|a-b|} & \\
+ゆえに，\ \ $\left|f(a)-f(b)\right|\leqq \bunsuu 14|a-b|$．\hfill □
+\eenu
+\item $k$を自然数とし，$a_k \geqq 1$と仮定すると，$a_{k+1} =1+\bunsuu{1}{1+a_k} > 1$．\\
+これと，$a_1 \geqq 1$より，任意の自然数$n$に対して，$a_n \geqq 1$である．\\
+よって，$a=a_n$，$b=\sq 2$を(1)(b)に適用できて，
+%\begin{align*}
+\[\left|a_{n+1}-\sq 2\right| \leqq \bunsuu 14\left|a_n-\sq 2\right|\]%2以上の自然数$n$に対して，
+\[\therefore\ \ \ 0\leqq \left|a_n-\sq 2\right| \leqq \left(\bunsuu 14\right)^{n-1} \left|a_1-\sq 2\right|\xlongrightarrow[]{n\to \infty} 0\]
+%よって，
+%\[\dlim_{n \to \infty}\left|a_n-\sq 2\right| \leqq \dlim_{n \to \infty}\left(\bunsuu 14\right)^{n-1} \left|a_1-\sq 2\right|=0\]
+%より，$\dlim_{n \to \infty}\left|a_n-\sq 2\right|=0$．\\
+したがって，$\dlim_{n \to \infty} a_n={\bb \sq 2}$．
+\eenu
+\end{解答}
+
+\newpage
+
+蜘蛛の巣図；\\
+
+\begin{zahyou}[ul=25mm,gentenhaiti={[wn]}](-0.1,4.1)(-0.1,4.1)
+\def\Fx{1+1/(1+X)}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red,maxx=3.2>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=1}
+\teisuuretu{bval=1+1/(1+\aval)}
+\teisuuretu{cval=1+1/(1+\bval)}
+\teisuuretu{dval=1+1/(1+\cval)}
+\teisuuretu{eval=1+1/(1+\dval)}
+\teisuuretu{fval=1+1/(1+\eval)}
+\teisuuretu{gval=1+1/(1+\fval)}
+\teisuuretu{hval=1+1/(1+\gval)}
+\teisuuretu{ival=1+1/(1+\hval)}
+\teisuuretu{jval=1+1/(1+\ival)}
+\teisuuretu{lval=1+1/(1+\jval)}
+\teisuuretu{mval=1+1/(1+\lval)}
+\teisuuretu{nval=1+1/(1+\mval)}
+\teisuuretu{oval=1+1/(1+\nval)}
+\teisuuretu{pval=1+1/(1+\oval)}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+\ArrowLine{(\aval,0)}{\A}
+\Drawline{\A\B\C\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{2}[s]{\color{red} $y=1+\bunsuu{1}{1+x}$}
+\YPointPut\Gx{\xmax}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+\emathPut{\A}[syaei=x,xlabel=1]{}
+\emathPut{\Z}[syaei=x,xlabel=\sq 2]{}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{0.12}
+\end{zahyou}
+\begin{zahyou*}[ul=250mm,gentenhaiti={[wn]},hidariyohaku=-8zw,sitayohaku=5zw](1.29,1.53)(1.29,1.53)
+\def\Fx{1+1/(1+X)}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=1}
+\teisuuretu{bval=1+1/(1+\aval)}
+\teisuuretu{cval=1+1/(1+\bval)}
+\teisuuretu{dval=1+1/(1+\cval)}
+\teisuuretu{eval=1+1/(1+\dval)}
+\teisuuretu{fval=1+1/(1+\eval)}
+\teisuuretu{gval=1+1/(1+\fval)}
+\teisuuretu{hval=1+1/(1+\gval)}
+\teisuuretu{ival=1+1/(1+\hval)}
+\teisuuretu{jval=1+1/(1+\ival)}
+\teisuuretu{lval=1+1/(1+\jval)}
+\teisuuretu{mval=1+1/(1+\lval)}
+\teisuuretu{nval=1+1/(1+\mval)}
+\teisuuretu{oval=1+1/(1+\nval)}
+\teisuuretu{pval=1+1/(1+\oval)}
+\YPoint<yval=yi>\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+%\ArrowLine{(\aval,0)}{\A}
+\Drawline{(\xmin,\yi)\B\C\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{\xmax}[s]{\color{red} $y=1+\bunsuu{1}{1+x}$}
+\YPointPut\Gx{\xmax}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+%\emathPut{\Z}[es]{収束}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{0.12}
+\end{zahyou*}
+
+\vfill
+
+$\lim$を用いずにそのまま表してみる遊び；\\
+
+{\huge 
+
+\hfill 
+$1+\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\scalebox{0.8}{$\bunsuu{1}
+{2+\scalebox{0.8}{$\bunsuu{1}{2+\bunsuu{1}{}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}=\sq{2}$\hfill 
+}
+
+\vfill
+
+\newpage
+
+\fi
+
+%\bqu
+%極限値$\dlim_{n \to \infty}n\{\log(n+2)-\log n\}$を求めよ．
+%\equ
+%
+%\ifkaisetu
+%\begin{解答}
+% $f(x)=\log x$とおくと，$f'(x)=\bunsuu 1x$．平均値の定理より，
+%\[n<c<n+2,\ \ \ かつ\ \ \ \bunsuu{\log (n+2)-\log n}{(n+2)-n} = \bunsuu{1}{c}\]
+%となる$c$が存在する．このとき，
+%\begin{align*}
+%a_n&=n\{\log (n+2)-\log n\} = \bunsuu{2n}{c}\\
+%これと\ \ \ \bunsuu{2n}{n+2} &< \bunsuu{2n}{c} < \bunsuu{2n}{n}
+%より，\ \ \ \bunsuu{2n}{n+2} < a_n < \bunsuu{2n}{n}
+%\end{align*}
+%であり，$n \to \infty$のとき，$(左辺) \to 2$かつ$(右辺) \to 2$．\\
+%はさみうちの原理より，$\dlim_{n\to \infty} a_n=2$
+%\end{解答}
+%\fi
+
+
+%%%\bqu $a_1>0$，\ \ $a_{n+1}=\bunsuu 12 e^{-a_n}$\ $(n=1,2,3,\cdots)$を満たす数列$\{a_n\}$がある．
+%%%%\benu
+%%%%\item $f(x)=$とする．
+%%%\benu
+%%%\item 等式$\bunsuu 12e^{-\alpha}=\alpha$を満たす正の数$\alpha$がただ1つ存在することを示せ．
+%%%%\item 正の数$a$，$b$に対し，常に$\left|f(a)-f(b)\right|<\bunsuu 1２|a-b|$が成り立つことを証明せよ．
+%%%%\eenu
+%%%\item $\dlim_{n \to \infty}a_n=\alpha$であることを証明せよ．
+%%%\eenu
+%%%\equ
+%%%
+%%%\ifkaisetu
+%%%\begin{解答}
+%%%\vspace{-2zw}
+%%%\benu
+%%%\item $g(x)=\bunsuu 12e^{-x}-x$とおく．\\
+%%%$g'(x)=-\bunsuu 12 e^{-x}-1<0$より，$g(x)$は常に単調減少する．\\
+%%%$g(0)=\bunsuu 12>0$かつ$\dlim_{x \to \infty} g(x)=-\infty$より，\\
+%%%%$f(x)=\bunsuu 12e^{-x}$は単調減少かつ，$f(0)=\bunsuu 12$，$\dlim_{x\to \infty}f(x)=0$\\
+%%%%一方，$g(x)=x$は単調増加かつ，$g(0)=0$，$\dlim_{x\to \infty}g(x)=\infty$\\
+%%%%よって，
+%%%$g(\alpha)=0$となる正の数$\alpha$がただ1つ存在する．\\
+%%%この$\alpha$が，$\bunsuu 12e^{-\alpha}=\alpha$を満たす唯一の正の数に他ならない．
+%%%\item $f(x)=\bunsuu 12 e^{-x}$とおく．\ \ $f'(x)=-\bunsuu 12 e^{-x}$．\\
+%%%{\bb 平均値の定理}より，$a_n$と$\alpha$の間の値$c$で
+%%%\[\bunsuu{f(a_{n})-f(\alpha)}{a_n-\alpha} =f'(c)\ \ \ すなわち\ \ \ \bunsuu{a_{n+1}-\alpha}{a_n-\alpha} =-\bunsuu 12 e^{-c}\]
+%%%を満たすものが存在する．\\
+%%%$a_n>0$かつ$\alpha>0$より，$c>0$であることに注意すると，
+%%%\[\bunsuu{|a_{n+1}-\alpha|}{|a_n-\alpha|} =\bunsuu 12 e^{-c} <\bunsuu 12\ \ \ \]
+%%%\[\therefore\ \ \ |a_{n+1}-\alpha| <\bunsuu 12 |a_n-\alpha|\]
+%%%これを繰り返し用いると，
+%%%\[\therefore\ \ \ |a_n-\alpha| < \bunsuu 12 |a_{n-1}-\alpha| < \cdots < \left(\bunsuu 12\right)^{n-1} |a_1-\alpha|\]
+%%%\[\therefore\ \ \ 0\leqq |a_n-\alpha| <  \left(\bunsuu 12\right)^{n-1} |a_1-\alpha| \xlongrightarrow[]{n\to \infty} 0\]
+%%%したがって，\ \ \ $\dlim_{n\to \infty}a_n=\alpha$．
+%%%\hfill □
+%%%\eenu
+%%%\end{解答}
+%%%
+%%%\newpage
+%%%
+%%%蜘蛛の巣図；\\
+%%%
+%%%\begin{zahyou}[ul=50mm,gentenhaiti={[wn]}](-0.1,2.1)(-0.1,2.1)
+%%%\def\Fx{1/2*exp(-X)}
+%%%\def\Gx{X}
+%%%\YGraph<linethickness=1pt,color=red>\Fx
+%%%\YGraph<linethickness=1pt,color=blue>\Gx
+%%%%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+%%%\teisuuretu{aval=1.5}
+%%%\teisuuretu{bval=1/2*exp(-\aval)}
+%%%\teisuuretu{cval=1/2*exp(-\bval)}
+%%%\teisuuretu{dval=1/2*exp(-\cval)}
+%%%\teisuuretu{eval=1/2*exp(-\dval)}
+%%%\teisuuretu{fval=1/2*exp(-\eval)}
+%%%\teisuuretu{gval=1/2*exp(-\fval)}
+%%%\teisuuretu{hval=1/2*exp(-\gval)}
+%%%\teisuuretu{ival=1/2*exp(-\hval)}
+%%%\teisuuretu{jval=1/2*exp(-\ival)}
+%%%\teisuuretu{lval=1/2*exp(-\jval)}
+%%%\teisuuretu{mval=1/2*exp(-\lval)}
+%%%\teisuuretu{nval=1/2*exp(-\mval)}
+%%%\teisuuretu{oval=1/2*exp(-\nval)}
+%%%\teisuuretu{pval=1/2*exp(-\oval)}
+%%%\YPoint\Fx{\aval}\A
+%%%\YPoint\Gx{\bval}\B
+%%%\YPoint\Fx{\bval}\C
+%%%\YPoint\Gx{\cval}\D
+%%%\YPoint\Fx{\cval}\E
+%%%\YPoint\Gx{\dval}\F
+%%%\YPoint\Fx{\dval}\G
+%%%\YPoint\Gx{\eval}\I
+%%%\YPoint\Fx{\eval}\J
+%%%\YPoint\Gx{\fval}\K
+%%%\YPoint\Fx{\fval}\L
+%%%\YPoint\Gx{\gval}\M
+%%%\YPoint\Fx{\gval}\N
+%%%\YPoint\Gx{\hval}\O
+%%%\YPoint\Fx{\hval}\P
+%%%\YPoint\Gx{\ival}\Q
+%%%\YPoint\Fx{\ival}\R
+%%%\YPoint\Gx{\jval}\S
+%%%\YPoint\Fx{\jval}\T
+%%%\YPoint\Gx{\lval}\U
+%%%\YPoint\Fx{\lval}\V
+%%%\YPoint\Gx{\mval}\W
+%%%\YPoint\Fx{\mval}\X
+%%%\YPoint\Gx{\nval}\Y
+%%%\YPoint\Fx{\nval}\Z
+%%%\ArrowLine{(\aval,0)}{\A}
+%%%\Drawline{\A\B\C\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+%%%\YPointPut\Fx{\xmax}[n]{\color{red} $y=\bunsuu 12 e^{-x}$}
+%%%\YPointPut\Gx{\xmax}[nw]{\color{blue} $y=x$}
+%%%%\KuromaruHankei{2pt}
+%%%%\Kuromaru\Z
+%%%\emathPut{\A}[syaei=x,xlabel=a_1]{}
+%%%\emathPut{\Z}[syaei=x,xlabel=\alpha]{}
+%%%%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+%%%\En{\Z}{0.06}
+%%%\end{zahyou}
+%%%\begin{zahyou*}[ul=500mm,gentenhaiti={[wn]},hidariyohaku=-8zw,sitayohaku=5zw](0.29,0.41)(0.29,0.41)
+%%%\def\Fx{1/2*exp(-X)}
+%%%\def\Gx{X}
+%%%\YGraph<linethickness=1pt,color=red>\Fx
+%%%\YGraph<linethickness=1pt,color=blue>\Gx
+%%%%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+%%%\teisuuretu{aval=1.5}
+%%%\teisuuretu{bval=1/2*exp(-\aval)}
+%%%\teisuuretu{cval=1/2*exp(-\bval)}
+%%%\teisuuretu{dval=1/2*exp(-\cval)}
+%%%\teisuuretu{eval=1/2*exp(-\dval)}
+%%%\teisuuretu{fval=1/2*exp(-\eval)}
+%%%\teisuuretu{gval=1/2*exp(-\fval)}
+%%%\teisuuretu{hval=1/2*exp(-\gval)}
+%%%\teisuuretu{ival=1/2*exp(-\hval)}
+%%%\teisuuretu{jval=1/2*exp(-\ival)}
+%%%\teisuuretu{lval=1/2*exp(-\jval)}
+%%%\teisuuretu{mval=1/2*exp(-\lval)}
+%%%\teisuuretu{nval=1/2*exp(-\mval)}
+%%%\teisuuretu{oval=1/2*exp(-\nval)}
+%%%\teisuuretu{pval=1/2*exp(-\oval)}
+%%%\YPoint\Fx{\aval}\A
+%%%\YPoint\Gx{\bval}\B
+%%%\YPoint\Fx{\bval}\C
+%%%\YPoint\Gx{\cval}\D
+%%%\YPoint<yval=yi>\Fx{\cval}\E
+%%%\YPoint\Gx{\dval}\F
+%%%\YPoint\Fx{\dval}\G
+%%%\YPoint\Gx{\eval}\I
+%%%\YPoint\Fx{\eval}\J
+%%%\YPoint\Gx{\fval}\K
+%%%\YPoint\Fx{\fval}\L
+%%%\YPoint\Gx{\gval}\M
+%%%\YPoint\Fx{\gval}\N
+%%%\YPoint\Gx{\hval}\O
+%%%\YPoint\Fx{\hval}\P
+%%%\YPoint\Gx{\ival}\Q
+%%%\YPoint\Fx{\ival}\R
+%%%\YPoint\Gx{\jval}\S
+%%%\YPoint\Fx{\jval}\T
+%%%\YPoint\Gx{\lval}\U
+%%%\YPoint\Fx{\lval}\V
+%%%\YPoint\Gx{\mval}\W
+%%%\YPoint\Fx{\mval}\X
+%%%\YPoint\Gx{\nval}\Y
+%%%\YPoint\Fx{\nval}\Z
+%%%%\ArrowLine{(\aval,0)}{\A}
+%%%\Drawline{(\xmax,\yi)
+%%%\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+%%%\YPointPut\Fx{\xmax-0.03}[ne]{\color{red} $y=\bunsuu 12 e^{-x}$}
+%%%\YPointPut\Gx{\xmax-0.03}[nw]{\color{blue} $y=x$}
+%%%%\KuromaruHankei{2pt}
+%%%%\Kuromaru\Z
+%%%%\emathPut{\Z}[es]{収束}
+%%%%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+%%%\En{\Z}{0.06}
+%%%\end{zahyou*}
+%%%
+%%%\vfill
+%%%
+%%%
+%%%$\lim$を用いずにそのまま表してみる遊び；\\
+%%%
+%%%{\huge 
+%%%
+%%%
+%%%\hfill 
+%%%$\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{
+%%%\scalebox{0.7}{$-\bunsuu 12e^{\ 
+%%%}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}=\alpha$\hfill 
+%%%}
+%%%ただし，$\alpha$は$\bunsuu 12 e^{-\alpha}=\alpha$の解．
+%%%\vfill
+%%%
+%%%\newpage
+%%%
+%%%\fi
+
+%\bqu 
+%\benu
+%\item %$x>4$のとき，不等式$\sq{2}^x>x$が成立することを示せ．また，
+%方程式$x=\sq{2}^x$を満たす実数$x$は$x=2$と$x=4$以外にないことを示せ．
+%\item $0<x<2$のとき，不等式$\bunsuu{2-\sq{2}^x}{2-x}< \log 2 $が成立することを示せ．
+%\item 
+\bqu
+$a_1=\sq 2，\ \ a_{n+1} =\sq{2}^{a_n}\ \ \ (n=1,2,3,\cdots)$
+によって定められる数列$\{a_n\}$の極限値$\dlim_{n \to \infty}a_n$を求めよ．
+\equ
+
+\ifkaisetu
+\begin{解答}
+$f(x)=\sq{2}^{x}$とおくと，$f(2)=2$，$f(4)=4$である．\\
+$y=f(x)$のグラフは常に下に凸であり，$y=x$のグラフは直線であるから，\\
+この2つの交点は多くて2点しかない．\\
+以上より，$f(\alpha)=\alpha$となる実数$\alpha$は$\alpha=2,4$しかない．
+
+さて，$k$を自然数とし，$a_k<2$と仮定すると，$a_{k+1}=\sq 2^{a_k} < \sq 2^{2}=2$．\\
+これと$a_1=\sq 2 < 2$より，任意の自然数$n$に対して$a_n<2$．\\
+$f'(x)={\sq 2}^{x} \log \sq{2} $．\\
+{\bb 平均値の定理}より，$a_n<c<2$なる実数$c$で
+\[\bunsuu{f(2)-f(a_{n})}{2-a_n} =f'(c)\ \ \ すなわち\ \ \ \bunsuu{2-a_{n+1}}{2-a_n} ={\sq 2}^{c} \log \sq{2}\]
+を満たすものが存在する．ここで，
+\[{\sq 2}^{c} \log \sq{2}<{\sq 2}^{2} \log \sq{2}=2\log \sq{2}=\log \sq{2}^2=\log 2\]
+に注意すると，
+\[\bunsuu{2-a_{n+1}}{2-a_n} < \log 2\ \ \ すなわち\ \ \ 2-a_{n+1} < \log 2(2-a_n)\]
+これをくり返し用いると，
+\[\therefore\ \ \ 2-a_n < \log 2  (2-a_{n-1})<\cdots <\left(\log 2 \right)^{n-1} (2-a_1)\]
+\[\therefore\ \ \ 0\leqq 2-a_n < \left(\log 2 \right)^{n-1} (2-a_1)\xlongrightarrow[]{n\to \infty} 0．\]
+したがって\ \ $\dlim_{n\to \infty}a_n={\bb 2} $
+\end{解答}
+
+\newpage
+
+ 蜘蛛の巣図；\\
+ 
+\begin{zahyou}[ul=12.5mm,gentenhaiti={[wn]}](-0.1,8.1)(-0.1,8.1)
+\def\Fx{exp(log(sqrt(2))*X)}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=sqrt(2)}
+\teisuuretu{bval=exp(log(sqrt(2))*\aval)}
+\teisuuretu{cval=exp(log(sqrt(2))*\bval)}
+\teisuuretu{dval=exp(log(sqrt(2))*\cval)}
+\teisuuretu{eval=exp(log(sqrt(2))*\dval)}
+\teisuuretu{fval=exp(log(sqrt(2))*\eval)}
+\teisuuretu{gval=exp(log(sqrt(2))*\fval)}
+\teisuuretu{hval=exp(log(sqrt(2))*\gval)}
+\teisuuretu{ival=exp(log(sqrt(2))*\hval)}
+\teisuuretu{jval=exp(log(sqrt(2))*\ival)}
+\teisuuretu{lval=exp(log(sqrt(2))*\jval)}
+\teisuuretu{mval=exp(log(sqrt(2))*\lval)}
+\teisuuretu{nval=exp(log(sqrt(2))*\mval)}
+\teisuuretu{oval=exp(log(sqrt(2))*\nval)}
+\teisuuretu{pval=exp(log(sqrt(2))*\oval)}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+\ArrowLine{(\aval,0)}{\A}
+\Drawline{\A\B\C\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{5.5}[w]{\color{red} $y=\sqrt{2}^{x}$}
+\YPointPut\Gx{\xmax-1}[se]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+\emathPut{\A}[syaei=x,xlabel=\sq 2]{}
+\emathPut{\Z}[syaei=x,xlabel=2]{}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{0.25}
+\end{zahyou}
+ \begin{zahyou*}[ul=125mm,gentenhaiti={[wn]},hidariyohaku=-8zw,sitayohaku=5zw](1.81,2.21)(1.81,2.21)
+\def\Fx{exp(log(sqrt(2))*X)}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=sqrt(2)}
+\teisuuretu{bval=exp(log(sqrt(2))*\aval)}
+\teisuuretu{cval=exp(log(sqrt(2))*\bval)}
+\teisuuretu{dval=exp(log(sqrt(2))*\cval)}
+\teisuuretu{eval=exp(log(sqrt(2))*\dval)}
+\teisuuretu{fval=exp(log(sqrt(2))*\eval)}
+\teisuuretu{gval=exp(log(sqrt(2))*\fval)}
+\teisuuretu{hval=exp(log(sqrt(2))*\gval)}
+\teisuuretu{ival=exp(log(sqrt(2))*\hval)}
+\teisuuretu{jval=exp(log(sqrt(2))*\ival)}
+\teisuuretu{lval=exp(log(sqrt(2))*\jval)}
+\teisuuretu{mval=exp(log(sqrt(2))*\lval)}
+\teisuuretu{nval=exp(log(sqrt(2))*\mval)}
+\teisuuretu{oval=exp(log(sqrt(2))*\nval)}
+\teisuuretu{pval=exp(log(sqrt(2))*\oval)}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint<xval=xi>\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+%\ArrowLine{(\aval,0)}{\A}
+\Drawline{(\xi,\ymin)\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{\xmax-0.1}[se]{\color{red} $y=\sqrt{2}^{x}$}
+\YPointPut\Gx{\xmax-0.1}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+%\emathPut{\Z}[es]{収束}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{0.25}
+\end{zahyou*}
+
+\vfill
+
+$\lim$を用いずにそのまま表してみる遊び；\\
+
+{\huge 
+
+
+\hfill 
+$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{
+\scalebox{0.7}{$\sqrt{2}^{\ }
+$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}$}}
+=2$\hfill 
+}
+
+\vfill
+
+\newpage
+
+\fi
+
+\bqu
+関数$f(x)$を$f(x)=\bunsuu 12x\{1+e^{-2(x-1)}\}$とする．
+\benu
+\item $x>\bunsuu 12$ならば$0 \leqq f'(x) <\bunsuu 12$であることを示せ．
+\item $x_0$を正の数とするとき，数列$\{x_n\}$\ $(n=0,1,\cdots)$を$x_{n+1}=f(x_n)$によって定める．\\$x_0>\bunsuu 12$であれば，$\dlim_{n \to\infty}x_n=1$であることを示せ．\ifkaisetu \hfill(東大)\fi
+\eenu
+\equ
+
+\ifkaisetu
+\begin{解答}
+\vspace{-2zw}
+\benu
+\item $f'(x)=\bunsuu12 \{1\cdot(1+e^{-2(x-1)})+x\cdot (-2e^{-2(x-1)})\}=\bunsuu 12\{1+e^{-2(x-1)}-2xe^{-2(x-1)}\}$\\
+$f''(x)=\bunsuu 12 \{-2e^{-2(x-1)}-2e^{-2(x-1)}+4xe^{-2(x-1)}\}=2(x-1)e^{-2(x-1)}$．\\
+よって，$f(x)$の増減は次のようになる．\vspace{-0.5zw}
+\[\begin{array}{c|ccccccccccc}
+\phantom{\bunsuu 11}x&\frac 12	&\cdots	&1	&\cdots	& (\infty)	\\\hline
+\phantom{\bunsuu 11}f''(x)& 		&-		&0	&+		&		\\\hline
+\phantom{\bunsuu 11}f'(x)& \frac 12&\SE	&0	&\NE	&(\frac 12)\\
+\end{array}
+\]
+\vspace{-0.5zw}
+したがって，$x>\bunsuu 12$ならば$0 \leqq f'(x) <\bunsuu 12$．\hfill □
+\item 
+(1)の結果より，$x>\bunsuu 12$において，$f(x)$は単調増加する．
+これと
+\[f\left(\bunsuu 12\right)=\bunsuu 12 \cdot\bunsuu 12\left\{1+e^{-2\cdot (\frac12-1)}\right\}=\bunsuu{1+e}{4}>\bunsuu{1+1}{4}=\bunsuu 12\]
+より，$x>\bunsuu 12$ならば$f(x)>\bunsuu 12$である．\\
+ゆえに，$k$を0以上の整数として，$x_{k}>\bunsuu 12$を仮定すると，$x_{k+1}=f(x_{k})>\bunsuu 12$．\\
+これと$a_0>\bunsuu 12$より，任意の0以上の整数$n$に対して，$x_n>\bunsuu 12$が成立する．\\
+{\bb 平均値の定理}より，1と$x_n$の間の値$c$で，
+\[\bunsuu{f(x_n)-f(1)}{x_n-1}=f'(c)\ \ \ すなわち\ \ \ \bunsuu{x_{n+1}-1}{x_n-1}=f'(c)\]
+を満たすものが存在する．\\
+%このとき，
+%\[\bunsuu{|x_{n+1}-1|}{|x_n-1|}=f'(c)\]
+ここで，$1>\bunsuu 12$かつ$x_n>\bunsuu 12$より，$c > \bunsuu 12$なので，(1)の結果から%$0\leqq f'(c) < \bunsuu 12$．
+\[\bunsuu{|x_{n+1}-1|}{|x_n-1|}=f'(c)<\bunsuu 12\ \ \ \]
+\[\therefore\ \ \ |x_{n+1}-1|<\bunsuu 12|x_n-1|．\]
+これを繰り返し用いると，
+\[|x_{n}-1|<\bunsuu12 |x_{n-1}-1|<\cdots<\left(\bunsuu12\right)^n |x_{0}-1|\]
+\[\therefore\ \ \ 0\leqq |x_{n}-1|<\left(\bunsuu12\right)^n |x_{0}-1|\xlongrightarrow[]{n\to \infty} 0\]
+したがって\ \ $\dlim_{n\to \infty}x_n=1 $\hfill □
+\eenu
+\end{解答}
+%\vfill
+\newpage
+
+ 蜘蛛の巣図；\\
+ 
+ \begin{zahyou}[ul=2.5mm,gentenhaiti={[wn]},yokozikuhaiti={[en]}](-1,41)(-1,41)
+\def\Fx{1/2*X*(1+exp(-2*(X-1)))}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red,maxx=30>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=20}
+\teisuuretu{bval=1/2*\aval*(1+exp(-2*(\aval-1)))}
+\teisuuretu{cval=1/2*\bval*(1+exp(-2*(\bval-1)))}
+\teisuuretu{dval=1/2*\cval*(1+exp(-2*(\cval-1)))}
+\teisuuretu{eval=1/2*\dval*(1+exp(-2*(\dval-1)))}
+\teisuuretu{fval=1/2*\eval*(1+exp(-2*(\eval-1)))}
+\teisuuretu{gval=1/2*\fval*(1+exp(-2*(\fval-1)))}
+\teisuuretu{hval=1/2*\gval*(1+exp(-2*(\gval-1)))}
+\teisuuretu{ival=1/2*\hval*(1+exp(-2*(\hval-1)))}
+\teisuuretu{jval=1/2*\ival*(1+exp(-2*(\ival-1)))}
+\teisuuretu{lval=1/2*\jval*(1+exp(-2*(\jval-1)))}
+\teisuuretu{mval=1/2*\lval*(1+exp(-2*(\lval-1)))}
+\teisuuretu{nval=1/2*\mval*(1+exp(-2*(\mval-1)))}
+\teisuuretu{oval=1/2*\nval*(1+exp(-2*(\nval-1)))}
+\teisuuretu{pval=1/2*\oval*(1+exp(-2*(\oval-1)))}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+\ArrowLine{(\aval,0)}{\A}
+\Drawline{\A\B\C\D\E\F\G\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{25}[nw]{\color{red} $y=f(x)$}
+\YPointPut\Gx{30}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+\emathPut{\A}[syaei=x,xlabel=x_0]{}
+\emathPut{\Z}[syaei=x,xlabel=1]{}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{1.2}
+\end{zahyou}
+\begin{zahyou}[ul=25mm,gentenhaiti={[wn]},hidariyohaku=-8zw,sitayohaku=5zw](-0.1,2.1)(-0.1,2.1)
+\def\Fx{1/2*X*(1+exp(-2*(X-1)))}
+\def\Gx{X}
+\YGraph<linethickness=1pt,color=red>\Fx
+\YGraph<linethickness=1pt,color=blue>\Gx
+%\YPointPut\Fx{\kval}[syaei=x,xlabel=0.07]{}
+\teisuuretu{aval=20}
+\teisuuretu{bval=1/2*\aval*(1+exp(-2*(\aval-1)))}
+\teisuuretu{cval=1/2*\bval*(1+exp(-2*(\bval-1)))}
+\teisuuretu{dval=1/2*\cval*(1+exp(-2*(\cval-1)))}
+\teisuuretu{eval=1/2*\dval*(1+exp(-2*(\dval-1)))}
+\teisuuretu{fval=1/2*\eval*(1+exp(-2*(\eval-1)))}
+\teisuuretu{gval=1/2*\fval*(1+exp(-2*(\fval-1)))}
+\teisuuretu{hval=1/2*\gval*(1+exp(-2*(\gval-1)))}
+\teisuuretu{ival=1/2*\hval*(1+exp(-2*(\hval-1)))}
+\teisuuretu{jval=1/2*\ival*(1+exp(-2*(\ival-1)))}
+\teisuuretu{lval=1/2*\jval*(1+exp(-2*(\jval-1)))}
+\teisuuretu{mval=1/2*\lval*(1+exp(-2*(\lval-1)))}
+\teisuuretu{nval=1/2*\mval*(1+exp(-2*(\mval-1)))}
+\teisuuretu{oval=1/2*\nval*(1+exp(-2*(\nval-1)))}
+\teisuuretu{pval=1/2*\oval*(1+exp(-2*(\oval-1)))}
+\YPoint\Fx{\aval}\A
+\YPoint\Gx{\bval}\B
+\YPoint\Fx{\bval}\C
+\YPoint\Gx{\cval}\D
+\YPoint\Fx{\cval}\E
+\YPoint\Gx{\dval}\F
+\YPoint<yval=yi>\Fx{\dval}\G
+\YPoint\Gx{\eval}\I
+\YPoint\Fx{\eval}\J
+\YPoint\Gx{\fval}\K
+\YPoint\Fx{\fval}\L
+\YPoint\Gx{\gval}\M
+\YPoint\Fx{\gval}\N
+\YPoint\Gx{\hval}\O
+\YPoint\Fx{\hval}\P
+\YPoint\Gx{\ival}\Q
+\YPoint\Fx{\ival}\R
+\YPoint\Gx{\jval}\S
+\YPoint\Fx{\jval}\T
+\YPoint\Gx{\lval}\U
+\YPoint\Fx{\lval}\V
+\YPoint\Gx{\mval}\W
+\YPoint\Fx{\mval}\X
+\YPoint\Gx{\nval}\Y
+\YPoint\Fx{\nval}\Z
+%\ArrowLine{(\aval,0)}{\A}
+\Drawline{(\xmax,\yi)\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z}
+\YPointPut\Fx{\xmax-0.5}[s]{\color{red} $y=f(x)$}
+\YPointPut\Gx{\xmax}[nw]{\color{blue} $y=x$}
+%\KuromaruHankei{2pt}
+%\Kuromaru\Z
+\emathPut{\Z}[syaei=x,xlabel=1]{}
+%\Drawline{(1.5,1.5)(1.5,2.2)(2.2,2.2)(2.2,1.5)(1.5,1.5)}
+\En{\Z}{1.2}
+\end{zahyou}
+
+ \vfill
+
+$\lim$を用いずにそのまま表してみる遊び；\\
+
+$f(x)=\bunsuu 12x\{1+e^{-2(x-1)}\}$とすると\\
+
+{\huge 
+
+
+\hfill 
+$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(
+\scalebox{0.8}{$f\left(\ 
+\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)$}\right)=1$\hfill 
+}
+\\
+
+\hfill {\tiny ※ 消失点における値が初項$x_0$であり，この値が$x_0>\bunsuu 12$を満たすときにこの等式は成立する．}
+
+\vfill
+
+\fi
+%\newpage
+
+%{\bb チャレンジ問題}\\
+
+%\bqu
+%{\bb 追加問題} \\
+%$a$を1より大きい定数とする．微分可能な関数$f(x)$が$f(a)=af(1)$を満たすとき，曲線$y=f(x)$の接線で原点$(0,0)$を通るものが存在することを示せ．
+%\hfill(2021京大 理系第6問\ 問2)
+%\equ
+
+%\bqu
+%次の問いに答えよ．
+%\benu
+%\item $a$を実数とする．$x$についての方程式$x-\tan x=a$の実数解のうち，$|x|<\bunsuu{\pi}{2}$をみたすものがちょうど1個あることを示せ．
+%\item 自然数$n$に対し，$x-\tan x =n\pi$かつ$|x|<\bunsuu{\pi}{2}$をみたす実数$x$を$x_n$とおく．$t$を$|t|<\bunsuu{\pi}{2}$をみたす実数とする．このとき，曲線$C：y=\sin x$上の点P$(t,\ \sin t)$における接線が，不等式$x \leqq \bunsuu{\pi}{2}$の表す領域に含まれる点においても曲線$C$と接するための必要十分条件は，$t$が$x_1$，$x_2$，$x_3$，$\cdots$のいずれかと等しいことであることを示せ．
+%\hfill(2021阪大 理系第5問)
+%\eenu
+%\equ
+
+%\bqu 以下の問いに答えよ．
+%\benu
+%\item $A$，$\alpha$を実数とする．$\theta$の方程式
+%\[A\sin2\theta-\sin(\theta+\alpha)=0\]
+%を考える．$A>1$のとき，この方程式は$0\leqq \theta <2\pi$の範囲に少なくとも4個の解をもつことを示せ．
+%\item 座標平面上の楕円
+%\[C：\bunsuu{x^2}{2}+y^2=1\]
+%を考える．また，$0<r<1$を満たす実数$r$に対して，不等式
+%\[2x^2+y^2<r^2\]
+%が表す領域を$D$とする．$D$内のすべての点Pが以下の条件を満たすような実数$r$\ $(0<r<1)$が存在することを示せ．また，そのような$r$の最大値を求めよ．\\条件：$C$上の点Qで，Qにおける$C$の接線と直線PQが直交するようなものが少なくとも4個ある．\hfill(2020東大 第6問)
+%\eenu
+%\equ
+
+%\newpage
+
+%{\bb\Large 高校数学を逸脱するより発展的な話題}
+
+%平均値の定理の一般化として，次の定理がある．
+
+%\begin{itembox}[l]{\bb コーシーの平均値定理}
+% $f(x)$，$g(x)$は閉区間$a \leqq x \leqq b$で連続，開区間$a < x < b$で微分可能であるとする．さらに，$a < x < b$のどの点においても，$f'(x)$，$g'(x)$が同時に0になることはないものとする．このとき，$g(a) \neq g(b)$ならば
+%\[a<c<b\ \ \ \ かつ\ \ \ \ \bunsuu{f(b)-f(a)}{g(b)-g(a)}=\bunsuu{f'(c)}{g'(c)}\]
+%となる$c$が存在する．
+%\end{itembox}
+%
+%通常の平均値の定理は，$g(x)=x$という特別な場合だとみなせる．$f(x)$，$g(x)$のそれぞれに，通常の平均値の定理を適用すれば，
+%\[\bunsuu{f(b)-f(a)}{b-a}=f'(c_1)，\ \ \ \ \bunsuu{g(b)-g(a)}{b-a}=g'(c_2)\]
+%となる，$c_1$，$c_2$が存在し，辺々を割れば，
+%\[\bunsuu{f(b)-f(a)}{g(b)-g(a)}=\bunsuu{f'(c_1)}{g'(c_2)}\]
+%を得るが，ここにおいて$c_1=c_2$となる保証はない．この$c$の値を共通のものとしてとることができる，というのが，コーシーの平均値の定理の主張である．
+%
+%証明は，目的の式を$F'(c)=0$という形に整理して作られる$F(x)$に，ロルの定理を適用する．
+%
+%\begin{証明}
+%$F(x)=(g(b)-g(a))(f(x)-f(a))-(f(b)-f(a))(g(x)-g(a))$とおくと，\\
+%$F(a)=0$かつ$F(b)=0$より，ロルの定理を適用できて，
+%\[a<c<b\ \ \ \ かつ\ \ \ \ F'(c)=0\ \ \ となる\ c\ が存在する．\]
+%$F'(c)=0$から，
+%\[(g(b)-g(a))f'(c)-(f(b)-f(a))g'(c)=0\ \ \ すなわち\ \ \ \bunsuu{f(b)-f(a)}{g(b)-g(a)}=\bunsuu{f'(c)}{g'(c)}\hfill (証明終了)\]
+%\end{証明}
+%
+%
+%\vfill
+%
+%
+%\begin{itembox}[l]{\bb ロピタルの定理}
+% $f(x)$，$g(x)$は$x=a$の近くで微分可能であり，かつ，$f(a)=0$，$g(a)=0$とし，\\
+% さらに，$x=a$の近くで$g'(a)\neq 0$であるとする．このとき，
+%\[極限値\ \dlim_{x \to a} \bunsuu{f'(x)}{g'(x)}\ \ \ が存在するならば\ \ \ \ 
+%\dlim_{x \to a} \bunsuu{f(x)}{g(x)}=\dlim_{x \to a} \bunsuu{f'(x)}{g'(x)}\]
+%\end{itembox}
+%
+%
+%
+%\begin{証明}
+%コーシーの平均値の定理により$a$の近くの$x$の値に対し，
+%\[\bunsuu{f(x)-f(a)}{g(x)-g(a)}=\bunsuu{f'(c)}{g'(c)}\]
+%となる$c$が$x$と$a$の間に存在する．$x \to a$のとき，$c \to a$より，
+%\[\dlim_{x \to a} \bunsuu{f(x)}{g(x)}
+%=\dlim_{x \to a} \bunsuu{f(x)-f(a)}{g(x)-g(a)}=\dlim_{x \to a}\bunsuu{f'(c)}{g'(c)}=\dlim_{c \to a}\bunsuu{f'(c)}{g'(c)}=\dlim_{x \to a}\bunsuu{f'(x)}{g'(x)}\hfill (証明終了)\]
+%\end{証明}
+%これは，非常に強力な定理で，広く親しまれています．
+%\[{\bb 利用例}\ \ ：\ \ \dlim_{x \to 0} \bunsuu{1-\cos x}{x^2} =\dlim_{x \to 0} \bunsuu{(1-\cos x)'}{(x^2)'}=\dlim_{x \to 0} \bunsuu{\sin x}{2x}=\bunsuu 12．\]
+%\vfill
+%
+%
+\ifkaisetu
+
+\newpage
+
+\ \\
+
+\vfill
+
+...以上の問題を眺めていると自然に浮かんでくるのは...
+
+\ \\
+
+問1．\ 漸化式$a_{n+1}=f(a_n)$をもつ数列$\{a_n\}$
+が$\alpha$に収束するとする．このとき，必ず$f(\alpha)=\alpha$が成り立つといえるか？
+
+\ \\
+
+問2．\ 漸化式$a_{n+1}=f(a_n)$をもつ数列$\{a_n\}$が収束するために，初項$a_1$と$f(x)$についてどのような条件が必要か？
+
+
+\ \\
+
+\fi
+
+\iffuru
+}\mondaitokaitou
+\fi                                                                 
+
+\end{document}

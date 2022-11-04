@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+  <title> 記事集</title>
+{% endblock %}
+
+{% block folders %}
+  <h4>記事集</h4>
+  <ul>
+    {% for module in module_list %}
+    <li class ="folder linkdiv" name="{{ module.slug }}">
+      <a href="#">{{ module.name }}({{ module.articles_num }})</a>
+      {% include "modules.html" %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <div id="file-detail"></div>
+{% endblock %}
+
+{% block scripts %}
+  {% include "folder_system.html" %}
+{% endblock %}

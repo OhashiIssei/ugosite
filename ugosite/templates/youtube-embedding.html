@@ -1,0 +1,10 @@
+<div class="player"></div>
+
+{% if video.table %}
+    <h3>目次</h3>
+    <ul class = "table">
+    {% for line in video.table %}
+    <li class = "linkdiv"><a>{{ line }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}

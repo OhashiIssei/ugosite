@@ -1,0 +1,528 @@
+\documentclass[10pt,
+a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+\usepackage{comment}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+%\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=10truemm,bottom=10truemm,left=10truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+
+%ページレイアウト
+\setlength{\columnseprule}{0.4pt}
+\columnsep=3cm
+%%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+\pagestyle{empty}%ページ番号を消す
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+\newcommand{\sub}{%\newpage%サブセクション毎に改ページ
+\subsection}
+\newcommand{\bqu}{\begin{question}}
+\newcommand{\equ}{\end{question}\vfill}
+\newcommand{\bQ}{\setcounter{equation}{0}\begin{Q}}
+\newcommand{\eQ}{\end{Q}}
+\newcommand{\bquu}{\begin{leftbar}}
+\newcommand{\equu}{\end{leftbar}}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+\newtheorem{tyuu}{}[subsection]
+\newcommand{\btyu}{\begin{tyuu}}
+\newcommand{\etyu}{\end{tyuu}}
+\renewcommand{\thetyuu}{\protect\makebox[2em][c]
+{注意}
+\ \ }
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\vspace{-1zw}\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{
+\Large\bb\Alph{subsection}
+\ }
+\renewcommand{\theQ}{{\underline{$\overline{\bb \ 追加問題\ }$}}
+\ \ }
+\renewcommand{\theQuestion}{
+\arabic{Question}．}
+\renewcommand{\thequuestion}{{\underline{$\overline{\bb \ 性質\ }$}}
+\ \ }
+
+%横に縦線
+\usepackage{framed}
+\newcommand{\bche}{\begin{leftbar}
+%\underbar{ホワイトボード}\\
+}
+\newcommand{\eche}{\end{leftbar}}
+\newcommand{\bcha}{\begin{leftbar}}
+\newcommand{\echa}{\end{leftbar}}
+\newcommand{\bapp}{\hspace{-2zw}\underbar{\bf Approach}\vspace{-1zw}\begin{leftbar}}
+\newcommand{\eapp}{\end{leftbar}}
+\newcommand{\bmem}{\hspace{-2zw}\underbar{\bf Memo}\vspace{-1zw}\begin{leftbar}}
+\newcommand{\emem}{\end{leftbar}}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\renewcommand{\bar}{\overline}
+\renewcommand{\Re}{\text{Re}}
+\renewcommand{\Im}{\text{Im}}
+\renewcommand{\dlim}{\displaystyle\lim}
+
+\makeatletter
+\renewenvironment{leftbar}{%
+%  \def\FrameCommand{\vrule width 3pt \hspace{10pt}}%  デフォルトの線の太さは3pt
+\def\FrameCommand{\vrule width 1pt \hspace{-3zw}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+
+%カラー，色
+\usepackage{color}
+\definecolor{link}{rgb}{0.63671875,0.99609375,0.99609375}
+\definecolor{usumido}{rgb}{0.953125,0.95703125,0.9375}
+%\pagecolor{usumido}
+
+%はやくち解説ボタン
+\usepackage[dvipdfmx]{hyperref}%ハイパーリンク
+\usepackage{pxjahyper}
+\newcommand{\botanA}{\LARGE\color{usumido}l\includegraphics[width=1.7cm,height=0.4cm,bb=0 0 1489 436]{はやくち解説ボタン3.jpeg}l}
+%\hypersetup{% hyperrefオプションリスト
+%setpagesize=false,
+% bookmarksnumbered=true,%
+% bookmarksopen=true,%
+% colorlinks=true,%
+% linkcolor=blue,
+% citecolor=red,
+%}
+
+\newcommand{\barabara}{%一問ずつのページを別で作成
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\renewcommand{\bqu}{\begin{question}}
+\renewcommand{\equ}{\end{question}\newpage}
+\renewcommand{\eQ}{\end{Q}\newpage}
+\renewcommand{\equu}{\end{quuestion}\newpage}
+\renewcommand{\equu}{\end{quuestion}\newpage}
+%\myfor{1} % ループ実行   
+
+\newpage
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+%\TileWallPaper{110mm}{160mm}{方眼紙.pdf} %方眼紙
+\myfor{1} % ループ実行   
+}
+\usepackage{qrcode}%QRコード
+\setlength\normallineskiplimit{0pt}
+
+\begin{document}
+
+%\newcount\K % int K
+%\def\myfor#1{%
+%\K=0 \loop\ifnum\K<1 % for(K=0;K<2;K++)
+
+{\bb\Large 自宅学習期間\ 微分プリント}
+
+%微分の入試問題から，標準問題10問(表)と基礎問題10問(裏)を用意しました．{\bb どちらかを選択}し，
+%提出用のノートに解答を作成してください．中には難しく感じる問題もあるかもしれませんが，わからないときは，
+自宅学習期間に微分法の復習$\&$予習を進めましょう．微分計算が4問と，増減/凹凸/グラフの問題6問，合計10問用意しました．この10問はすべて基本です．未習部分も教科書(p.188〜201)を読み，自分で解答を作成してください．一つ上のレベルに進みたい人は，右ページの追加問題にもチャレンジしましょう．目安として日付も書いておきました．それでは，充実した期間にしましょう．
+\hfill 2年数学チーム
+
+\ \\
+
+%{\bb \Large 微分10問}
+
+%\bqu 次の関数が$x=-1$で極値をとるように，定数$a$
+
+%\bqu%{\bb 収束・発散速度の比較}\\
+%次の極限値を求めよ．
+%\[\dlim_{n \to \infty} \bunsuu{(n+1)^2+(n+2)^2+\cdots+(3n)^2}{1^2+2^2+3^2+\cdots+(2n)^2}\]
+%\hfill(慶大)
+%\equ
+
+%\bqu%{\bb 無理式の極限}\\
+%次の極限値を求めよ．
+%\benu
+%\item $\dlim_{n \to \infty} (\sq{n^2+n-2}-\sq{n^2-n-1})$
+%\item $\dlim_{n \to \infty}  \bunsuu{\sq{n+5}-\sq{n+3}}{\sq{n+1}-\sq{n}}$
+%\eenu
+%\equ
+
+%\bqu%{\bb 無理式の極限}\\
+%次の極限値を求めよ．
+%\beda
+%\item $\dlim_{n \to \infty} \sq{n+1}(\sq{n}-\sq{n-1})$\hfill(京大)
+%\item $\dlim_{n \to \infty} (\sq{n^3+n}-n^{\frac32})$\hfill(岩手大)
+%\eeda
+%\equ
+
+%\bqu%{\bb 無限等比数列}\\
+%$x$の関数$f(x)=\dlim_{n \to \infty} \bunsuu{x^n+2x+1}{x^{n-1}+1}$のグラフをかけ．\hfill(静岡大)
+%\equ
+%
+%\bqu%{\bb 無限等比数列}\\
+%$f(x)=\dlim_{n \to \infty} \bunsuu{(x-4)^{2n+1}}{1+(x-1)^{2n}}$を求めよ．ただし，$x$は実数とする．\hfill(弘前大)
+%\equ
+
+%\bqu%{\bb $nr^n$の極限とはさみ打ち}
+%\benu
+%\item $n$を2以上の整数，$h$を正数とするとき，
+%\[(1+h)^n \geqq 1+nh +\bunsuu{n(n-1)}{2}h^2\]
+%が成り立つことを証明せよ．
+%\item $0<|r|<1$のとき，$\dlim_{n \to \infty} nr^n=0$を証明せよ．\hfill(金沢大)
+%\eenu
+%\equ
+
+%\bqu%{\bb 無限等比数列}\\
+%$a$，$b$を正の定数とするとき，次の極限値を求めよ．
+%\[\dlim_{n \to \infty} \sqrt[n]{a^n+b^n}\]
+%\hfill (広島大)
+%\equ
+
+%\bqu%{\bb 漸化式と極限}\\
+%2つの数列$\{a_n\}$，$\{b_n\}$は，$a_1=a$，$b_1=1-a$，
+%\[\barr a_{n+1}=a a_n+b b_n\\ b_{n+1}=(1-a)a_n+(1-b)b_n\earr (n=1,2,\cdots)\]
+%を満たしている．ただし，$a$，$b$は実数である．
+%\benu
+%\item $a_n+b_n=1$を示し，$a_{n+1}$を$a_n$，$a$，$b$を用いて表せ．
+%\item $a_n$を$n$，$a$，$b$を用いて表せ．
+%\item 数列$\{a_n\}$が収束するような$a$，$b$を座標とする点$(a,\ b)$の存在する範囲を図示せよ．\hfill(富山大)
+%\eenu
+%\equ
+
+%\bqu%{\bb 漸化式と極限}\\
+%$a_1=4$，$a_{n+1}=\bunsuu{5a_n+3}{a_n+3}$\ $(n \geqq 1)$を満たす数列$\{a_n\}$がある．\\
+%$b_n=\bunsuu{a_n-3}{a_n+1}$とおいて$b_n$を求めよ．また，$\dlim_{n \to \infty} a_n$を求めよ．\hfill(慶應大)
+%\equ
+
+%\bqu%{\bb 漸化式と極限}\\
+%関数$f(x)=\sq{2\sq 2 x+6}$に対して，漸化式
+%\[x_1=1,\ \ x_{n+1}=f(x_n)\ \ (n \geqq 1)\]
+%によって数列$\{x_n\}$を定める．また，方程式$x=f(x)$の解を$\alpha$とする．
+%\benu
+%\item $y=x$および$y=f(x)$のグラフを用いて，漸化式を説明せよ．
+%\item $|x_{n+1}-\alpha| \leqq \bunsuu 23 |x_n-\alpha|$\ $(n\geqq 1)$を証明せよ．
+%\item $\dlim_{n \to \infty} x_n$を求めよ．\hfill(宮崎医大)
+%\eenu
+%\equ
+
+%\bqu%{\bb 漸化式と極限}\\
+%数列$\{a_n\}$は，$0<a_n<1$，$a_{n+1}=\bunsuu{n{a_n}^2+2n+1}{a_n+3n}$\ \ $(n=1，2，3，\cdots)$を満たしているとする．
+%\benu
+%\item $0<a_n<1$\ $(n=1，2，3，\cdots)$であることを示せ．
+%\item $1-a_{n+1}<\bunsuu 23(1-a_n)$\ $(n=1，2，3，\cdots)$であることを示し， $\dlim_{n \to \infty} a_n$を求めよ．\hfill(北大)
+%\eenu
+%\equ
+
+%\bqu%{\bb 漸化式と極限}\\
+%数列$\{a_n\}$を$a_1=1$，$a_n=1+\bunsuu {1}{n^2}{a_{n-1}}^2\ (n=1，2，3，\cdots)$で定める．このとき，$\dlim_{n \to \infty} a_n$を求めよ．\hfill(東京工大)
+%\equ
+
+%\bqu%{\bb 無限級数}\\
+%次の無限級数の収束，発散を調べ，収束するものはその和を求めよ．
+%\beda<4>
+%\item $\dsum_{n=1}^{\infty} \bunsuu{1}{n(n+1)}$
+%\item $\dsum_{n=1}^{\infty} \bunsuu{1}{n(n+1)(n+2)}$
+%\item $\dsum_{n=1}^{\infty} \bunsuu{n}{n+1}$
+%\item $\dsum_{n=1}^{\infty} \bunsuu{1}{\sq{n}+\sq{n+1}}$
+%\eeda
+%\hfill(富山大)
+%\equ
+
+%\bqu%{\bb 調和級数}
+%\[A_n=1+\bunsuu 12+\bunsuu 13+\cdots+\bunsuu 1n\ \ (n=1，2，3，\cdots)\]
+%とおくとき，$\dlim_{n \to \infty} （A_n-\log n)=C$となることが知られている．ただし，$\log$は自然対数で，$C$は正の定数である．これを利用して，
+%\[B_n=1+\bunsuu 13+\bunsuu 15+\cdots+\bunsuu{1}{2n-1}\ \ (n=1，2，3，\cdots)\]
+%とおくとき，数列$\{B_n-K\log n\}$が収束するように定数$K$の値を定めよ．
+%
+%また，この極限値を$C$を用いて表せ．\hfill(防衛大)
+%\equ
+
+%\bqu $\dsum_{n=1}^{\infty} a_n=1$，$\dlim_{n \to \infty} na_n=0$，ならば，$\dsum_{n=1}^{\infty} n(a_n-a_{n+1})=1$であることを証明せよ．\hfill(お茶の水女大)
+%\equ
+
+%\bqu $a_n=\dsum_{k=1}^{\infty} \bunsuu{1}{\sq k}$，$b_n=\dsum_{k=1}^{\infty} \bunsuu{1}{\sq{2k+1}}$とするとき，$\dlim_{n \to \infty} a_n$，$\dlim_{n \to \infty} \bunsuu{b_n}{a_n}$を求めよ．\hfill(東大)
+%\equ
+
+%\bqu%{\bb 無限等比級数}\\
+%初項1の2つの無限等比数列$\dsum_{n=1}^{\infty}a_n$，$\dsum_{n=1}^{\infty}b_n$が共に収束し，
+%\[\dsum_{n=1}^{\infty}(a_n+b_n)=\bunsuu 83\ \ および\ \ \dsum_{n=1}^{\infty}a_nb_n=\bunsuu 45\]
+%が成り立つ．このとき，$\dsum_{n=1}^{\infty}(a_n+b_n)^2$を求めよ．\hfill(長崎大)
+%\equ
+
+%\bqu%{\bb 無限級数$\dsum_{n=1}^{\infty} nr^{n-1}$}\\
+%次の無限級数の和を求めよ．ただし，$\dlim_{n \to \infty} \bunsuu{n}{3^n}=0$は既知とする．
+%\[\bunsuu 13+\bunsuu2{3^2}+\bunsuu{3}{3^3}+\cdots+\bunsuu{n}{3^n}+\cdots\]
+%\hfill(東海大)
+%\equ
+
+%\newpage
+
+%\bqu 
+%次の無限級数の和を求めよ．ただし，$a$\ $(>1)$は定数とする．
+%\[S=\dsum_{n=1}^{\infty} n^2a^{-n}\]
+%\hfill(秋田大)
+%\equ
+
+%\bqu%{\bb 循環小数}\\
+%$a$，$b$は整数で$1 \leqq b<a \leqq 9$とする．$\bunsuu ba \leqq 0.\dot b\dot  a$となる$a$，$b$の値をすべて求めよ．\hfill(津田塾大)
+%\equ
+
+%\bqu%{\bb 関数の極限}\\
+%次の等式が成り立つように，定数$a$，$b$の値を定めよ．ただし，(2)では$a>0$とする．
+%\benu
+%\item $\dlim_{x \to 0} \bunsuu{\sq{x+1}-(1+ax)}{x^2}=b$\hfill(工学院大)
+%\item $\dlim_{x \to \infty} (\sq{ax^2+bx+1}-2x)=3$\hfill(名城大)
+%\eenu
+%\equ
+%
+%\bqu%{\bb 連続関数}\\
+%$f(x)=\dlim_{n\to\infty}\bunsuu{x^{2n+1}+ax^2+bx+1}{x^{2n}+1}$がすべての実数$x$について連続となるように$a$，$b$の値を定めよ．\hfill(大阪府大)
+%\equ
+
+%\bqu%{\bb $\dlim_{\theta \to 0} \bunsuu{\sin\theta}{\theta}=1}\\
+%$k$を正の定数とする．曲線$y=\cos kx$と3直線
+%\[x=-\theta，\ \ x=0,\ \ x=\theta\ \left(0<\theta<\bunsuu{\pi}{2k}\]
+%との交点を通る円
+
+%\bqu%{\bb $e$の定義}\\
+
+\ \hfill{\bb 2/11(木)}\hfill \ 
+
+\bqu%{\bb 微分の計算}\\
+次の関数の導関数を求めよ．
+\beda<3>
+\item $y=x^2\sin x$
+\item $y=\bunsuu{e^x-1}{e^x+1}$
+\item $y=\sq{x^2+1}$
+\eeda
+\equ
+
+\bqu
+次の関数を微分せよ．
+\[y=x^{\sin x}\ \ (ただし，x>0\ とする)\]
+\hfill(信州大)
+\equ
+
+\hfill {\bb 2/15(月)}\hfill\ 
+
+\bqu%{\bb 微分の計算}\\
+次の関数を微分せよ．
+\beda<3>
+\item $y=\sin^2 x\cos x$
+\item $y=\bunsuu{e^x-e^{-x}}{e^x+e^{-x}}$
+\item $y=\log(x+\sq{x^2+1})$
+\item $y=\log\left|\tan\bunsuu{\pi}{2}\right|$
+\item $y=x^x\ (x>0)$
+\item $y=\sin x\ \left(|x|<\bunsuu{\pi}{2}\right)$の逆関数
+\eeda
+\equ
+
+\bqu%{\bb 媒介変数表示された関数の微分法}\\
+$x=t-\sin t$，$y=1-\cos t$とする．
+$t=\bunsuu{\pi}{3}$のとき，$\bunsuu{dy}{dx}$，$\bunsuu{d^2y}{dx^2}$の値を求めよ．\hfill(琉球大)
+\equ
+
+
+%\bqu%{\bb 微分可能性の証明}\\
+%$f(x)$と$g(x)$は区間${-1,1}$で定義された関数で，つねに$|g(x)|\leqq f(x)$であるとする．$f(x)$が
+
+%\bqu%{\bb 極大値・極小値}\\
+%関数$f(x)=\bunsuu 1x-e^{-ax}$が$x>0$において2つの極値をもつとき，定数$a$のとり得る値の範囲を求めよ．ただし，$\dlim_{x \to \infty} \bunsuu{x^2}{e^x}=0$である．\hfill(東京電機大)
+%\equ
+
+%\bqu%{\bb 減衰曲線の極値}\\
+%関数$f(x)=e^{ax}\sin x$は$x=\bunsuu{\pi}{4}$で極大値をとる．
+%\benu
+%\item 定数$a$の値を求めよ．
+%\item $x>0$における$f(x)$のすべての極大値の和を求めよ．\hfill(京都工繊大)
+%\eenu
+%\equ
+
+\hfill {\bb 2/16(火)}\hfill\ 
+
+
+\bqu 関数$y=x+\bunsuu 1x$の増減を調べよ．
+\equ
+
+\bqu 関数$y=\bunsuu{4x+3}{x^2+1}$の極値を調べよ．
+\equ
+
+%\bqu%{\bb 最大・最小の基本}\\
+%関数$f(x)=2x-\sq 2 \sin x+\sq 6\cos x$の区間$0\leqq x\leqq \pi$における最大値と最小値を求めよ．\hfill(電通大)
+%\equ
+%
+%\bqu%{\bb 三角関数の最大・最小}\\
+%$xy$平面において，原点Oを通る互いに直交する2直線を引き，直線$x=-1$および直線$x=3\sq 3$との交点を，それぞれP，Qとする．OP $+$ OQの最小値を求めよ．ただし，交点P，Qは$y>0$の範囲にあるものとする．\hfill(青山学院大)
+%\equ
+
+\hfill {\bb 2/17(水)}\hfill \
+
+\bqu 次の関数の最大値，最小値を求めよ．
+\[y=x+\sq{4-x^2}\]
+\equ
+
+\bqu 次の関数の凹凸を調べ，変曲点を求めよ．
+\[y=x+\sin x\ \ \ (0<x<2\pi)\]
+\equ
+
+\hfill{\bb 2/18(木)}\hfill\ \\
+%※ 凹凸，変曲点については教科書p.196〜201を参考にすること
+
+\bqu 関数$y=e^{-2x^2}$のグラフの概形をかけ．
+\equ
+
+\bqu 関数$y=\bunsuu{x^2}{x-1}$のグラフの概形をかけ．
+\equ
+
+\newpage
+
+\setcounter{Question}{0}
+
+{\bb 追加問題}
+
+\bqu%{\bb 三角関数の最大・最小}\\
+\begin{mawarikomi}{}{
+\begin{zahyou*}[ul=40mm](0,1.5)(0,1)
+\tenretu*{O(0,0)s;
+A(1,0)s;
+B(0,1)n;
+P(cos(pi/3),sin(pi/3))ne;
+S(cos(pi/3)+sin(pi/3),sin(pi/3))ne;
+T(cos(pi/3)+sin(pi/3),0)s;
+Q(cos(pi/3),0)s
+}
+\teisuuretu{cval=sin(pi/3)}
+\Drawline{\O\Q\T\S\P\O}
+\Drawline{\O\B}
+\Drawline{\P\Q}
+\Kakukigou\Q\O\P[ne]{$\theta$}
+\HenKo{\B}{\O}{1}
+\Put\A[s]{A}
+\Put\B[n]{B}
+\Put\P[ne]{P}
+\Put\S[ne]{P$_1$}
+\Put\T[se]{Q$_1$}
+\Put\Q[s]{Q}
+\Enko<linethickness=0.5pt>\O1{hazimeten=\A}{owariten=\B}
+\defcsvfunc\Fx{sqrt(1-X*X)}
+\defcsvfunc\Gx{\cval}
+\defcsvfunc\Hx{0}
+\YPaintii*<minx=1/2,maxx=1>\Fx\Gx
+\YPaintii*<minx=1,maxx=1/2+\cval>\Hx\Gx
+%\YGraph\Fx
+%\YGraph\Gx
+\end{zahyou*}
+}
+図において，OA，OBは半径1の円の互いに垂直な2つの半径，PQはBOに平行で，四角形PQQ'P'は正方形である．図の斜線部分の面積を$S$とするとき，次の問いに答えよ．
+\benu
+\item $\angle\text{POQ}=\theta\left(0\leqq \theta <\bunsuu{\pi}{2}\right)$とおいて，$S$を$\theta$で表せ．
+\item $S$が最大となるときのPQの長さを求めよ．\hfill(岡山大)
+\eenu
+\end{mawarikomi}
+\equ
+
+\bqu%{\bb 指数対数関数の最大・最小}\\
+$x+y=1$，$x>0$，$y>0$のとき，$z=x^xy^y$の最小値を求めよ．\hfill(名古屋工大)
+\equ
+
+%\bqu%{\bb 曲線の凹凸と変曲点}\\
+%関数$f(x)=x(x+2)^2e^{-x}$について，次の問いに答えよ．
+%\benu
+%\item 増減を調べ，極値を求めよ．
+%\item さらに，この関数の凹凸と変曲点を調べて，その概形をかけ．
+%ただし，$\dlim_{x \to \infty} \bunsuu{x^n}{e^x}=0\ \ (n=1,2,\cdots)$は既知とする．\\
+%\hfill(島根大)
+%\eenu
+%\equ
+
+\vspace{-3zw}
+
+\bqu%{\bb 漸近線のあるグラフ}\\
+$f(x)=\sqrt[3]{x^3-x^2}$とする．
+\benu
+\item $\dlim_{|x|\to \infty}\{f(x)-(x+a)\}=0$を満たす$a$の値を求めよ．またこのとき，曲線$y=f(x)$と直線$y=x+a$の交点の座標を求めよ．
+\item $f(x)$の増減と極値を調べて，$y=f(x)$のグラフをかけ．\hfill(東北大)
+\eenu
+\equ
+
+\vfill\vfill\vfill\vfill\vfill\vfill\vfill\vfill\vfill\vfill\vfill\vfill
+
+\newpage
+
+
+
+%\advance\K by 1\repeat }
+%
+%\barabara
+                                                                                  
+
+\end{document}

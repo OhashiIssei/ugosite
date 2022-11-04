@@ -1,0 +1,736 @@
+\newif\ifkaitou
+\kaitoutrue%解答あり
+%\kaitoufalse%解答なし
+
+\documentclass[9pt,
+b4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+%\renewcommand{\bf}{}
+%\usepackage{アプローチ}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{ascmac}
+%\usepackage{graphics}
+\usepackage{emath}
+\usepackage{emathMw}
+\usepackage{enumerate}
+\usepackage{emathC}
+\usepackage{emathEy}
+\usepackage{emathP}
+\usepackage{emathPp}
+\usepackage{emathPl}
+\usepackage{emathPk}
+\usepackage{emathPh}
+\usepackage{emathPs}
+\usepackage[g]{esvect}
+\usepackage{color}
+\usepackage{pxrubrica}%ふりがな
+%\usepackage{EMesvect}
+%\usepackage[dvipdfmx]{graphicx}%箱ひげ図
+%\usepackage{emathSt}%箱ひげ図
+%\usepackage{emathG}%箱ひげ図%ヒストグラム
+\usepackage{emathPs}
+\usepackage{ascmac}%囲み
+\usepackage{fancybox}
+%\usepackage{fancybx}%囲み
+\usepackage[top=12truemm,bottom=12truemm,left=12truemm,right=10truemm]{geometry}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+\usepackage{wallpaper}
+\usepackage{hako}%センター形式
+\usepackage{mathtools}%\abs(絶対値)など
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\usepackage{fancyhdr}%ヘッダの設定
+\usepackage{cancel}%消し取り線
+\usepackage{ifthen}
+%\usepackage{exam}
+\usepackage{tcolorbox}
+\usepackage{extarrows}%伸縮性のある矢印
+
+%ページレイアウト
+\setlength{\columnseprule}{0.4pt}
+\columnsep=3cm
+%\setlength{\mathindent}{0zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+%\linespread{1.3}
+%\setstretch{1.2}%行間
+\postEqlabel{\hspace{0zw}\null}%式番号の位置
+\preEqlabel*{\cdotpfill[2em]~}%式番号の点々の長さ
+%\setlength{\columnseprule}{0.4pt}
+\columnsep=1cm
+%\setlength{\mathindent}{1zw}%数式の位置
+
+\pagestyle{empty}%ページ番号を消す
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+\newcommand{\sub}{%\newpage%サブセクション毎に改ページ
+\subsection}
+\newcommand{\bqu}{\begin{question}}
+\newcommand{\equ}{\end{question}}
+\newcommand{\cdotss}{\hfill\cdots\cdots}
+
+%箇条書き省略コマンド
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\beda}{\vspace{-1zw}\begin{edaenumerate}}
+\newcommand{\eeda}{\end{edaenumerate}}
+
+%省略
+\newcommand{\bb}{\bf\boldmath}%全部太字にする
+\newcommand{\doo}{^{\circ}}%角度マーク
+\newcommand{\sq}{\textstyle\sqrt}
+\newcommand{\ANA}{\hakosenhaba{1pt}\Hako}
+\newcommand{\REFANA}{\hakosenhaba{0.3pt}\refHako*}
+\newcommand{\C}{\text{C}}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\barr}{\left\{\begin{array}{l}}
+\newcommand{\earr}{\end{array}\right.}
+\renewcommand{\bar}{\overline}
+\renewcommand{\Re}{\text{Re}}
+\renewcommand{\Im}{\text{Im}}
+\renewcommand{\dlim}{\displaystyle\lim}
+
+\usepackage{tabularx}
+%\newcolumntype{Y}{&gt;{\centering\arraybackslash}X} %中央揃え
+%\includegraphics[width=90mm,bb=9 9 358 434]{./lrep_e1.eps}
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\renewcommand{\labelenumi}{\ \fbox{\protect\makebox[1em][c]{\large{\bfseries\arabic{enumi}}}}\ }
+%\renewcommand{\labelenumi}{\textbf{\theenumi}}
+%\renewcommand{\theenumiii}{(\alph{enumiii})}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%\renewcommand{\thesection}{\Huge  第\arabic{section}章}
+\renewcommand{\thesubsection}{
+\Large\bb\Alph{subsection}
+\ }
+\renewcommand{\theQ}{{\underline{$\overline{\bb \ 追加問題\ }$}}
+\ \ }
+\renewcommand{\theQuestion}{
+\large\arabic{Question}．}
+\renewcommand{\thequuestion}{{\underline{$\overline{\bb \ 性質\ }$}}
+\ \ }
+
+\newenvironment{解答}{
+\hspace{-2zw}\phkasen<linethickness=7pt,iro=mygray,kasenUehosei=-3pt>{\bf \large \ 解答\ }\vspace{-1zw}\begin{leftbbar}}{\end{leftbbar}}
+
+%横に縦線
+\usepackage{framed}
+
+\makeatletter
+\renewenvironment{leftbar}{%
+\def\FrameCommand{\vrule width 1pt \hspace{-3zw}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+\newenvironment{leftbbar}{%
+\def\FrameCommand{\color{mygray} \vrule width 5pt \hspace{1zw}
+\color{black}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\makeatother
+
+
+%カラー，色
+\usepackage{color}
+\definecolor{mygray}{gray}{0.75}
+
+\newcommand{\barabara}{%一問ずつのページを別で作成
+\myfor{1} % ループ実行       
+\newpage   
+\setcounter{subsection}{0}
+\setcounter{Question}{0}
+\renewcommand{\bqu}{\begin{question}}
+\renewcommand{\equ}{\end{question}\newpage}
+\renewcommand{\eQ}{\end{Q}\newpage}
+\renewcommand{\equu}{\end{quuestion}\newpage}
+\renewcommand{\equu}{\end{quuestion}\newpage}
+%\myfor{1} % ループ実行  
+}
+\usepackage{qrcode}%QRコード
+\setlength\normallineskiplimit{0pt} 
+
+\begin{document}
+
+%\newcount\K % int K
+%\def\myfor#1{%
+%\K=0 \loop\ifnum\K<1 % for(K=0;K<2;K++)
+
+
+\twocolumn[
+     \textbf{
+%\LARGE \fbox{解答用紙}  
+         \large  【自然科学コース】2年学年末考査 数学探求Ⅰ①  %\textcircled{\footnotesize{1}}
+      　2021.3.4(木)}
+      \hfill
+      \ \ \ 2年  \underline{\hspace{3zw}}組\underline{\hspace{3zw}}番  \hspace{1zw}氏名\underline{\hspace{10zw}}\\
+\vspace{1zw}
+]
+
+%\bqu%{\bb 共通接線}
+%\equ
+
+%1辺の四面体ABCDにおいて，等式$|\vv{\text{AB}}|^2+|\vv{\text{CD}}|^2=|\vv{\text{AC}}|^2+|\vv{\text{BD}}|^2$のとき，$\vv{\text{AD}} \perp \vv{\text{BC}}$であることを証明せよ．
+
+\bqu%{\bb 凹凸グラフ，漸近線}\\
+関数$f(x)=\bunsuu{x^2+2x+2}{x+1}$の増減，極値，グラフの凹凸，漸近線を調べ，グラフの概形をかけ．\hfill (14点)
+\equ
+
+\ifkaitou
+\begin{解答}
+$f(x)=\bunsuu{(x+1)^2+1}{x+1}=x+1+\bunsuu{1}{x+1}$より，\\
+$\dlim_{x \to \pm -1\pm 0} f(x)=\pm \infty$，$\dlim_{x \to \pm \infty}\{f(x)-(x+1)\}=0$\\
+$\therefore$\ \ {\bb 直線$x=-1$，$y=x+1$が漸近線}．
+\begin{align*}
+f'(x)&=1-\bunsuu{1}{(x+1)^2}=\bunsuu{x(x+2)}{(x+1)^2}．\\
+f''(x)&=\bunsuu{2}{(x+1)^3}
+\end{align*}
+ゆえに，$f(x)$の増減，凹凸，グラフは次のようになる．
+\[\begin{array}{c|ccccccccc}
+\phantom{\bunsuu 11} x	&\cdots	&-2	 	&\cdots	&-1 		&\cdots	 	&0	&\cdots	 \\\hline
+\phantom{\bunsuu 11}f'(x)	&+		&0		&-		&／		&-			&0	&+		\\\hline
+\phantom{\bunsuu 11}f''(x)	&-		&		&-		&／		&+			&	&+		\\\hline
+\phantom{\bunsuu 11}f(x)	&\NEE	&-2		&\SES	&／		&\SEE		&2	&\NEN	
+\end{array}
+\begin{zahyou}[ul=5mm,haiti=x](-5,3)(-4,4)
+\def\Fx{(X*X+2*X+2)/(X+1)}
+\def\Gx{X+1}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=0.2pt>\Gx
+\XGraph<linethickness=0.2pt>{-1}
+\YPointPut\Fx{0}[syaei=y,ypos={[ne]}]{}
+\YPointPut\Fx{-2}[syaei=xy,xpos={[nw]}]{}
+\YPointPut\Gx{0}[syaei=y]{}
+\YPointPut\Gx{-1}[syaei=x,xpos={[nw]}]{}
+\end{zahyou}
+\]
+\\
+よって，{\bb $x=-2$で極大値$-2$，$x=0$で極小値2}をとる．
+\end{解答}
+\fi
+
+\vfill
+
+\bqu%{\bb 最大値・最小値}\\
+$-\pi \leqq x \leqq \pi$における$y=2\sin x+\sin2x$の最大値と最小値を求めよ．\hfill (14点)
+\equ
+
+\ifkaitou
+\begin{解答}
+奇関数なので，$0\leqq x \leqq \pi$を調べる．
+\begin{align*}
+y'&=2\cos x+2\cos2x\\
+&=2(\cos x+\cos2x)\\
+&=2(\cos x+2\cos^2x-1)\\
+&=2(2\cos x-1)(\cos x+1)
+%&=4\cos \bunsuu 32 x\cos\bunsuu{x}2
+\end{align*}
+よって，$y$の増減は次のようになる．
+\[\begin{array}{c|ccccccc}
+\phantom{\bunsuu 11} x	&0	 	&\cdots	&\frac {\pi}3 		&\cdots	 	&\pi \\\hline
+\phantom{\bunsuu 11}f'(x)	&		&+		&0		&-			&\\\hline
+\phantom{\bunsuu 11}f(x)	&0		&\NE	&		&\SE		&0\\
+\end{array}
+\]
+よって，求める最大値は$f(\frac{\pi}3)=\text{\bb $\frac 32 \sq 3$}$，最小値は$f(-\frac{\pi}3)=\text{\bb $\frac {-3}2 \sq 3$}$．
+\end{解答}
+\fi
+
+\vfill
+
+\bqu%{\bb 不等式への応用}\\
+すべての正の数$x$に対して，$e^x > 1+x+\bunsuu{x^2}2$が成立することを示せ．\hfill (14点)
+\equ
+
+\ifkaitou
+\begin{mawarikomi}{}{
+\begin{zahyou}[ul=5mm](-2,2)(-1,5)
+\def\Fx{exp(X)}
+\def\Gx{1+X+X*X/2}
+\YGraph<linethickness=1pt>\Fx
+\YGraph<linethickness=1pt>\Gx
+%\YPointPut\Fx{2.7}[syaei=xy,xlabel=e,ylabel=e]{}
+\end{zahyou}
+}
+\begin{解答}
+$f(x)=e^x -1-x-\bunsuu{x^2}2$とおくと，
+\begin{align*}
+f'(x)&=e^x - 1-x\\
+f''(x)&=e^x - 1
+\end{align*}
+$x>0$のとき，$f''(x)>0$より，$f'(x)$は単調増加する．\\
+よって，$f'(x)>f'(0)=0$，$f(x)$は単調増加する．\\
+よって，$f(x)>f(0)=0$．故に，$e^x > 1+x+\bunsuu{x^2}2$\hfill □
+\end{解答}
+\end{mawarikomi}
+\fi
+
+\vfill
+
+\newpage
+
+\bqu%{\bb 解の個数}\\
+%方程式$x^3-ax^2+a=0$の解の個数を求めよ．
+方程式$ax^5-x^2+3=0$が3個の異なる実数解をもつような$a$の値の範囲を求めよ．\hfill (14点)
+\equ
+
+\ifkaitou
+\begin{解答}
+$ax^5-x^2+3=0$において，$x=0$とすると，$3=0$となり成立しない．よって$x \neq 0$とし，
+\[a=\bunsuu{x^2-3}{x^5}:=f(x)\ \ とおくと，\]
+\[f'(x)=\bunsuu{2x\cdot x^5-(x^2-3)\cdot 5x^4}{(x^5)^2}%\\
+%&=\bunsuu{2x^2-(x^2-1)\cdot 5}{x^6}\\
+%&
+=\bunsuu{-3(x^2-5)}{x^6}
+\]
+よって，$f(x)$の増減は次のようになる．
+\[\begin{array}{c|ccccccc}
+\phantom{\bunsuu 11} x	&\cdots	&-\sqrt5	 &\cdots	&0 		&\cdots	 &\sqrt5	&\cdots \\\hline
+\phantom{\bunsuu 11}f'(x)	&-		&0				&+		&／		&+		&0				&- \\\hline
+\phantom{\bunsuu 11}f(x)	&\SE	&\frac {-2}{25\sqrt{5}}				&\NE	&／		&\NE	&\frac 2{25\sqrt{5}}				&\SE 
+\end{array}
+\]
+また，$\dlim_{x \to \pm \infty} f(x) = 0$，$\dlim_{x \to \pm 0} f(x) = \mp \infty$より，
+\[\begin{zahyou}[ul=15mm,yscale=10,xscale=0.5](-6,6)(-0.1,0.1)
+\def\Fx{(X*X-3)/(X*X*X*X*X)}
+\YGraph<linethickness=1pt>\Fx
+%\YPointPut\Fx{1}[syaei=x,xpos={[nw]}]{}
+%\YPointPut\Fx{-1}[syaei=x,xpos={[se]}]{}
+\YPointPut\Fx{sqrt(5)}[syaei=xy,xlabel=\sqrt{5},ylabel=\frac 2{25\sqrt{5}}]{}
+\YPointPut\Fx{-sqrt(5)}[syaei=xy,xlabel=-\sqrt{5},ylabel=\frac {-2}{25\sqrt{5}}]{}
+\end{zahyou}\]
+よって，求める$a$の値の範囲は
+$\text{\bb $\frac {-2}{25\sqrt{5}}<a<0，0<a<\frac 2{25\sqrt{5}}$}$
+\end{解答}
+\fi
+
+\vfill
+
+%\bqu%{\bb 極値，変曲点をもつ条件}
+%\benu
+%\item 関数$f(x)=ax+\cos x$が極値をもつような$a$の値の範囲を求めよ．
+%\item 関数$g(x)=bx^2+\sin x$のグラフが変曲点をもつような$b$の値の範囲を求めよ．
+%\eenu
+%\equ
+
+\bqu%{\bb 極値，変曲点をもつ条件}\\
+%関数$f(x)=\bunsuu 1x-e^{-ax}$が$x>0$において2つの極値をもつとき，定数$a$のとり得る値の範囲を求めよ．ただし，$\dlim_{x \to \infty} \bunsuu{x^2}{e^x}=0$である．%\hfill(東京電機大)
+$f(x)=(x^2+a)e^{x}$とする．ただし，$a$は定数とする．
+\benu
+\item 関数$f(x)$が極値をもたないような$a$の値の範囲を求めよ．\hfill (7点)
+\item 曲線$y=f(x)$が変曲点をもつような$a$の値の範囲を求めよ．\\
+\hfill (7点)
+\eenu
+\equ
+
+\ifkaitou
+\begin{解答}
+\benu
+\item $f'(x)=2x\cdot e^x+(x^2+a)e^x=(x^2+2x+a)e^x$．\\
+より，$f(x)$が極値をもたないための条件は，
+\[f'(x)\ の符号が一定であること\cdots(*)\]
+である．$x^2+2x+a=0$の判別式を$D$とすると，
+
+\begin{mawarikomi}{}{
+\begin{zahyou*}[ul=5mm](-2, 2)(-1, 3)
+\ArrowLine{(\xmin,0)}{(\xmax,0)}
+\YGurafu<linethickness=1pt>{X*X+1}{\xmin}{\xmax}
+\YGurafu<linethickness=1pt>{X*X}{\xmin}{\xmax}
+\Put{(\xmax,0)}[s]{$x$}%
+\end{zahyou*}
+}
+$(*)$となるための条件は，
+\begin{align*}
+D&=2^2-4\cdot a \leqq 0%\\
+%即ち\ &4-4a<0
+\end{align*}
+よって，求める$a$の値の範囲は{\bb $a\geqq 1$}．
+\end{mawarikomi}
+\item 
+$f''(x)=(2x+2)e^x+(x^2+2x+a)e^x=(x^2+4x+2+a)e^x$．\\
+より，$f(x)$のグラフが変曲点をもつための条件は
+\[f''(x)\ に符号変化が起こること\cdots(**)\]
+である．$x^2+4x+2+a=0$の判別式を$D$とすると，
+
+\begin{mawarikomi}{}{
+\begin{zahyou*}[ul=5mm](-2, 2)(-1, 1)
+\ArrowLine{(\xmin,0)}{(\xmax,0)}
+\YGurafu<linethickness=1pt>{X*X-1}{\xmin}{\xmax}
+\Put{(\xmax,0)}[s]{$x$}%
+\end{zahyou*}}
+$(**)$となる条件は，
+\begin{align*}
+D&=4^2-4(2+a)>0%\\
+%即ち\ &8-4a>0
+\end{align*}
+よって，求める$a$の値の範囲は{\bb $a<2$}．
+\end{mawarikomi}
+%$g'(x)=2bx+\cos x$より，$g''(x)=2b-\sin x$の値域は$2b-1 \leqq g''(x) \leqq 2b+1$なので，
+\eenu
+\end{解答}
+\fi
+
+\vfill
+
+%\hfill (70点)
+
+%\begin{解答}
+%\benu
+%\item $f(x)$は実数全体で微分可能なので，$f(x)$が極値をもつための条件は，
+%$f'(x)$に符号変化が起こることである．\\
+%$f'(x)=a-\sin x$の値域は$a-1 \leqq f'(x) \leqq a+1$なので，求める条件は$a-1<0<a+1$\ \ すなわち\ \ {\bb $-1<a<1$}．
+%\item $g(x)$は実数全体で2階微分可能なので，$g(x)$のグラフが変曲点をもつための条件は$g''(x)$に符号変化が起こることである．\\
+%$g'(x)=2bx+\cos x$より，$g''(x)=2b-\sin x$の値域は$2b-1 \leqq g''(x) \leqq 2b+1$なので，求める条件は$2b-1<0<2b+1$\ \ すなわち\ \ {\bb $-\bunsuu 12<b<\bunsuu 12$}．
+%\eenu
+%\end{解答}
+
+%\newpage
+
+%\bqu%{\bb 凹凸グラフ・接線の本数}
+%\benu
+%\item 関数$y=x\log x$の増減，グラフの凹凸，漸近線などを調べ，グラフの概形をかけ．
+%%\item 関数$y=x\log x$のグラフの接線で，傾きが$m$であるものが2本存在するような，$m$の値の範囲を求めよ．
+%\item 点A$(0,b)$からグラフ$y=x\log x$に引くことのできる接線の本数がちょうど3本となるような$b$の値の範囲を求めよ．
+%\eenu
+%\equ
+%
+%\begin{解答}
+%\benu
+%\item $y=\bunsuu{x}{\log x}$より，
+%\begin{align*}
+%y'&=\bunsuu{\log x-x\cdot \frac 1x}{(\log x)^2} =\bunsuu{\log x-1}{(\log x)^2}=\bunsuu 1{\log x}-\bunsuu{1}{(\log x)^2}\\
+%y''&=-\bunsuu{1}{x (\log x)^2}+\bunsuu{2}{x(\log x)^3}=\bunsuu{-\log x+2}{x (\log x)^3}
+%\end{align*}
+%\begin{zahyou}[ul=5mm](-1,15)(-2,5)
+%\def\Fx{X/(log(X))}
+%\teisuuretu{tval=2.7*2.7}
+%\YGraph<linethickness=1pt,minx=1.001>\Fx
+%\YGraph<linethickness=1pt,minx=0.001,maxx=0.999>\Fx
+%\XGraph<linethickness=0.2pt>{1}
+%\YGraph{(log(\tval)-1)/(log(\tval)*log(\tval))*(X-\tval)+(\tval)/(log(\tval))}
+%\YPointPut\Fx{2.7}[syaei=xy,xlabel=e,ylabel=e]{}
+%\YPointPut\Fx{2.7*2.7}[syaei=xy,xlabel=e^2,ylabel=\frac{e^2}{2}]{}
+%\end{zahyou}
+%\item 接点を$\left(t,\ \bunsuu{t}{\log t}\right)$とおくと，接線の方程式は
+%\[y=\bunsuu{\log t-1}{(\log t)^2}\cdot (x-t)+\bunsuu{t}{\log t}\]
+%である．これが点$(0,\ b)$を通る条件は，
+%\[b=\bunsuu{\log t-1}{(\log t)^2}\cdot (0-t)+\bunsuu{t}{\log t}=\bunsuu{t}{(\log t)^2}\]
+%
+%\begin{zahyou}[ul=5mm](-1,15)(-2,5)
+%\def\Fx{X/((log(X))*(log(X)))}
+%\teisuuretu{tval=2.7*2.7}
+%\YGraph<linethickness=1pt,minx=1.001>\Fx
+%\YGraph<linethickness=1pt,minx=0.001,maxx=0.999>\Fx
+%\XGraph<linethickness=0.2pt>{1}
+%%\YPointPut\Fx{2.7}[syaei=xy,xlabel=e,ylabel=e]{}
+%\YPointPut\Fx{2.7*2.7}[syaei=xy,xlabel=e^2,ylabel=\frac{e^2}{2}]{}
+%\end{zahyou}
+%\eenu
+%\end{解答}
+
+%\bqu%{\bb 方程式への応用}\\
+%
+%\equ
+
+%\bqu%{\bb 大小}\\
+%$2020^{\frac{1}{2020}}$と$2021^{\frac{1}{2021}}$の大小を調べよ．
+%\equ
+
+%\newpage
+
+
+
+%\bqu%{\bb 体積}\\
+%半径1の球Oに内接する四角柱で，底面ABCDが正方形であるものを考える．このような四角柱の体積$V$に対する表面積$S$の
+%%$\theta=$とするとき，
+%%球の中心Oと$K$の底面の頂点を結んだ線分が，底面となす角を$\theta$とする．
+%比$\bunsuu{S}{V}$の最小値と，そのときの$\tan\angle\text{OAC}$の値を求めよ．
+%%$S$，$V$をそれぞれ$\theta$を用いて表せ．
+%\equ
+%
+%
+%\begin{解答}
+%$\angle\text{OAC}=\theta$とおくと，
+%\[\text{AC}=2\cos\theta，\ \ \text{AB}=\sq 2\cos \theta，\ \ (四角柱の高さ)=\sin\theta\ \ より\]
+%\[
+%\begin{zahyou*}[ul=15mm](-1.2,1.2)(-1.2,1.2)
+%\teisuuretu{rval=1}
+%\teisuuretu{aval=3.14/6}
+%\tenretu{O(0,0)es}
+%\tenretu{
+%A(-rval*cos(\aval),-rval*sin(\aval))ws;
+%C(rval*cos(\aval),-rval*sin(\aval))es}
+%\tenretu*{
+%Z(rval*cos(\aval),rval*sin(\aval));
+%B(-rval*cos(\aval),rval*sin(\aval))wn}
+%\Drawline{\Z\B\A\C\Z}
+%\Drawline{\Z\A}
+%\Kakukigou\C\A\Z{$\theta$}
+%\En\O{\rval}
+%\En\O{1}
+%\HenKo\Z\A{$2$}
+%\HenKo\A\C{$2\cos\theta$}
+%\HenKo\C\Z{$2\sin\theta$}
+%\Kuromaru\O
+%\end{zahyou*}
+%\begin{zahyou*}[ul=15mm](-1.2,1.2)(-1.2,1.2)
+%\teisuuretu{rval=sqrt(3)/2}
+%\teisuuretu{aval=3.14/4}
+%\tenretu{C(rval*cos(\aval),rval*sin(\aval));
+%B(-rval*cos(\aval),rval*sin(\aval))wn;
+%A(-rval*cos(\aval),-rval*sin(\aval))ws;
+%D(rval*cos(\aval),-rval*sin(\aval))es}
+%\Drawline{\C\B\A\D\C}
+%\Drawline{\A\C}
+%\En\O{\rval}
+%\En\O{1}
+%\HenKo\C\A{$2\cos\theta$}
+%\HenKo\D\C{$\sq 2\cos\theta$}
+%\HenKo\A\D{$\sq2 \cos\theta$}
+%\end{zahyou*}
+%\]
+%\begin{align*}
+%V&=4\cos^2\theta\sin\theta，\ \ S=4\cos^2\theta+8\sq 2\cos\theta\sin\theta\\
+%\bunsuu{S}{V}&=\bunsuu{4\cos^2\theta+8\sq 2\cos\theta\sin\theta}{4\cos^2\theta\sin\theta}
+%=\bunsuu{1}{\sin\theta}+\bunsuu{2\sq 2}{\cos\theta}=:f(\theta)\\
+%f'(\theta)
+%&=-\bunsuu{\cos\theta}{\sin^2 \theta}+\bunsuu{2\sq 2\sin\theta }{\cos^2\theta}
+%=\bunsuu{-\cos^3\theta+2\sq 2\sin^3 \theta}{\sin^2 \theta\cos^2\theta}\\
+%%&=\bunsuu{2\sq 2\sin^3 \theta-\cos^3\theta}{\sin^2 \theta\cos^2\theta}\\
+%&=\bunsuu{(\sq 2\sin \theta-\cos\theta)(2\sin^2 \theta+\sqrt{2}\sin\theta\cos\theta+\cos^2\theta)}{\sin^2 \theta\cos^2\theta}\\
+%&=\bunsuu{(\sq 2\tan \theta-1)(2\sin^2 \theta+\sq 2 \sin\theta\cos\theta+\cos^2\theta)}{\sin^2 \theta\cos\theta}
+%\end{align*}
+%
+%$0<\alpha<\bunsuu{\pi}{2}$かつ$\tan\alpha=\bunsuu{1}{\sqrt{2}}$なる$\alpha$をとると，$0<\theta<\bunsuu{\pi}{2}$における$f(\theta)$の増減は次のようになる．
+%\begin{mawarikomi}{30mm}{
+%\begin{zahyou}[ul=15mm,yscale=0.2](0,3.14/2+0.1)(0,10)
+%\def\Fx{1/sin(X)+2*sqrt(2)/cos(X)}
+%\YGraph<linethickness=1pt,minx=0.01,maxx=3.14/2>\Fx
+%\XGraph{$pi/2}
+%\YPointPut\Fx{$pi/2*0.4}[syaei=xy,xlabel=\alpha,ylabel=3\sq 3]{}
+%\end{zahyou}
+%}
+%\[\begin{array}{c|ccccccc}
+%\phantom{\bunsuu 11} \theta	&0	 	&\cdots	&\alpha		&\cdots	 	&\frac{\pi}{2}\\\hline
+%\phantom{\bunsuu 11}f'(\theta)	&		&-		&0		&+			&\\\hline
+%\phantom{\bunsuu 11}f(\theta)	&		&\SE	&		&\NE		&\\
+%\end{array}
+%\]
+%ここで，$\sin\alpha=\bunsuu{1}{\sq 3}$，
+%$\cos\alpha=\bunsuu{\sq 2}{\sq 3}$より，
+%\[求める最大値は，\ \ \ f(\alpha)=\sq 3+2\sq 2\times \bunsuu{\sq 3}{\sq 2}={\bb 3\sq 3}\]
+%\end{mawarikomi}
+%%\bqu%{\bb 最大値・最小値}\\
+%%$y=2\sin x+\sin 2x$の最大値と最小値を求めよ．
+%%\equ
+%\end{解答}
+
+\newpage
+
+%\bqu%{\bb 整数問題への応用}
+%\benu
+%\item $y=x^{\frac 1x}$\ $(x>0)$の増減を調べよ．
+%\item $a^b=b^a$\ かつ\ $a < b$を満たす正の整数の組$(a,b)$
+%%$(a,b)$
+%をすべて求めよ．必要であれば，$2.7<e <2.8$を用いてもよい．
+%%は$(a,b)=(2,4)$以外に存在しないことを証明せよ．
+%\eenu
+%\equ
+%
+%\begin{解答}
+%\benu
+%\item $y=x^{\frac 1x}$は両辺正なので，自然対数をとると，
+%\[\log y=\bunsuu 1x \log x\]
+%両辺を$x$について微分すると
+%\begin{align*}
+%\bunsuu 1y \times y'&=-\bunsuu 1{x^2} \cdot \log x+\bunsuu 1x\cdot \bunsuu 1x\\
+%% y'&=y\times\bunsuu{-\log x+1}{x^2}\\
+% y'&=x^{\frac 1x}\times\bunsuu{-\log x+1}{x^2}
+% \end{align*}
+% よって，$f(x)$の増減は次のようになる．
+% \[\begin{array}{c|ccccccc}
+%\phantom{\bunsuu 11} x	&0 		&\cdots	&e	&\cdots \\\hline
+%\phantom{\bunsuu 11}f'(x)	&／		&+		&0	&- \\\hline
+%\phantom{\bunsuu 11}f(x)	&／		&\NE	&	&\SE 
+%\end{array}
+%\]
+%\item $a^b=b^a \iff a^{\frac 1a}=b^{\frac 1b}$で，これは$f(a)=f(b)$を意味する．
+%$f(x)$の増減より，$0<a<e$かつ$e<b$である必要がある．
+%$2.7<e<2.8$より，$a=1,2$である．
+%\benu[(i)]
+%\item $a=1$のとき，$f(a)=1$であるが，$x>1$のとき，
+%%$\frac 1x>0$より，
+%\[f(x)=x^{\frac 1x}>x^{0}=1\]
+%なので，$f(b)=1$となる$b$は$b>e$の範囲に存在しない．
+%\item $a=2$のとき，$f(a)=\sq 2$であり，$f(x)$の増減より，$f(b)=\sq 2$なる実数$b$は，$e<b$の範囲にただ1つ存在する．
+%$f(4)=\sqrt[4]{4}=\sq 2$より，それは$b=4$である．
+%\eenu
+%以上より，求める組$(a,b)=(2,4)$のみである．
+%$\dlim_{x \to \infty} \log(x^{\frac 1x})=\dlim_{x \to \infty} \bunsuu 1x \log x =0$より，\\
+%$\dlim_{x \to \infty} x^{\frac 1x}=1$，$y=f(x)=x^{\frac 1x}$のグラフは次の図のようになる．
+%\[\begin{zahyou}[ul=5mm,yscale=10](-5,15)(0,1.5)
+%\def\Fx{exp(log(X)/X)}
+%\YGraph<linethickness=1pt,minx=0.001>\Fx
+%\YGraph<linethickness=0.2pt>{1}
+%\YPointPut\Fx{1}[syaei=xy,ypos={[nw]}]{}
+%\YPointPut\Fx{2}[syaei=x]{}
+%\YPointPut\Fx{3}[syaei=x]{}
+%\YPointPut\Fx{4}[syaei=x]{}
+%\YPointPut\Fx{2.7}[syaei=x,xlabel=e]{}
+%%,ylabel=e^{\frac 1e}
+%%\YPointPut\Fx{5}[syaei=xy]{}
+%%\YPointPut\Fx{6}[syaei=xy]{}
+%%\YPointPut\Fx{7}[syaei=xy]{}
+%\end{zahyou}\]
+%\eenu
+%\end{解答}
+
+
+\bqu%{\bb 整数問題への応用}
+次の問いに答えよ．
+\benu
+\item $f(x)=\bunsuu{\log x}{x^2}$\ $(x>0)$の増減を調べよ．\hfill (5点)
+\item $a^{b^2}=b^{a^2}$\ かつ\ $a < b$を満たす自然数の組$(a,b)$は存在するか．
+%$(a,b)$
+%をすべて求めよ．
+%必要であれば，$2.7<e <2.8$を用いてもよい．
+ただし，$a^{b^2}$は底が$a$であり指数が$b^2$である累乗を表し，$b^{a^2}$は底が$b$で指数が$a^2$である累乗を表している．\hfill (10点)
+%は$(a,b)=(2,4)$以外に存在しないことを証明せよ．
+\eenu
+\equ
+
+\ifkaitou
+\begin{解答}
+\benu
+\item 
+\begin{align*}
+f'(x)&=-\bunsuu 2{x^3} \cdot \log x+\bunsuu 1{x^2}\cdot \bunsuu 1x\\
+% y'&=y\times\bunsuu{-\log x+1}{x^2}\\
+&=\bunsuu{-2\log x+1}{x^3}
+ \end{align*}
+ よって，$f(x)$の増減は次のようになる．
+ \[\begin{array}{c|ccccccc}
+\phantom{\bunsuu 11} x	&0 		&\cdots	&e^{\frac 12}	&\cdots \\\hline
+\phantom{\bunsuu 11}f'(x)	&／		&+		&0				&- \\\hline
+\phantom{\bunsuu 11}f(x)	&／		&\NE	&				&\SE 
+\end{array}
+\]
+\item 
+\begin{align*}
+a^{b^2}=b^{a^2} & \iff \log a^{b^2}=\log b^{a^2}\\
+%& \iff \log a^{b^2}=\log b^{a^2}\\
+& \iff {b^2}\log a={a^2}\log b\\
+& \iff \bunsuu{\log a}{a^2}=\bunsuu{\log b}{b^2}\\
+& \iff f(a)=f(b)
+\end{align*}
+$f(x)$の増減より，$0<a<e^{\frac 12}$かつ$e^{\frac 12}<b$である必要がある．$e^{\frac 12}<2.8^{\frac 12}<2$より，$a=1$．\\
+このとき，$f(b)=f(a)=f(1)=0$が必要だが，
+%$\frac 1x>0$より，
+\[x>1\ のとき，\ \ f(x)=\bunsuu{\log x}{x^2} >0\]
+なので，$f(b)=0$となる$b$は$b>e^{\frac 12}$の範囲に存在しない．\\
+以上より，$a^{b^2}=b^{a^2}$なる自然数の組$(a,b)$は存在しない．\hfill □
+\eenu
+\end{解答}
+\fi
+
+%\begin{解答}
+%\benu
+%\item $y=x^{\frac 1{x^2}}$は両辺正なので，自然対数をとると，
+%\[\log y=\bunsuu 1{x^2} \log x\]
+%両辺を$x$について微分すると
+%\begin{align*}
+%\bunsuu 1y \times y'&=-\bunsuu 2{x^3} \cdot \log x+\bunsuu 1{x^2}\cdot \bunsuu 1x\\
+%% y'&=y\times\bunsuu{-\log x+1}{x^2}\\
+% y'&=x^{\frac 1{x^2}}\times\bunsuu{-2\log x+1}{x^3}
+% \end{align*}
+% よって，$f(x)$の増減は次のようになる．
+% \[\begin{array}{c|ccccccc}
+%\phantom{\bunsuu 11} x	&0 		&\cdots	&e^{\frac 12}	&\cdots \\\hline
+%\phantom{\bunsuu 11}f'(x)	&／		&+		&0				&- \\\hline
+%\phantom{\bunsuu 11}f(x)	&／		&\NE	&				&\SE 
+%\end{array}
+%\]
+%\item $a^{b^2}=b^{a^2} \iff a^{\frac 1{a^2}}=b^{\frac 1{b^2}}$で，これは$f(a)=f(b)$を意味する．
+%$f(x)$の増減より，$0<a<e^{\frac 12}$かつ$e^{\frac 12}<b$である必要がある．$e^{\frac 12}<2.8^{\frac 12}<2$より，$a=1$．\\
+%このとき，$f(a)=f(b)\iff f(b)=1$であるが，
+%%$\frac 1x>0$より，
+%\[x>1\ のとき，\ \ f(x)=x^{\frac 1{x^2}}>x^{0}=1\]
+%なので，$f(b)=1$となる$b$は$b>e$の範囲に存在しない．
+%以上より，存在しない$a^{b^2}=b^{a^2}$なる自然数の組$(a,b)$は存在しない．\hfill □
+%%$\dlim_{x \to \infty} \log(x^{\frac 1x})=\dlim_{x \to \infty} \bunsuu 1x \log x =0$より，\\
+%%$\dlim_{x \to \infty} x^{\frac 1x}=1$，$y=f(x)=x^{\frac 1x}$のグラフは次の図のようになる．
+%%\[\begin{zahyou}[ul=10mm](-1,5)(0,2)
+%%\def\Fx{exp(log(X)/(X*X))}
+%%\YGraph<linethickness=1pt,minx=0.001>\Fx
+%%\YGraph<linethickness=0.2pt>{1}
+%%\YPointPut\Fx{1}[syaei=xy,ypos={[nw]}]{}
+%%\YPointPut\Fx{2}[syaei=x]{}
+%%\YPointPut\Fx{sqrt(2.7)}[syaei=x,xlabel=e^{\frac 12}]{}
+%%\end{zahyou}\]
+%\eenu
+%\end{解答}
+
+\newpage
+
+\bqu%{\bb メジアン}\\
+1辺の長さが2の正四面体OABCにおいて，辺OA上に点Pをとり，内積$\vv
+{\text{OA}}\cdot \vv{\text{PB}}=1$とする．さらに，辺PB上に点Qを，PBとCQが垂直にあるようにとる．OP：PAとPQ：QBをそれぞれ求めよ．\\\hfill (15点)
+%$\vv{\text{OP}}$を$\vv{\text{OA}}$を用いて表せ．
+%\benu
+%\item 
+%\item $\text{PB}$：$\text{PQ}$を求めよ．
+%\eenu
+\equ
+
+\ifkaitou
+\begin{解答}
+$\vv{\text{OA}}\cdot \vv{\text{PB}}=1\cdots\MARU{1}$\ \ \ $\vv{\text{PB}}\cdot \vv{\text{CQ}}=0\cdots\MARU{2}$\\
+$\vv{\text{OP}}=t\vv{\text{OA}}$，\ \ \ $\vv{\text{OQ}}=s\vv{\text{OP}}+(1-s)\vv{\text{OB}}$\ \ \ $(t,sは実数)$とおく．
+\begin{align*}
+&\MARU{1}より，\\
+&\vv{\text{OA}}\cdot (\vv{\text{OB}}-\vv{\text{OP}})=1\\
+&\vv{\text{OA}}\cdot \vv{\text{OB}}-\vv{\text{OA}}\cdot \vv{\text{OP}}=1\\
+&\vv{\text{OA}}\cdot \vv{\text{OB}}-t|\vv{\text{OA}}|^2=1\\
+&2\cdot 2\cdot \bunsuu 12 -t\cdot 2^2=1\ \ \therefore\ \ \ t=\bunsuu 14
+\end{align*}
+よって，$\vv{\text{OP}}=\bunsuu 14\vv{\text{OA}}$\ \ $\therefore$\ \ \ \text{\bb $\text{OP：PA}=1：3$}
+\begin{align*}
+&\MARU{2}より，\\
+&(\vv{\text{OB}}-\vv{\text{OP}})\cdot (\vv{\text{OQ}}-\vv{\text{OC)}}=0\\
+&\left(\vv{\text{OB}}-\bunsuu 14\vv{\text{OA}}\right)\cdot \left(\bunsuu 14s\vv{\text{OA}}+(1-s)\vv{\text{OB}}-\vv{\text{OC}}\right)=0\\
+%\bunsuu 14s \vv{\text{OB}}\cdot \vv{\text{OA}}+(1-s)|\vv{\text{OB}}|^2-\vv{\text{OB}}\cdot \vv{\text{OC}}\\
+%\ \ \ -\bunsuu{1}{16}s|\vv{\text{OA}}|^2-\bunsuu 14(1-s)\vv{\text{OA}}\cdot \vv{\text{OB}}+\bunsuu 14 \vv{\text{OA}}\cdot \vv{\text{OC}}&=0\\
+&\scalebox{0.95}[1]{$\bunsuu 14s \cdot 2+(1-s)\cdot 2^2-2-\bunsuu{1}{16}s\cdot 2^2-\bunsuu 14(1-s)\cdot 2+\bunsuu 14 \cdot 2=0$}\\
+&\bunsuu s2+4-4s-2-\bunsuu{s}{4}-\bunsuu 12+\bunsuu s2+\bunsuu 12=0\\
+&2-\bunsuu{13}{4}s=0\ \ \therefore\ \ s=\bunsuu{8}{13}
+\end{align*}
+よって，$\vv{\text{OQ}}=\bunsuu{8}{13}\vv{\text{OP}}+\bunsuu{5}{13}\vv{\text{OB}}$\ \ $\therefore$\ \ \ \text{\bb $\text{PQ：QB}=5：8$}
+\end{解答}
+\fi
+
+%\vfill
+%
+%\hfill (30点)
+
+%\advance\K by 1\repeat }
+%
+%\barabara
+
+\end{document}
