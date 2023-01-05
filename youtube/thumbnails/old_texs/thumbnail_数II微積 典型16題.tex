@@ -1,0 +1,247 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=135truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+%\newgeometry{}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+
+%余白など
+\setlength{\mathindent}{1zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.953125,0.95703125,0.9375}
+\definecolor{hukamido}{rgb}{0.1640625,0.265625,0.3203125}
+% \definecolor{mido}{rgb}{0.3203125,0.515625,0.5}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\color{kin}
+% \pagecolor{hukamido}
+
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\normalsize\underline{放物線と$2$本の接線で囲まれた部分の面積}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．放物線$y=x^2-4x+3$と、この放物線上の点$\left(0,3\right),\left(6,{15}\right)$に置ける接線で囲まれた図形の面積$S$を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\large\underline{放物線と直線で囲まれた面積の最小}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．放物線$y=x^2$と点$\left(1,2\right)$を通る直線とで囲まれた図形の面積$S$が最小になるとき、その直線の方程式を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\large\underline{放物線と直線で囲まれた面積の等分}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．放物線$y=2x-x^2$と$x$軸で囲まれた図形の面積を直線$y=kx$が$2$等分するように、定数$k$の値を定めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{$\displaystyle\frac{1}{6}$公式の利用}}\vspace{0.3zw}\\
+\noindent\large 
+\bf\boldmath 問．次の曲線や直線で囲まれた図形の面積$S$を求めよ．\\
+(1)  $y=x^2-3x+5,\;y=2x-1$\\
+(2)  $y=2x^2-6x+4,\;y=-3x^2+9x-6$\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\large\underline{積分方程式$〜$定積分で表された関数$〜$}}\vspace{0.3zw}\\
+\noindent\large 
+\bf\boldmath 問．次の等式を満たす関数$f\left(x\right)$を求めよ．\\
+(1)  $f\left(x\right)=3x^2-x\displaystyle\int_0^2f\left(t\right)dt+2$\\
+(2)  $f\left(x\right)=1+\displaystyle\int_0^1\left(x-t\right)f\left(t\right)dt$\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{積分方程式$〜$定積分の微分$〜$}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．等式$\displaystyle\int_a^xf\left(t\right)dt=x^3-3x^2+x+a$を満たす関数$f\left(x\right)$と定数$a$の値の範囲を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{接線の本数}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．点$\left(0,k\right)$から曲線$y=x^3+2x^2-4x$に引くことのできる接線の本数を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{$3$次方程式の実数解の個数}}\vspace{0.3zw}\\
+\noindent\normalsize 
+\bf\boldmath 問．$3$次方程式$2x^3+3x^2-{12}x+a=0$が次の解をもつとき、
+定数$a$の値の範囲を求めよ．\\
+(1)  異なる$3$つの実数解\\
+(2)  ただ一つの実数解\\
+(3)  異なる$2$つの正の解と負の解\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{$4$次方程式の実数解の個数}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．次の$4$次方程式の異なる実数解の個数を求めよ．
+\[x^4-4x^3+4x^2-2=0\]
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\large\underline{係数に文字を含む$3$次関数の最大最小}}\vspace{0.3zw}\\
+\noindent\large 
+\bf\boldmath 問．$a>0$とする．関数$f\left(x\right)=x^3-3a^2x\left(0\leqq x\leqq 1\right)$について、\\
+(1)  最小値を求めよ．\\
+(2)  最大値を求めよ．\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\large\underline{区間に文字を含む$3$次関数の最大最小}}\vspace{0.3zw}\\
+\noindent\large 
+\bf\boldmath 問．$a>0$とする．関数$f\left(x\right)=x^3-3x^2+1\left(0\leqq x\leqq a\right)$について、\\
+(1)  最小値を求めよ．\\
+(2)  最大値を求めよ．\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{極値の計算工夫}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．関数$f\left(x\right)=x^3-3x^2-6x+5$の極値を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{共通接線の方程式}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．$2$つの放物線$y=x^2$と$y=-x^2+6x-5$の共通接線の方程式を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{接線の方程式}}\vspace{0.3zw}\\
+\noindent\large 
+\bf\boldmath 問．次の接線の方程式を求めよ．\\
+(1)  曲線$y=x^2+4x$上の点$\left(1,5\right)$における接線\\
+(2)  曲線$y=x^3-3x^2-1$に点$\left(0,0\right)$から引いた接線\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{常に単調増加する$3$次関数}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．$x$の$3$次関数
+\[f\left(x\right)=x^3+3kx^2-kx-1\]
+が常に単調増加するような定数$k$の値の範囲を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II微積.jpeg}}
+\noindent{\bf\boldmath\Large\underline{極値から係数決定}}\vspace{0.3zw}\\
+\noindent\Large 
+\bf\boldmath 問．関数$f\left(x\right)=x^3+ax^2-bx+c$が、$x=-1$で極大値$5$をとり、$x=1$で極小となるとき、定数$a,b,c$の値を求めよ．
+
+
+\end{document}
+

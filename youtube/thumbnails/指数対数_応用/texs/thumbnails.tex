@@ -1,0 +1,442 @@
+
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+\bf\boldmath
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\Large\underline{$3$乗根の無理数性$〜$阪大$〜$}}\vspace{0.3zw}
+
+\normalsize 
+問．(1)  $\sqrt 2,\;\sqrt[3]3$が無理数であることを示せ．
+
+\LARGE
+{\normalsize (2)} $p,\;q,\;\sqrt 2p+\sqrt[3]3q$が\\
+\hfill すべて有理数であるとする．
+
+\normalsize 
+\vspace{0.4zw}
+\hfill このとき，{\LARGE $p=q=0$}であることを示せ．
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{無理数の無理数乗〜阪大〜}}\vspace{0.3zw}
+
+\normalsize 
+問．(1)  $\log _34$は無理数であることを示せ．
+
+\LARGE
+{\normalsize (2)}  $a,\;b$がともに無理数で，\\
+\hfill $a^b$は有理数であるような
+
+\normalsize 
+\vspace{0.4zw}
+\hfill 数$a,\;b$の組を{\LARGE $1$組}求めよ．\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\Large\underline{底に文字を含む対数不等式}}\vspace{0.3zw}
+
+\small
+問．次の$x$についての不等式を解け．\\
+\hfill ただし，$a$は$1$ではない正の実数とする．
+
+(1)  $\log _a\left(2x+{13}\right)>\log _a\left(4-x\right)$
+
+\Large
+{\small (2)}  $\log _a\left(x-a\right)\geqq \log _{a^2}\left(x-a\right)$
+
+\Huge
+\vspace{-0.2zw}
+{\small(3)}  $\log _ax\leqq \log _xa$\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\Large\underline{対数方程式が実数解をもつ条件}}\vspace{0.1zw}
+
+\large 
+問．$x$についての方程式
+
+\fontsize{16}{0} \selectfont
+\vspace{0.8zw}
+\hspace{0.1zw}$\log _3\left(x-3\right)=\log _9\left(kx-6\right)\vspace{0.8zw}$\\
+\hspace{0.8zw} が相異なる$2$つの解をもつ
+
+\large 
+\vspace{0.2zw}
+\hfill ように，実数$k$の範囲を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\huge\underline{対数方程式}}\vspace{0.6zw}
+
+\small
+問．次の方程式を解け．\vspace{0.4zw}
+
+{\small (1)}  $\log _2\left(x^2-2x\right)=\log _2\left(3x-4\right)$\vspace{0.2zw}
+
+\large
+{\small (2)}  $\log _2\left(x+2\right)+\log _2\left(x-5\right)=3$\vspace{0.2zw}
+
+\LARGE
+{\small (3)}  $\log _{\frac{1}{3}}$$\left(6-x\right)$$+$$2\log _3x$$=$$0$\vspace{0.2zw}\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{累乗の大小比較}}\vspace{0.3zw}
+
+\normalsize
+問．
+
+\Huge
+\vspace{-1zw}
+\hspace{0.5zw}
+${100}^{99}$と${99}^{100}$の\vspace{-0.2zw}\\
+\hspace{0.3zw} 大小を判定せよ．
+
+\normalsize
+\vspace{0.2zw}
+\hfill ただし，必要なら以下の近似値を用いて良い．\\
+\hfill$\log _{{10}}2=0.{3010}$,\; $\log _{{10}}3=0.{4771}$
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\Large\underline{常用対数の近似値$〜$津田塾大$〜$}}\vspace{0.3zw}
+
+\normalsize
+問．次の値を，
+
+\huge
+\hspace{0.1zw}
+小数第$1$位まで求めよ.\vspace{-0.2zw}\\
+$\log _{10}2$，$\log _{10}5$，$\log _{10}3$
+
+\normalsize
+\vspace{0.8zw}
+\hfill 
+ただし，小数第$2$以下は切り捨てよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\Large\underline{対数不等式が表す領域$〜$京大$〜$}}\vspace{0.1zw}
+
+\normalsize 
+問．不等式
+
+\LARGE
+\vspace{-0.3zw}
+\hspace{0.5zw}$\log _xy+\log _yx$\hspace{-0.2zw}\\
+\hfill $>2+\left(\log _x2\right)\left(\log _y2\right)\vspace{0.3zw}$
+
+\normalsize 
+を満たす$x,\;y$の組$\left(x,\;y\right)$の範囲を\hspace{-0.2zw}\\
+\hfill 座標平面上に図示せよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{対数不等式が表す領域}}\vspace{0.0zw}
+
+\Large
+問．不等式
+
+\HUGE
+\vspace{-0.3zw}
+$1<\log _xy<2\vspace{0.2zw}$
+
+\Large 
+を満たす点$\left(x,\;y\right)$全体からなる\vspace{-0.2zw}
+
+\hfill 領域を図示せよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{指数方程式 Lv.2 }}\vspace{0.3zw}
+
+\normalsize 
+問．次の各々の等式を満たす実数$x$の値を求めよ．
+
+\normalsize 
+{\normalsize (1)} $\left(2^x\right)^2-5\cdot 2^x+4=0$
+
+\Large
+{\normalsize (2)}   $9^x-2\cdot 3^x-3=0$
+
+\huge
+{\normalsize (3)}  $4^{x+1}+2$$\cdot$$ 2^x-2=0$\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\Large\underline{指数方程式が実数解をもつ条件}}\vspace{0.3zw}
+
+
+\normalsize
+問．方程式
+
+\LARGE 
+\vspace{0.0zw}
+\hspace{0.5zw}$4^x-a\cdot 2^{x+1}+a+2=0\vspace{0.0zw}$
+
+\huge
+\hspace{0.2zw} を満たす実数$x$が存在
+
+\normalsize
+\vspace{0.4zw}
+\hfill するような，定数$a$の値のとる範囲を求めよ．
+
+
+
+
+\vspace{0.3zw}
+\hspace{0.5zw}
+
+
+ような実数$a$の値を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{指数方程式の解の配置}}\vspace{0.1zw}
+
+\normalsize
+問．$x$の方程式
+
+\Large 
+\vspace{-0.0zw}
+\hspace{0.5zw}$9^x+2a\cdot 3^x+2a^2+a-6=0\vspace{0.2zw}$
+
+を満たす正の解，負の解が\vspace{-0.2zw}\\
+\hspace{2zw} $1$つずつ存在するような，
+
+\normalsize
+\vspace{0.0zw}
+\hfill 定数$a$の値のとる範囲を求めよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\huge\underline{小数首位とその数字}}\vspace{0.3zw}
+
+\normalsize
+問．
+
+\Large 
+\vspace{-1zw}
+\hspace{0.5zw}
+$\left(\bunsuu{2}{5}\right)^{50}$
+% \vspace{-0.5zw}
+\hspace{-1zw}
+は小数第何位に初めて\vspace{-0.4zw}\\
+\hfill $0$でない数字が現れるか．\\
+また，その数字を求めよ．{\normalsize ただし，}
+
+\normalsize
+\hfill 必要ならば$\log _{10}2=0.{3010}$を用いて良い．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{$3^{3^{3^3}}${\Huge の桁数の桁数}}}\vspace{0.1zw}
+
+\tiny
+問．必要ならば$\log _{10}2=0.{3010},\;\log _{10}3=0.{4771}$を用いて良い．\vspace{0.2zw}\\
+(1)  $\log _3x=3$を満たす整数$x$を求めよ．\vspace{0.2zw}\\
+(2)  $\log _3\left(\log _3x\right)=3$を満たす整数$x$は何桁か．また，最高位の数字を求めよ．\vspace{0.2zw}\\
+(3)  
+
+\LARGE
+\vspace{-0.9zw}
+\hspace{0.5zw}
+$\log _3\left(\log _3\left(\log _3x\right)\right)=3$\vspace{-0.2zw}\\
+を満たす整数$x$の桁数を$n$\vspace{-0.2zw}\\
+\hfill とするとき，$n$は何桁か．
+
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{桁数を不等式で表す}}\vspace{0.3zw}
+
+\normalsize
+問．
+
+\huge
+\vspace{-0.8zw}
+\hspace{0.3zw}
+${29}^{100}$は${147}$桁である.
+
+\HUGE
+\vspace{-0.2zw}
+\hspace{0.2zw}${29}^{23}$は何桁の数
+
+\huge
+\hfill となるか．
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{桁数，最高位，最高次位}}\vspace{0.3zw}
+
+\small
+(1)  $2^{{2019}}$の何桁か．
+(2)  $2^{{2019}}$の最高位の数は何か．
+
+(3)
+
+\Huge
+\vspace{-0.7zw}
+\hspace{0.3zw}
+$2^{{2019}}$の最高次位\vspace{-0.2zw}\\
+\hfill の数は何か．
+
+\small
+\vspace{-1zw}
+ただし，\\
+\hfill 近似値$\log_{10} 2 = 0.3010$や常用対数表を用いて良い．
+
+
+
+\end{document}
+

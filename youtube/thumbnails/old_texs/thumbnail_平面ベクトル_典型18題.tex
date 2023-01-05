@@ -1,0 +1,332 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{内心の位置ベクトル}}\vspace{0.3zw}\\
+\normalsize 
+\bf\boldmath 問．$\angle \text{A}={60}^\circ ,\;\text{AB}=8,\;\text{AC}=5$である三角形$\text{ABC}$の内心を$\text{I}$とし，直線$\text{AI}$と辺$\text{BC}$の交点を$Ｄ$とする．$\vv{\text{AB}} =$$\vv{b},\;$$\vv{\text{AC}} =$$\vv{c}$とする．
+
+\Large
+(1) $\vv{\text{AD}}$を$\vv{b},\;$$\vv{c}$を用いて表せ．\\
+(2) $\vv{\text{AI}}$を$\vv{b},\;$$\vv{c}$を用いて表せ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{ベクトルによる三角形の面積公式}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．平面上の$4$点$\text{O},\;\text{A},\;\text{B},\;\text{C}$に対し，
+\vspace{0.3zw}
+
+\ \ $\vv {\text{OA}}+\vv {\text{OB}}+\vv {\text{OC}}=\vv 0,$
+
+\vspace{0.3zw}
+$\text{OA}=2,\;\text{OB}=1,\;\text{OC}=\sqrt 2$のとき，\\
+(1)  内積$\vv {\text{OA}}\cdot \vv {\text{OB}}$を求めよ．\\
+(2)  三角形$\text{OAB}$の面積を求めよ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{円のベクトル方程式}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．平面上の異なる$2$定点$A,\;B$に対して，等式$\zettaiti{2\vv {\text{AP}}+\vv {\text{BP}}}=6$をみたす動点$\text{P}$はどのような図形を描くか．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{ベクトル方程式$〜$円の方程式$〜$}}\vspace{0.5zw}\\
+\large 
+\bf\boldmath 問．次のような円の方程式を求めよ．
+
+\vspace{0.8zw}
+\normalsize 
+\ (1)  中心が原点$\text{O}\left(0,\;0\right)$で，半径が$2$の円\\
+\ (2)  中心が$\text{A}\left(1,\;5\right)$で，点$\text{B}\left(2,\;2\right)$を通る円\\
+\ (3)  $\text{A}\left(5,\;0\right),\;\text{B}\left(9,\;4\right)$を直径の両端とする円\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{法線ベクトル$〜2$直線のなす鋭角$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$2$直線\vspace{-0.5zw}
+\[\left\{\begin{array}{l}x+\sqrt 3y-5=0,\;\\\sqrt 3x+y+1=0\end{array}\right.\vspace{-0.5zw}\]
+がなす鋭角$\theta$を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{法線ベクトル}}\vspace{0.3zw}\\
+\huge 
+\bf\boldmath 問．点$\text{A}\left(3,\;4\right)$を通り，$\vv{n}=\left(2,\;1\right)$に垂直な直線の方程式を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{ベクトルの終点の存在範囲$〜$中級$〜$}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．三角形$\text{OAB}$において，次の条件を満たす点$\text{P}$の存在範囲を求めよ．
+\vspace{0.3zw}
+
+\Large 
+$\vv{\text{OP}} =s$$\vv{\text{OA}} +t$$\vv{\text{OB}} ,\;\vspace{-0.0zw}\\\hfill s+t=2,\;s\geqq 0,\;t\geqq 0$
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{ベクトルの終点の存在範囲$〜$初級$〜$}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．三角形$\text{OAB}$において，次の条件を満たす点$\text{P}$の存在範囲を求めよ．
+\vspace{0.3zw}
+
+\Large 
+$\vv{\text{OP}} =s$$\vv{\text{OA}} +t$$\vv{\text{OB}} ,\;\vspace{-0.0zw}\\\hfill s+t=\bunsuu{1}{3},\;s\geqq 0,\;t\geqq 0$
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{垂心の位置ベクトル}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$\text{OA}=2\sqrt 2,\;\text{OB}=\sqrt 3,\;$\\
+\ \ \ \ \ $\vv{\text{OA}}\cdot\vv{\text{OB}}=2$\ \ である\\
+三角形$\text{OAB}$の垂心$\text{H}$に対して，\\
+$\vv{\text{OH}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{内積を利用した図形証明}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．三角形$\text{ABC}$において，辺$\text{BC}$の中点を$\text{M}$とするとき，等式
+\vspace{0.3zw}
+
+\ \ $\text{AB}^2+\text{AC}^2=2\left(\text{AM}^2+\text{BM}^2\right)\vspace{0.3zw}$
+% 
+
+が成立することを示せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{交点の位置ベクトル$〜$中級$〜$}}\vspace{0.3zw}\\
+\normalsize 
+\bf\boldmath 問．三角形$\text{OAB}$において，辺$\text{OA}$を$2:1$に内分する点を$\text{C},\;$辺$\text{OB}$の中点を$\text{D}$とする．
+
+\Large
+線分$\text{AD}$と線分$\text{BC}$の交点を$\text{P}$とするとき，$\vv{\text{OP}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{交点の位置ベクトル$〜$初級$〜$}}\vspace{0.3zw}\\
+\normalsize
+\bf\boldmath 問．三角形$\text{OAB}$において，辺$\text{OA}$を$2:1$に内分する点を$\text{C},\;$辺$\text{OB}$の中点を$\text{D}$とする．
+
+\Large
+直線$\text{OP}$と辺$\text{AB}$の交点を$\text{Q}$とするとき，$\vv{\text{OQ}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{$3$点が一直線上にあることの証明}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．平行四辺形$\text{ABCD}$において，辺$\text{CD}$を$2:1$に内分する点を$E,\;$対角線$\text{BD}$を$3:1$に内分する点を$\text{F}$とする．
+
+\Large $3$点$\text{A},\;\text{F},\;\text{E}$は一直線上にあることを証明せよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{点が一致することの証明}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．三角形$\text{ABC}$において，辺\text{BC},\;\text{CA},\;\\
+\text{AB}を$3:1$に内分する点を，それぞれ\text{P},\;\text{Q},\;\text{R},\;三角形$\text{PQR}$の重心を$\text{G}',\;$三角形$\text{ABC}$の重心を$\text{G}$とする．このとき，
+
+\Large 
+\ \ $\text{G}$と$\text{G}'$は一致することを示せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ベクトル和の等式$〜$三角形$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．三角形$\text{ABC}$に対して，次の式を満たす点$\text{P}$の位置を求めよ．
+\vspace{0.8zw}
+
+\LARGE
+\ \ $2\vv {\text{PA}}+3\vv {\text{PB}}+\vv {\text{PC}}=\vv {0}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{ベクトルのなす角}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．$\vv {a}=\left(7,\;-1\right)$と${45}^\circ$の角をなし，大きさが${10}$である$\vv {b}$を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ベクトルの内積計算$〜$中級$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$\zettaiti{\vv {a}}=2,\;\zettaiti{\vv {b}}=1$で，$\vv {a}+\vv {b}$と$2\vv {a}-5\vv {b}$が垂直であるとする．\\
+(1)  内積$\vv {a}\cdot \vv {b}$を求めよ．\\
+(2)  大きさ$\zettaiti{\vv {a}-2\vv {b}}$を求めよ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ベクトルの大きさの最小}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$\vv {a}=\left(3,\;1\right),\;\vv {b}=\left(1,\;2\right)$と実数$t$に対して，
+\vspace{0.3zw}
+
+\LARGE\ \ $\vv {c}=\vv {a}+t\vv {b}$
+\vspace{0.3zw}
+
+\Large の大きさ$\zettaiti{\vv {c}}$の最小値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{典型}}$}
+
+
+\end{document}
+

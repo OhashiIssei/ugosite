@@ -1,0 +1,4434 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+\RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+% \papersizesetup{size={80mm,45mm}}
+% \usepackage[top=0.5zw,bottom=0truemm,left=3truemm,right=135truemm]{geometry}
+%\newgeometry{}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+
+%余白など
+\columnsep=-10cm
+\setlength{\mathindent}{1zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.953125,0.95703125,0.9375}
+\definecolor{hukamido}{rgb}{0.1640625,0.265625,0.3203125}
+% \definecolor{mido}{rgb}{0.3203125,0.515625,0.5}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+% \color{kin}\pagecolor{hukamido}
+
+\begin{document}
+
+\section{計算力を身に付けたい高校生向け}
+
+\subsection{数I数と式 計算15題}
+
+
+
+\begin{question}{\bf\boldmath $2$乗の展開$\left(a+b\right)^2,\left(a+b+c\right)^2,\left(a+b+c+d\right)^2$}\\
+次の式を展開せよ．
+\begin{enumerate}
+\item $\left(a+b\right)^2$
+\item $\left(a+b+c\right)^2$
+\item $\left(a+b+c+d\right)^2$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$乗の展開$\left(a+b\right)^3,\left(a+b+c\right)^3$}\\
+次の式を展開せよ．
+\begin{enumerate}
+\item $\left(a+b\right)^3$
+\item $\left(a+b+c\right)^3$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次式$a^3+b^3$の因数分解}\\
+$a^3+b^3$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次式$a^3+b^3+c^3-3abc$の因数分解}\\
+$a^3+b^3+c^3-3abc$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次式の因数分解$a^3+b^3+c^3+d^3-3abc-3bcd-3cda-3dab$}\\
+$a^3+b^3+c^3+d^3-3abc-3bcd-3cda-3dab$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $x^n-y^n$の因数分解}\\
+$x^2-y^2,x^3-y^3,x^4-y^4,x^5-y^5$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解$〜$平方の差$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜$}\\
+$x^4-{13}x^2y^2+4y^4$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解$〜$平方の差$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜$}\\
+$x^6-y^6$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解の有名問題$〜$上級$〜$}\\
+$a^4+b^4+c^4-2a^2b^2-2b^2c^2-2c^2a^2$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称式$x^2+y^2$の計算}\\
+$x+y={10}, xy=1$のとき，$x^2+y^2$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称式$x^3+y^3$の計算}\\
+$x+y={10}, xy=1$のとき，$x^3+y^3$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称式$x^4+y^4,x^5+y^5$の計算}\\
+$x+y={10}, xy=1$のとき，$x^4+y^4, x^5+y^5$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式$x^2+y^2+z^2$の値}\\
+$x+y+z=2\sqrt 3+1, xy+yz+zx=2\sqrt 3-1, xyz=-1$のとき，次の式の値を求めよ．
+\begin{edaenumerate}<3>
+\item $x^2+y^2+z^2$
+\item $x^3+y^3+z^3$
+\item $x^4+y^4+z^4$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式$x^3+y^3+z^3$の値}\\
+$x+y+z=2\sqrt 3+1, xy+yz+zx=2\sqrt 3-1, xyz=-1$のとき，次の式の値を求めよ．
+\begin{edaenumerate}<3>
+\item $x^2+y^2+z^2$
+\item $x^3+y^3+z^3$
+\item $x^4+y^4+z^4$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式$x^4+y^4+z^4$の値}\\
+$x+y+z=2\sqrt 3+1, xy+yz+zx=2\sqrt 3-1, xyz=-1$のとき，次の式の値を求めよ．
+\begin{edaenumerate}<3>
+\item $x^2+y^2+z^2$
+\item $x^3+y^3+z^3$
+\item $x^4+y^4+z^4$
+\end{edaenumerate}
+
+\end{question}
+
+\subsection{数II式と証明 計算3題}
+
+
+
+\begin{question}{\bf\boldmath 分数式の通分}\\
+次の式を計算せよ．
+\[\bunsuu{{2x-1}}{{x^2-3x+2}}-\bunsuu{{x-5}}{{x^2-5x+6}}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 繁分数の計算}\\
+次の式を計算せよ．
+\[\bunsuu{{\bunsuu{{1+x}}{{1-x}}-\bunsuu{{1-x}}{{1+x}}}}{{\bunsuu{{1+x}}{{1-x}}+\bunsuu{{1-x}}{{1+x}}}}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 連分数の計算}\\
+次の式を計算せよ．
+\[\bunsuu{1}{{}1+\bunsuu{1}{{}1+\bunsuu{1}{{}1+\bunsuu{1}{x}}}}\]
+\end{question}
+
+\subsection{指数対数 計算9題}
+
+
+
+\begin{question}{\bf\boldmath 分数の分数乗}\\
+次の式の値を求めよ．
+\[\left(\bunsuu{{{27}}}{8}\right)^{\frac{2}{3}}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 累乗根の計算}\\
+次の式の値を求めよ．
+\[\bunsuu{{\sqrt[3]4}}{{{\sqrt 16}}}÷\bunsuu{{{\sqrt 64}}}{{^3{\sqrt 64}}}×\bunsuu{{{\sqrt 32}}}{{^3{\sqrt 32}}}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 無理数乗の計算}\\
+次の式の値を求めよ．
+\[6^{\sqrt 6}×2^{\sqrt 6}÷3^{\sqrt 6}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$乗根の有理化}\\
+次の分数の分母を有理化せよ．
+\[\bunsuu{5}{{}\sqrt[3]4+1}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 肩の上の対数}\\
+次の式の値を求めよ．
+\[3^{\log _98}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数計算}\\
+次の式の値を求めよ．
+\[\log _5\sqrt 2-\bunsuu{1}{2}\log _5\bunsuu{1}{3}-\bunsuu{3}{2}\log _5\sqrt[3]{{30}}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 無理数乗の大小比較}\\
+次の$□$に$=, <, >$のいずれかを入れよ．
+\begin{enumerate}
+\item $\left(\sqrt 2\right)^2□\log _{\sqrt 2}2$
+\item $\left(\sqrt 2\right)^4□\log _{\sqrt 2}4$
+\item $\left(\sqrt 2\right)^8□\log _{\sqrt 2}8$
+\item $\left(\sqrt 2\right)^{\sqrt 8}□\log _{\sqrt 2}\sqrt 8$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 底の変換公式}\\
+次の式の値を求めよ．
+\[\left(\log _29+\log _83\right)\left(\log _32+\log _94\right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数計算に対数を利用}\\
+$2^x=5^y={10}^z$のとき，$xy-yz-zx$の値を求めよ．
+\end{question}
+
+\subsection{数II微積 計算10題}
+
+
+
+\begin{question}{\bf\boldmath $y=\left(2x+1\right)^3$の微分}\\
+次の関数を微分せよ．
+\[y=\left(2x+1\right)^3\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $y=\left(2x+1\right)^2\left(3x^2-2\right)$の微分}\\
+次の関数を微分せよ．
+\[y=\left(2x+1\right)^2\left(3x^2-2\right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次関数の極値の和と差}\\
+関数$f\left(x\right)=x^3-3ax^2+3bx$の極大値と極小値の和および差がそれぞれ$-{18}, {32}$であるとき，定数$a, b$の値を定めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 次数下げによる極値計算}\\
+次の関数の極値を求めよ．
+\[y=x^3+x^2-2x\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次関数の極値の差}\\
+次の関数の極大値と極小値の差が$4$であるような$a$の値を求めよ．
+\[f\left(x\right)=x^3+ax^2+x\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 定積分の基本計算}\\
+定積分$\displaystyle\int_1^5\left(x^2-3x\right)dx$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\left(ax+b\right)^n$の定積分}\\
+定積分$\displaystyle\int_0^1\left(2x-1\right)^5dx$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt {r^2-x^2}$の定積分}\\
+定積分$\displaystyle\int_0^1\sqrt {4-x^2}dx$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt x$の定積分}\\
+定積分$\displaystyle\int_0\sqrt[3]xdx$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 絶対値の定積分}\\
+定積分$\displaystyle\int_{-3}^3\zettaiti{x^2+x-2}dx$の値を求めよ．
+\end{question}
+
+\section{典型問題を押さえたい高校生向け}
+
+\subsection{数I数と式 典型6題}
+
+
+
+\begin{question}{\bf\boldmath $2$つの文字含む因数分解}\\
+$2$元$2$次式
+\[6x^2+5xy+y^2-7x-3y+2\]
+を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$重根号}\\
+$\sqrt {2+\sqrt 3}$の$2$重根号をはずせ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 根号の計算}\\
+$\alpha =2+\sqrt 3$のとき，$\alpha ^4+\alpha ^3+\alpha ^2+\alpha +1$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 係数に文字を含む$1$次不等式}\\
+次の不等式を解け．ただし，$a$は定数とする．
+\begin{enumerate}
+\item $ax=2\left(x+a\right)$
+\item $ax<x+2$
+\item $ax+1>x+a^2$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $1$次不等式の整数解}\\
+次の問いに答えよ．
+\begin{enumerate}
+\item 不等式$\bunsuu{x}{2}+4<\bunsuu{{2x+7}}{3}$を満たす最小の整数
+$x$を求めよ．
+\item $x$の不等式$2x+a>5\left(x-1\right)$を満たす$x$のうち，最大の整数が$4$であるとき，定数$a$の値の範囲を求めよ．
+\item $x$の連立不等式$7x-5>{13}-2x, x+a\geqq 3x+5$を満たす整数$x$がちょうど$5$個存在するとき，定数$a$の値の範囲を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 絶対値を含む方程式$\cdot$不等式}\\
+次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\zettaiti{x+3}=4x$
+\item $\zettaiti{2x-1}\leqq x+3$
+\item $\zettaiti{x}+\zettaiti{x-1}=3x$
+\item $\zettaiti{x}+\zettaiti{x-1}>3x$
+\end{enumerate}
+
+\end{question}
+
+\subsection{集合と命題 典型7題}
+
+
+
+\begin{question}{\bf\boldmath $n^2$が$2$の倍数であるならば$n$も$2$の倍数である}\\
+整数$n$について，次のことを証明せよ．
+\begin{enumerate}
+\item $n^2$が$2$の倍数ならば，$n$も$2$の倍数である．
+\item $n^2$が$3$の倍数ならば，$n$も$3$の倍数である．
+\item $n^2$が$6$の倍数ならば，$n$も$6$の倍数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n^2$が$3$の倍数ならば$n$も$3$の倍数である}\\
+整数$n$について，次のことを証明せよ．
+\begin{enumerate}
+\item $n^2$が$2$の倍数ならば，$n$も$2$の倍数である．
+\item $n^2$が$3$の倍数ならば，$n$も$3$の倍数である．
+\item $n^2$が$6$の倍数ならば，$n$も$6$の倍数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n^2$が$6$の倍数ならば$n$も$6$の倍数である}\\
+整数$n$について，次のことを証明せよ．
+\begin{enumerate}
+\item $n^2$が$2$の倍数ならば，$n$も$2$の倍数である．
+\item $n^2$が$3$の倍数ならば，$n$も$3$の倍数である．
+\item $n^2$が$6$の倍数ならば，$n$も$6$の倍数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt 2$が無理数であることの証明}\\
+次のことを証明せよ．
+\begin{enumerate}
+\item $\sqrt 2$は無理数である．
+\item $\sqrt 6$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt 6$が無理数であることの証明}\\
+次のことを証明せよ．
+\begin{enumerate}
+\item $\sqrt 2$は無理数である．
+\item $\sqrt 6$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt 2+\sqrt 3$が無理数であることの証明}\\
+次のことを証明せよ．ただし，平方数でない正の整数$m$に対して，$\sqrt m$が無理数であることを前提としてよい．
+\begin{enumerate}
+\item $\sqrt 2+\sqrt 3$は無理数である．
+\item 有理数$a, b$のうち少なくとも$1$つが$0$でないならば，$a\sqrt 2+b\sqrt 3$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $a\sqrt 2+b\sqrt 3$が無理数であることの証明}\\
+次のことを証明せよ．ただし，平方数でない正の整数$m$に対して，$\sqrt m$が無理数であることを前提としてよい．
+\begin{enumerate}
+\item $\sqrt 2+\sqrt 3$は無理数である．
+\item 有理数$a, b$のうち少なくとも$1$つが$0$でないならば，$a\sqrt 2+b\sqrt 3$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+\subsection{２次関数 典型10題}
+
+
+
+\begin{question}{\bf\boldmath 軸が動く$2$次関数の最大値$\cdot$最小値}\\
+$a$は定数とする．関数$y=x^2-2ax+3a$の$0\leqq x\leqq 4$における最大値と最小値を求めよ．$a$は定数とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間が動く$2$次関数の最大値$\cdot$最小値}\\
+$a$は定数とする．関数$y=x^2-2x+2$の
+$a\leqq x\leqq a+2$における最大値と最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$次関数の最大最小から係数決定}\\
+関数$y=ax^2-2ax+b\left(0\leqq x\leqq 3\right)$の最大値が$9$で，最小値が$1$であるとき，定数$a, b$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$次関数の最大値$M$の最小値}\\
+$a$を与えられた定数として$x$の$2$次関数$y=-x^2+4ax+4a$を考え，その最大値を$M$とする．
+\begin{enumerate}
+\item $M$を$a$の式で表せ．
+\item $M$を最小とする$a$の値を求めよ．また，そのときの$M$の値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 独立$2$変数関数の最小値}\\
+$x$と$y$が互いに関係なく変化するとき，$P=x^2+2y^2-2xy+2x+3$の最小値とそのときの$x, y$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複$2$次$4$次関数の最小値}\\
+関数$y=x^4+6x^2+{10}$の最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件式付き$2$変数関数の最大最小$〜$中級$〜$}\\
+$2x^2+3y^2=8$のとき，$4x+3y^2$の最大値および最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 解の配置$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜$正の解をもつ$〜$}\\
+$2$次方程式$x^2+2ax+3-2a=0$が次のような条件を満たすような実数$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item 符号の異なる$2$解をもつ
+\item 正の解をもつ
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 解の配置$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜$区間に$1$つの解をもつ$〜$}\\
+$2$次方程式$ax^2-\left(a-1\right)x-a+1=0$が$-1<x<1$と$3<x<4$にそれぞれ$1$つの実数解を持つような定数$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 解の配置$\raise0.2ex\hbox{\textcircled{\scriptsize{3}}}〜$区間に少なくとも$1$つの解$〜$}\\
+$2$次方程式$x^2-\left(k+4\right)x-\bunsuu{k}{2}+4=0$が$1<x<4$に少なくとも$1$つの実数解をもつような実数$k$の値の範囲を求めよ．
+\end{question}
+
+\subsection{三角比 典型5題}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形の面積}\\
+円$O$に内接する四角形$\text{ABCD}$が$\text{AB}=2, \text{BC}=3, \text{CD}=1, \angle \text{ABC}={60}^\circ$を満たしている．
+\begin{enumerate}
+\item 円$O$の半径$R$を求めよ．
+\item 四角形$\text{ABCD}$の面積$S$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角形の形状決定}\\
+次の等式を満たす$\triangle \text{ABC}$はどのような形か．
+\[a^2\cos A\sin B=b^2\cos B\sin A\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角形の内角の$\sin$の比}\\
+$\bunsuu{5}{{}\sin A}=\bunsuu{7}{{}\sin B}=\bunsuu{8}{{}\sin C}$である$\triangle \text{ABC}$の最小角を$\theta$とするとき，$\cos \theta$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内角二等分線の長さ}\\
+$\triangle \text{ABC}$において，$\text{AB}=5, \text{AC}=8, \angle A={60}^\circ ,$
+$\angle A$の二等分線が辺$\text{BC}$と交わる点を$\text{D}$とするとき，線分$\text{AD}$の長さを求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内接円と外接円の半径}\\
+$\triangle \text{ABC}$において，$\text{AB}=5, \text{BC}=7, \text{AC}=8$のとき，内接円の半径$r$と外接円の半径$R$を求めよ．
+\end{question}
+
+\subsection{場合の数 典型10題}
+
+
+
+\begin{question}{\bf\boldmath 部屋分け$〜6$人を$2$つの部屋$A$，$B$に分ける$〜$}\\
+空室は作らないものとする．
+\begin{enumerate}
+\item $6$人を$A$，$B$の$2$部屋に分ける方法は何通りあるか．
+\item $6$人を$A$，$B$，$C$の$3$部屋に分ける方法は何通りあるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 部屋分け$〜6$人を$3$つの部屋$A$，$B$，$C$に分ける$〜$}\\
+空室は作らないものとする．
+\begin{enumerate}
+\item $6$人を$A$，$B$の$2$部屋に分ける方法は何通りあるか．
+\item $6$人を$A$，$B$，$C$の$3$部屋に分ける方法は何通りあるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜12$人を$8$人，$4$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜12$人を$5$人，$4$人，$3$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{3}}}〜12$人を$6$人，$6$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{4}}}〜12$人を$4$人，$4$人，$4$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重複組合せ$〜$ミカンの配り方$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜$}\\
+${10}$個のミカンを$A$，$B$，$C$の$3$人配る．次の各々の場合，配り方は何通りあるか．
+\begin{enumerate}
+\item どの人も少なくとも$1$個はもらう場合
+\item $1$つももらわない人がいても良い場合
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重複組合せ$〜$ミカンの配り方$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜$}\\
+${10}$個のミカンを$A$，$B$，$C$の$3$人配る．次の各々の場合，配り方は何通りあるか．
+\begin{enumerate}
+\item どの人も少なくとも$1$個はもらう場合
+\item $1$つももらわない人がいても良い場合
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む円順列$〜$初級$〜$}\\
+次の各々の場合は何通りあるか．
+\begin{enumerate}
+\item 赤玉$4$個，白玉$3$個，黒玉$1$個を円形に並べる方法
+\item 赤玉$4$個，白玉$2$個，黒玉$2$個を円形に並べる方法
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む円順列$〜$中級$〜$}\\
+次の各々の場合は何通りあるか．
+\begin{enumerate}
+\item 赤玉$4$個，白玉$3$個，黒玉$1$個を円形に並べる方法
+\item 赤玉$4$個，白玉$2$個，黒玉$2$個を円形に並べる方法
+\end{enumerate}
+
+\end{question}
+
+\subsection{確率 典型15題}
+
+
+
+\begin{question}{\bf\boldmath 等確率$〜$区別のない$3$つのサイコロ$〜$}\\
+区別のない$3$個のサイコロを投げるとき，出た目の和が$5$となる確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同基準$〜$隣り合う確率を求める$2$つの方法$〜$}\\
+トランプのスペ$ー$ド${13}$枚を一列に並べるとき，絵札がすべて隣り合う確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 非復元抽出$〜$引いたくじは戻さない$〜$}\\
+当たり$3$本，はずれ$7$本のくじから$4$本を引くとき，$2$本だけ当たりくじを引く確率を求めよ．ただし，引いたくじは戻さないとする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 余事象の利用$〜$積が$4$の倍数になる確率$〜$}\\
+$1$から$8$までの数の書かれた$8$枚のカ$ー$ドから$3$枚のカ$ー$ドを取り出すとき，次の確率を求めよ．
+\begin{enumerate}
+\item $3$数の和が${18}$以下となる確率
+\item $3$数の積が$4$の倍数となる確率
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 全体像を見る$〜$玉の色が$2$種類になる確率$〜$}\\
+赤玉$3$個，白玉$3$個，青玉$3$個が入っている袋から$3$個の玉を取り出すとき，玉の色が$2$種類になる確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称性に着目$〜$ランダムウォ$ー$クの確率$〜$}\\
+数直線上の動点$\text{P}$を，コインを投げて
+表が出れば正の向きに$1$だけ移動さ，
+裏が出れば負の向きに$1$だけ移動させる．
+原点$\text{O}$から出発して，コインを${10}$回投げた後の点$\text{P}$が正の部分にある確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 推移グラフ$〜$ランダムウォ$ー$クの確率$〜$}\\
+数直線上の動点$\text{P}$を，コインを投げて
+表が出れば正の向きに$1$だけ移動させ，
+裏が出れば負の向きに$1$だけ移動させる．
+原点$\text{O}$から出発して，コインを${10}$回投げた後に点$\text{P}$が初めて原点に戻る確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 独立反復試行$〜$先に$4$勝で優勝$〜$}\\
+$A$，$B$の$2$人が繰り返し試合を行う．各試合において，$A$が勝つ確率は$p, B$が勝つ確率は$q$で，引き分けはない．先に$4$勝した方が優勝とするとき，次の確率を求めよ．
+\begin{enumerate}
+\item $6$試合目に$A$が優勝を決める確率
+\item $6$試合目に優勝者が決まる確率
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 独立反復試行$〜3$勝リ$ー$ドで優勝$〜$}\\
+$A$，$B$の$2$人が繰り返し試合を行う．各試合において，$A$が勝つ確率は$p, B$が勝つ確率は$q$で，引き分けはない．先に$3$勝リ$ー$ドした方が優勝とするとき，次の確率を求めよ．
+\begin{enumerate}
+\item $5$試合目に$A$が優勝を決める確率
+\item $9$試合目に$A$が優勝を決める確率
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath サイコロの目の積}\\
+サイコロを$n$回振り，出た目のすべての積を$X$とするとき，
+\begin{enumerate}
+\item $X$が偶数である確率を求めよ．
+\item $X$が$6$の倍数である確率を求めよ．
+\item $X$が$4$の倍数である確率を求めよ．
+\item $X$が${12}$の倍数である確率を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath サイコロの目の最大値と最小値}\\
+サイコロを$n$回振り，出た目の最大値を$M$，最小値を$m$とする．
+\begin{enumerate}
+\item $M=5$となる確率を求めよ．
+\item $M=5, m=2$となる確率を求めよ．
+\item $M-m=3$となる確率を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件付き確率$〜$くじ引き$〜$}\\
+当たり$2$本，ハズレ$3$本入った箱からくじを$1$本取り出し，それを元に戻さずにもう$1$本取り出す．$2$本目が当たりだったとき，$1$本目も当たりである確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件付き確率$〜$箱と玉$〜$}\\
+$2$つの箱$A$，$B$があり，$A$には赤玉$4$個と白玉$1$個，$B$には赤玉$2$個と白玉$3$個が入っている．サイコロを振り，$1$の目が出れば$A$，他の目が出れば$B$を選び，選んだ箱から玉を$1$個取り出す．取り出した玉が赤であるとき，箱$A$が選ばれていた確率を求めよ．
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件付き確率$〜$忘れた帽子$〜$}\\
+$5$回に$1$回の割合で，帽子を忘れる癖のある$N$君が，正月に$A$，$B$，$C$の$3$軒を順に年始廻りをして家に帰ったとき，帽子を忘れてきたことに気づいた．家$B$に忘れてきた確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 確率の最大化}\\
+$O$さんが各問題に正解する確率は$\bunsuu{{99}}{{100}}$である．$O$さんが$3$問違えるまで問題を解き続けるとき，$n$問目で終わる確率$P_n$が最大となる$n$を求めよ．
+\end{question}
+
+\subsection{整数 典型6題}
+
+
+
+\begin{question}{\bf\boldmath $1$次不定方程式の整数解$〜1$組$〜$}\\
+${29}x+{42}y=4$の整数解をすべて求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $1$次不定方程式の整数解$〜$すべて$〜$}\\
+${29}x+{42}y=4$の整数解をすべて求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元不定方程式の有名問題}\\
+$\bunsuu{1}{l}+\bunsuu{1}{m}+\bunsuu{1}{n}=1$を満たす自然数解$\left(l,m,n\right)$をすべて求めよ．
+ただし，$l\leqq m\leqq n$とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 互いに素の証明}\\
+$2$つの自然数$a$と$b$が互いに素であるとき，$a$と$a+b$も互いに素であることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 余りによる分類}\\
+$n^2$が$3$の倍数ならば，$n$も$3$の倍数であることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 倍数証明}\\
+$n$が奇数のとき，$n^5-n$は${240}$の倍数であることを証明せよ．
+\end{question}
+
+\subsection{数II式と証明 典型6題}
+
+
+
+\begin{question}{\bf\boldmath 恒等式の基本}\\
+次の式が恒等式となるように，定数$a, b, c, d$の値を定めよ．
+\[x^3=a\left(x-1\right)^3+b\left(x-1\right)^2+c\left(x-1\right)+d\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件つきの等式の証明}\\
+$a+b+c=0$のとき，$a^2\left(b+c\right)+b^2\left(c+a\right)+c^2\left(a+b\right)+3abc=0$であることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 比例式の計算}\\
+$x+y=\bunsuu{{y+z}}{2}=\bunsuu{{z+x}}{5}\neq 0$のとき，$\bunsuu{{xy+yz+zx}}{{x^2+y^2+z^2}}$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 少なくとも一つは$1$であることの証明}\\
+$\alpha +\beta +\gamma=\bunsuu{1}{\alpha }+\bunsuu{1}{\beta }+\bunsuu{1}{\gamma}=1$ならば，$\alpha , \beta , \gamma$のうち少なくとも$1$つは$1$に等しいことを証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 不等式の証明}\\
+次の不等式を証明せよ．
+\[a^2+b^2+c^2\geqq ab+bc+ca\]
+\end{question}
+
+\subsection{図形と方程式 典型12題}
+
+
+
+\begin{question}{\bf\boldmath $2$直線の平行$\cdot$垂直条件}\\
+$2$直線$ax+2y=1, x+\left(a-1\right)y=3$が次の条件を満たすとき，定数$a$の値を求めよ．
+\begin{edaenumerate}<2>
+\item 平行
+\item 垂直
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$点を通る円の方程式}\\
+$3$点$\text{A}\left(2,1\right), \text{B}\left(6,3\right), \text{C}\left(-1,2\right)$がある．
+\begin{enumerate}
+\item $3$点$A,B,C$を通る円の方程式を求めよ．
+\item 三角形$\text{ABC}$の外心の座標と，外接円の半径を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円と直線の共有点}\\
+円$x^2+y^2=5$と次の直線の共有点の座標を求めよ．
+\begin{edaenumerate}<2>
+\item $y=x-1$
+\item $y=2x+5$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円と直線が共有点をもつ条件}\\
+円$x^2+y^2=8$と直線$y=x+m$が共有点を持つとき，定数$m$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円と直線が接する条件}\\
+円$x^2+y^2={10}$と直線$y=2x+m$が接するとき，定数$m$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円の接線の公式}\\
+円$x^2+y^2={25}$上の点$\left(3,4\right)$における接線の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に引いた接線の方程式}\\
+次のような接線の方程式を求めよ．
+\begin{enumerate}
+\item 円$x^2+y^2=5$上の点$\left(3,4\right)$における接線
+\item 点$\left(1,3\right)$から円$x^2+y^2=5$に引いた接線
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接$\cdot$外接する円}\\
+中心が$\left(4,3\right)$で円$x^2+y^2=1$に接する円の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 軌跡$〜$初級$〜$}\\
+$2$点$\text{A}\left(-3,0\right), \text{B}\left(2,0\right)$からの距離の比が$3:2$であるような点$\text{P}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角形の重心の軌跡}\\
+$2$点$\text{O}\left(0,0\right), \text{A}\left(1,0\right)$と円$x^2+y^2=9$上を動く点$\text{Q}$を頂点とする三角形$\text{OAQ}$の重心$\text{P}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 不等式の表す領域}\\
+次の不等式が表す領域を図示せよ．
+\begin{enumerate}
+\item $y>x^2+1$
+\item $3x-2y-2\geqq 0$
+\item $x\leqq 2$
+\item $\left(x+2\right)^2+y^2<1$
+\item $x^2+y^2-6x-2y+1\geqq 0$
+\item $x^2+y^2<{25}, y<3x-5$
+\item $\left(x-y\right)\left(x+y-2\right)<0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 線形計画法}\\
+$3x+y\geqq 6, x+3y\geqq 6, x+y\leqq 6$のとき，$x+2y$の最大値と最小値を求めよ．
+\end{question}
+
+\subsection{三角関数 典型15題}
+
+
+
+\begin{question}{\bf\boldmath 三角関数の相互関係}\\
+
+\begin{enumerate}
+\item $\sin \theta =-\bunsuu{3}{5}$のとき，$\cos \theta , \tan \theta$の値を求めよ．
+\item $\tan \theta =3$のとき，$\sin \theta , \cos \theta$の値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角方程式$\cdot$不等式$〜$中級$〜$}\\
+$0\leqq \theta <2\pi$のとき，次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\sin \left(2\theta -\bunsuu{\pi }{3}\right)=\bunsuu{{\sqrt 3}}{2}$
+\item $\sin \left(2\theta -\bunsuu{\pi }{3}\right)\leqq \bunsuu{{\sqrt 3}}{2}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$次関数の最大最小に帰着}\\
+$0\leqq \theta <2\pi$のとき，関数$y=\sin ^2\theta -\cos \theta$の最大値と最小値を求めよ．また，そのときの$\theta$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角方程式$\cdot$不等式$〜2$次方程式に帰着$〜$}\\
+$0\leqq \theta <2\pi$のとき，次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $2\sin ^2\theta +\cos \theta -2=0$
+\item $2\cos ^2\theta \leqq 3\sin \theta$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$直線のなす鋭角$\theta$}\\
+$2$直線
+\[y=3x-1, \]
+\[y=\bunsuu{1}{2}x+1\]
+のなす鋭角$\theta$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 加法定理を用いた点の回転移動}\\
+点$\text{P}\left(3,2\right)$を原点$\text{O}$を中心に$\bunsuu{\pi }{4}$だけ回転させた点$\text{Q}$の座標を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$倍角を含む方程式$\cdot$不等式}\\
+$0\leqq x<2\pi$のとき，次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\sin 2x=\sin x$
+\item $\cos 2\theta \leqq 3\sin x-1$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角関数の合成}\\
+次の式を$r\sin \left(\theta +\alpha \right)$の形に表せ．
+\begin{enumerate}
+\item $\sqrt 3\sin \theta +\cos \theta$
+\item $\sin \theta -\cos \theta$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角方程式$\cdot$不等式$〜$合成$〜$}\\
+$0\leqq x<2\pi$のとき，次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\sin x-\sqrt 3\cos x=1$
+\item $\sin x-\sqrt 3\cos x>1$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角関数の最大$〜$合成$〜$}\\
+次の関数の最大値と最小値およびそのときの$x$の値を求めよ．
+\[y=\sin x+\cos x\left(0\leqq x\leqq \pi \right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角関数の最大$〜\sin$と$\cos$の$2$次式$〜$}\\
+次の関数の最大値と最小値およびそのときの$x$の値を求めよ．
+\[y=\sin ^2{x}+4\sin {x}\cos {x}+5\cos ^2{x}\left(0\leqq x<2\pi \right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角関数の最大値$〜\sin$と$\cos$の対称式$〜$}\\
+次の関数の最大値と最小値を求めよ．
+\[y=2\sin {x}\cos {x}+\sin {x}+\cos {x}\left(0\leqq x<2\pi \right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角方程式の解の個数}\\
+$\sin ^2\theta -\cos \theta +a=0\left(0\leqq \theta \leqq 2\pi \right)$について
+\begin{enumerate}
+\item この方程式が解をもつための$a$の条件を求めよ．
+\item この方程式の解の個数を$a$の値の範囲によって調べよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sin 36^\circ$の値}\\
+$\theta ={36}^\circ$のとき，$\sin 3\theta =\sin 2\theta$が成り立つことを示し，$\sin {36}^\circ$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 和積公式の利用}\\
+$0\leqq \theta \leqq \pi$のとき，次の方程式を求めよ．
+\[\sin 2\theta +\sin 3\theta +\sin 4\theta =0\]
+\end{question}
+
+\subsection{指数対数 典型17題}
+
+
+
+\begin{question}{\bf\boldmath 指数計算$〜$逆数の対称式$〜$}\\
+$a>0$のとする．$a^{\frac{1}{3}}+a^{\frac{1}{3}}=4$のとき，次の式の値を求めよ．
+\begin{enumerate}
+\item $a+a^{-1}$
+\item $a^{\frac{1}{2}}+a^{\frac{1}{2}}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数方程式$\cdot$不等式$〜$初級$〜$}\\
+次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\left(\bunsuu{1}{9}\right)^x=3$
+\item $4^x<8^{x-1}$
+\item $\left(\bunsuu{1}{5}\right)^x\leqq \bunsuu{1}{{{125}}}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数方程式$\cdot$不等式$〜$中級$〜$}\\
+次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $5^{2x+1}+4\cdot 5^x-1=0$
+\item $4^x+2^x-{20}>0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数関数の最大値$〜2$次関数に帰着$〜$}\\
+次の関数の最大値と最小値を求めよ．また，そのときの$x$の値を求めよ．
+\[y=4^x-2^{x+2}+1\left(-1\leqq x\leqq 2\right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数の定義}\\
+次の対数の値を求めよ．
+\begin{enumerate}
+\item $\log _7{49}$
+\item $\log _2{64}$
+\item $\log _55$
+\item $\log _41$
+\item $\log _2\bunsuu{1}{{}81}$
+\item $\log _{\frac{1}{5}}{\sqrt 125}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数の基本性質}\\
+次の式を簡単にせよ．
+\begin{enumerate}
+\item $\log _64+\log _69$
+\item $4\log _2\sqrt 3-\log _2{18}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 底の変換公式}\\
+次の式を簡単にせよ．
+\begin{enumerate}
+\item $\log _48$
+\item $\log _23\cdot \log _38$
+\item $\left(\log _23+\log _49\right)\left(\log _34+\log _92\right)$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数を他の対数で表す}\\
+$a=\log _23, b=\log _37$のとき，$\log _{42}{56}$を$a, b$を用いて表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数を利用した等式の証明}\\
+$xyz\neq 0, 2^x=3^y=6^z$のとき，次の等式が成り立つことを証明せよ．
+\[\bunsuu{1}{x}+\bunsuu{1}{y}=\bunsuu{1}{z}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数に対数を含む数}\\
+次の式の値を求めよ．
+\begin{edaenumerate}<2>
+\item ${10}^{\log _{{10}}3}$
+\item ${81}^{\log _3{10}}$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数関数を含む方程式$\cdot$不等式}\\
+次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\log _2x=3$
+\item $\log _2x<3$
+\item $\log _{\frac{1}{3}}\left(x-1\right)\leqq 2$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数関数を含む方程式$\cdot$不等式$（$中級編$）$}\\
+次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\log _2x+\log _2\left(x-7\right)=3$
+\item $2\log _2\left(2-x\right)\leqq \log _2x$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数含む関数の最大値}\\
+関数$y=\log _2x+\log _2\left({16}-x\right)$の最大値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数関数の$2$次関数の最大値と最小値}\\
+次の関数の最大値と最小値を求めよ．
+\[y=\left(\log _2x\right)^2-\log _2x^2-3\left(1\leqq x\leqq {16}\right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 常用対数を用いて桁数と最高位の数字を求める}\\
+$\log _{{10}}2=0.{3010}, \log _{{10}}3=0.{4771}$とする．
+\begin{enumerate}
+\item ${12}^{80}$は何桁の整数か．
+\item ${12}^{80}$の最高位の数字を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 常用対数を用いて小数首位を求める}\\
+$\left(\bunsuu{1}{{}30}\right)^{{20}}$を小数で表したとき，小数第何位に初めて$0$でない数字が現れるか．ただし，$\log _{{10}}3=0.{4771}$とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数関数の最大値$〜$逆数の対称式$〜$}\\
+関数$y=\left(2^x+2^{-x}\right)-2\left(4^x+4^{-x}\right)$の最大値を求めよ．
+\end{question}
+
+\subsection{数II微積 典型16題}
+
+
+
+\begin{question}{\bf\boldmath 接線の方程式}\\
+次の接線の方程式を求めよ．
+\begin{enumerate}
+\item 曲線$y=x^2+4x$上の点$\left(1,5\right)$における接線
+\item 曲線$y=x^3-3x^2-1$に点$\left(0,0\right)$から引いた接線
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 共通接線の方程式}\\
+$2$つの放物線$y=x^2$と$y=-x^2+6x-5$の共通接線の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極値の計算工夫}\\
+関数$f\left(x\right)=x^3-3x^2-6x+5$の極値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極値から係数決定}\\
+関数$f\left(x\right)=x^3+ax^2-bx+c$が、$x=-1$で極大値$5$をとり、$x=1$で極小となるとき、定数$a,b,c$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 常に単調増加する$3$次関数}\\
+$x$の$3$次関数$f\left(x\right)=x^3+3kx^2-kx-1$が常に単調増加するような定数$k$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間に文字を含む$3$次関数の最大最小}\\
+$a>0$とする．関数$f\left(x\right)=x^3-3x^2+1\left(0\leqq x\leqq a\right)$について、
+\begin{edaenumerate}<2>
+\item 最小値を求めよ．
+\item 最大値を求めよ．
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 係数に文字を含む$3$次関数の最大最小}\\
+$a>0$とする．関数$f\left(x\right)=x^3-3a^2x\left(0\leqq x\leqq 1\right)$について、
+\begin{edaenumerate}<2>
+\item 最小値を求めよ．
+\item 最大値を求めよ．
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $4$次方程式の実数解の個数}\\
+次の$4$次方程式の異なる実数解の個数を求めよ．
+\[x^4-4x^3+4x^2-2=0\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次方程式の実数解の個数}\\
+$3$次方程式$2x^3+3x^2-{12}x+a=0$が次の解をもつとき、
+定数$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item 異なる$3$つの実数解
+\item ただ一つの実数解
+\item 異なる$2$つの正の解と負の解
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 接線の本数}\\
+点$\left(0,k\right)$から曲線$y=x^3+2x^2-4x$に引くことのできる接線の本数を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 積分方程式$〜$定積分の微分$〜$}\\
+等式$\displaystyle\int_a^xf\left(t\right)dt=x^3-3x^2+x+a$を満たす関数$f\left(x\right)$と定数$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 積分方程式$〜$定積分で表された関数$〜$}\\
+次の等式を満たす関数$f\left(x\right)$を求めよ．
+\begin{enumerate}
+\item $f\left(x\right)=3x^2-x\displaystyle\int_0^2f\left(t\right)dt+2$
+\item $f\left(x\right)=1+\displaystyle\int_0^1\left(x-t\right)f\left(t\right)dt$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\displaystyle\frac{1}{6}$公式の利用}\\
+次の曲線や直線で囲まれた図形の面積$S$を求めよ．
+\begin{enumerate}
+\item $y=x^2-3x+5, y=2x-1$
+\item $y=2x^2-6x+4, y=-3x^2+9x-6$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線と直線で囲まれた面積の等分}\\
+放物線$y=2x-x^2$と$x$軸で囲まれた図形の面積を直線$y=kx$が$2$等分するように、定数$k$の値を定めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線と直線で囲まれた面積の最小}\\
+放物線$y=x^2$と点$\left(1,2\right)$を通る直線とで囲まれた図形の面積$S$が最小になるとき、その直線の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線と$2$本の接線で囲まれた部分の面積}\\
+放物線$y=x^2-4x+3$と、この放物線上の点$\left(0,3\right),\left(6,{15}\right)$に置ける接線で囲まれた図形の面積$S$を求めよ．
+\end{question}
+
+\subsection{平面ベクトル 典型20題}
+
+
+
+\begin{question}{\bf\boldmath ベクトルの大きさの最小}\\
+$\vv {a}=\left(3, 1\right), \vv {b}=\left(1, 2\right)$と実数$t$に対して，$\vv {c}=\vv {a}+t\vv {b}$の大きさ$\zettaiti{\vv {c}}$の最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトルのなす角}\\
+$\vv {a}=\left(7, -1\right)$と${45}^\circ$の角をなし，大きさが${10}$である$\vv {b}$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトルの内積計算$〜$中級$〜$}\\
+$\zettaiti{\vv {a}}=2, \zettaiti{\vv {b}}=1$で，$\vv {a}+\vv {b}$と$2\vv {a}-5\vv {b}$が垂直であるとする．
+\begin{enumerate}
+\item 内積$\vv {a}\cdot \vv {b}$を求めよ．
+\item 大きさ$\zettaiti{\vv {a}-2\vv {b}}$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトルによる三角形の面積公式}\\
+平面上の$4$点$O,A,B,C$に対して，$\vv {\text{OA}}+\vv {\text{OB}}+\vv {\text{OC}}=\vv 0, \text{OA}=2, \text{OB}=1, \text{OC}=\sqrt 2$のとき，
+\begin{enumerate}
+\item 内積$\vv {\text{OA}}\cdot \vv {\text{OB}}$を求めよ．
+\item 三角形$\text{OAB}$の面積を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重心$\text{G}$の位置ベクトル}\\
+$3$点$\text{A}\left(\vv {a}\right), \text{B}\left(\vv {b}\right), \text{C}\left(\vv {c}\right)$を頂点とする三角形$\text{ABC}$の重心$\text{G}$の位置ベクトル$\vv {g}$を$\vv {a}, \vv {b}, \vv {c}$を用いて表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内分点、外分点の位置ベクトル}\\
+$2$点$\text{A}\left(\vv {a}\right), \text{B}\left(\vv {b}\right)$に対して，
+\begin{enumerate}
+\item 線分$\text{AB}$を$m:n$に内分する点$\text{P}$の位置ベクトルを求めよ．
+\item 線分$\text{AB}$を$m:n$に内分する点$\text{Q}$の位置ベクトルを求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 点が一致することの証明}\\
+三角形$\text{ABC}$において，辺$\text{BC}$，$\text{CA}$，$\text{AB}$を$3：1$に内分する点を，それぞれ$P$，$Q$，$R$，三角形$\text{PQR}$の重心を$G',$三角形$\text{ABC}$の重心を$\text{G}$とする．このとき，$G$と$G'$は一致することを証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトル和の等式$〜$三角形$〜$}\\
+三角形$\text{ABC}$に対して，次の式を満たす点$\text{P}$の位置を求めよ．
+\[2\vv {\text{PA}}+3\vv {\text{PB}}+\vv {\text{PC}}=\vv {0}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$点が一直線上にあることの証明}\\
+平行四辺形$\text{ABCD}$において，辺$\text{CD}$を$2：1$に内分する点を$\text{E}$，対角線$\text{BD}$を$3：1$に内分する点を$\text{F}$とする．$3$点$\text{A}$，$F$，$E$は一直線上にあることを証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 交点の位置ベクトル$〜$初級$〜$}\\
+三角形$\text{OAB}$において，辺$\text{OA}$を$2：1$に内分する点を$\text{C}$，辺$\text{OB}$の中点を$\text{D}$とする．
+\begin{enumerate}
+\item 線分$\text{AD}$と線分$\text{BC}$の交点を$\text{P}$とするとき，$\vv{\text{OP}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．
+\item 直線$\text{OP}$と辺$\text{AB}$の交点を$\text{Q}$とするとき，$\vv{\text{OQ}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 交点の位置ベクトル$〜$中級$〜$}\\
+三角形$\text{OAB}$において，辺$\text{OA}$を$2：1$に内分する点を$\text{C}$，辺$\text{OB}$の中点を$\text{D}$とする．
+\begin{enumerate}
+\item 線分$\text{AD}$と線分$\text{BC}$の交点を$\text{P}$とするとき，$\vv{\text{OP}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．
+\item 直線$\text{OP}$と辺$\text{AB}$の交点を$\text{Q}$とするとき，$\vv{\text{OQ}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内積を利用した図形証明}\\
+三角形$\text{ABC}$において，辺$\text{BC}$の中点を$\text{M}$とするとき，等式
+\[\text{AB}^2+\text{AC}^2=2\left(\text{AM}^2+\text{BM}^2\right)\]
+が成立することを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 垂心の位置ベクトル}\\
+$\text{OA}=2\sqrt 2, \text{OB}=\sqrt 3,$$\vv{\text{OA}}$と$\vv{\text{OB}}$の内積が$2$である三角形$\text{OAB}$の垂心$\text{H}$に対して，$\vv{\text{OH}}$を$\vv{\text{OA}}$と$\vv{\text{OB}}$を用いて表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内心の位置ベクトル}\\
+$\angle A={60}^\circ , \text{AB}=8, \text{AC}=5$である三角形$\text{ABC}$の内心を$\text{I}$とし，直線$\text{AI}$と辺$\text{BC}$の交点を$Ｄ$とする．$\vv{\text{AB}} =$$\vv{b},$$\vv{\text{AC}} =$$\vv{c}$とする．
+\begin{enumerate}
+\item$\vv{\text{AD}}$を$\vv{b},$$\vv{c}$を用いて表せ．
+\item$\vv{\text{AI}}$を$\vv{b},$$\vv{c}$を用いて表せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトルの終点の存在範囲$〜$初級$〜$}\\
+三角形$\text{OAB}$において，次の条件を満たす点$\text{P}$の存在範囲を求めよ．
+\begin{enumerate}
+\item$\vv{\text{OP}} =s$$\vv{\text{OA}} +t$$\vv{\text{OB}}$，$s+t=2, s\geqq 0, t\geqq 0$
+\item$\vv{\text{OP}} =s$$\vv{\text{OA}} +t$$\vv{\text{OB}}$，$s+t=\bunsuu{1}{3}, s\geqq 0, t\geqq 0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトルの終点の存在範囲$〜$中級$〜$}\\
+三角形$\text{OAB}$において，次の条件を満たす点$\text{P}$の存在範囲を求めよ．
+\begin{enumerate}
+\item$\vv{\text{OP}} =s$$\vv{\text{OA}} +t$$\vv{\text{OB}}$，$s+t=2, s\geqq 0, t\geqq 0$
+\item$\vv{\text{OP}} =s$$\vv{\text{OA}} +t$$\vv{\text{OB}}$，$s+t=\bunsuu{1}{3}, s\geqq 0, t\geqq 0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 法線ベクトル}\\
+点$\text{A}\left(3,4\right)$を通り，$\vv{n}=\left(2,1\right)$に垂直な直線の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 法線ベクトル$〜2$直線のなす鋭角$〜$}\\
+$2$直線$x+\sqrt 3y-5=0, \sqrt 3x+y+1=0$がなす鋭角$\theta$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトル方程式$〜$円の方程式$〜$}\\
+次のような円の方程式を求めよ．
+\begin{enumerate}
+\item 中心が原点$\text{O}\left(0,0\right)$で，半径が$2$の円
+\item 中心が$\text{A}\left(1,5\right)$で，点$\text{B}\left(2,2\right)$を通る円
+\item $\text{A}\left(5,0\right), \text{B}\left(9,4\right)$を直径の両端とする円
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円のベクトル方程式}\\
+平面上の異なる$2$定点$\text{A}$，$B$に対して，等式$\zettaiti{2\vv {\text{AP}}+\vv {\text{BP}}}=6$をみたす動点$\text{P}$はどのような図形を描くか．
+\end{question}
+
+\subsection{空間ベクトル 典型13題}
+
+
+
+\begin{question}{\bf\boldmath 空間における三角形の面積}\\
+$3$点$\text{A}\left(3,2,4\right), \text{B}\left(3,-1,-1\right), \text{C}\left(5,3,-3\right)$を頂点とする三角形$\text{ABC}$の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 空間における垂直条件}\\
+$\vv{a}=\left(2,-1,0\right),$$\vv{b}=\left(6.-2,1\right)$の両方に垂直で，大きさが$3$である$\vv{p}$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 空間における点の一致の証明}\\
+四面体$\text{ABCD}$において，辺$\text{AB}$，$\text{BC}$，$\text{CD}$，$\text{DA}$，$\text{AC}$，$\text{BD}$の中点をそれぞれ$K$，$L$，$M$，$N$，$Q$，$R$とするとき，線分$\text{KM}$，$\text{LN}$，$\text{QR}$の中点は一致することを証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$点が同一直線上にある条件}\\
+$3$点$\text{A}\left(2, -1, 5\right), \text{B}\left(3, 6, 9\right), \text{C}\left(1, y, z\right)$が一直線上にあるとき，$y, z$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $4$点が同一平面上にある条件}\\
+$4$点$\text{A}\left(3, 1, 2\right), \text{B}\left(4, 2, 3\right), \text{C}\left(5, 2, 5\right), \text{D}\left(-2, -1, z\right)$が同一平面上にあるとき，$z$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面$\text{ABC}$と直線の交点}\\
+右の図の直方体において，対角線$\text{OF}$と平面$\text{ABC}$の交点を$\text{P}$とする．
+$\text{OP}:\text{OF}$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 空間における垂直であることの証明}\\
+正四面体$\text{ABCD}$において，三角形$\text{BCD}$の重心を$\text{G}$とするとき，$\text{AG}$と$\text{BC}$が垂直であることを証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面に下ろした垂線の足の座標}\\
+$\text{A}\left(2,0,0\right), \text{B}\left(0,3,0\right), \text{C}\left(0,0,3\right)$の定める平面$\text{ABC}$に原点$\text{O}$から下ろした垂線を$\text{OH}$とするとき，点$\text{H}$の座標を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 正四面体の第四の点の座標}\\
+$3$点$\text{A}\left(6,0,0\right),\text{B}\left(0,6,0\right),\text{C}\left(0,0,6\right)$に対して，正四面体$\text{ABCD}$の頂点$\text{D}$の座標を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 空間におけるベクトルの大きさの最小}\\
+原点$\text{O}$と$3$点$\text{P}\left(1,2,1\right),\text{Q}\left(2,1,2\right),\text{R}\left(1,-2,3\right)$について$\zettaiti{x\vv {\text{OP}}+y\vv {\text{OQ}}+\vv {\text{OR}}}$の最小値と，その時の実数$x,y$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトル和の等式$〜$四面体$〜$}\\
+四面体$\text{ABCD}$において等式
+$\vv {\text{AP}}+4\vv {\text{BP}}+3\vv {\text{CP}}+5\vv {\text{DP}}=\vv 0$を満たす点$\text{P}$はどのような点か．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 直線の方程式}\\
+次の直線の媒介変数表示と，直線の方程式を求めよ．
+\begin{enumerate}
+\item 点$\text{A}\left(4,5,3\right)$を通り，$\vv d=\left(3,2-4\right)$に平行な直線
+\item $2$点$\text{A}\left(1,2,3\right),\text{B}\left(2,-1,5\right)$を通る直線
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面の方程式}\\
+次のような平面の方程式を求めよ．
+\begin{enumerate}
+\item 点$\text{A}\left(1,2,2\right)$を通り，$\vv n=\left(2,-2,4\right)$に垂直
+\item $3$点$\text{A}\left(0,1,1\right),\text{B}\left(1,0,2\right),\text{C}\left(-3,2,3\right)$を通る
+\end{enumerate}
+
+\end{question}
+
+\subsection{数B数列 典型17題}
+
+
+
+\begin{question}{\bf\boldmath 等差数列であることの証明}\\
+
+\begin{enumerate}
+\item 一般項が$a_n=3n-4$で表される数列${a_n}$が等差数列であることを示し，初項と公差を求めよ．
+\item $\left(1\right)$の数列${a_n}$の項を一つおきに取り出して並べた数列$a_1, a_3, a_5, \dots \dots$が等差数列であることを示し，初項と公差を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$項の和と積から等差数列の項を求める}\\
+等差数列をなす$3$数があって，その和が${27},$積が${693}$である．この$3$数を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 等差数列の和の最大}\\
+初項${79},$公差$-2$の等差数列${a_n}$について、
+\begin{enumerate}
+\item 第何項が初めて負となるか．
+\item 初項から第$n$項までの和が最大となるか．また、そのときの和を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 等比数列の和の扱い}\\
+初項から第${10}$項までの和が$6,$
+初項から第${20}$項までの和が${24}$である等比数列$\{a_n\}$
+初項から第${30}$項までの和$S$を求めよ
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 数列の和の和}\\
+次の数列$\{a_n\}$の和$S$を求めよ．
+\[1,1+2,1+2+3,\dots \dots ,1+2+\dots +n\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n$を含む数列の和}\\
+次の数列$\{a_n\}$の和$S$を求めよ．
+\[1\cdot \left(2n-1\right),3\left(2n-3\right),5\left(2n-5\right),\cdots \cdots ,\left(2n-1\right)\cdot 1\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 漸化式を解く}\\
+次の条件によって定められる数列${a_n}$の一般項を求めよ．
+\[a_1=2$、$a_{n+1}=2a_n-3\left(n=1,2,3,\cdots \right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 階差型の漸化式}\\
+次の条件を満たす数列${a_n}$の一般項を求めよ．
+\[a_1=1,a\left(n+1\right)=a\left(n\right)+3n+1\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数型の漸化式}\\
+次の条件を満たす数列${a_n}$の一般項を求めよ．
+\[a_1={10},a_{n+1}=2a_n+3^n\left(n=1,2,3,‥‥‥‥\right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 和と一般項の関係式}\\
+数列${a_n}$の初項から第$n$項までの和$S_n$が
+$S_n=3n-2a_n$であるとき，数列${a_n}$の一般項を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 隣接$３$項間漸化式}\\
+次の条件によって定められる数列${a_n}$の一般項を求めよ．
+\begin{enumerate}
+\item $a_1=1$、$a_2=2$、$a_{n+2}=a_{n+1}+6a_n$
+\item $a_1=0$、$a_2=2$、$a_{n+2}-4a_{n+1}+4a_n=0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 数学的帰納法}\\
+すべての自然数$n$について、次の等式が成立することを証明せよ．
+\[1^3+2^3+3^3+\cdots \cdots \cdot +n^3=\left(1+2+3+\cdots \cdots \cdot +n\right)^2\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 数学的帰納法による等式証明}\\
+次の等式を数学的帰納法によって証明せよ．
+\[1^3+2^3+3^3+\cdots \cdots \cdot +n^3=\bunsuu{1}{4}n^2\left(n+1\right)^2\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 数学的帰納法による不等式証明}\\
+$n$が$3$以上の自然数のとき、$3^n>5n+1$を証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 数学的帰納法による倍数証明}\\
+$n$を自然数とするとき、$5^{n+1}+6^{2n-1}$は${31}$の倍数であることを証明せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 一般項の推測}\\
+次の条件で定められる数列${a_n}$の一般項を推測して、それが正しいことを数学的帰納法によって証明せよ．
+\[a_1=3,\left(n+1\right)a_{n+1}=a_n^2-1\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $x^n+y^n$が整数であることの証明}\\
+$n$は自然数とする．$2$数$x,y$の和と積が整数のとき，$x^n+y^n$は整数であることを、数学的帰納法を用いて証明せよ．
+\end{question}
+
+\subsection{数III微分 典型6題}
+
+
+
+\begin{question}{\bf\boldmath 凹凸グラフの概形}\\
+関数$f\left(x\right)=\bunsuu{{x^2+2x+2}}{{x+1}}$の増減，極値，グラフの凹凸，漸近線を調べ，グラフの概形をかけ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 関数の最大最小}\\
+$-\pi \leqq x\leqq \pi$における$y=2\sin x+\sin 2x$の最大値と最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 定数分離}\\
+方程式$ax^5-x^2+3=0$が$3$個の異なる実数解をもつような$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極値$\cdot$変曲点をもつ条件}\\
+$f\left(x\right)=\left(x^2+a\right)e^x$とする．ただし，$a$は定数とする．
+\begin{enumerate}
+\item 関数$f\left(x\right)$が極値をもたないような$a$の値の範囲を求めよ．
+\item 曲線$y=f\left(x\right)$が変曲点をもつような$a$の値の範囲を求めよ
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $f''\left(x\right)$を用いた不等式証明}\\
+すべての正の数$x$に対して，$e^x>1+x+\bunsuu{{x^2}}{2}$が成立することを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整数問題への応用}\\
+$a^{b^2}=b^{a^2}$かつ$a<b$をみたす自然数の組$\left(a,b\right)$は存在するか．
+\end{question}
+
+\section{応用問題にチャレンジしたい高校生向け}
+
+\subsection{2次関数 応用6題}
+
+
+
+\begin{question}{\bf\boldmath すべての実数$x$で$2$次不等式が成り立つ条件}\\
+$2$次不等式$ax^2+\left(a-1\right)x+a-1<0$について，
+\begin{enumerate}
+\item すべての実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\item ある実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ある実数$x$で$2$次不等式が成り立つ条件}\\
+$2$次不等式$ax^2+\left(a-1\right)x+a-1<0$について，
+\begin{enumerate}
+\item すべての実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\item ある実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$変数の$「$すべて$」$と$「$ある$」$}\\
+$2$つの関数$f\left(x\right)=x^2+2x-2, g\left(x\right)=-x^2+2x+a+1$について，
+次の各々が成立するような$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item $-2\leqq x\leqq 2$を満たすすべての$x_1,x_2$に対して$f\left(x_1\right)<g\left(x_2\right)$
+\item $-2\leqq x\leqq 2$を満たすある$x_1,x_2$に対して$f\left(x_1\right)<g\left(x_2\right)$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $「$すべて$」$と$「$ある$」$の交換}\\
+$x, y$についての条件$p$を次のように定める．
+\[p:-x^2+\left(a-2\right)x+a-4<y<x^2-\left(a-4\right)x+3\]
+次の各々が成立するための$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item どんな$x$に対しても，適当な$y$をとれば，$p$が成り立つ．
+\item 適当な$y$をとれば，どんな$x$に対しても，$p$が成り立つ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間で常に$2$次不等式が成立する条件}\\
+$0\leqq x\leqq 3$を満たす$x$に対して，$x^2-2ax+a+2>0$が成り立つような定数$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間に少なくとも$1$つの解}\\
+$x$についての$2$次方程式$x^2-2ax+a+2=0$
+の解が$1<x<3$の範囲に少なくとも$1$つ存在するような定数$a$の値の範囲を求めよ．
+\end{question}
+
+\subsection{三角比 応用5題}
+
+
+
+\begin{question}{\bf\boldmath 平面に下ろした垂線の長さ直方体}\\
+$\text{AB}=3, \text{AD}=1, \text{AE}=2$の直方体$\text{ABCD}-\text{EFGH}$において
+\begin{enumerate}
+\item $\triangle \text{AFC}$の面積$S$を求めよ．
+\item 点$\text{B}$から平面$\text{AFC}$に下ろした垂線$\text{BI}$の長さを求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面に下ろした垂線の長さ正四面体}\\
+$1$辺が$6$の正四面体$\text{OABC}$において，点$\text{L}$，$M$，$N$は辺$\text{OA}$，$\text{OB}$，$\text{OC}$を$1:1, 2:1, 1:2$に内分する点である．頂点$\text{O}$から平面$\text{LMN}$に下ろした垂線$\text{OH}$の長さを求めよ
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形の面積}\\
+円$O$に内接する四角形$\text{ABCD}$が$\text{AB}=2, \text{BC}=3, \text{CD}=1, \angle \text{ABC}={60}^\circ$を満たしている．
+\begin{enumerate}
+\item 円$O$の半径$R$を求めよ．
+\item 四角形$\text{ABCD}$の面積$S$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形$〜$島根大$〜$}\\
+円に内接する四角形$\text{ABCD}$が$\text{AB}=4, \text{BC}=5, \text{CD}=7, \text{DA}={10}$を満たしている．
+\begin{enumerate}
+\item 四角形$\text{ABCD}$の面積$S$を求めよ．
+\item $2$本の対角線$\text{AC}$，$\text{BD}$の交点を$\text{E}$とする．$\text{AE}：\text{EC}$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形$〜$東京大$〜$}\\
+四角形$\text{ABCD}$が，半径$\bunsuu{{{65}}}{8}$の円に内接している．この四角形の周の長さが${44}$で，辺$\text{BC}$と辺$\text{CD}$の長さがいずれも${13}$であるとき，残りの$2$辺$\text{AB}$と$\text{DA}$の長さを求めよ．
+\end{question}
+
+\subsection{数II式と証明 応用7題}
+
+
+
+\begin{question}{\bf\boldmath 相加相乗不等式の証明}\\
+正の数$a, b, c, d$に対して，次の不等式を証明せよ．また，等号成立条件を求めよ．
+\begin{enumerate}
+\item $\bunsuu{{a+b}}{2}\geqq \sqrt {ab}$
+\item $\bunsuu{{a+b+c}}{3}\geqq \sqrt[3]{abc}$
+\item $\bunsuu{{a+b+c+d}}{4}\geqq \sqrt[4]{abcd}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 相加相乗不等式と最小値}\\
+$x>0$のとき，次の関数の最小値を求めよ．
+\begin{enumerate}
+\item $y=2x+\bunsuu{1}{x}$
+\item $y=2x+\bunsuu{1}{{}x^2}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 分数関数の最小値}\\
+$x>1$とする．関数$y=\bunsuu{{x^2-x+1}}{{x-1}}$の最小値を求めよ
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 分数式の最大値}\\
+$x>0$とする．次のそれぞれの分数式の最大値を求めよ．
+\begin{enumerate}
+\item $\bunsuu{1}{{}x^2-x+1}$
+\item $\bunsuu{x}{{}x^2-x+1}$
+\item $x\bunsuu{^2}{{}x^2-x+1}$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 相加相乗不等式の等号成立条件}\\
+$x>0, y>0$とする．$\left(x+\bunsuu{1}{y}\right)\left(y+\bunsuu{4}{x}\right)$の最小値を求めよ
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath コ$ー$シ$ー\cdot$シュワルツの不等式の証明$〜$初級$〜$}\\
+次の不等式を証明せよ．また，等号成立条件を求めよ．
+\[\left(a^2+b^2\right)\left(x^2+y^2\right)\geqq \left(ax+by\right)^2\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath コ$ー$シ$ー\cdot$シュワルツの不等式の証明$〜$中級$〜$}\\
+次の不等式を証明せよ．また，等号成立条件を求めよ．
+\[\left(a^2+b^2+c^2\right)\left(x^2+y^2+z^2\right)\geqq \left(ax+by+cz\right)^2\]
+\end{question}
+
+\subsection{数II複素数と方程式 応用11題}
+
+
+
+\begin{question}{\bf\boldmath $3$次方程式の解と係数の関係}\\
+$3$次方程式$ax^3+bx^2+cx+d=0$において，次が成り立つことを示せ．
+$3$解が$x=\alpha , \beta , \gamma$である$⇔$
+\[\alpha +\beta +\gamma=-\bunsuu{b}{a}, \alpha \beta +\beta \gamma+\gamma\alpha =\bunsuu{c}{a}, \alpha \beta \gamma=-\bunsuu{d}{a}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次方程式の$3$解$\alpha ,\beta ,\gamma$の対称式}\\
+$x^3-3x+1=0$の$3$つの解を$\alpha , \beta , \gamma$とするとき，$\alpha ^3+\beta ^3+\gamma^3, \alpha ^4+\beta ^4+\gamma^4$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$解から$3$次方程式を作る}\\
+$x^3-x+1=0$の$3$つの解を$\alpha , \beta , \gamma$とするとき，$\bunsuu{1}{\alpha }, \bunsuu{1}{\beta }, \bunsuu{1}{\gamma}$を$3$つの解にもつ$3$次方程式を$1$つ作れ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式の連立方程式}\\
+$x, y, z$の連立方程式
+\[x+y+z=-a-2, \]
+\[xy+yz+zx=2a+1, \]
+\[xyz=-2\]
+が，$x,y,z$が実数である解をもつような実数$a$の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次方程式が重解をもつ条件$〜$中級$〜$}\\
+$3$次方程式$x^3-2x+k=0$が重解を持つのは，$k$がいかなる値のときか．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整式$\text{P}\left(x\right)$を$\left(x-1\right)\left(x+1\right)^2$で割った余り}\\
+整式$\text{P}\left(x\right)$を$x-1$で割ったときの余りが$5, \left(x+1\right)^2$で割ったときの余りが$x-8$であるとき，$P$を$\left(x-1\right)\left(x+1\right)^2$で割ったときの余りを求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複素数係数$2$次方程式の実数解}\\
+$a$を実数の定数とする．$x$の$2$次方程式$\left(1+i\right)x^2-\left(a+1+i\right)x+\left(2-ai\right)=0$が実数解を持つのは，$a$がどんな値のときか．ただし，$i$は虚数単位である．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複素数係数の$2$次方程式}\\
+次の問いに答えよ．
+\begin{enumerate}
+\item $z=x+yi(x, y$は実数$)$が，$z^2=i$を満たすように，$x, y$の値を定めよ．
+\item $2$次方程式$w^2+2\left(1+i\right)w+i=0$を解け．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複$2$次方程式}\\
+方程式$z^4-6z^2+{25}=0$を解け．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 相反方程式}\\
+$4$次方程式$x^4-4x^3+7x^2-8x+4=0$について次の問いに答えよ．
+\begin{enumerate}
+\item この$4$次方程式の両辺を$x^2$で割って，$t=x+\bunsuu{2}{x}$とおくことで得られる$t$に関する$2$次方程式を求めよ．
+\item この$4$次方程式の解をすべて求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $1$の立方根，$4$乗根，$5$乗根，$6$乗根}\\
+$1$の平方根，$1$の立方根，$1$の$4$乗根，$1$の$5$乗根，$1$の$6$乗根を求めよ．
+かったるい説明に嫌気がさしたときに見る動画．早口$×$早送りで解説しました．雰囲気を掴んでもらえたらいいと思っています．
+\end{question}
+
+\subsection{図形と方程式 応用問題15題}
+
+
+
+\begin{question}{\bf\boldmath $2$点から等距離の点の軌跡}\\
+$2$点$\text{A}\left(-1,3\right), \text{B}\left(2,1\right)$からの距離が等しい点$\text{P}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$点からの距離の比が等しい点の軌跡}\\
+$xy$平面上に，$2$定点$\text{A}\left(-3,0\right), \text{B}\left(3,0\right)$がある．$xy$平面上にあって
+\[\text{AP}:\text{BP}=2:1\]
+という条件を満たして動く動点$\text{P}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath パラメ$ー$タ表示された点の軌跡}\\
+変数$t$が全ての実数値をとって変化するとき，次のおのおの式で定められる点$\text{P}\left(x,y\right)$の描く軌跡を求め，図示せよ．
+\begin{enumerate}
+\item $x=t-1,y=t^2+4t-1$
+\item $x=t^2-1,y=t^4+4t^2-1$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線の頂点の軌跡}\\
+$m$が全ての実数値をとって変化するとき，放物線$y=x^2-2mx+2m$の頂点の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath パラメ$ー$タ表示された軌跡の除去点}\\
+変数$t$が全ての実数値をとって変化するとき，次式で定まる点$\text{P}\left(x,y\right)$の描く軌跡を求めよ．
+\[x=\bunsuu{1}{{}t^2+1}, y=\bunsuu{t}{{}t^2+1}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円と直線の$2$交点の中点の軌跡}\\
+円$C:x^2+y^2=1$と直線$l:y=m\left(x-2\right)$がある．$C$と$l$が異なる$2$点で交わるように$m$の値が変化するとき，$C$と$l$の交点の中点$\text{M}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線の直交する$2$接線の交点の軌跡}\\
+放物線$y=x^2$の異なる$2$接線が直交するとき，この$2$接線の交点$\text{P}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$直線の交点の軌跡}\\
+$t$がすべての実数値を取りながら変化するとき，$xy$平面上の$2$つの直線$tx-y=t, x+ty-2t-1=0$
+の交点の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解された不等式の領域}\\
+次のおのおのの条件を満たす点$\left(x,y\right)$の存在範囲を図示せよ．
+\begin{enumerate}
+\item $\left(3x-y-5\right)\left(x^2+y^2-{25}\right)\leqq 0$
+\item $\left(\zettaiti{x}+\zettaiti{y}-1\right)\left(x^2+y^2-1\right)<0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 線型計画法の基本}\\
+実数$x, y$が条件$x\geqq 0, y\geqq 0, 2x+y\leqq 4, x+4y\leqq 6, 2x+3y\leqq 6$を満たして動くとき，$z=x+y$の最大値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 線型計画法の活用$I$}\\
+実数$x, y$が$x^2+y^2=2, x\geqq 0, y\geqq 0$を満たして変わるとき，$z=x+y$の最大値，最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 片側が動く線分の中点の軌跡}\\
+円$x^2+y^2=1$上の動点$\text{P}$と，点$\text{A}\left(3,4\right)$とを結ぶ線分の中点$\text{M}$の軌跡を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 点$\left(\alpha +\beta , \alpha \beta \right)$の動く範囲}\\
+点$\text{P}\left(\alpha ,\beta \right)$が$\alpha ^2+\beta ^2<1$を満たして動くとき，点$\text{Q}\left(\alpha +\beta ,\alpha \beta \right)$の動く範囲を図示せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 直線の通過領域}\\
+$t$が$t>0$の範囲を動くとき，直線$y=2tx-t^2$が通り得る領域を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円の通過領域}\\
+放物線$y=x^2$上を動く点$\text{P}$がある．$P$を中心とし$x$軸に接する円の内部が通過する範囲を図示せよ．
+\end{question}
+
+\subsection{指数対数 応用16題}
+
+
+
+\begin{question}{\bf\boldmath 指数方程式$〜$中級$〜$}\\
+次の各々の等式を満たす実数$x$の値を求めよ．
+\begin{enumerate}
+\item $\left(2^x\right)^2-5\cdot 2^x+4=0$
+\item $9^x-2\cdot 3^x-3=0$
+\item $4^{x+1}+2\cdot 2^x-2=0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数方程式の正の解と負の解}\\
+方程式$9^x+2a\cdot 3^x+2a^2+a-6=0$を満たす$x$の正の解，負の解が$1$つずつ存在するような，定数$a$の値のとる範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数方程式}\\
+次の方程式を解け．
+\begin{enumerate}
+\item $\log _2\left(x^2-2x\right)=\log _2\left(3x-4\right)$
+\item $\log _2\left(x+2\right)+\log _2\left(x-5\right)=3$
+\item $\log _{\frac{1}{3}}\left(6-x\right)+2\log _3x=0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数方程式が実数解を持つ条件}\\
+$x$についての方程式$\log _3\left(x-3\right)=\log _9\left(kx-6\right)$が相異なる$2$つの解をもつように，実数$k$の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 底に文字を含む対数不等式}\\
+次の$x$についての不等式を解け．ただし，$a$は$1$ではない正の実数とする．
+\begin{enumerate}
+\item $\log _a\left(2x+{13}\right)>\log _a\left(4-x\right)$
+\item $\log _a\left(x-a\right)\geqq \log _{a^2}\left(x-a\right)$
+\item $\log _ax\leqq \log _xa$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 指数方程式が実数解を持つ条件}\\
+方程式$4^x-a\cdot 2^{x+1}+a+2=0$を満たす実数$x$が存在するような実数$a$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 桁数，最高位，最高次位}\\
+次の問いに答えよ．
+\begin{enumerate}
+\item $2^{{2019}}$は何桁か．
+\item $2^{{2019}}$の最高位の数は何か．
+\item $2^{{2019}}$の最高次位の数は何か．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 小数首位とその数字}\\
+$\left(\bunsuu{2}{5}\right)^{50}$は小数第何位に初めて$0$でない数字が現れるか．また，その数字を求めよ．ただし，必要ならば$\log _{10}2=0.{3010}$を用いて良い．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 桁数を不等式で表す}\\
+
+\begin{enumerate}
+\item ${29}^{100}$は${147}$桁である．${29}^{23}$は何桁の数となるか．
+\item $\left(1.{25}\right)^n$の整数部分が$3$桁となる自然数$n$はどんな範囲の数か．
+ただし，必要ならば$\log _{10}2=0.{3010}, \log _{10}3=0.{4771}$を用いて良い．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3^{333}$の桁数の桁数を求めよ}\\
+
+\begin{enumerate}
+\item $\log _3x=3$を満たす整数$x$を求めよ．
+\item $\log _3\left(\log _3x\right)=3$を満たす整数$x$は何桁か．また，最高位の数字を求めよ．
+\item $\log _3\left(\log _3\left(\log _3x\right)\right)=3$を満たす整数$x$の桁数を$n$とするとき，$n$は何桁か．
+必要ならば$\log _{10}2=0.{3010}, \log _{10}3=0.{4771}$を用いて良い．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 常用対数の近似値$〜$津田塾大$〜$}\\
+次の値を小数第$1$位まで求めよ．小数第$2$以下は切り捨てよ．
+\begin{edaenumerate}<3>
+\item $\log _{10}2$
+\item $\log _{10}5$
+\item $\log _{10}3$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $100^{99}$と$99^{100}$の大小比較}\\
+${100}^{99}$と${99}^{100}$の大小を判定せよ．ただし，必要なら近似値$\log [{10}]2=0.{3010}, \log [{10}]3=0.{4771}$を用いて良い．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数不等式が表す領域$〜$初級$〜$}\\
+不等式$1<\log _xy<2$を満たす点$\left(x,y\right)$の領域を図示せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対数不等式が表す領域$〜$京大$〜$}\\
+不等式$\log _xy+\log _yx>2+\left(\log _x2\right)\left(\log _y2\right)$
+を満たす$x, y$の組$\left(x,y\right)$の範囲を座標平面上に図示せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$乗根の無理数性}\\
+以下の問いに答えよ．
+\begin{enumerate}
+\item $\sqrt 2, \sqrt[3]3$が無理数であることを示せ．
+\item $p, q, \sqrt 2p+\sqrt[3]3q$がすべて有理数であることする．このとき，$p=q=0$であることを示せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 無理数の無理数乗は有理数になりえるか}\\
+次の各問いに答えよ．
+\begin{enumerate}
+\item $\log _34$は無理数であることを示せ．
+\item $a, b$がともに無理数で，$a^b$は有理数であるような
+数$a, b$の組を$1$組求めよ．
+\end{enumerate}
+
+\end{question}
+
+\subsection{場合の数 応用10題}
+
+
+
+\begin{question}{\bf\boldmath 正の約数の個数}\\
+次の各問いに答えよ．
+\begin{enumerate}
+\item ${5400}$の正の約数の個数と約数の総和を求めよ．
+\item ${10}!$の正の約数の個数を求めよ．
+\item ${30}!$は最後にいくつ$0$が並ぶか．
+\item $p$を素数，$n$を正の整数とする．$p^n!$は$p$で何回割れるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 辞書式に並べる}\\
+$a, i, k, o, s, y$の$6$文字を辞書式に一列に並べて，文字列を作る．
+\begin{enumerate}
+\item $aoisky$は何番目か．
+\item ${352}$番目の文字列を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整数をつくる問題$〜$初級$〜$}\\
+$0, 1, 2, 3, 4, 5$から異なる$3$つの数字を選んで$3$桁の整数を作る．このとき，次の数の個数を求めよ．
+\begin{enumerate}
+\item 異なる整数
+\item 偶数
+\item $3$の倍数
+\item 異なる数の総和を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整数をつくる問題$〜$中級$〜$}\\
+$9$個の数字$2, 2, 2, 2, 3, 3, 3, 4, 4$のうち$4$個を使って$4$桁の数をつくる．
+\begin{enumerate}
+\item 全部で何個できるか．
+\item $3$の倍数は何個できるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 立方体の色塗り}\\
+立方体に色を塗る塗り方は全部で何通りあるか求めよ．ただし，隣接する面は異なる色であり，かつ回転したり倒したりして同じになる塗り方は$1$通りとする．
+\begin{enumerate}
+\item 各面に異なる$6$色をすべて用いて塗る．
+\item 各面に異なる$5$色をすべて用いて塗る．
+\item 各面に異なる$4$色をすべて用いて塗る．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む円順列$\cdot$数珠順列}\\
+白玉$1$個，赤玉$2$個，黄玉$4$個がある．
+\begin{enumerate}
+\item これらを机の上に円形に並べる方法は何通りか．
+\item これらで何通りの首飾りができるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 最短経路}\\
+以下図で$A$地点から$B$地点まで行く最短経路の総数を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重複組合せ}\\
+次の等式$\cdot$不等式を満たす整数の組$\left(x, y, z\right)$の個数を求めよ．
+\begin{enumerate}
+\item $x+y+z=6, x\geqq 0, y\geqq 0, z\geqq 0$
+\item $x+y+z=6, x\geqq 1, y\geqq 1, z\geqq 1$
+\item $x+y+z\leqq 6, x\geqq 0, y\geqq 0, z\geqq 0$
+\item $1\leqq x<y<z\leqq 6$
+\item $1\leqq x\leqq y\leqq z\leqq 6$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 完全順列}\\
+次の人数でプレゼント交換するとき，受け取り方は何通りあるか．ただし，全員が他人のプレゼントを受け取るとする．
+\begin{edaenumerate}<6>
+\item $1$人
+\item $2$人
+\item $3$人
+\item $4$人
+\item $5$人
+\item $6$人
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区別する$\cdot$しない}\\
+$6$個のボ$ー$ルを$3$つの箱に入れるとき，入れ方は何通りか．$1$空箱があってもよい$2$空箱はなしで，それぞれ求めよ．
+\begin{enumerate}
+\item $1$から$6$まで異なる番号のついた$6$個のボ$ー$ルを$A$，$B$，$C$と区別された$3$つの箱に入れる場合．
+\item 互いに区別の付かない$6$個のボ$ー$ルを$A$，$B$，$C$と
+区別された$3$つの箱に入れる場合．
+\item $1$から$6$まで異なる番号のついた$6$個のボ$ー$ルを区
+別のつかない$3$つの箱に入れる場合．
+\item 互いに区別の付かない$6$個のボ$ー$ルを区別のつかない
+$3$つの箱に入れる場合．
+\end{enumerate}
+
+\end{question}
+
+\subsection{平面ベクトル 応用9題}
+
+
+
+\begin{question}{\bf\boldmath ベクトル和の等式}\\
+$\triangle \text{ABC}$に対して，
+\[6ec{\text{AP}}+3ec{\text{BP}}+4ec{\text{CP}}=ec{0}\]
+を満たす点$\text{P}$を考える．
+\begin{enumerate}
+\item 点$\text{P}$はどのような位置にあるか．
+\item 面積比$\triangle \text{PBC}:\triangle \text{PCA}:\triangle \text{PAB}$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 線分の交点のベクトル}\\
+$\triangle \text{ABC}$の辺$\text{AB}$を$1:2$に内分する点を$\text{D}$，辺$\text{AC}$を$3:1$に内分する点を$\text{E}$，$\text{BE}$と$\text{CD}$の交点を$\text{F}$とするとき，
+$ec{\text{AF}}$を$ec{\text{AB}}, ec{\text{AC}}$で表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 一直線上にあることの証明}\\
+$\triangle \text{ABC}$の辺$\text{BC}$を$1:2$に内分する点を$\text{P}$，辺$\text{AC}$を$3:1$に内分する点を$\text{Q}$，辺$\text{AB}$を$6:1$に外分する点を$\text{R}$とするとき，$3$点$\text{P}$，$Q$，$R$が一直線上にあることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 外心のベクトル}\\
+$3$辺の長さが$\text{AB}=2, \text{BC}=6, \text{CA}=2$である
+$\triangle \text{ABC}$の外心を$\text{O}$とするとき，$\text{AO}$を$\text{AB}$，$\text{AC}$で表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内心のベクトル}\\
+$3$辺の長さが$\text{BC}=7, \text{CA}=5, \text{AB}=3$である$\triangle \text{ABC}$の内心を$\text{I}$とする．$\vv{\text{AI}}$を$\vv{\text{AB}}$，$\vv{\text{AC}}$で表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 垂心のベクトル}\\
+平面上に$\triangle \text{ABC}$があり，$\text{AB}=1, \text{AC}=2, \angle \text{BAC}={45}^\circ$であるとする．$\triangle \text{ABC}$の垂心を$\text{H}$とするとき，$\text{AH}$を$\text{AB}$，$\text{AC}$で表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$直線のなす角を求める$3$つの方法}\\
+$2$直線
+\[l：2x-y+3=0, \]
+\[m：x-3y+5=0\]
+のなす角を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトルの終点の存在範囲}\\
+$\triangle \text{OAB}$に対して$\vv {\text{OP}}=s\vv {\text{OA}}+t\vv {\text{OB}}$とする．
+実数$s, t$が次の条件を満たすとき，点$\text{P}$の動く範囲を図示せよ．
+\begin{enumerate}
+\item $s+t=1, s\geqq 0, t\geqq 0$
+\item $s+t=1, s\geqq 0$
+\item $s+t=2, s\geqq 0, t\geqq 0$
+\item $3s+t=2$
+\item $0\leqq s\leqq \bunsuu{1}{2}, 0\leqq t\leqq 1$
+\item $0\leqq s+t\leqq 2, s\geqq 0, t\geqq 0$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ベクトル表現の存在と一意性}\\
+$2$つの$\vv {a}, \vv {b}$が$1$次独立であるとき，平面における任意のベクトル$\vv {c}$は実数$x, ‌y$を用いて$\vv {c}=x\vv {a}+y\vv {b}$という形でただ$1$通りに表されることを示せ．
+\end{question}
+
+\subsection{空間ベクトル 応用8題}
+
+
+
+\begin{question}{\bf\boldmath 空間の直線に下ろした垂線の長さ}\\
+空間内の$3$点$\text{A}\left(1,1,1\right), \text{B}\left(0,1,2\right), \text{C}\left(3,3,0\right)$について，点$\text{C}$から直線$\text{AB}$に下ろした垂線の長さ$\text{CH}$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 座標空間内の四面体の体積}\\
+空間内の$4$点$\text{A}\left(1,1,1\right), \text{B}\left(0,1,2\right), \text{C}\left(3,3,0\right), \text{D}\left(2,3,4\right)$について，
+\begin{enumerate}
+\item $\triangle \text{ABC}$の面積を求めよ．
+\item 四面体$\text{ABCD}$の体積$V$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面と直線の交点の位置ベクトル$〜$初級$〜$}\\
+平行六面体$\text{OADB}-\text{CEGF}$において，辺$\text{GD}$の中点を$\text{H}$とする．
+\begin{enumerate}
+\item 直線$\text{OH}$と平面$\text{ABC}$の交点を$\text{L}$とするとき，$\text{OL}$を$\text{OA}$，$\text{OB}$，$\text{OC}$で表せ．
+\item 直線$\text{OH}$と平面$\text{AFC}$の交点を$\text{M}$とするとき，$\text{OM}$を$\text{OA}$，$\text{OB}$，$\text{OC}$で表せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面と直線の交点の位置ベクトル$〜$中級$〜$}\\
+平行六面体$\text{OADB}-\text{CEGF}$において，辺$\text{GD}$の中点を$\text{H}$とする．
+\begin{enumerate}
+\item 直線$\text{OH}$と平面$\text{ABC}$の交点を$\text{L}$とするとき，$\text{OL}$を$\text{OA}$，$\text{OB}$，$\text{OC}$で表せ．
+\item 直線$\text{OH}$と平面$\text{AFC}$の交点を$\text{M}$とするとき，$\text{OM}$を$\text{OA}$，$\text{OB}$，$\text{OC}$で表せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 四面体の重心}\\
+四面体の各頂点$A,B,C,D$と，その対面の重心$G_1,G_2,G_3,G_4$を結んだ$4$本の線分$\text{AG}_1,\text{BG}_2,\text{CG}_3,\text{DG}_4$は$1$点で交わることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 正四面体の対辺が垂直であることの証明}\\
+$1$辺の長さが$a$の正四面体$\text{ABCD}$について，次の命題をそれぞれ示せ．
+\begin{enumerate}
+\item 対辺$\text{AB}$と$\text{CD}$は垂直である．
+\item 底面$\triangle \text{BCD}$の重心を$\text{G}$とすると，直線$\text{AG}$は底面に垂直である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 四面体とベクトル和の等式}\\
+四面体$\text{ABCD}$の内部にある点$\text{P}$が$2\text{AP}+3\text{BP}+4\text{CP}+5\text{DP}=0$を満たすとき，四面体$\text{PBCD}$，$\text{PCDA}$，$\text{PDAB}$，$\text{PABC}$の体積比を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 空間ベクトルの終点の存在範囲}\\
+四面体$\text{OABC}$に対し，$\vv {\text{OP}}=l\vv {\text{OA}}+m\vv {\text{OB}}+n\vv {\text{OC}}$とする．実数$l, m, n$が次の各条件を満たしながら動くとき，点$\text{P}$の存在範囲を求めよ．
+\begin{enumerate}
+\item $l+m+n=1$
+\item $l+m+n=1, l\geqq 0, m\geqq 0, n\geqq 0$
+\item $l+2m+3n=1$
+\item $0\leqq l\leqq 1, 0\leqq m\leqq 1, 0\leqq n\leqq 1$
+\item $0\leqq l+m+n\leqq 1, l\geqq 0, m\geqq 0, n\geqq 0$
+\end{enumerate}
+
+\end{question}
+
+\section{分野強化したい受験生向け}
+
+\section{数学を楽しみたい人向け}
+
+\subsection{別解研究入門 12題}
+
+
+
+\begin{question}{\bf\boldmath パッポスの中線定理の$4$つの証明}\\
+三角形$\text{ABC}$に対し，$\text{BC}$の中点を$\text{M}$とするとき，次の等式を証明せよ．
+\[\text{AB}^2+\text{AC}^2=2\left(\text{AM}^2+\text{BM}^2\right)\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 分数不等式$3$つの解法}\\
+不等式$\bunsuu{{2x+3}}{{x+1}}\leqq x+3$を解け．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面と直線の交点の位置ベクトル$〜$初級$〜$}\\
+平行六面体$\text{OADB}-\text{CEGF}$において，辺$\text{GD}$の中点を$\text{H}$とする．
+\begin{enumerate}
+\item 直線$\text{OH}$と平面$\text{ABC}$の交点を$\text{L}$とするとき，$\text{OL}$を$\text{OA}$，$\text{OB}$，$\text{OC}$で表せ．
+\item 直線$\text{OH}$と平面$\text{AFC}$の交点を$\text{M}$とするとき，$\text{OM}$を$\text{OA}$，$\text{OB}$，$\text{OC}$で表せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 別解研究$〜$初級$〜$}\\
+
+\begin{enumerate}
+\item 実数$x, y$が$x^2+y^2=1$を満たすとき，$3x+4y$の最大値と最小値を求めよ．
+\item 実数$x, y$が$x^2+y^2=1, y\geqq 0$を満たすとき，$3x+4y$の最大値と最小値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$直線のなす角を求める$3$つの方法}\\
+$2$直線
+\[l：2x-y+3=0, \]
+\[m：x-3y+5=0\]
+のなす角を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 線分の交点のベクトル}\\
+$\triangle \text{ABC}$の辺$\text{AB}$を$1:2$に内分する点を$\text{D}$，辺$\text{AC}$を$3:1$に内分する点を$\text{E}$，$\text{BE}$と$\text{CD}$の交点を$\text{F}$とするとき，
+$ec{\text{AF}}$を$ec{\text{AB}}, ec{\text{AC}}$で表せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 通過領域の基本}\\
+$t$がすべての実数値を取りながら変化するとき，直線$y=2tx-t^2$が通り得る領域を図示せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円外の点から引いた接線}\\
+円$C:x^2+y^2=5$に点$\text{A}\left(3,1\right)$から引いた接線の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角形の面積公式$3$つの証明}\\
+$\text{O}\left(0, 0\right), \text{A}\left(x_1, y_1\right), \text{B}\left(x_2, y_2\right)$を頂点とする$\triangle \text{OAB}$の面積$S$は
+\[S=\bunsuu{1}{2}\zettaiti{x_1y_2-x_2y_1}\]
+である．これを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 点と直線の距離の公式証明}\\
+点$\text{A}\left(x_1,y_1\right)$と直線$ax+by+c=0$の距離$d$は
+\[d=\bunsuu{{\zettaiti{ax_1+by_1+c}}}{{\sqrt {a^2+b^2}}}\]
+である．これを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath コ$ー$シ$ー\cdot$シュワルツの不等式の証明$〜$初級$〜$}\\
+次の不等式を証明せよ．また，等号成立条件を求めよ．
+\[\left(a^2+b^2\right)\left(x^2+y^2\right)\geqq \left(ax+by\right)^2\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$重根号}\\
+$\sqrt {2+\sqrt 3}$の$2$重根号をはずせ．
+\end{question}
+
+\subsection{面積の組み換え 全7題}
+
+
+
+\begin{question}{\bf\boldmath $2$重接線で囲まれた部分の面積}\\
+$4$次関数$y=x^4+kx^3+lx^2+mx+n$のグラフと直線$y=px+q$が$x=-1,3$において接するとき，このグラフと直線で囲まれた部分の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次関数のグラフと直線で囲まれた部分の面積}\\
+$3$次関数$y=x^3+lx^2+mx+n$のグラフと直線$y=px+q$が$x=0,2,4$で共有点をもつとき，この$3$グラフと直線で囲まれた部分の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次関数のグラフと接線で囲まれた部分の面積}\\
+$3$次関数のグラフ$y=x^3+lx^2+mx+n$の$x=-1$における接線$y=px+q$が$x=3$において再びこのグラフと交点をもつとき，この$3$次関数のグラフと接線で囲まれる部分の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$放物線と共通接線で囲まれた部分の面積}\\
+直線$y=px+q$が，放物線$y=x^2+mx+n$と$x=1$において接し，放物線$y=x^2+m'x+n'$と$x=3$において接するとき，この直線と$2$つの放物線で囲まれる部分の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線と$2$接線で囲まれた部分の面積}\\
+放物線$y=x^2+mx+n$が直線$y=px+q$と$x=1$において接し，$x=-1$において直線$y=p'x+q'$と接するとき，この放物線と$2$直線で囲まれる部分の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 放物線と接線で囲まれた部分の面積}\\
+放物線$y=x^2+mx+n$と直線$y=px+q$が$x=2$において接するとき，この放物線，直線，および直線$x=4$で囲まれる部分の面積を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$つの放物線で囲まれた部分の面積}\\
+$2$つの放物線$y=3x^2+mx+n, y=-2x^2+px+q$が$x=2, x=3$において交点をもつとき，この$2$つの放物線で囲まれる部分の面積を求めよ．
+\end{question}
+
+\subsection{二項係数 6題}
+
+
+
+\begin{question}{\bf\boldmath 二項係数を階乗で表す}\\
+異なる$n$個から$r$個とる組合せの総数$_n\text{C}_r$が
+\[_n\text{C}_r=\bunsuu{{n!}}{{\left(n-r\right)!r!}}\]
+で与えられることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 二項係数の対称性の証明}\\
+自然数$n, r\left(n\geqq r\right)$について，次を示せ．
+\[_nC_r=_nC_{n-r}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath パスカルの法則の証明}\\
+自然数$n, r\left(n\geqq r\right)$について，次を示せ．
+\[_n\text{C}_r=_{n-1}\text{C}_{r-1}+_{n-1}C_r\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath パスカルの法則の応用}\\
+自然数$n, r\left(n\geqq r\right)$について，次を示せ．
+\[_n\text{C}_r=_{n-1}C_{r-1}+_{n-2}C_{r-1}+\cdot \cdot \cdot \cdot \cdot \cdot +_{r-1}\text{C}_{r-1}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 二項係数の公式証明}\\
+自然数$n, r\left(n\geqq r\right)$について，次を示せ．$r\cdot _nC_r=n\cdot _{n-1}\text{C}_{r-1}$
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 二項係数の等式証明}\\
+自然数$n, p, q\left(n\geqq p,n\geqq q\right)$について，次を示せ．
+\[_nC_q\cdot _{n-q}C_p=_nC_p\cdot _{n-p}C_q\]
+\end{question}
+
+\subsection{数B数列 目で見る和の公式 4つ}
+
+
+
+\begin{question}{\bf\boldmath 自然数の和}\\
+$1+2+3+\cdots \cdots \cdot +n$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 奇数の和}\\
+$1+3+5+\cdots \cdots \cdot +\left(2n+1\right)$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平方数の和}\\
+$1^2+2^2+3^2+\cdots \cdots \cdot \cdot +n^2$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 連続$2$整数の積の和}\\
+$1\cdot 2+2\cdot 3+3\cdot 4+\cdots \cdots \cdot \cdot +n\left(n+1\right)$を求めよ．
+\end{question}
+
+\subsection{手書きアニメで見る図形の定理}
+
+
+
+
+
+
+
+
+
+
+
+\section{数学I}
+
+\subsection{数I数と式 計算15題}
+
+
+
+\begin{question}{\bf\boldmath $2$乗の展開$\left(a+b\right)^2,\left(a+b+c\right)^2,\left(a+b+c+d\right)^2$}\\
+次の式を展開せよ．
+\begin{enumerate}
+\item $\left(a+b\right)^2$
+\item $\left(a+b+c\right)^2$
+\item $\left(a+b+c+d\right)^2$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$乗の展開$\left(a+b\right)^3,\left(a+b+c\right)^3$}\\
+次の式を展開せよ．
+\begin{enumerate}
+\item $\left(a+b\right)^3$
+\item $\left(a+b+c\right)^3$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次式$a^3+b^3$の因数分解}\\
+$a^3+b^3$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次式$a^3+b^3+c^3-3abc$の因数分解}\\
+$a^3+b^3+c^3-3abc$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$次式の因数分解$a^3+b^3+c^3+d^3-3abc-3bcd-3cda-3dab$}\\
+$a^3+b^3+c^3+d^3-3abc-3bcd-3cda-3dab$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $x^n-y^n$の因数分解}\\
+$x^2-y^2,x^3-y^3,x^4-y^4,x^5-y^5$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解$〜$平方の差$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜$}\\
+$x^4-{13}x^2y^2+4y^4$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解$〜$平方の差$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜$}\\
+$x^6-y^6$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 因数分解の有名問題$〜$上級$〜$}\\
+$a^4+b^4+c^4-2a^2b^2-2b^2c^2-2c^2a^2$を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称式$x^2+y^2$の計算}\\
+$x+y={10}, xy=1$のとき，$x^2+y^2$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称式$x^3+y^3$の計算}\\
+$x+y={10}, xy=1$のとき，$x^3+y^3$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称式$x^4+y^4,x^5+y^5$の計算}\\
+$x+y={10}, xy=1$のとき，$x^4+y^4, x^5+y^5$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式$x^2+y^2+z^2$の値}\\
+$x+y+z=2\sqrt 3+1, xy+yz+zx=2\sqrt 3-1, xyz=-1$のとき，次の式の値を求めよ．
+\begin{edaenumerate}<3>
+\item $x^2+y^2+z^2$
+\item $x^3+y^3+z^3$
+\item $x^4+y^4+z^4$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式$x^3+y^3+z^3$の値}\\
+$x+y+z=2\sqrt 3+1, xy+yz+zx=2\sqrt 3-1, xyz=-1$のとき，次の式の値を求めよ．
+\begin{edaenumerate}<3>
+\item $x^2+y^2+z^2$
+\item $x^3+y^3+z^3$
+\item $x^4+y^4+z^4$
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元対称式$x^4+y^4+z^4$の値}\\
+$x+y+z=2\sqrt 3+1, xy+yz+zx=2\sqrt 3-1, xyz=-1$のとき，次の式の値を求めよ．
+\begin{edaenumerate}<3>
+\item $x^2+y^2+z^2$
+\item $x^3+y^3+z^3$
+\item $x^4+y^4+z^4$
+\end{edaenumerate}
+
+\end{question}
+
+\subsection{数I数と式 典型6題}
+
+
+
+\begin{question}{\bf\boldmath $2$つの文字含む因数分解}\\
+$2$元$2$次式
+\[6x^2+5xy+y^2-7x-3y+2\]
+を因数分解せよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$重根号}\\
+$\sqrt {2+\sqrt 3}$の$2$重根号をはずせ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 根号の計算}\\
+$\alpha =2+\sqrt 3$のとき，$\alpha ^4+\alpha ^3+\alpha ^2+\alpha +1$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 係数に文字を含む$1$次不等式}\\
+次の不等式を解け．ただし，$a$は定数とする．
+\begin{enumerate}
+\item $ax=2\left(x+a\right)$
+\item $ax<x+2$
+\item $ax+1>x+a^2$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $1$次不等式の整数解}\\
+次の問いに答えよ．
+\begin{enumerate}
+\item 不等式$\bunsuu{x}{2}+4<\bunsuu{{2x+7}}{3}$を満たす最小の整数
+$x$を求めよ．
+\item $x$の不等式$2x+a>5\left(x-1\right)$を満たす$x$のうち，最大の整数が$4$であるとき，定数$a$の値の範囲を求めよ．
+\item $x$の連立不等式$7x-5>{13}-2x, x+a\geqq 3x+5$を満たす整数$x$がちょうど$5$個存在するとき，定数$a$の値の範囲を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 絶対値を含む方程式$\cdot$不等式}\\
+次の方程式$\cdot$不等式を解け．
+\begin{enumerate}
+\item $\zettaiti{x+3}=4x$
+\item $\zettaiti{2x-1}\leqq x+3$
+\item $\zettaiti{x}+\zettaiti{x-1}=3x$
+\item $\zettaiti{x}+\zettaiti{x-1}>3x$
+\end{enumerate}
+
+\end{question}
+
+\subsection{集合と命題 典型7題}
+
+
+
+\begin{question}{\bf\boldmath $n^2$が$2$の倍数であるならば$n$も$2$の倍数である}\\
+整数$n$について，次のことを証明せよ．
+\begin{enumerate}
+\item $n^2$が$2$の倍数ならば，$n$も$2$の倍数である．
+\item $n^2$が$3$の倍数ならば，$n$も$3$の倍数である．
+\item $n^2$が$6$の倍数ならば，$n$も$6$の倍数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n^2$が$3$の倍数ならば$n$も$3$の倍数である}\\
+整数$n$について，次のことを証明せよ．
+\begin{enumerate}
+\item $n^2$が$2$の倍数ならば，$n$も$2$の倍数である．
+\item $n^2$が$3$の倍数ならば，$n$も$3$の倍数である．
+\item $n^2$が$6$の倍数ならば，$n$も$6$の倍数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n^2$が$6$の倍数ならば$n$も$6$の倍数である}\\
+整数$n$について，次のことを証明せよ．
+\begin{enumerate}
+\item $n^2$が$2$の倍数ならば，$n$も$2$の倍数である．
+\item $n^2$が$3$の倍数ならば，$n$も$3$の倍数である．
+\item $n^2$が$6$の倍数ならば，$n$も$6$の倍数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt 2$が無理数であることの証明}\\
+次のことを証明せよ．
+\begin{enumerate}
+\item $\sqrt 2$は無理数である．
+\item $\sqrt 6$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt 6$が無理数であることの証明}\\
+次のことを証明せよ．
+\begin{enumerate}
+\item $\sqrt 2$は無理数である．
+\item $\sqrt 6$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $\sqrt 2+\sqrt 3$が無理数であることの証明}\\
+次のことを証明せよ．ただし，平方数でない正の整数$m$に対して，$\sqrt m$が無理数であることを前提としてよい．
+\begin{enumerate}
+\item $\sqrt 2+\sqrt 3$は無理数である．
+\item 有理数$a, b$のうち少なくとも$1$つが$0$でないならば，$a\sqrt 2+b\sqrt 3$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $a\sqrt 2+b\sqrt 3$が無理数であることの証明}\\
+次のことを証明せよ．ただし，平方数でない正の整数$m$に対して，$\sqrt m$が無理数であることを前提としてよい．
+\begin{enumerate}
+\item $\sqrt 2+\sqrt 3$は無理数である．
+\item 有理数$a, b$のうち少なくとも$1$つが$0$でないならば，$a\sqrt 2+b\sqrt 3$は無理数である．
+\end{enumerate}
+
+\end{question}
+
+\subsection{２次関数 典型10題}
+
+
+
+\begin{question}{\bf\boldmath 軸が動く$2$次関数の最大値$\cdot$最小値}\\
+$a$は定数とする．関数$y=x^2-2ax+3a$の$0\leqq x\leqq 4$における最大値と最小値を求めよ．$a$は定数とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間が動く$2$次関数の最大値$\cdot$最小値}\\
+$a$は定数とする．関数$y=x^2-2x+2$の
+$a\leqq x\leqq a+2$における最大値と最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$次関数の最大最小から係数決定}\\
+関数$y=ax^2-2ax+b\left(0\leqq x\leqq 3\right)$の最大値が$9$で，最小値が$1$であるとき，定数$a, b$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$次関数の最大値$M$の最小値}\\
+$a$を与えられた定数として$x$の$2$次関数$y=-x^2+4ax+4a$を考え，その最大値を$M$とする．
+\begin{enumerate}
+\item $M$を$a$の式で表せ．
+\item $M$を最小とする$a$の値を求めよ．また，そのときの$M$の値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 独立$2$変数関数の最小値}\\
+$x$と$y$が互いに関係なく変化するとき，$P=x^2+2y^2-2xy+2x+3$の最小値とそのときの$x, y$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複$2$次$4$次関数の最小値}\\
+関数$y=x^4+6x^2+{10}$の最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件式付き$2$変数関数の最大最小$〜$中級$〜$}\\
+$2x^2+3y^2=8$のとき，$4x+3y^2$の最大値および最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 解の配置$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜$正の解をもつ$〜$}\\
+$2$次方程式$x^2+2ax+3-2a=0$が次のような条件を満たすような実数$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item 符号の異なる$2$解をもつ
+\item 正の解をもつ
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 解の配置$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜$区間に$1$つの解をもつ$〜$}\\
+$2$次方程式$ax^2-\left(a-1\right)x-a+1=0$が$-1<x<1$と$3<x<4$にそれぞれ$1$つの実数解を持つような定数$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 解の配置$\raise0.2ex\hbox{\textcircled{\scriptsize{3}}}〜$区間に少なくとも$1$つの解$〜$}\\
+$2$次方程式$x^2-\left(k+4\right)x-\bunsuu{k}{2}+4=0$が$1<x<4$に少なくとも$1$つの実数解をもつような実数$k$の値の範囲を求めよ．
+\end{question}
+
+\subsection{2次関数 応用6題}
+
+
+
+\begin{question}{\bf\boldmath すべての実数$x$で$2$次不等式が成り立つ条件}\\
+$2$次不等式$ax^2+\left(a-1\right)x+a-1<0$について，
+\begin{enumerate}
+\item すべての実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\item ある実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ある実数$x$で$2$次不等式が成り立つ条件}\\
+$2$次不等式$ax^2+\left(a-1\right)x+a-1<0$について，
+\begin{enumerate}
+\item すべての実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\item ある実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$変数の$「$すべて$」$と$「$ある$」$}\\
+$2$つの関数$f\left(x\right)=x^2+2x-2, g\left(x\right)=-x^2+2x+a+1$について，
+次の各々が成立するような$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item $-2\leqq x\leqq 2$を満たすすべての$x_1,x_2$に対して$f\left(x_1\right)<g\left(x_2\right)$
+\item $-2\leqq x\leqq 2$を満たすある$x_1,x_2$に対して$f\left(x_1\right)<g\left(x_2\right)$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $「$すべて$」$と$「$ある$」$の交換}\\
+$x, y$についての条件$p$を次のように定める．
+\[p:-x^2+\left(a-2\right)x+a-4<y<x^2-\left(a-4\right)x+3\]
+次の各々が成立するための$a$の値の範囲を求めよ．
+\begin{enumerate}
+\item どんな$x$に対しても，適当な$y$をとれば，$p$が成り立つ．
+\item 適当な$y$をとれば，どんな$x$に対しても，$p$が成り立つ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間で常に$2$次不等式が成立する条件}\\
+$0\leqq x\leqq 3$を満たす$x$に対して，$x^2-2ax+a+2>0$が成り立つような定数$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区間に少なくとも$1$つの解}\\
+$x$についての$2$次方程式$x^2-2ax+a+2=0$
+の解が$1<x<3$の範囲に少なくとも$1$つ存在するような定数$a$の値の範囲を求めよ．
+\end{question}
+
+\subsection{三角比 典型5題}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形の面積}\\
+円$O$に内接する四角形$\text{ABCD}$が$\text{AB}=2, \text{BC}=3, \text{CD}=1, \angle \text{ABC}={60}^\circ$を満たしている．
+\begin{enumerate}
+\item 円$O$の半径$R$を求めよ．
+\item 四角形$\text{ABCD}$の面積$S$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角形の形状決定}\\
+次の等式を満たす$\triangle \text{ABC}$はどのような形か．
+\[a^2\cos A\sin B=b^2\cos B\sin A\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 三角形の内角の$\sin$の比}\\
+$\bunsuu{5}{{}\sin A}=\bunsuu{7}{{}\sin B}=\bunsuu{8}{{}\sin C}$である$\triangle \text{ABC}$の最小角を$\theta$とするとき，$\cos \theta$の値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内角二等分線の長さ}\\
+$\triangle \text{ABC}$において，$\text{AB}=5, \text{AC}=8, \angle A={60}^\circ ,$
+$\angle A$の二等分線が辺$\text{BC}$と交わる点を$\text{D}$とするとき，線分$\text{AD}$の長さを求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 内接円と外接円の半径}\\
+$\triangle \text{ABC}$において，$\text{AB}=5, \text{BC}=7, \text{AC}=8$のとき，内接円の半径$r$と外接円の半径$R$を求めよ．
+\end{question}
+
+\subsection{三角比 応用5題}
+
+
+
+\begin{question}{\bf\boldmath 平面に下ろした垂線の長さ直方体}\\
+$\text{AB}=3, \text{AD}=1, \text{AE}=2$の直方体$\text{ABCD}-\text{EFGH}$において
+\begin{enumerate}
+\item $\triangle \text{AFC}$の面積$S$を求めよ．
+\item 点$\text{B}$から平面$\text{AFC}$に下ろした垂線$\text{BI}$の長さを求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 平面に下ろした垂線の長さ正四面体}\\
+$1$辺が$6$の正四面体$\text{OABC}$において，点$\text{L}$，$M$，$N$は辺$\text{OA}$，$\text{OB}$，$\text{OC}$を$1:1, 2:1, 1:2$に内分する点である．頂点$\text{O}$から平面$\text{LMN}$に下ろした垂線$\text{OH}$の長さを求めよ
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形の面積}\\
+円$O$に内接する四角形$\text{ABCD}$が$\text{AB}=2, \text{BC}=3, \text{CD}=1, \angle \text{ABC}={60}^\circ$を満たしている．
+\begin{enumerate}
+\item 円$O$の半径$R$を求めよ．
+\item 四角形$\text{ABCD}$の面積$S$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形$〜$島根大$〜$}\\
+円に内接する四角形$\text{ABCD}$が$\text{AB}=4, \text{BC}=5, \text{CD}=7, \text{DA}={10}$を満たしている．
+\begin{enumerate}
+\item 四角形$\text{ABCD}$の面積$S$を求めよ．
+\item $2$本の対角線$\text{AC}$，$\text{BD}$の交点を$\text{E}$とする．$\text{AE}：\text{EC}$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円に内接する四角形$〜$東京大$〜$}\\
+四角形$\text{ABCD}$が，半径$\bunsuu{{{65}}}{8}$の円に内接している．この四角形の周の長さが${44}$で，辺$\text{BC}$と辺$\text{CD}$の長さがいずれも${13}$であるとき，残りの$2$辺$\text{AB}$と$\text{DA}$の長さを求めよ．
+\end{question}
+
+\section{数学A}
+
+\subsection{場合の数 基本6題}
+
+
+
+\begin{question}{\bf\boldmath 順列}\\
+次の場合の数を求めよ．
+\begin{enumerate}
+\item $A$，$B$，$C$，$D$を$1$列に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで並べる方法．
+\item $A$，$B$，$C$，$D$，$E$を円形に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$で数珠を作る方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで作る組合せ．
+\item $A$，$A$，$A$，$B$，$B$，$C$を$1$列に並べる方法．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 場合の数の基本$\left(2\right)\text{ABCDE}$の$5$文字から$3$文字を選んで並べる方法}\\
+次の場合の数を求めよ．
+\begin{enumerate}
+\item $A$，$B$，$C$，$D$を$1$列に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで並べる方法．
+\item $A$，$B$，$C$，$D$，$E$を円形に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$で数珠を作る方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで作る組合せ．
+\item $A$，$A$，$A$，$B$，$B$，$C$を$1$列に並べる方法．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 円順列}\\
+次の場合の数を求めよ．
+\begin{enumerate}
+\item $A$，$B$，$C$，$D$を$1$列に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで並べる方法．
+\item $A$，$B$，$C$，$D$，$E$を円形に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$で数珠を作る方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで作る組合せ．
+\item $A$，$A$，$A$，$B$，$B$，$C$を$1$列に並べる方法．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 数珠順列}\\
+次の場合の数を求めよ．
+\begin{enumerate}
+\item $A$，$B$，$C$，$D$を$1$列に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで並べる方法．
+\item $A$，$B$，$C$，$D$，$E$を円形に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$で数珠を作る方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで作る組合せ．
+\item $A$，$A$，$A$，$B$，$B$，$C$を$1$列に並べる方法．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組合せ}\\
+次の場合の数を求めよ．
+\begin{enumerate}
+\item $A$，$B$，$C$，$D$を$1$列に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで並べる方法．
+\item $A$，$B$，$C$，$D$，$E$を円形に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$で数珠を作る方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで作る組合せ．
+\item $A$，$A$，$A$，$B$，$B$，$C$を$1$列に並べる方法．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む順列}\\
+次の場合の数を求めよ．
+\begin{enumerate}
+\item $A$，$B$，$C$，$D$を$1$列に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで並べる方法．
+\item $A$，$B$，$C$，$D$，$E$を円形に並べる方法．
+\item $A$，$B$，$C$，$D$，$E$で数珠を作る方法．
+\item $A$，$B$，$C$，$D$，$E$から$3$つを選んで作る組合せ．
+\item $A$，$A$，$A$，$B$，$B$，$C$を$1$列に並べる方法．
+\end{enumerate}
+
+\end{question}
+
+\subsection{場合の数 典型10題}
+
+
+
+\begin{question}{\bf\boldmath 部屋分け$〜6$人を$2$つの部屋$A$，$B$に分ける$〜$}\\
+空室は作らないものとする．
+\begin{enumerate}
+\item $6$人を$A$，$B$の$2$部屋に分ける方法は何通りあるか．
+\item $6$人を$A$，$B$，$C$の$3$部屋に分ける方法は何通りあるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 部屋分け$〜6$人を$3$つの部屋$A$，$B$，$C$に分ける$〜$}\\
+空室は作らないものとする．
+\begin{enumerate}
+\item $6$人を$A$，$B$の$2$部屋に分ける方法は何通りあるか．
+\item $6$人を$A$，$B$，$C$の$3$部屋に分ける方法は何通りあるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜12$人を$8$人，$4$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜12$人を$5$人，$4$人，$3$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{3}}}〜12$人を$6$人，$6$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 組分け$\raise0.2ex\hbox{\textcircled{\scriptsize{4}}}〜12$人を$4$人，$4$人，$4$人に$〜$}\\
+${12}$人を次のように分けるとき，分け方は何通りあるか．
+\begin{enumerate}
+\item $8$人組と$4$人組に分ける．
+\item $5$人組と$4$人組と$3$人組に分ける．
+\item $2$つの$6$人組に分ける．
+\item $3$つの$4$人組に分ける．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重複組合せ$〜$ミカンの配り方$\raise0.2ex\hbox{\textcircled{\scriptsize{1}}}〜$}\\
+${10}$個のミカンを$A$，$B$，$C$の$3$人配る．次の各々の場合，配り方は何通りあるか．
+\begin{enumerate}
+\item どの人も少なくとも$1$個はもらう場合
+\item $1$つももらわない人がいても良い場合
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重複組合せ$〜$ミカンの配り方$\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}〜$}\\
+${10}$個のミカンを$A$，$B$，$C$の$3$人配る．次の各々の場合，配り方は何通りあるか．
+\begin{enumerate}
+\item どの人も少なくとも$1$個はもらう場合
+\item $1$つももらわない人がいても良い場合
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む円順列$〜$初級$〜$}\\
+次の各々の場合は何通りあるか．
+\begin{enumerate}
+\item 赤玉$4$個，白玉$3$個，黒玉$1$個を円形に並べる方法
+\item 赤玉$4$個，白玉$2$個，黒玉$2$個を円形に並べる方法
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む円順列$〜$中級$〜$}\\
+次の各々の場合は何通りあるか．
+\begin{enumerate}
+\item 赤玉$4$個，白玉$3$個，黒玉$1$個を円形に並べる方法
+\item 赤玉$4$個，白玉$2$個，黒玉$2$個を円形に並べる方法
+\end{enumerate}
+
+\end{question}
+
+\subsection{場合の数 応用10題}
+
+
+
+\begin{question}{\bf\boldmath 正の約数の個数}\\
+次の各問いに答えよ．
+\begin{enumerate}
+\item ${5400}$の正の約数の個数と約数の総和を求めよ．
+\item ${10}!$の正の約数の個数を求めよ．
+\item ${30}!$は最後にいくつ$0$が並ぶか．
+\item $p$を素数，$n$を正の整数とする．$p^n!$は$p$で何回割れるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 辞書式に並べる}\\
+$a, i, k, o, s, y$の$6$文字を辞書式に一列に並べて，文字列を作る．
+\begin{enumerate}
+\item $aoisky$は何番目か．
+\item ${352}$番目の文字列を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整数をつくる問題$〜$初級$〜$}\\
+$0, 1, 2, 3, 4, 5$から異なる$3$つの数字を選んで$3$桁の整数を作る．このとき，次の数の個数を求めよ．
+\begin{enumerate}
+\item 異なる整数
+\item 偶数
+\item $3$の倍数
+\item 異なる数の総和を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整数をつくる問題$〜$中級$〜$}\\
+$9$個の数字$2, 2, 2, 2, 3, 3, 3, 4, 4$のうち$4$個を使って$4$桁の数をつくる．
+\begin{enumerate}
+\item 全部で何個できるか．
+\item $3$の倍数は何個できるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 立方体の色塗り}\\
+立方体に色を塗る塗り方は全部で何通りあるか求めよ．ただし，隣接する面は異なる色であり，かつ回転したり倒したりして同じになる塗り方は$1$通りとする．
+\begin{enumerate}
+\item 各面に異なる$6$色をすべて用いて塗る．
+\item 各面に異なる$5$色をすべて用いて塗る．
+\item 各面に異なる$4$色をすべて用いて塗る．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同じものを含む円順列$\cdot$数珠順列}\\
+白玉$1$個，赤玉$2$個，黄玉$4$個がある．
+\begin{enumerate}
+\item これらを机の上に円形に並べる方法は何通りか．
+\item これらで何通りの首飾りができるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 最短経路}\\
+以下図で$A$地点から$B$地点まで行く最短経路の総数を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 重複組合せ}\\
+次の等式$\cdot$不等式を満たす整数の組$\left(x, y, z\right)$の個数を求めよ．
+\begin{enumerate}
+\item $x+y+z=6, x\geqq 0, y\geqq 0, z\geqq 0$
+\item $x+y+z=6, x\geqq 1, y\geqq 1, z\geqq 1$
+\item $x+y+z\leqq 6, x\geqq 0, y\geqq 0, z\geqq 0$
+\item $1\leqq x<y<z\leqq 6$
+\item $1\leqq x\leqq y\leqq z\leqq 6$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 完全順列}\\
+次の人数でプレゼント交換するとき，受け取り方は何通りあるか．ただし，全員が他人のプレゼントを受け取るとする．
+\begin{edaenumerate}<6>
+\item $1$人
+\item $2$人
+\item $3$人
+\item $4$人
+\item $5$人
+\item $6$人
+\end{edaenumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区別する$\cdot$しない}\\
+$6$個のボ$ー$ルを$3$つの箱に入れるとき，入れ方は何通りか．$1$空箱があってもよい$2$空箱はなしで，それぞれ求めよ．
+\begin{enumerate}
+\item $1$から$6$まで異なる番号のついた$6$個のボ$ー$ルを$A$，$B$，$C$と区別された$3$つの箱に入れる場合．
+\item 互いに区別の付かない$6$個のボ$ー$ルを$A$，$B$，$C$と
+区別された$3$つの箱に入れる場合．
+\item $1$から$6$まで異なる番号のついた$6$個のボ$ー$ルを区
+別のつかない$3$つの箱に入れる場合．
+\item 互いに区別の付かない$6$個のボ$ー$ルを区別のつかない
+$3$つの箱に入れる場合．
+\end{enumerate}
+
+\end{question}
+
+\subsection{場合の数 強化3題}
+
+
+
+\begin{question}{\bf\boldmath $x+y+z=n$の整数解の個数$〜$名城大$〜$}\\
+$n$は自然数とする．
+\begin{enumerate}
+\item $x+y+z={10},x>0,y>0,z>0$を満たす整数の組合せ$\left(x,y,z\right)$は何通りあるか．
+\item $x+y+z={10},x\geqq 0,y\geqq 0,z\geqq 0$を満たす整数の組合せ$\left(x,y,z\right)$は何通りあるか．
+\item $x+y+z=n,x\geqq 0,y\geqq 0,z\geqq 0$を満たす整数の組合せ$\left(x,y,z\right)$は何通りあるか．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 白玉が$k+1$個以上連続して現れない確率$〜1989$東大$〜$}\\
+$3$個の赤玉と$n$個の白玉を無作為に環状に並べるものとする．このとき，白玉が連続して$k+1$個以上並んだ箇所が現れない確率を求めよ．ただし，$n\leqq k<n$とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n$個のボ$ー$ルを$3$つの箱に分ける入れ方は何通りあるか}\\
+$n$を正の整数とし，$n$個のボ$ー$ルを$3$つの箱に分けて入れる問題を考える．ただし，$1$個のボ$ー$ルも入らない箱があってもよいものとする．以下の$4$つの場合について，それぞれ相異なる入れ方の総数を求めよ．
+\begin{enumerate}
+\item $1$から$n$まで異なる番号のついた$n$個のボ$ー$ルを，$A$，$B$，$C$と区別された$3$つの箱に入れる場合．
+\item 互いに区別のつかない$n$個のボ$ー$ルを，$A$，$B$，$C$と区別された$3$つの箱に入れる場合．
+\item $1$から$n$まで異なる番号のついた$n$個のボ$ー$ルを，区別のつかない$3$つの箱に入れる場合．
+\item $n$が$6$の倍数$6m$であるとき，$n$個の互いに区別のつかないボ$ー$ルを，区別のつかない$3$つの箱に入れる場合．
+\end{enumerate}
+
+\end{question}
+
+\subsection{確率 典型15題}
+
+
+
+\begin{question}{\bf\boldmath 等確率$〜$区別のない$3$つのサイコロ$〜$}\\
+区別のない$3$個のサイコロを投げるとき，出た目の和が$5$となる確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 同基準$〜$隣り合う確率を求める$2$つの方法$〜$}\\
+トランプのスペ$ー$ド${13}$枚を一列に並べるとき，絵札がすべて隣り合う確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 非復元抽出$〜$引いたくじは戻さない$〜$}\\
+当たり$3$本，はずれ$7$本のくじから$4$本を引くとき，$2$本だけ当たりくじを引く確率を求めよ．ただし，引いたくじは戻さないとする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 余事象の利用$〜$積が$4$の倍数になる確率$〜$}\\
+$1$から$8$までの数の書かれた$8$枚のカ$ー$ドから$3$枚のカ$ー$ドを取り出すとき，次の確率を求めよ．
+\begin{enumerate}
+\item $3$数の和が${18}$以下となる確率
+\item $3$数の積が$4$の倍数となる確率
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 全体像を見る$〜$玉の色が$2$種類になる確率$〜$}\\
+赤玉$3$個，白玉$3$個，青玉$3$個が入っている袋から$3$個の玉を取り出すとき，玉の色が$2$種類になる確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 対称性に着目$〜$ランダムウォ$ー$クの確率$〜$}\\
+数直線上の動点$\text{P}$を，コインを投げて
+表が出れば正の向きに$1$だけ移動さ，
+裏が出れば負の向きに$1$だけ移動させる．
+原点$\text{O}$から出発して，コインを${10}$回投げた後の点$\text{P}$が正の部分にある確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 推移グラフ$〜$ランダムウォ$ー$クの確率$〜$}\\
+数直線上の動点$\text{P}$を，コインを投げて
+表が出れば正の向きに$1$だけ移動させ，
+裏が出れば負の向きに$1$だけ移動させる．
+原点$\text{O}$から出発して，コインを${10}$回投げた後に点$\text{P}$が初めて原点に戻る確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 独立反復試行$〜$先に$4$勝で優勝$〜$}\\
+$A$，$B$の$2$人が繰り返し試合を行う．各試合において，$A$が勝つ確率は$p, B$が勝つ確率は$q$で，引き分けはない．先に$4$勝した方が優勝とするとき，次の確率を求めよ．
+\begin{enumerate}
+\item $6$試合目に$A$が優勝を決める確率
+\item $6$試合目に優勝者が決まる確率
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 独立反復試行$〜3$勝リ$ー$ドで優勝$〜$}\\
+$A$，$B$の$2$人が繰り返し試合を行う．各試合において，$A$が勝つ確率は$p, B$が勝つ確率は$q$で，引き分けはない．先に$3$勝リ$ー$ドした方が優勝とするとき，次の確率を求めよ．
+\begin{enumerate}
+\item $5$試合目に$A$が優勝を決める確率
+\item $9$試合目に$A$が優勝を決める確率
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath サイコロの目の積}\\
+サイコロを$n$回振り，出た目のすべての積を$X$とするとき，
+\begin{enumerate}
+\item $X$が偶数である確率を求めよ．
+\item $X$が$6$の倍数である確率を求めよ．
+\item $X$が$4$の倍数である確率を求めよ．
+\item $X$が${12}$の倍数である確率を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath サイコロの目の最大値と最小値}\\
+サイコロを$n$回振り，出た目の最大値を$M$，最小値を$m$とする．
+\begin{enumerate}
+\item $M=5$となる確率を求めよ．
+\item $M=5, m=2$となる確率を求めよ．
+\item $M-m=3$となる確率を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件付き確率$〜$くじ引き$〜$}\\
+当たり$2$本，ハズレ$3$本入った箱からくじを$1$本取り出し，それを元に戻さずにもう$1$本取り出す．$2$本目が当たりだったとき，$1$本目も当たりである確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件付き確率$〜$箱と玉$〜$}\\
+$2$つの箱$A$，$B$があり，$A$には赤玉$4$個と白玉$1$個，$B$には赤玉$2$個と白玉$3$個が入っている．サイコロを振り，$1$の目が出れば$A$，他の目が出れば$B$を選び，選んだ箱から玉を$1$個取り出す．取り出した玉が赤であるとき，箱$A$が選ばれていた確率を求めよ．
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 条件付き確率$〜$忘れた帽子$〜$}\\
+$5$回に$1$回の割合で，帽子を忘れる癖のある$N$君が，正月に$A$，$B$，$C$の$3$軒を順に年始廻りをして家に帰ったとき，帽子を忘れてきたことに気づいた．家$B$に忘れてきた確率を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 確率の最大化}\\
+$O$さんが各問題に正解する確率は$\bunsuu{{99}}{{100}}$である．$O$さんが$3$問違えるまで問題を解き続けるとき，$n$問目で終わる確率$P_n$が最大となる$n$を求めよ．
+\end{question}
+
+\subsection{整数 典型6題}
+
+
+
+\begin{question}{\bf\boldmath $1$次不定方程式の整数解$〜1$組$〜$}\\
+${29}x+{42}y=4$の整数解をすべて求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $1$次不定方程式の整数解$〜$すべて$〜$}\\
+${29}x+{42}y=4$の整数解をすべて求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $3$元不定方程式の有名問題}\\
+$\bunsuu{1}{l}+\bunsuu{1}{m}+\bunsuu{1}{n}=1$を満たす自然数解$\left(l,m,n\right)$をすべて求めよ．
+ただし，$l\leqq m\leqq n$とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 互いに素の証明}\\
+$2$つの自然数$a$と$b$が互いに素であるとき，$a$と$a+b$も互いに素であることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 余りによる分類}\\
+$n^2$が$3$の倍数ならば，$n$も$3$の倍数であることを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 倍数証明}\\
+$n$が奇数のとき，$n^5-n$は${240}$の倍数であることを証明せよ．
+\end{question}
+
+\subsection{整数 強化7題}
+
+
+
+\begin{question}{\bf\boldmath 合同式}\\
+$n, l, m$は整数とする．
+\begin{enumerate}
+\item $n^2$を$3$で割った余りは$0$か$1$であることを示せ．
+\item $l, m$を整数とする．$l^2+m^2$が$3$の倍数のとき，$l, m$がともに$3$の倍数であることを示せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 合同式で$±$を同時に処理}\\
+$n$を整数とする．
+\begin{enumerate}
+\item $n^5-n$は$3$の倍数であることを示せ．
+\item $n$が奇数のとき，$n^5-n$は${120}$の倍数であることを示せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 合同式の威力を堪能する問題}\\
+
+\begin{enumerate}
+\item $2^{32}$を$7$で割った余りを求めよ．
+\item $n$を自然数とする．$2^n-1$を$3$で割ると，$n$が奇数のときは$1$余り，$n$が偶数のときは割り切れることを示せ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 合同式を指数に代入するのは$\text{NG}$}\\
+次の問いに答えよ．
+\begin{enumerate}
+\item 正の整数$n$で$n^3+1$が$3$で割り切れるものを全て求めよ．
+\item 正の整数$n$で$n^n+1$が$3$で割り切れるものを全て求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 無限降下法}\\
+次の方程式を満たす自然数$a, b, c$は存在しないことを証明せよ．$a^3+2b^3=4c^3$
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 素数が無限に存在することの証明}\\
+素数は無限に存在することを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $6n-1$の形の素数が無限に存在することの証明}\\
+
+\begin{enumerate}
+\item $5$以上の素数は，ある自然数$n$を用いて$6n+1$または$6n-1$の形で表されることを示せ．
+\item $N$を自然数とする．$6N-1$は$6n-1(n$は自然数$)$の形で表される素数を約数に持つことを示せ．
+\item $6n-1(n$は自然数$)$の形で表される素数は無限に多く存在することを示せ．
+\end{enumerate}
+
+\end{question}
+
+\section{数学II}
+
+\section{数学B}
+
+\section{数学III}
+
+\subsection{数III複素数平面 強化6題}
+
+
+
+\begin{question}{\bf\boldmath 複素数の$n$乗根}\\
+$z^6=1$を満たす複素数$z$をすべて求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ド$\cdot$モアブルの定理の利用$〜2016$九州大$〜$}\\
+
+\begin{enumerate}
+\item $\theta$を$0\leqq \theta <2\pi$を満たす実数，$i$を虚数単位とし，$z$を$z=\cos \theta +i\sin \theta$で表される複素数とする．このとき，整数$n$に対して次の式を証明せよ．
+\[\cos \left(n\theta \right)=\bunsuu{1}{2}\left(z^n+\bunsuu{1}{{}z^n}\right), \sin \left(n\theta \right)=-\bunsuu{i}{2}\left(z^n-\bunsuu{1}{{}z^n}\right)\]
+\item 次の方程式を満たす実数$x\left(0\leqq x<2\pi \right)$を求めよ．
+\[\cos x+\cos 2x-\cos 3x=1\]
+\item 次の等式を証明せよ．
+\[\sin ^2{20}^\circ +\sin ^2{40}^\circ +\sin ^2{60}^\circ +\sin ^2{80}^\circ =\bunsuu{9}{4}\]
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複素数平面上の三角形の形状決定}\\
+異なる$3$点$\text{O}\left(0\right), \text{A}\left(\alpha \right), \text{B}\left(\beta \right)$に対し，等式$2\alpha ^2-2\alpha \beta +\beta ^2=0$が成り立つとき$\triangle \text{OAB}$はどんな形の三角形か．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複素数平面上の垂直条件$〜$茨城大$〜$}\\
+複素数$z$が$\zettaiti{z}=1($ただし，$z=-1)$を満たすとする．
+$0, z, \bunsuu{1}{{}z+1}$が表す複素数平面上の点をそれぞれ$O$，$A$，$B$とするとき，
+\begin{enumerate}
+\item $\bunsuu{1}{{}z+1}$の実部は$\bunsuu{1}{2}$であることを示せ．
+\item $2$直線$\text{OA}$，$\text{OB}$が垂直に交わるような$z$の値をすべて求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複素数平面上の図形を表す方程式$2$つの解法}\\
+方程式$z\bar{z}+\left(1+3i\right)z+\left(1-3i\right)\bar{z}+9=0$を満たす点$z$の全体は，どのような図形を描くか．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 複素数平面上の変換$〜2003〜$北海道大理系$〜〜$}\\
+$z$を複素数とする．
+\begin{enumerate}
+\item $\bunsuu{1}{{}z+i}+\bunsuu{1}{{}z-i}$が実数となる点$z$の描く図形$P$を複素平面上に図示せよ．
+\item 点$z$が$\left(1\right)$で求めた図形$P$上を動くとき，点$w=\bunsuu{{z+i}}{{z-i}}$の描く図形を複素数平面上に図示せよ．
+\end{enumerate}
+
+\end{question}
+
+\subsection{数III曲線 強化6題}
+
+
+
+\begin{question}{\bf\boldmath 双曲線の方程式$2$つの解法}\\
+$2$点$\left(5,2\right), \left(5,-8\right)$を焦点とし，焦点からの距離の差が$6$の双曲線の方程式を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 楕円上の動点$〜2012$岡山大理系$〜$}\\
+$O$を原点とする座標平面における曲線$C:x^2+y^2=1$上に，点$\text{P}\left(1,\bunsuu{{\sqrt 3}}{2}\right)$をとる．
+\begin{enumerate}
+\item $C$の接線で，直線$\text{OP}$に平行なものの方程式を求めよ．
+\item 点$\text{Q}$が$C$上を動くとき，$\triangle \text{OPQ}$の面積の最値と，最大値を与える点$\text{Q}$の座標をすべて求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 媒介変数表示$2$つの解法}\\
+$t$を媒介変数とする媒介変数表示
+\[x=\bunsuu{3}{{}1+t^2}, y=\bunsuu{{3t}}{{1+t^2}}\]
+で表された曲線はどのような図形を描くか．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 媒介変数と軌跡$〜$弘前大$〜$}\\
+円$x^2+y^2=1$の$y>0$の部分を$C$とする．$C$上の点$\text{P}$と点$\text{R}\left(-1,0\right)$を結ぶ直線$\text{PR}$と$y$軸の交点を$\text{Q}$とし，その座標を$\left(0,t\right)$とする．
+\begin{enumerate}
+\item 点$\text{P}$の座標を$\left(\cos \theta ,\sin \theta \right)$とする．$\cos \theta$と$\sin \theta$を$t$を用いて表せ．
+\item $3$点$\text{A}$，$B$，$S$の座標を$\text{A}\left(-3,0\right), \text{B}\left(3,0\right), \text{S}\left(0,\bunsuu{1}{t}\right)$とし，$2$直線$\text{AQ}$と$\text{BS}$の交点を$\text{T}$とする．点$\text{P}$が$C$上を動くとき，点$\text{T}$の描く図形を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極方程式$2$つの解法}\\
+極方程式$r=\sqrt 3\cos \theta +\sin \theta$はどのような曲線を表すか．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極方程式$〜$神戸大$〜$}\\
+$a>0$を定数として，極方程式$r=a\left(1+\cos \theta \right)$により表される曲線$C_a$を考える．次の問に答えよ．
+\begin{enumerate}
+\item 極座標が$\left(\bunsuu{a}{2},0\right)$の点を中心として半径が$2$である円$S$を，極方程式で表せ．
+\item 点$\text{O}$と曲線$Ca$上の点$P\neq O$とを結ぶ直線が円$S$と交わる点を$\text{Q}$とするとき，線分$\text{PQ}$の長さは一定であることを示せ．
+\item 点$\text{P}$が曲線$C_a$上を動くとき，極座標が$\left(2a,0\right)$の点と$\text{P}$との距離の最大値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+\subsection{数III関数 強化4題}
+
+
+
+\begin{question}{\bf\boldmath 分数不等式$3$つの解法}\\
+不等式$\bunsuu{{2x+3}}{{x+1}}\leqq x+3$を解け．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 無理不等式$〜$旭川医科大$〜$}\\
+$x$についての不等式$\sqrt {a^2-x^2}>ax-a$を解け．ただし，$a$は定数で，$a\neq 0$とする．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 逆関数}\\
+$f\left(x\right)=1-x^2\left(x\geqq 0\right)$の逆関数を$g\left(x\right)$とする．
+\begin{enumerate}
+\item $g\left(x\right)$を求めよ．
+\item $2$曲線$y=f\left(x\right), y=g\left(x\right)$の共有点の座標を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 合成関数の問題$〜$小樽商科大$〜$}\\
+$-1<x<1$を定義域とする$f_p\left(x\right)=\bunsuu{{x-p}}{{1-px}}, f_q\left(x\right)=\bunsuu{{x-q}}{{1-qx}}($
+$-1<p<1,-1<q<1)$について，次の問いに答えよ．
+\begin{enumerate}
+\item 定義域内のすべての$x$に対して，$-1<f_q\left(x\right)<1$を示せ．
+\item 定義域内のすべての$x$に対して，$f_p\left(f_q\left(x\right)\right)=\bunsuu{{x-r}}{{1-rx}}$を満たすとき，$r$を$p$と$q$を用いて表し，$-1<r<1$を示せ．
+\item 定義域内のすべての$x$に対して，$f_p\left(f_q\left(x\right)\right)=f_q\left(x\right)$を満たす$p$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+\subsection{数III極限 強化6題}
+
+
+
+\begin{question}{\bf\boldmath 等比数列の極限}\\
+$r$を実数とするとき，数列$\bunsuu{{r^{2n+1}-1}}{{r^{2n}+1}}$の極限を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $n$乗根の極限値$〜$立命館大$〜$}\\
+$0<a<b$である定数$a, b$がある．
+$x_n=\left(\bunsuu{{a_n}}{b}+\bunsuu{{b_n}}{a}\right)^{\frac{1}{n}}$とおくとき，
+\begin{enumerate}
+\item 不等式$b_n<a\left(x_n\right)^n<2b_n$を証明せよ．
+\item $\displaystyle\lim_{n\to \infty }x_n$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 格子点と極限$〜$早稲田大$〜$}\\
+$n$を正の整数とし，$y=n-x^2$で表されるグラフと$x$軸とで囲まれる領域を考える．この領域の内部および周に含まれ，$x, y$座標がともに整数である点の個数を$a\left(n\right)$とする．次の問いに答えよ．
+\begin{enumerate}
+\item $a\left(5\right)$を求めよ．
+\item $\sqrt n$を超えない最大の整数を$k$とする．$a\left(n\right)$を$k$と$n$の多項式で表せ．
+\item $\displaystyle\lim_{n\to \infty }\bunsuu{{a\left(n\right)}}{{\sqrt {n^3}}}$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極限が有限の値になる条件$〜$大阪市大$〜$}\\
+次の極限が有限の値となるように定数$a, b$を定め，そのときの極限値を求めよ．
+\[\displaystyle\lim_{x\to 0}\bunsuu{{\sqrt {9-8x+7\cos 2x}-\left(a+bx\right)}}{{x^2}}\]
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath フラクタル図形の面積$〜$香川大$〜$}\\
+面積$1$の正三角形$A_0$から初めて，下図のように図形$A_1, A_2, \cdot \cdot \cdot$をつくる．ここで，$A_n$は，$A_{n-1}$の各辺の三等分点を頂点に持つ正三角形を$A_{n-1}$の外側に付け加えてできる図形である．このとき次の問いに答えよ．$($図略$)$
+\begin{enumerate}
+\item 図形$A_n$の辺の数を求めよ．
+\item 図形$A_n$の面積を$S_n$とするとき，$\displaystyle\lim_{n\to \infty }S_n$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 確率の極限値$〜$慶応大$〜$}\\
+$n$を自然数とする．区間$[0,n)$にごく小さな砂つぶを$n$個でたらめに落とす実験を行った．どの砂粒についても，$[0,1), [1,2), \cdot \cdot \cdot , [n-1,n)$のいづれの区間に落ちるかは同程度に確からしいとする．このとき，$n$個のうちちょうど$k$個の砂粒が区間$[0,1)$に落ちる確率を$P_n\left(k\right)$とする．
+\begin{enumerate}
+\item $P_n\left(k\right)$を求めよ．
+\item $\displaystyle\lim_{n\to \infty }\bunsuu{{k!_n\text{C}_k}}{{n^k}}$を求めよ．また，$\displaystyle\lim_{n\to \infty }P_n\left(k\right)$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+\subsection{数III微分 典型6題}
+
+
+
+\begin{question}{\bf\boldmath 凹凸グラフの概形}\\
+関数$f\left(x\right)=\bunsuu{{x^2+2x+2}}{{x+1}}$の増減，極値，グラフの凹凸，漸近線を調べ，グラフの概形をかけ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 関数の最大最小}\\
+$-\pi \leqq x\leqq \pi$における$y=2\sin x+\sin 2x$の最大値と最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 定数分離}\\
+方程式$ax^5-x^2+3=0$が$3$個の異なる実数解をもつような$a$の値の範囲を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 極値$\cdot$変曲点をもつ条件}\\
+$f\left(x\right)=\left(x^2+a\right)e^x$とする．ただし，$a$は定数とする．
+\begin{enumerate}
+\item 関数$f\left(x\right)$が極値をもたないような$a$の値の範囲を求めよ．
+\item 曲線$y=f\left(x\right)$が変曲点をもつような$a$の値の範囲を求めよ
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $f''\left(x\right)$を用いた不等式証明}\\
+すべての正の数$x$に対して，$e^x>1+x+\bunsuu{{x^2}}{2}$が成立することを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 整数問題への応用}\\
+$a^{b^2}=b^{a^2}$かつ$a<b$をみたす自然数の組$\left(a,b\right)$は存在するか．
+\end{question}
+
+\subsection{数III微分 強化6題}
+
+
+
+\begin{question}{\bf\boldmath 微分公式の証明$〜$和歌山県立医大$〜$}\\
+
+\begin{enumerate}
+\item 導関数の定義から説きおこして，
+\item 積$\cdot$商の微分法，
+\item 合成関数の微分法，
+\item 逆関数の微分法を順に追って説明し，
+\item $y=a^x\left(a>0, a\neq 1\right)$なる指数関数の導関数と，
+$y=\log _ax\left(a>0,a\neq 1\right)$なる対数関数の導関数と，
+\item $y=\sin x, y=\cos x, y=\tan x$なる三角関数の導関数とを導け．
+ただし，次のことがらは証明せずに，その結果だけを使ってよい．
+$i)\displaystyle\lim_{h\to 0}\bunsuu{{e^h-1}}{h}=1(e$は自然対数の底$)$
+$ii)\displaystyle\lim_{\theta \to 0}\bunsuu{{\sin \theta }}{\theta }=1(\theta$は弧度法で表された角$)$
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 共通接線の本数$〜1987$東北大$〜$}\\
+$a$を$0$でない実数とする．$2$つの曲線
+$y=e^x$および$y=ax^2$
+の両方に接する直線の本数を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 関数の最大値$〜$京大$〜$}\\
+$-\bunsuu{\pi }{2}\leqq x\leqq \bunsuu{\pi }{2}$における$\cos x+\bunsuu{{\sqrt 3}}{4}x^2$の最大値を求めよ．ただし，$\pi >3.1$および$\sqrt 3>1.7$が成り立つことは証明なしに用いて良い．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath $2$変数関数の最大値$〜2021$大阪大$〜$}\\
+$a, b$を$ab<1$を満たす正の実数とする．
+$xy$平面上の点$\text{P}\left(a,b\right)$から，曲線$y=\bunsuu{1}{x}\left(x>0\right)$に$2$本の接線を引き，
+かつ，その接点を$\text{Q}\left(s,\bunsuu{1}{s}\right), \text{R}\left(t,\bunsuu{1}{t}\right)$とする．ただし，$s<t$とする．
+\begin{enumerate}
+\item $s$および$t$を$a, b$を用いて表せ．
+\item 点$\text{P}\left(a,b\right)$が曲線$y=\bunsuu{9}{4}-3x^2$上の$x>0, y>0$を満たす部分を動くとき，
+$\bunsuu{t}{s}$の最小値とそのときの$a, b$の値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 線分の長さの最大$〜2012$東大$〜$}\\
+次の連立不等式で定まる座標平面上の領域$D$を考える．
+\[x^2+\left(y-1\right)^2\leqq 1, x\geqq \bunsuu{{\sqrt 2}}{3}\]
+直線$l$は原点を通り，$D$との共通部分が線分となるものとする．
+その線分の長さ$L$の最大値を求めよ．また，$L$が最大値をとるとき，
+$x$軸と$l$のなす角$\theta \left(0<\theta <\pi \right)$の余弦$\cos \theta$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 不等式証明$〜2006$筑波大$〜$}\\
+$a\geqq b>0, x\geqq 0$とし，$n$は自然数とする．次の不等式を示せ．
+\begin{enumerate}
+\item $0\leqq e^x-\left(1+x\right)\leqq \bunsuu{1}{2}x^2e^x$
+\item $a^n-b^n\leqq n\left(a-b\right)a^{n-1}$
+\item $0\leqq e^x-\left(1+\bunsuu{x}{n}\right)^n\leqq \bunsuu{1}{{}2n}x^2e^x$
+\end{enumerate}
+
+\end{question}
+
+\subsection{数III積分 強化10題}
+
+
+
+\begin{question}{\bf\boldmath 置換積分による等式証明$〜2005$名古屋大$〜$}\\
+
+\begin{enumerate}
+\item 連続関数$f\left(x\right)$が，すべての実数$x$について$f\left(\pi -x\right)=f\left(x\right)$を満たすとき，
+\[\displaystyle\int_0^\pi \left(x-\bunsuu{\pi }{2}\right)f\left(x\right)dx=0\]
+が成り立つことを証明せよ．
+\item 定積分$\displaystyle\int_0^\pi \bunsuu{{x\sin ^3x}}{{4-\cos ^2x}}dx$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 絶対値を含む関数の積分$〜2001$東工大$〜$}\\
+$a>0, t>0$に対して定積分$\text{S}\left(a,t\right)=\displaystyle\int_0^a\zettaiti{e^x-\bunsuu{1}{t}}dx$を考える．
+\begin{enumerate}
+\item $a$を固定したとき，$t$の関数$\text{S}\left(a,t\right)$の最小値$m\left(a\right)$を求めよ．
+\item $\displaystyle\lim_{a\to 0}\bunsuu{{m\left(a\right)}}{{a^2}}$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 定積分の上端についての関数$〜$東工大$〜$}\\
+$0<x<\pi$で定義された関数
+\[f\left(x\right)=\displaystyle\int_0^x\bunsuu{{d\theta }}{{\cos \theta }}+\displaystyle\int_x^{\frac{\pi }{2}}\bunsuu{{d\theta }}{{\sin \theta }}\]
+の最小値を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 積分型の平均値の定理$〜$慶応大$〜$}\\
+$f\left(x\right)$が$x\geqq 0$で連続な増加関数で，$f\left(0\right)=0$とする．関数$g\left(x\right)\left(x>0\right)$を
+\[g\left(x\right)=\bunsuu{1}{x}\displaystyle\int_0^xf\left(t\right)dt\]
+と定める．$x>0$において，$g\left(x\right)<f\left(x\right)$および$g'\left(x\right)>0$を示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 区分求積法$〜$東京理科大$〜$}\\
+極限
+$\displaystyle\lim_{n\to \infty }\bunsuu{1}{{}\log n}=\displaystyle\sum_{k=n}^{2n}\bunsuu{{\log k}}{k}$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath ガウス記号と極限$〜2000$大阪大$〜$}\\
+実数$x$に対して，$x$を超えない最大の整数を$[x]$で表す．$n$を正の整数とし，
+\[\displaystyle\sum_{k=1}^n\bunsuu{{[\sqrt 2n^2-k^2]}}{{n^2}}\]
+とおく．このとき$\displaystyle\lim_{n\to \infty }a_n$を求めよ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 定積分の値の評価$〜$信州大$〜$}\\
+不等式
+\[\pi \left(e-1\right)<\displaystyle\int_0^\pi e^{\zettaiti{\cos 4x}}dx<2\left(e^{\frac{\pi }{2}}-1\right)\]
+が成り立つことを示せ．
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 部分積分の使いどころ$〜2000$京大$〜$}\\
+関数$f\left(x\right)=\displaystyle\int_0^x\bunsuu{1}{{}1+t^2}dt$で定める．
+\begin{enumerate}
+\item $y=f\left(x\right)$の$x=1$における法線の方程式を求めよ．
+\item $\left(1\right)$で求めた法線と$x$軸および$y=f\left(x\right)$のグラフによって囲まれる図形の面積を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 面積の等分$〜$京都府立医大$〜$}\\
+次の不等式が定める図形を$D$とする．
+\[0\leqq x\leqq \bunsuu{\pi }{2},0\leqq y\leqq \sin 2x\]
+\begin{enumerate}
+\item 曲線$y=a\sin x$と$y=\sin 2x$が$0<x<\bunsuu{\pi }{2}$で交わるような定数$a$の範囲を求めよ．
+\item 曲線$y=a\sin x$が図形$D$を面積の等しい$2$つの部分に分けるような定数$a$を求めよ．
+\end{enumerate}
+
+\end{question}
+
+
+
+\begin{question}{\bf\boldmath 逆関数の積分$〜1994$東大$〜$}\\
+$xyz$空間において条件$x^2+y^2\leqq z^2, z^2\leqq x, 0\leqq z\leqq 1$を満たす点$\text{P}\left(x,y,z\right)$の全体からなる立体を考える．この立体の体積を$V$とし，$0\leqq k\leqq 1$に対し，$z$軸を直交する平面$z=k$による切り口の面積を$S$とする．
+\begin{enumerate}
+\item $k=\cos \theta$とおくとき，$S$を$\theta$で表せ．$\theta$は$0\leqq \theta \leqq \bunsuu{\pi }{2}$の定数とする．
+\item $V$の値を求めよ．
+\end{enumerate}
+
+\end{question}
+
+\end{document}
+

@@ -1,0 +1,541 @@
+
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+\bf\boldmath
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\normalsize\underline{$2$つの部分の面積が等しい条件$〜2021$滋賀大文系$〜$}}\vspace{0.3zw}
+
+\small 
+問．$a$を定数とし，曲線$C:y=x\left(x-2\right)^2$と直線$l:y=ax$を考える．$C$と$l$は異なる$3$点で交わり，交点の$x$座標はそれぞれ$0$以上とする．このとき，次の問いに答えよ．\\
+(1)  $a$の値の範囲を求めよ．\\
+(2)  $C$と$l$とで囲まれた$2$つの図形の面積が等しくなるように$a$の値を定めよ．\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\normalsize\underline{放物線で囲まれた面積の最大値$〜2021$北大$〜$}}\vspace{0.3zw}
+
+\scriptsize 
+問．$k$を$k>-1$を満たす実数とする．直線$l:y=\left(1-k\right)x+k$および放物線$C:y=x^2$を考える．$C$と$l$で囲まれた部分の面積を$S_1$とし，$C$と$l$と直線$x=2$の$3$つで囲まれた部分の面積を$S_2$とする．\\
+(1)  $S_1$を$k$を用いて表せ．\\
+(2)  $S_2$を$k$を用いて表せ．\\
+(3)  $k$が$k>-1$を満たしながら動くとき，$S_2-S_1$の最大値を求めよ．\\
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\huge\underline{定積分の計算}}\vspace{0.3zw}
+
+\LARGE 
+問．次の定積分を求めよ．
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\displaystyle\int_1^2\left(x-1\right)\left(x-3\right)dx\vspace{0.3zw}$
+
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{絶対値の定積分}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．定積分
+
+\huge 
+\vspace{0.3zw}
+\hspace{0.5zw}$\displaystyle\int_{-3}^3\zettaiti{x^2+x-2}\;dx\vspace{0.3zw}$
+
+\large
+\hfill 
+の値を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$\sqrt x$の定積分}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．
+
+\Huge 
+\vspace{-0.2zw}
+\hspace{1zw}$\displaystyle\int_0^3\sqrt x\;dx$
+\vspace{-0.5zw}
+
+\large
+\hfill
+を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$\sqrt {r^2-x^2}$の定積分}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．
+
+\Huge 
+\vspace{-0.2zw}
+\hspace{0.5zw}$\displaystyle\int_0^1\sqrt {4-x^2}\;dx$
+\vspace{-0.2zw}
+
+\large
+\hfill 
+を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$\left(ax+b\right)^n$の定積分}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．
+
+\Huge 
+\vspace{-0.2zw}
+\hspace{0.5zw}$\displaystyle\int_0^1\left(2x-1\right)^5dx$
+\vspace{-0.2zw}
+
+\large 
+\hfill を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{定積分の基本計算}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．
+
+\Huge 
+\vspace{-0.2zw}
+\hspace{0.2zw}$\displaystyle\int_1^5\left(x^2-3x\right)dx$
+\vspace{-0.5zw}
+
+\large
+\hfill を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\huge\underline{同次式}}\vspace{0.3zw}
+
+\Large 
+問．任意の正の数$x,\;y$に対して，
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\left(x+y\right)^3\geqq ax^2y\vspace{0.3zw}$
+
+
+が成り立つような$a$の値の範囲を求めよ．
+
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$3$次関数の極値の差}}\vspace{0.5zw}
+
+\large 
+\bf\boldmath 問．関数$f\left(x\right)=x^3+ax^2+x$の
+
+\huge
+\vspace{0.5zw}
+\hspace{0.1zw}極大値と極小値の差が$4$
+
+\vspace{0.7zw}
+\large 
+\hfill であるような$a$の値を求めよ．
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{次数下げによる極値計算}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の関数の極値を求めよ．
+
+\Huge
+\vspace{0.5zw}
+\hspace{0.2zw}$y=x^3+x^2-2x\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$3$次関数の極値の和と差}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．関数$f\left(x\right)=x^3-3ax^2+3bx$の
+
+\LARGE
+極大値と極小値の和および差がそれぞれ$-{18},\;{32}$である
+
+\large
+\vspace{0.2zw}
+\hfill とき，定数$a,\;b$の値を定めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\Large\underline{整式の割り算への微分の応用}}\vspace{0.3zw}
+
+\large 
+問．$n\geqq 3$とする．整式
+
+\vspace{0.3zw}
+\hspace{0.5zw}$f\left(x\right)=ax^n+bx^{n-1}+x+1\vspace{0.3zw}$
+
+
+が$x^2-2x+1$で割り切れるとき，$a,\;b$を$n$の式で表せ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\LARGE\underline{微分による重解条件}}\vspace{0.3zw}
+
+\Large 
+問．整式$f\left(x\right)$が$\left(x-\alpha \right)^2$で割り切れるための必要十分条件は
+$f\left(\alpha \right)=f'\left(\alpha \right)=0$であることを示せ．
+
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{積の微分公式}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．次の関数を微分せよ．
+
+\vspace{0.5zw}
+\hspace{0.5zw}$y=\left(2x+1\right)^2\left(3x^2-2\right)\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\LARGE\underline{積の微分公式の証明}}\vspace{0.3zw}
+
+\Large 
+問．整式$f\left(x\right),\;g\left(x\right)$に対して，
+
+\vspace{0.3zw}
+\hspace{0.5zw}${f\left(x\right)g\left(x\right)}'=f'\left(x\right)g\left(x\right)+f\left(x\right)g'\left(x\right)\vspace{0.3zw}$
+
+
+を証明せよ．
+
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{合成関数の微分}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．次の関数を微分せよ．
+
+\HUGE
+\vspace{0.1zw}
+\hspace{0.5zw}$y=\left(2x+1\right)^3\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{計算}}$}
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\LARGE\underline{$\left(ax+b\right)^n$の微分公式}}\vspace{0.3zw}
+
+\Large 
+問．定数$a,\;b,\;$自然数$n$に対して，
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\{\left(ax+b\right)^n\}'=na\left(ax+b\right)^{n-1}\vspace{0.3zw}$
+
+
+を証明せよ．
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{強化}}$}
+{\color{orange}\huge\underline{$x^n$の微分公式の証明}}\vspace{0.3zw}
+
+\huge 
+問．自然数$n$に対して$\left(x^n\right)'=nx^{n-1}$を証明せよ．
+
+
+\newpage
+
+
+
+\bf\boldmath
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\normalsize\underline{放物線と$2$本の接線で囲まれた部分の面積}}\vspace{0.3zw}\\
+\Large
+問．放物線$y=x^2-4x+3$と、この放物線上の点$\left(0,3\right),\left(6,{15}\right)$における接線で囲まれた図形の面積$S$を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{放物線で囲まれた面積の最小}}\vspace{0.3zw}\\
+\Large
+問．放物線$y=x^2$と点$\left(1,2\right)$を通る直線とで囲まれた図形の面積$S$が最小になるとき、その直線の方程式を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{放物線で囲まれた面積の等分}}\vspace{0.3zw}\\
+\Large 
+問．放物線$y=2x-x^2$と$x$軸で囲まれた図形の面積を直線\\$y=kx$が$2$等分するように、定数$k$の値を定めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{$\frac{1}{6}$公式の利用}}\vspace{0.3zw}\\
+\large 
+問．次の曲線や直線で囲まれた図形の面積$S$を求めよ．\\
+(1)  $y=x^2-3x+5,\;y=2x-1$\\
+(2)  $\left\{\begin{array}{l}y=2x^2-6x+4,\;\\y=-3x^2+9x-6\end{array}\right.$
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\large\underline{積分方程式$〜$定積分を用いた関数$〜$}}\vspace{0.3zw}\\
+\large 
+問．次の等式を満たす関数$f\left(x\right)$を求めよ．\\
+(1)  $f\left(x\right)=3x^2-x\displaystyle\int_0^2f\left(t\right)dt+2$\\
+(2)  $f\left(x\right)=1+\displaystyle\int_0^1\left(x-t\right)f\left(t\right)dt$\\
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{積分方程式$〜$定積分の微分$〜$}}\vspace{0.3zw}\\
+\large 
+問．等式\vspace{-0.5zw}
+\[\displaystyle\int_a^xf\left(t\right)dt=x^3-3x^2+x+a\vspace{-0.5zw}\]
+を満たす関数$f\left(x\right)$と定数$a$の値の範囲を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{接線の本数}}\vspace{0.3zw}\\
+\Large 
+問．点$\left(0,k\right)$から曲線\vspace{-0.5zw}
+\[y=x^3+2x^2-4x\vspace{-0.8zw}\]
+に引くことのできる接線の本数を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{$3$次方程式の実数解の個数}}\vspace{0.3zw}\\
+\normalsize 
+問．$3$次方程式$2x^3+3x^2-{12}x+a=0$が次の解をもつとき、
+定数$a$の値の範囲を求めよ．\\
+(1)  異なる$3$つの実数解\\
+(2)  ただ一つの実数解\\
+(3)  異なる$2$つの正の解と負の解\\
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{$4$次方程式の実数解の個数}}\vspace{0.3zw}\\
+\Large 
+問．次の$4$次方程式の異なる実数解の個数を求めよ．\vspace{-0.5zw}
+\[x^4-4x^3+4x^2-2=0\vspace{-0.5zw}\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\large\underline{$3$次関数の最大最小$〜$係数に文字$〜$}}\vspace{0.3zw}\\
+\Large
+問．$a>0$とする．関数\vspace{-0.5zw}
+\[f\left(x\right)=x^3-3a^2x\vspace{-0.5zw}\]
+の$0\leqq x\leqq 1$における最小値と最大値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\large\underline{$3$次関数の最大最小$〜$区間に文字$〜$}}\vspace{0.3zw}\\
+\Large
+問．$a>0$とする．関数\vspace{-0.5zw}
+\[f\left(x\right)=x^3-3x^2+1\vspace{-0.5zw}\]
+の$0\leqq x\leqq a$における最小値と最大値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{極値の計算工夫}}\vspace{0.3zw}\\
+\Large 
+問．関数\vspace{-0.5zw}
+\[f\left(x\right)=x^3-3x^2-6x+5\vspace{-0.5zw}\]
+の極値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{共通接線の方程式}}\vspace{0.3zw}\\
+\Large 
+問．$2$つの放物線\vspace{-0.5zw}
+\[y=x^2,\ \ y=-x^2+6x-5\vspace{-0.5zw}\]
+の共通接線の方程式を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{接線の方程式}}\vspace{0.3zw}\\
+\large 
+問．次の接線の方程式を求めよ．\\
+(1)  曲線$y=x^2+4x$上の点$\left(1,5\right)$における接線\\
+(2)  曲線$y=x^3-3x^2-1$に点$\left(0,0\right)$から引いた接線
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{常に単調増加する$3$次関数}}\vspace{0.3zw}\\
+\Large 
+問．$x$の$3$次関数\vspace{-0.5zw}
+\[f\left(x\right)=x^3+3kx^2-kx-1\vspace{-0.5zw}\]
+が常に単調増加するような定数$k$の値の範囲を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II微積.jpeg}}
+{\color{orange}\Large\underline{極値から係数決定}}\vspace{0.3zw}\\
+\large 
+問．関数\vspace{-0.5zw}
+\[f\left(x\right)=x^3+ax^2-bx+c\vspace{-0.5zw}\]
+が、$x=-1$で極大値$5$をとり、$x=1$で極小となるとき、定数$a,b,c$の値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ微積}}{\text{典型}}$}
+
+
+
+\end{document}
+

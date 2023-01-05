@@ -1,0 +1,211 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{三角方程式の解の個数 Lv.2 }}\vspace{0.1zw}
+
+\Large
+\bf\boldmath 問．方程式
+
+\Large
+\vspace{0.3zw}
+\hspace{0.0zw}
+$\cos 2x+2a\sin x-4a-1=0\vspace{0.3zw}$
+
+\Large
+の$0\leqq x<2\pi$における\\
+\hfill 異なる実数解の個数を求めよ．
+
+
+
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{三角方程式の解の個数 Lv.1 }}\vspace{0.1zw}
+
+\Large
+\bf\boldmath 問．方程式
+
+\LARGE
+\vspace{0.1zw}
+\hspace{0.0zw}
+$\sin ^2x+\cos x-\bunsuu{9}{4}+a=0\vspace{0.1zw}$
+
+\Large
+の$0\leqq x<2\pi$における\\
+\hfill 異なる実数解の個数を求めよ．
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{半端な角の$\cos$の積}}\vspace{0.3zw}
+
+\Large
+\bf\boldmath 問．
+
+\LARGE
+\hspace{1zw}$\cos {20}^\circ \cos {40}^\circ \cos {80}^\circ$\vspace{0.5zw}
+
+\Large
+\hfill の値を求めよ．
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{半端な角の$\sin$の和}}\vspace{0.3zw}
+
+
+\Large
+\bf\boldmath 問．
+
+\LARGE
+\hspace{0.2zw}$\sin {10}^\circ +\sin {130}^\circ +\sin {250}^\circ$\vspace{0.5zw}
+
+\Large
+\hfill の値を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$\sin 36^\circ$の値}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath 問．$\theta ={36}^\circ$のとき，
+$\sin 3\theta =\sin 2\theta$を示し，
+
+\fontsize{45}{0} \selectfont
+\vspace{0.3zw}
+\hspace{1zw}$\sin {36}^\circ$
+\vspace{0.2zw}
+
+\normalsize
+\hfill の値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{和積公式の利用}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．$0\leqq \theta \leqq \pi$のとき，次の方程式を求めよ．
+\vspace{-0.3zw}
+\[\hspace{-0.3zw} \sin 2\theta +\sin 3\theta +\sin 4\theta =0\]
+\vspace{-0.3zw}
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{三角関数の最大値$〜\sin$と$\cos$の対称式$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の最大値と最小値を求めよ．
+\vspace{-0.3zw}
+\[\hspace{-0.3zw} y=2\sin {x}\cos {x}+\sin {x}+\cos {x}\]
+\vspace{-2zw}
+\[\hspace{8zw}\left(0\leqq x<2\pi \right)\]
+\vspace{-0.3zw}
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{三角関数の最大$〜\sin$と$\cos$の$2$次式$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の最大値と最小値およびそのときの$x$の値を求めよ．
+\vspace{-0.3zw}
+\large
+\[\hspace{-0.3zw}y=\sin ^2{x}+4\sin {x}\cos {x}+5\cos ^2{x}\]
+\vspace{-2zw}
+\[\hspace{10zw}\left(0\leqq x<2\pi\right)\]
+\Large
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+\end{document}
+

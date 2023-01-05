@@ -1,0 +1,273 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{確率の最大化}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$O$さんが各問題に正解する確率は$\bunsuu{{99}}{{100}}$である．$O$さんが$3$問違えるまで問題を解き続けるとき，$n$問目で終わる確率$P_n$が最大となる$n$を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{条件付き確率 Lv.3 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$5$回に$1$回の割合で，帽子を忘れる癖のある$N$君が，正月に$A,\;B,\;C$の$3$軒を順に年始廻りをして家に帰ったとき，帽子を忘れてきたことに気づいた．家$B$に忘れてきた確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{条件付き確率 Lv.2 }}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．$2$つの箱$A,\;B$があり，$A$には赤玉$4$個と白玉$1$個，$B$には赤玉$2$個と白玉$3$個が入っている．サイコロを振り，$1$の目が出れば$A,\;$他の目が出れば$B$を選び，選んだ箱から玉を$1$個取り出す．取り出した玉が赤であるとき，箱$A$が選ばれていた確率を求めよ．
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{独立反復試行 Lv.3 }}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．$A,\;B$の$2$人が繰り返し試合を行う．各試合において，$A$が勝つ確率は$p,\;B$が勝つ確率は$q$で，引き分けはない．先に$3$勝リードした方が優勝とするとき，次の確率を求めよ．\\
+(1)  $5$試合目に$A$が優勝を決める確率\\
+(2)  $9$試合目に$A$が優勝を決める確率\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{独立反復試行 Lv.2 }}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．$A,\;B$の$2$人が繰り返し試合を行う．各試合において，$A$が勝つ確率は$p,\;B$が勝つ確率は$q$で，引き分けはない．先に$4$勝した方が優勝とするとき，次の確率を求めよ．\\
+(1)  $6$試合目に$A$が優勝を決める確率\\
+(2)  $6$試合目に優勝者が決まる確率\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ランダムウォーク Lv.2 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．数直線上の動点$\text{P}$を，コインを投げて
+表が出れば正の向きに$1$だけ移動させ，
+裏が出れば負の向きに$1$だけ移動させる．
+原点$\text{O}$から出発して，コインを${10}$回投げた後に点$\text{P}$が初めて原点に戻る確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ランダムウォーク Lv.1 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．数直線上の動点$\text{P}$を，コインを投げて
+表が出れば正の向きに$1$だけ移動さ，
+裏が出れば負の向きに$1$だけ移動させる．
+原点$\text{O}$から出発して，コインを${10}$回投げた後の点$\text{P}$が正の部分にある確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{全体像を見る}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．赤玉$3$個，白玉$3$個，青玉$3$個が入っている袋から$3$個の玉を取り出すとき，玉の色が$2$種類になる確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{余事象の利用}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$1$から$8$までの数の書かれた$8$枚のカードから$3$枚のカードを取り出すとき，次の確率を求めよ．\\
+(1)  $3$数の和が${18}$以下となる確率\\
+(2)  $3$数の積が$4$の倍数となる確率\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{非復元抽出$〜$引いたくじは戻さない$〜$}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．当たり$3$本，はずれ$7$本のくじから$4$本を引くとき，$2$本だけ当たりくじを引く確率を求めよ．ただし，引いたくじは戻さないとする．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{同基準}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．トランプのスペード${13}$枚を一列に並べるとき，絵札がすべて隣り合う確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{等確率}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．区別のない$3$個のサイコロを投げるとき，出た目の和が$5$となる確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{サイコロの目の最大値と最小値}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．サイコロを$n$回振り，出た目の最大値を$M,\;$最小値を$m$とする．\\
+(1)  $M=5$となる確率を求めよ．\\
+(2)  $M=5,\;m=2$となる確率を求めよ．\\
+(3)  $M-m=3$となる確率を求めよ．\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{サイコロの目の積}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．サイコロを$n$回振り，出た目のすべての積を$X$とするとき，\\
+(1)  $X$が偶数である確率を求めよ．\\
+(2)  $X$が$6$の倍数である確率を求めよ．\\
+(3)  $X$が$4$の倍数である確率を求めよ．\\
+(4)  $X$が${12}$の倍数である確率を求めよ．\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/確率.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{独立反復試行 Lv.1 }}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．サイコロを繰り返し$5$回投げる時，$3$の倍数の目がちょうど$3$回出る確率を求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{確率}}{\text{典型}}$}
+
+
+\end{document}
+

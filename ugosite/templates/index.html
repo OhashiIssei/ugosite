@@ -4,15 +4,16 @@
   <title> Ugosuuにようこそ</title>
 {% endblock %}
 
+
 {% block content %}
   <h2>Ugosuuにようこそ</h2>
   <p>ようこそ、Ugosuuへ。このウェブサイトは<em>大橋いっせい</em>によって開発されています!</p>
   <h3>現在の状況</h3>
   <p>このサイトは次のような記録を持っています：</p>
   <ul>
+    <li><strong>カテゴリ:</strong> {{ num_categorys }}</li>
     <li><strong>記事:</strong> {{ num_articles }}</li>
-    <li><strong>モジュール:</strong> {{ num_modules }}</li>
-    <li><strong>問題:</strong> {{ num_problems }}</li>
+    <li><strong>問題(入試問題):</strong> {{ num_problems }} ({{ num_problems_of_univ }})</li>
     <li><strong>動画:</strong> {{ num_videos }}</li>
     <li><strong>用語:</strong> {{ num_terms }}</li>
   </ul>
@@ -34,11 +35,11 @@
     <p>このサイトにはまだ記事がありません。</p>
   {% endif %}
 
-  <h2>モジュール</h2>
+  <h2>カテゴリ</h2>
   <ul>
-    {% for module in module_list %}
+    {% for category in category_list %}
       <li>
-        <a href="{{ module.get_absolute_url }}">{{ module.name }}</a>
+        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
       </li>
     {% endfor %}
   </ul>

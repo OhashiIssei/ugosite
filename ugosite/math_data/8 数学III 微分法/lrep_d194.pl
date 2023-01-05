@@ -1,5 +1,0 @@
-open(FHNDL,">./lrep_d194.dta");
-require 'emath.pl';
-$oldx=$x=0.01;$oldy=sin(($x))+(0.15)*($x);$orgdx=$dx=.05;if($oldy>-49.99289&& $oldy<49.99289){ printf FHNDL"(%f,%f)",$x,$oldy;} 
-for($x=0.01;$x<8;$x+=.05){$y=sin(($x))+(0.15)*($x); if($y>-49.99289&& $y<49.99289){ printf FHNDL"(%f,%f)",$x,$y; } };$x=8;$y=sin(($x))+(0.15)*($x); if($y>-49.99289&& $y<49.99289){ printf FHNDL"(%f,%f)",$x,$y; } 
-close(FHNDL);

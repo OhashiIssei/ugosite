@@ -1,0 +1,287 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{放物線の平行移動}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．放物線$y=2x^2-8x+5$を
+
+\huge
+\vspace{-0.1zw}
+\hspace{0.1zw}
+どのように\vspace{-0.1zw}\\
+\hfill 平行移動すると
+\vspace{0.2zw}
+\hspace{0.1zw}
+
+\large
+\hfill 放物線$y=2x^2+4x+7$に重なるか．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{放物線の対称移動}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．放物線$y=3x^2-6x+4$を
+
+\LARGE
+\hspace{0.1zw}
+$x$軸，$y$軸，原点関して\\
+\hfill 対称移動した放物線
+\hspace{0.1zw}
+
+\large
+\vspace{0.5zw}
+\hfill の方程式をそれぞれ求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{放物線の平行移動}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．放物線$y=3x^2-6x+4$を
+
+\LARGE
+\hspace{-0.1zw}
+$x$軸方向に$-1,y$軸方向に$3$\\
+\hfill だけ平行移動した放物線
+\hspace{0.1zw}
+
+\large
+\vspace{0.5zw}
+\hfill の方程式を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$2$次関数のグラフ}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の$2$次関数のグラフをかけ．
+
+\huge
+(1)  $y=x^2+4x+1$\\
+(2)  $y=-2x^2+4x+3$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{グラフの拡大}}\vspace{0.1zw}
+
+\normalsize
+\bf\boldmath 問．関数$y=2x^2$のグラフを$y$軸をもとにして，
+
+\huge
+\vspace{-0.0zw}
+\hspace{0.1zw}
+$x$軸方向に\\
+\hfill $2$倍に拡大する
+\hspace{0.1zw}
+
+\normalsize
+\vspace{0.5zw}
+\hfill ことで得られるグラフの式を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{グラフの平行移動}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．関数$y=2x^2$のグラフを
+
+\LARGE
+\hspace{0.1zw}
+$x$軸方向に$3,\;y$軸方向に$1$\\
+\hfill だけ平行移動する
+\hspace{0.1zw}
+
+\large
+\vspace{0.5zw}
+\hfill ことで得られるグラフの式を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$2$次方程式 $3$つの解法}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath 問．次の$2$次方程式を解け．
+
+\LARGE
+\vspace{-0.2zw}
+(1)  $2x^2-5x-3=0$\\
+(2)  $x^2-3=0$\\
+(3)  $x^2-4x+1=0$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{解の公式の証明}}\vspace{0.1zw}
+
+\Large 
+\bf\boldmath 問．$2$次方程式の解の公式
+
+
+\vspace{0.5zw}
+\hspace{0.0zw}$x=$
+\huge$\bunsuu{{-b+\sqrt {b^2-4ac}}}{{2a}}\vspace{0.3zw}$
+
+\Large 
+\hfill を証明せよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{判別式$D$ 全パターン}}\vspace{-0.1zw}
+
+\huge 
+\bf\boldmath 問． 次の$2$次方程式の\\
+\hfill 実数解の個数を求めよ．
+
+\normalsize 
+\vspace{0.4zw}
+\hspace{-1zw}
+$\begin{array}{ll}
+(1)\hspace{0.3zw}  x^2-4x+1=0&\hspace{-0.5zw}
+(2)\hspace{0.3zw}  2x^2-x+4=0\\
+(3)\hspace{0.3zw}  4x^2+{12}x+9=0&\hspace{-0.5zw}
+(4)\hspace{0.3zw}  2x^2-x-4=0\\
+\end{array}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/２次関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$2$次不等式 全パターン}}\vspace{0.5zw}
+
+\large
+\bf\boldmath 問．次の$2$次不等式を解け．
+
+\small
+\vspace{0.8zw}
+\hspace{-1zw}
+$\begin{array}{ll}
+(1)\hspace{0.3zw}  x^2-7x+6\leqq 0&\hspace{-0.5zw}
+(2)\hspace{0.3zw}  x^2-2x-{15}>0\vspace{0.5zw}\\
+(3)\hspace{0.3zw}  2x^2+x-6<0&\hspace{-0.5zw}
+(4)\hspace{0.3zw}  -x^2+2x+4\leqq 0\vspace{0.5zw}\\
+(5)\hspace{0.3zw}  x^2-{12}x+{36}>0&\hspace{-0.5zw}
+(6)\hspace{0.3zw}  9x^2+{24}x+{16}\leqq 0\vspace{0.5zw}\\
+(7)\hspace{0.3zw}  x^2-x+3>0&\hspace{-0.5zw}
+(8)\hspace{0.3zw}  -2x^2-6x-5>0\vspace{0.5zw}\\
+\end{array}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{２次関数}}{\text{基本}}$}
+
+
+\end{document}
+

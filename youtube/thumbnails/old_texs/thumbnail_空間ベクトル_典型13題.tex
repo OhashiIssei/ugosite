@@ -1,0 +1,299 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{平面の方程式}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の平面の方程式を求めよ．
+
+\normalsize
+(1)  点$\text{A}\left(1,\;2,\;2\right)$を通り，\\
+\hfill$\vv n=\left(2,\;-2,\;4\right)$に垂直な平面\\
+(2)  $3$点$\text{A}\left(0,\;1,\;1\right),\text{B}\left(1,\;0,\;2\right),\text{C}\left(-3,2,3\right)$\\
+\hfill を通る平面\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{空間内の直線の方程式}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の直線の媒介変数表示と，\\
+\hfill 直線の方程式を求めよ．
+
+\normalsize
+(1)  点$\text{A}\left(4,\;5,\;3\right)$を通り，\\
+\hfill$\vv d=\left(3,\;2,\;-4\right)$に平行な直線\\
+(2)  $2$点$\text{A}\left(1,\;2,\;3\right),\text{B}\left(2,\;-1,\;5\right)$を通る直線\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{空間ベクトルの和の等式}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．四面体$\text{ABCD}$において等式
+
+\vspace{0.3zw}
+\hspace{0.3zw}$\vv {\text{AP}}+4\vv {\text{BP}}+3\vv {\text{CP}}+5\vv {\text{DP}}=\vv 0\vspace{0.3zw}$
+
+
+を満たす点$\text{P}$はどのような点か．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{空間ベクトルの大きさの最小}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．原点$\text{O}$と$3$点$\text{P}\left(1,2,1\right)$,$\text{Q}\left(2,1,2\right)$,\\
+$\text{R}\left(1,-2,3\right)$について
+
+\Large
+\vspace{0.3zw}
+\hspace{0.5zw}$\zettaiti{x\vv {\text{OP}}+y\vv {\text{OQ}}+\vv {\text{OR}}}\vspace{0.3zw}$
+
+\large
+の最小値と，\\
+\hfill そのときの実数$x,\;y$の値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{正四面体の第四の点の座標}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$3$点
+
+\large
+\vspace{0.3zw}
+\hspace{0.3zw}$\text{A}\left(6,\;0,\;0\right)$,\;$\text{B}\left(0,\;6,\;0\right)$,\;$\text{C}\left(0,\;0,\;6\right)\vspace{0.3zw}$
+
+\Large 
+に対して，正四面体$\text{ABCD}$の頂点$\text{D}$の座標を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{平面に下ろした垂線の足の座標}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$\text{A}\left(2,\;0,\;0\right),\;\text{B}\left(0,\;3,\;0\right),\;$\\
+$\text{C}\left(0,\;0,\;3\right)$の定める平面$\text{ABC}$に原点$\text{O}$から下ろした垂線を$\text{OH}$とするとき，点$\text{H}$の座標を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{空間における点の一致の証明}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．四面体$\text{ABCD}$において，\\
+辺$\text{AB}$,\;$\text{BC}$,\;$\text{CD}$,\;$\text{DA}$,\;$\text{AC}$,\;$\text{BD}$の中点をそれぞれ$\text{K},\;\text{L},\;\text{M},\;\text{N},\;\text{Q},\;\text{R}$とする．
+
+\Large
+線分$\text{KM},\;\text{LN},\;\text{QR}$の中点は一致することを証明せよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{空間における三角形の面積}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$3$点
+
+\normalsize
+\vspace{0.3zw}
+\hspace{0.5zw}$\text{A}\left(3,\;2,\;4\right)$,\;$\text{B}\left(3,\;-1,\;-1\right)$,\;$\text{C}\left(5,\;3,\;-3\right)$
+\vspace{0.3zw}
+
+\Large 
+を頂点とする三角形$\text{ABC}$の面積を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{空間図形の垂直証明}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．正四面体$\text{ABCD}$において，\\
+三角形$\text{BCD}$の重心を$\text{G}$とする．
+
+\LARGE 
+$\text{AG}$と$\text{BC}$が垂直であることを証明せよ．
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$4$点が同一平面上にある条件}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$4$点
+
+\normalsize
+\hspace{3zw}$\text{A}\left(3,\;1,\;2\right),\;\text{B}\left(4,\;2,\;3\right)$,\;\\
+\hspace{3zw}$\text{C}\left(5,\;2,\;5\right),\;\text{D}\left(-2,\;-1,\;z\right)$
+
+\Large 
+が同一平面上にあるとき，\\
+\hfill$z$の値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$3$点が同一直線上にある条件}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$3$点
+
+\normalsize
+\vspace{0.3zw}
+\hspace{0.5zw}$\text{A}\left(2,\;-1,\;5\right),\;\text{B}\left(3,\;6,\;9\right),\;\text{C}\left(1,\;y,\;z\right)\vspace{0.3zw}$
+
+\Large
+が一直線上にあるとき，\\
+\hfill$y,\;z$の値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{平面$\text{ABC}$と直線の交点}}\vspace{1zw}
+
+\Large 
+\bf\boldmath 問．直方体OABD-CEFGにおいて，対角線$\text{OF}$と平面$\text{ABC}$の交点を$\text{P}$とする．
+$\text{OP}:\text{OF}$を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{空間における垂直条件}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．2つのベクトル
+
+\large
+\vspace{0.3zw}
+\hspace{0.3zw}$\vv{a}=\left(2,\;-1,\;0\right),\;$$\vv{b}=\left(6,\;-2,\;1\right)$
+\vspace{0.3zw}
+
+\Large 
+の両方に垂直で，大きさが$3$であるベクトル$\vv{p}$を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{典型}}$}
+
+
+\end{document}
+

@@ -1,0 +1,249 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$2$倍角，$3$倍角の公式の導出}}\vspace{0.3zw}
+
+\bf\boldmath 
+
+\large
+\hspace{0.5zw}$\sin 2\alpha =2\sin \alpha \cos \alpha$\\
+\hspace{0.5zw}$\cos 2\alpha =1-2\sin ^2\alpha =2\cos ^2-1$\\
+\hspace{0.5zw}$\tan 2\alpha =\bunsuu{{2\tan \alpha }}{{1-\tan ^2\alpha }}$\vspace{0.4zw}\\
+\hspace{0.5zw}$\sin 3\alpha =3\sin \alpha -4\sin ^3\alpha$\\
+\hspace{0.5zw}$\cos 3\alpha =-3\cos \alpha +4\sin ^3\alpha$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$\tan$の加法定理の導出}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath
+
+\Large
+\vspace{0.5zw}
+\hspace{0.2zw}$\tan \left(\alpha +\beta \right)=\bunsuu{{\tan \alpha +\tan \beta }}{{1-\tan \alpha \tan \beta }}\vspace{0.3zw}$\vspace{0.5zw}\\
+\hspace{0.2zw}$\tan \left(\alpha -\beta \right)=\bunsuu{{\tan \alpha -\tan \beta }}{{1+\tan \alpha \tan \beta }}\vspace{0.3zw}$
+
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$\sin$,$\cos$の加法定理の導出}}\vspace{0.5zw}
+
+\large
+\bf\boldmath 
+ $\sin \left(\alpha +\beta \right)=\sin \alpha \cos \beta +\cos \alpha \sin \beta$\vspace{0.3zw}\\
+ $\sin \left(\alpha -\beta \right)=\sin \alpha \cos \beta -\cos \alpha \sin \beta$\vspace{0.3zw}\\
+ $\cos \left(\alpha +\beta \right)=\cos \alpha \cos \beta -\sin \alpha \sin \beta$\vspace{0.3zw}\\
+ $\cos \left(\alpha -\beta \right)=\cos \alpha \cos \beta +\sin \alpha \sin \beta$\vspace{0.3zw}\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{三角関数の性質 全パターン導出}}\vspace{0.2zw}
+
+\scriptsize
+\bf\boldmath
+
+$\begin{array}{ll}
+
+\left\{\begin{array}{l}
+\hspace{-0.5zw}\sin \left(\theta +2n\pi \right)=\sin \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\cos \left(\theta +2n\pi \right)=\cos \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\tan \left(\theta +2n\pi \right)=\tan \theta \vspace{0.3zw}
+\end{array}\right.&
+
+\left\{\begin{array}{l}
+\hspace{-0.5zw}\sin \left(-\theta \right)=-\sin \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\cos \left(-\theta \right)=\cos \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\tan \left(-\theta \right)=-\tan \theta \vspace{0.3zw}
+\end{array}\right.\vspace{0.5zw}\\
+
+\left\{\begin{array}{l}
+\hspace{-0.5zw}\sin \left(\theta +\frac{\pi }{2}\right)=\cos \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\cos \left(\theta +\frac{\pi }{2}\right)=-\sin \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\tan \left(\theta +\frac{\pi }{2}\right)=-\frac{1}{\tan\theta} \vspace{0.3zw}
+\end{array}\right.&
+
+\left\{\begin{array}{l}
+\hspace{-0.5zw}\sin \left(\frac{\pi }{2}-\theta\right)=\cos \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\cos \left(\frac{\pi }{2}-\theta\right)=\sin \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\tan \left(\frac{\pi }{2}-\theta\right)=\frac{1}{\tan\theta} \vspace{0.3zw}
+\end{array}\right.\vspace{0.5zw}\\
+
+\left\{\begin{array}{l}
+\hspace{-0.5zw}\sin \left(\theta +\pi \right)=-\sin \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\cos \left(\theta +\pi \right)=-\cos \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\tan \left(\theta +\pi \right)=\tan \theta \vspace{0.3zw}
+\end{array}\right.&
+
+\left\{\begin{array}{l}
+\hspace{-0.5zw}\sin \left(\pi-\theta \right)=\sin \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\cos \left(\pi-\theta\right)=-\cos \theta \vspace{0.3zw}\\
+\hspace{-0.5zw}\tan \left(\pi-\theta \right)=-\tan \theta \vspace{0.3zw}
+\end{array}\right.\vspace{0.5zw}\\
+
+
+
+
+\end{array}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{三角関数の定義}}\vspace{0.5zw}
+
+\large
+\bf\boldmath 問．下の各角$\theta$に対して，
+
+\huge 
+\vspace{-0.1zw}
+\hspace{0.1zw}
+$\cos \theta ,\;\sin \theta ,\;\tan \theta$
+% \vspace{-1zw}
+\vspace{0.2zw}
+
+
+\large
+\hfill の値を求めよ．
+\vspace{0.7zw}
+
+\small
+(1)  $\bunsuu{5}{6}\pi$\hfill
+(2)  $\bunsuu{5}{4}\pi$\hfill
+(3)  $-\bunsuu{\pi }{3}$\hfill
+(4)  $3\pi$\hfill
+(5)  $-\bunsuu{{11}}{6}\pi$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{弧度法とは？}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．半径が$r,\;$中心角が$\theta$の扇形の弧の長さを$l,\;$面積を$S$とすると，
+
+\huge
+\vspace{0.3zw}
+\hspace{0.5zw}$l=r\theta ,\;S=\bunsuu{1}{2}r^2\theta \vspace{0.3zw}$
+
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{一般角,動径とは？}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．動径$\text{OP}$と始線$\text{OX}$のなす角の$1$つを$\alpha$とすると，動径$\text{OP}$の表す一般角は，
+
+\LARGE
+\hspace{0.2zw}
+$\alpha +{360}^\circ ×n \hspace{0.5zw}(n$は整数$)$
+
+\large 
+\vspace{0.5zw}
+\hfill と表せる．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{基本}}$}
+
+
+\end{document}
+

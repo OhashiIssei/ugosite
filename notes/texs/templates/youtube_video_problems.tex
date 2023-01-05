@@ -1,0 +1,54 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+%papersize
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+\RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+% \papersizesetup{size={80mm,45mm}}
+% \usepackage[top=0.5zw,bottom=0truemm,left=3truemm,right=135truemm]{geometry}
+%\newgeometry{}
+\usepackage{setspace} % 行間
+\setstretch{1} % ページ全体の行間を設定
+
+%余白など
+\columnsep=-10cm
+\setlength{\mathindent}{1zw}
+\preHEqlabel{$\cdotfill[2em]~$}%houtesikiの点線の長さ
+
+\begin{document}
+
+{{template}}
+
+\end{document}
+

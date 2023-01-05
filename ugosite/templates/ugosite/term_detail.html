@@ -35,4 +35,11 @@
         {% endfor %}
       </ul>
     </div>
+
+    <div style="margin-left:20px;margin-top:20px">
+      <h3>関連単語</h3>
+        {% for t in term.related_terms.all  %}
+          <a href="{{ t.get_absolute_url }}">{{ t.name }}</a>, 
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -27,8 +27,8 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&0&0&wv2m^%$2s#jiwpo=#-hs#&7qfbj#4v_k^e=uphs9wq@oy')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = []
 
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Add our new application
-    'ugosite.apps.UgositeConfig', #This object was created for us in /blog/apps.py
+    'ugosite.apps.UgositeConfig', 
+    'youtube.apps.YoutubeConfig', 
 ]
 
 MIDDLEWARE = [

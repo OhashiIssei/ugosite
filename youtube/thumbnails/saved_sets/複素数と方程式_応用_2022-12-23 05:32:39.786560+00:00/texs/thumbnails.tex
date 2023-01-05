@@ -1,0 +1,295 @@
+
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+\bf\boldmath
+
+
+
+\bf\boldmath
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{$3$元対称式の連立方程式}}\vspace{0.3zw}
+
+\large
+問．
+
+\Large
+\vspace{-1.1zw}
+\hspace{1zw}$\left\{\begin{array}{l}x+y+z=-a-2,\;\vspace{-0.2zw}\\ xy+yz+zx=2a+1,\;\vspace{-0.2zw}\\ xyz=-2\end{array}\right.\vspace{0.0zw}$
+
+\large
+が，$x,\;y,\;z$が実数である解をもつ\\
+\hfill ような実数$a$の範囲を求めよ．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{$3$解から$3$次方程式を作る}}\vspace{0.3zw}
+
+\large
+問．方程式$x^3-x+1=0$の\\
+\hfill $3$つの解を$\alpha ,\;\beta ,\;\gamma$とするとき，
+
+\LARGE 
+\vspace{0.2zw}
+\hspace{0.5zw}$\bunsuu{1}{\alpha },\;\bunsuu{1}{\beta },\;\bunsuu{1}{\gamma}$を$3$解にもつ\vspace{0.2zw}
+
+\large
+\hfill ような$3$次方程式を$1$つ作れ．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\large\underline{$3$次方程式の$3$解$\alpha ,\;\beta ,\;\gamma$の対称式}}\vspace{0.3zw}
+
+\large
+問．方程式$x^3-3x+1=0$の\\
+\hfill $3$つの解を$\alpha ,\;\beta ,\;\gamma$とするとき，
+
+\huge
+\vspace{0.3zw}
+\hspace{0.1zw}
+$\begin{array}{l}\alpha ^3+\beta ^3+\gamma^3\;\\
+\alpha ^4+\beta ^4+\gamma^4
+\end{array}$
+
+\large
+\vspace{-1.5zw}
+\hfill を求めよ．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+\at(2cm,0.2cm){\color{orange}\LARGE\underline{}}\vspace{0.3zw}
+
+\scriptsize
+\hspace{0zw}$x^2 = 1$\vspace{-0.5zw}
+
+\large 
+\hspace{0.5zw}$x^3 = 1$\vspace{-0.5zw}
+
+\LARGE 
+\hspace{1.2zw}$x^4 = 1$\vspace{-0.5zw}
+
+\HUGE
+\hspace{1.8zw}{\color{orange} $x^5 = 1$}\vspace{0.1zw}
+
+\fontsize{45}{10} \selectfont
+\hspace{2.6zw}$x^6 =$
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\huge\underline{相反方程式}}\vspace{0.1zw}
+
+\small 
+問．次の$4$次方程式について
+
+\Large
+\vspace{0.1zw}
+\hspace{0.5zw}$x^4-4x^3+7x^2-8x+4=0\vspace{0.5zw}$
+
+\small 
+(1)  両辺を$x^2$で割って，$t=x+\bunsuu{2}{x}$とおくことで\\
+\hfill 得られる$t$に関する$2$次方程式を求めよ．\\
+(2)  解をすべて求めよ．\\
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\huge\underline{複$2$次方程式}}\vspace{0.3zw}
+
+\Large
+問．方程式
+
+\Huge
+\vspace{0.3zw}
+\hspace{0.2zw}$z^4-6z^2+{25}=0\vspace{0.3zw}$
+
+\Large
+\hfill を解け．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\LARGE\underline{複素数係数の$2$次方程式}}\vspace{0.3zw}
+
+\normalsize 
+問．(1)  $z=x+yi(x,\;y$は実数$)$が，\\
+\hfill $z^2=i$を満たすように，$x,\;y$の値を定めよ．\\
+(2)  $2$次方程式
+
+\LARGE
+\vspace{0.0zw}
+\hspace{0.5zw}$w^2+2\left(1+i\right)w+i=0\vspace{0.1zw}$
+
+\normalsize 
+\hfill を解け．\\
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\Large\underline{複素数係数の方程式の実数解}}\vspace{0.3zw}
+
+\normalsize
+問．$a$を実数の定数とする．$x$の$2$次方程式
+
+\vspace{0.1zw}
+\hspace{0.5zw}$\left(1+i\right)x^2-\left(a+1+i\right)x+\left(2-ai\right)=0\vspace{0zw}$
+
+\LARGE
+が実数解をもつのは\vspace{-0.2zw}\\
+\hfill $a$がどんな値のときか．
+
+\normalsize
+\hfill ただし，$i$は虚数単位である．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\Large\underline{整式の割り算の余り Lv.2 }}\vspace{0.3zw}
+
+\small
+問．整式$P\left(x\right)$を$x-1$で割ったときの余りが$5$,\;\\
+\hfill $\left(x+1\right)^2$で割ったときの余りが$x-8$であるとき，
+
+\huge 
+\vspace{-0.1zw}
+$\left(x-1\right)\left(x+1\right)^2$で\vspace{-0.1zw}\\
+\hfill 割ったときの余り
+\vspace{0.1zw}
+
+\small
+\hfill を求めよ．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\Large\underline{重解をもつ$3$次方程式 Lv.2 }}\vspace{0.1zw}
+
+\Large
+問．$3$次方程式
+
+\Huge
+\vspace{0.0zw}
+\hspace{.5zw}$x^3-2x+k=0\vspace{0.1zw}$
+
+\Large
+が重解をもつのは，\\
+\hfill $k$がいかなる値のときか．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\huge\underline{$3$次方程式の虚数解}}\vspace{0.3zw}
+
+\normalsize 
+問．$a,\;b$を実数とする．方程式
+
+\LARGE
+\vspace{0.1zw}
+\hspace{0.5zw}$2x^3+ax^2+bx-6=0\vspace{0.1zw}$
+\hfill 
+
+\Large
+が$x=1+i$を解にもつとき，\\
+\hfill 残りの解を求めよ．
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+{\color{orange}\Large\underline{$3$次方程式の解と係数の関係}}\vspace{0.3zw}
+
+\small 
+$3$次方程式$ax^3+bx^2+cx+d=0$について，\\
+\hfill $3$解が$x=\alpha ,\;\beta ,\;\gamma$であること，
+
+\large
+\vspace{0.3zw}
+\hspace{0.5zw}$\left\{\begin{array}{l} \alpha +\beta +\gamma=-\bunsuu{b}{a},\;\vspace{-0.2zw}\\ \alpha \beta +\beta \gamma+\gamma\alpha =\bunsuu{c}{a},\;\vspace{-0.2zw}\\ \alpha \beta \gamma=-\bunsuu{d}{a}\end{array}\right.\vspace{0.3zw}$
+
+\small 
+\vspace{-1.8zw}
+\hfill は同値である．
+
+
+\end{document}
+

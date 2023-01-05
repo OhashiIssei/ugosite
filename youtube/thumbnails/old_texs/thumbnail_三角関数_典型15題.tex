@@ -1,0 +1,270 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$\sin 36^\circ$の値}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．$\theta ={36}^\circ$のとき，\\
+$\sin 3\theta =\sin 2\theta$を示し，\\
+$\sin {36}^\circ$の値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{和積公式の利用}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．$0\leqq \theta \leqq \pi$のとき，次の方程式を求めよ．
+\vspace{-0.3zw}
+\[\hspace{-0.3zw} \sin 2\theta +\sin 3\theta +\sin 4\theta =0\]
+\vspace{-0.3zw}
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{三角方程式の解の個数}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．$\sin ^2\theta -\cos \theta +a=0\ \left(0\leqq \theta \leqq 2\pi \right)$\\
+(1)  この方程式が解をもつための$a$の条件を求めよ．\\
+(2)  この方程式の解の個数を$a$の値の範囲によって調べよ．\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{三角関数の最大値$〜\sin$と$\cos$の対称式$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の最大値と最小値を求めよ．
+\vspace{-0.3zw}
+\[\hspace{-0.3zw} y=2\sin {x}\cos {x}+\sin {x}+\cos {x}\]
+\vspace{-2zw}
+\[\hspace{8zw}\left(0\leqq x<2\pi \right)\]
+\vspace{-0.3zw}
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{三角関数の最大$〜\sin$と$\cos$の$2$次式$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の最大値と最小値およびそのときの$x$の値を求めよ．
+\vspace{-0.3zw}
+\large
+\[\hspace{-0.3zw}y=\sin ^2{x}+4\sin {x}\cos {x}+5\cos ^2{x}\]
+\vspace{-2zw}
+\[\hspace{10zw}\left(0\leqq x<2\pi\right)\]
+\Large
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{三角関数の最大$〜$合成$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の最大値と最小値およびそのときの$x$の値を求めよ．
+\vspace{-0.3zw}
+\[y=\sin x+\cos x\]
+\vspace{-2.5zw}
+\[\hspace{8zw}\left(0\leqq x\leqq \pi \right)\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{三角方程式$\cdot$不等式$〜$合成$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$0\leqq x<2\pi$のとき，次の方程式$\cdot$不等式を解け．\\
+(1)  $\sin x-\sqrt 3\cos x=1$\\
+(2)  $\sin x-\sqrt 3\cos x>1$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{三角関数の合成}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の式を$r\sin \left(\theta +\alpha \right)$の形に表せ．\\
+(1)  $\sqrt 3\sin \theta +\cos \theta$\\
+(2)  $\sin \theta -\cos \theta$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$2$倍角を含む方程式$\cdot$不等式}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$0\leqq x<2\pi$のとき，次の方程式$\cdot$不等式を解け．\\
+(1)  $\sin 2x=\sin x$\\
+(2)  $\cos 2\theta \leqq 3\sin x-1$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{加法定理を用いた点の回転移動}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．点$\text{P}\left(3,\;2\right)$を原点$\text{O}$を\vspace{0.5zw}\\中心に$\bunsuu{\pi }{4}$だけ回転させた点\vspace{0.2zw}\\$\text{Q}$の座標を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$2$直線のなす鋭角$\theta$}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．$2$直線$\left\{\begin{array}{l}y=3x-1,\;\\y=\bunsuu{1}{2}x+1\end{array}\right.$\\
+のなす鋭角$\theta$を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$2$次関数の最大最小に帰着}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$0\leqq \theta <2\pi$のとき，\\関数$y=\sin ^2\theta -\cos \theta$の最大値と最小値を求めよ．また，そのときの$\theta$の値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{三角方程式$\cdot$不等式$〜2$次方程式に帰着$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$0\leqq \theta <2\pi$のとき，次の方程式$\cdot$不等式を解け．\\
+(1)  $2\sin ^2\theta +\cos \theta -2=0$\\
+(2)  $2\cos ^2\theta \leqq 3\sin \theta$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{三角方程式$\cdot$不等式$〜$中級$〜$}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．$0\leqq \theta <2\pi$のとき，次の方程式$\cdot$不等式を解け．\\
+(1)  $\sin \left(2\theta -\bunsuu{\pi }{3}\right)=\bunsuu{{\sqrt 3}}{2}$\\
+(2)  $\sin \left(2\theta -\bunsuu{\pi }{3}\right)\leqq \bunsuu{{\sqrt 3}}{2}$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/三角関数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{三角関数の相互関係}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．(1)  $\sin \theta =-\bunsuu{3}{5}$のとき，\\\hspace{2zw}$\cos \theta ,\;\tan \theta$の値を求めよ．\\
+(2)  $\tan \theta =3$のとき，\\\hspace{2zw}$\sin \theta ,\;\cos \theta$の値を求めよ．\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{三角関数}}{\text{典型}}$}
+
+
+\end{document}
+

@@ -1,0 +1,25 @@
+<ul>
+    {% for g in categorys %}
+        {% if g.children %}
+        <li class ="folder linkdiv" itemid="{{ g.id }}">
+            <a href="#">
+                {% if g.icon %}
+                {{ g.icon | safe }} 
+                {% endif %}
+                {{ g.name }}
+            </a>
+            {% include "categorys.html" with categorys=g.category_set.all %}
+            <ul>
+                {% for p in g.article_set.all %}
+                    <li class="file linkdiv" itemid="{{ p.id }}">
+                        <a href="#">{{ p.name }}</a>
+                        <div class="article-detail">
+                            {% include "article_detail.html" with article=p%}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>

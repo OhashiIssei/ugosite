@@ -33,7 +33,7 @@ a:hover,a:focus{
     background-position: -100% 0;
 }
 
-.linkdiv .tex,.linkdiv .small-question,.linkdiv .description{
+.table,.linkdiv .tex,.linkdiv .small-question,.linkdiv .description{
     color:hsl(0, 0%, 78%)
 }
 

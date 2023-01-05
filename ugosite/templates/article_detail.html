@@ -4,6 +4,11 @@
 {{ article.description | safe}}
 </p>
 
+<p>
+{{ article.content | safe}}
+</p>
+
+
 {% if template %}
 <div class ="tex">{% include html %}</div>
 {% endif %}
@@ -28,13 +33,13 @@
 
 {% endcomment %}
 
-{% if article.problems.all %}
+{% if article.problem_set.all %}
 <ol class="problems">
-  {% for problem in article.problems.all %}
+  {% for problem in article.problem_set.all %}
   <li class="linkdiv problem" itemid="{{ problem.id }}">
     <a href ="#{{ problem.id }}">{{ problem.name }}</a>
     <div class="text tex">
-      {{ problem.text|safe }}
+      <a href = "{{ problem.video_set.first.get_absolute_url }}">{{ problem.text | safe }}</a>
     </div>
   </li>
   {% endfor %}

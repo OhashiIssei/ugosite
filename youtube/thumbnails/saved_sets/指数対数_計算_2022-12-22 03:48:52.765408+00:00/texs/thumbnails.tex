@@ -1,0 +1,214 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{指数計算に対数を利用}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．\LARGE$2^x=5^y={10}^z$\Large\;のとき,
+
+\HUGE
+\vspace{-0.3zw}
+\hspace{0.5zw}$xy-yz-zx$\vspace{0.3zw}
+
+\Large 
+\hfill の値を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{底の変換公式}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の式の値を求めよ．
+
+\huge
+\vspace{0.1zw}
+\hspace{0.2zw}$\left(\log _29+\log _83\right)$\\
+\hfill$\times\left(\log _32+\log _94\right)\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{無理数乗の大小比較}}\vspace{0.1zw}
+
+\tiny
+\bf\boldmath 問．次の$\fbox{\phantom{J}}$に$=,\;<,\;>$のいずれかを入れよ．\\
+(1)  $\left(\sqrt 2\right)^2\fbox{\phantom{J}}\log _{\sqrt 2}2$
+
+\scriptsize
+(2)  $\left(\sqrt 2\right)^4\fbox{\phantom{J}}\log _{\sqrt 2}4$
+
+\small
+(3)  $\left(\sqrt 2\right)^8\fbox{\phantom{J}}\log _{\sqrt 2}8$
+
+\vspace{-0.2zw}
+\LARGE
+(4)  $\left(\sqrt 2\right)^{\sqrt 8}\fbox{\phantom{J}}\log _{\sqrt 2}\sqrt 8$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{対数計算}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の式の値を求めよ．
+
+\LARGE
+\vspace{0.2zw}
+\hspace{0.5zw}$\log _5\sqrt 2-\bunsuu{1}{2}\log _5\bunsuu{1}{3}$\\
+\hfill $-\bunsuu{3}{2}\log _5\sqrt[3]{{30}}\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{肩の上の対数}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の式の値を求めよ．
+
+\fontsize{60}{0} \selectfont 
+\vspace{0.2zw}
+\hspace{0.5zw}$3^{\log _98}\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$3$乗根の有理化}}\vspace{0.2zw}
+
+\large
+\bf\boldmath 問．
+
+\fontsize{32}{0} \selectfont
+\vspace{-0.6zw}
+\hspace{0.8zw} $\bunsuu{5}{{}\sqrt[3]4+1}\vspace{0.3zw}$
+
+\large
+\vspace{-0.5zw}
+\hfill
+の分母を有理化せよ．
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{無理数乗の計算}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の式の値を求めよ．
+
+\Huge
+\vspace{0.5zw}
+\hspace{0.5zw}$6^{\sqrt 6}×2^{\sqrt 6}÷3^{\sqrt 6}\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{累乗根の計算}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の式の値を求めよ．
+
+\huge
+\vspace{0.5zw}
+\hspace{0.2zw}$\bunsuu{{\sqrt[3]4}}{{\sqrt {16}}}÷\bunsuu{{\sqrt {64}}}{{\sqrt[3]{64}}}×\bunsuu{{\sqrt {32}}}{{\sqrt[3]{32}}}\vspace{0.3zw}$
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{分数の分数乗}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．\vspace{-1zw}
+
+\fontsize{35}{0} \selectfont
+\vspace{-0.5zw}
+\hspace{1.2zw}$\left(\bunsuu{{{27}}}{8}\right)^{\hspace{-0.4zw}-\frac{2}{3}}\vspace{0.3zw}$
+
+\large
+\vspace{-1.7zw}
+\hfill の値を求めよ．
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{計算}}$}
+
+\end{document}
+

@@ -1,0 +1,1348 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{空間ベクトルの終点の存在範囲}}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．四面体$\text{OABC}$に対し，$\vv {\text{OP}}=l\vv {\text{OA}}+m\vv {\text{OB}}+n\vv {\text{OC}}$とする．実数$l,\;m,\;n$が次の各条件を満たしながら動くとき，点$\text{P}$の存在範囲を求めよ．\\
+(1)  $l+m+n=1$\\
+(2)  $l+m+n=1,\;l\geqq 0,\;m\geqq 0,\;n\geqq 0$\\
+(3)  $l+2m+3n=1$\\
+(4)  $0\leqq l\leqq 1,\;0\leqq m\leqq 1,\;0\leqq n\leqq 1$\\
+(5)  $0\leqq l+m+n\leqq 1,\;l\geqq 0,\;m\geqq 0,\;n\geqq 0$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{四面体とベクトル和の等式}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．四面体$\text{ABCD}$の内部にある点$\text{P}$が$2\text{AP}+3\text{BP}+4\text{CP}+5\text{DP}=0$を満たすとき，四面体$\text{PBCD},\;\text{PCDA},\;\text{PDAB},\;\text{PABC}$の体積比を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{正四面体の対辺が垂直であることの証明}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$1$辺の長さが$a$の正四面体$\text{ABCD}$について，次の命題をそれぞれ示せ．\\
+(1)  対辺$\text{AB}$と$\text{CD}$は垂直である．\\
+(2)  底面$\triangle \text{BCD}$の重心を$\text{G}$とすると，直線$\text{AG}$は底面に垂直である．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{四面体の重心}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．四面体の各頂点$\text{A},\;B,\;C,\;D$と，その対面の重心$\text{G}_1,\;G_2,\;G_3,\;G_4$を結んだ$4$本の線分$\text{AG}_1,\;\text{BG}_2,\;\text{CG}_3,\;\text{DG}_4$は$1$点で交わることを示せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{平面と直線の交点の位置ベクトル Lv.2 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．平行六面体$\text{OADB}-\text{CEGF}$において，辺$\text{GD}$の中点を$\text{H}$とする．\\
+(1)  直線$\text{OH}$と平面$\text{ABC}$の交点を$\text{L}$とするとき，$\text{OL}$を$\text{OA},\;\text{OB},\;\text{OC}$で表せ．\\
+(2)  直線$\text{OH}$と平面$\text{AFC}$の交点を$\text{M}$とするとき，$\text{OM}$を$\text{OA},\;\text{OB},\;\text{OC}$で表せ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{平面と直線の交点の位置ベクトル Lv.1 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．平行六面体$\text{OADB}-\text{CEGF}$において，辺$\text{GD}$の中点を$\text{H}$とする．\\
+(1)  直線$\text{OH}$と平面$\text{ABC}$の交点を$\text{L}$とするとき，$\text{OL}$を$\text{OA},\;\text{OB},\;\text{OC}$で表せ．\\
+(2)  直線$\text{OH}$と平面$\text{AFC}$の交点を$\text{M}$とするとき，$\text{OM}$を$\text{OA},\;\text{OB},\;\text{OC}$で表せ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{座標空間内の四面体の体積}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．空間内の$4$点$\text{A}\left(1,\;1,\;1\right),\;\text{B}\left(0,\;1,\;2\right),\;\text{C}\left(3,\;3,\;0\right),\;\text{D}\left(2,\;3,\;4\right)$について，\\
+(1)  $\triangle \text{ABC}$の面積を求めよ．\\
+(2)  四面体$\text{ABCD}$の体積$V$を求めよ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/空間ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{空間の直線に下ろした垂線の長さ}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．空間内の$3$点$\text{A}\left(1,\;1,\;1\right),\;\text{B}\left(0,\;1,\;2\right),\;\text{C}\left(3,\;3,\;0\right)$について，点$\text{C}$から直線$\text{AB}$に下ろした垂線の長さ$\text{CH}$を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{空間ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ベクトル表現の存在と一意性}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$2$つの$\vv {a},\;\vv {b}$が$1$次独立であるとき，平面における任意のベクトル$\vv {c}$は実数$x,\;‌y$を用いて$\vv {c}=x\vv {a}+y\vv {b}$という形でただ$1$通りに表されることを示せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{ベクトルの終点の存在範囲}}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．$\triangle \text{OAB}$に対して$\vv {\text{OP}}=s\vv {\text{OA}}+t\vv {\text{OB}}$とする．
+実数$s,\;t$が次の条件を満たすとき，点$\text{P}$の動く範囲を図示せよ．\\
+(1)  $s+t=1,\;s\geqq 0,\;t\geqq 0$\\
+(2)  $s+t=1,\;s\geqq 0$\\
+(3)  $s+t=2,\;s\geqq 0,\;t\geqq 0$\\
+(4)  $3s+t=2$\\
+(5)  $0\leqq s\leqq \bunsuu{1}{2},\;0\leqq t\leqq 1$\\
+(6)  $0\leqq s+t\leqq 2,\;s\geqq 0,\;t\geqq 0$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{$2$直線のなす角を求める$3$つの方法}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$2$直線
+
+\vspace{0.3zw}
+\hspace{0.5zw}$l：2x-y+3=0,\;\vspace{0.3zw}$
+
+
+
+\vspace{0.3zw}
+\hspace{0.5zw}$m：x-3y+5=0\vspace{0.3zw}$
+
+
+のなす角を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{垂心のベクトル}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．平面上に$\triangle \text{ABC}$があり，$\text{AB}=1,\;\text{AC}=2,\;\angle \text{BAC}={45}^\circ$であるとする．$\triangle \text{ABC}$の垂心を$\text{H}$とするとき，$\text{AH}$を$\text{AB},\;\text{AC}$で表せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{内心のベクトル}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$3$辺の長さが$\text{BC}=7,\;\text{CA}=5,\;\text{AB}=3$である$\triangle \text{ABC}$の内心を$\text{I}$とする．$\vv{\text{AI}}$を$\vv{\text{AB}} ,\;$$\vv{\text{AC}}$で表せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{外心のベクトル}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$3$辺の長さが$\text{AB}=2,\;\text{BC}=6,\;\text{CA}=2$である
+$\triangle \text{ABC}$の外心を$\text{O}$とするとき，$\text{AO}$を$\text{AB},\;\text{AC}$で表せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{一直線上にあることの証明}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$\triangle \text{ABC}$の辺$\text{BC}$を$1:2$に内分する点を$\text{P},\;$辺$\text{AC}$を$3:1$に内分する点を$\text{Q},\;$辺$\text{AB}$を$6:1$に外分する点を$\text{R}$とするとき，$3$点$\text{P},\;Q,\;R$が一直線上にあることを示せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{線分の交点のベクトル}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$\triangle \text{ABC}$の辺$\text{AB}$を$1:2$に内分する点を$\text{D},\;$辺$\text{AC}$を$3:1$に内分する点を$\text{E},\;\text{BE}$と$\text{CD}$の交点を$\text{F}$とするとき，
+$ec{\text{AF}}$を$ec{\text{AB}},\;ec{\text{AC}}$で表せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/平面ベクトル.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{平面ベクトルの和の等式}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$\triangle \text{ABC}$に対して，
+
+\vspace{0.3zw}
+\hspace{0.5zw}$6ec{\text{AP}}+3ec{\text{BP}}+4ec{\text{CP}}=ec{0}\vspace{0.3zw}$
+
+
+を満たす点$\text{P}$を考える．\\
+(1)  点$\text{P}$はどのような位置にあるか．\\
+(2)  面積比$\triangle \text{PBC}:\triangle \text{PCA}:\triangle \text{PAB}$を求めよ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{平面ベクトル}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$3$乗根の無理数性}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．以下の問いに答えよ．\\
+(1)  $\sqrt 2,\;\sqrt[3]3$が無理数であることを示せ．\\
+(2)  $p,\;q,\;\sqrt 2p+\sqrt[3]3q$がすべて有理数であることする．このとき，$p=q=0$であることを示せ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$3$元対称式の連立方程式}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$x,\;y,\;z$の連立方程式
+
+\vspace{0.3zw}
+\hspace{0.5zw}$x+y+z=-a-2,\;\vspace{0.3zw}$
+
+
+
+\vspace{0.3zw}
+\hspace{0.5zw}$xy+yz+zx=2a+1,\;\vspace{0.3zw}$
+
+
+
+\vspace{0.3zw}
+\hspace{0.5zw}$xyz=-2\vspace{0.3zw}$
+
+
+が，$x,\;y,\;z$が実数である解をもつような実数$a$の範囲を求めよ．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$3$解から$3$次方程式を作る}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$x^3-x+1=0$の$3$つの解を$\alpha ,\;\beta ,\;\gamma$とするとき，$\bunsuu{1}{\alpha },\;\bunsuu{1}{\beta },\;\bunsuu{1}{\gamma}$を$3$つの解にもつ$3$次方程式を$1$つ作れ．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$3$次方程式の$3$解$\alpha ,\;\beta ,\;\gamma$の対称式}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$x^3-3x+1=0$の$3$つの解を$\alpha ,\;\beta ,\;\gamma$とするとき，$\alpha ^3+\beta ^3+\gamma^3,\;\alpha ^4+\beta ^4+\gamma^4$の値を求めよ．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{コーシー$\cdot$シュワルツの不等式の証明 Lv.2 }}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．次の不等式を証明せよ．また，等号成立条件を求めよ．
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\left(a^2+b^2+c^2\right)\left(x^2+y^2+z^2\right)\geqq \left(ax+by+cz\right)^2\vspace{0.3zw}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{コーシー$\cdot$シュワルツの不等式の証明 Lv.1 }}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．次の不等式を証明せよ．また，等号成立条件を求めよ．
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\left(a^2+b^2\right)\left(x^2+y^2\right)\geqq \left(ax+by\right)^2\vspace{0.3zw}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{相加相乗不等式の等号成立条件}}\vspace{0.3zw}
+
+\huge 
+\bf\boldmath 問．$x>0,\;y>0$とする．$\left(x+\bunsuu{1}{y}\right)\left(y+\bunsuu{4}{x}\right)$の最小値を求めよ
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{分数式の最大値}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$x>0$とする．次のそれぞれの分数式の最大値を求めよ．\\
+(1)  $\bunsuu{1}{{}x^2-x+1}$\\
+(2)  $\bunsuu{x}{{}x^2-x+1}$\\
+(3)  $\bunsuu{{x^2}}{{x^2-x+1}}$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{分数関数の最小値}}\vspace{0.3zw}
+
+\huge 
+\bf\boldmath 問．$x>1$とする．関数$y=\bunsuu{{x^2-x+1}}{{x-1}}$の最小値を求めよ
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{相加相乗不等式と最小値}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$x>0$のとき，次の関数の最小値を求めよ．\\
+(1)  $y=2x+\bunsuu{1}{x}$\\
+(2)  $y=2x+\bunsuu{1}{{}x^2}$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{相加相乗不等式の証明}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．正の数$a,\;b,\;c,\;d$に対して，次の不等式を証明せよ．また，等号成立条件を求めよ．\\
+(1)  $\bunsuu{{a+b}}{2}\geqq \sqrt {ab}$\\
+(2)  $\bunsuu{{a+b+c}}{3}\geqq \sqrt[3]{abc}$\\
+(3)  $\bunsuu{{a+b+c+d}}{4}\geqq \sqrt[4]{abcd}$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/黒板風.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{区間に少なくとも$1$つの解}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$x$についての$2$次方程式$x^2-2ax+a+2=0$
+の解が$1<x<3$の範囲に少なくとも$1$つ存在するような定数$a$の値の範囲を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{2次関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/黒板風.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{区間で常に$2$次不等式が成立する条件}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$0\leqq x\leqq 3$を満たす$x$に対して，$x^2-2ax+a+2>0$が成り立つような定数$a$の値の範囲を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{2次関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/黒板風.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$「$すべて$」$と$「$ある$」$の交換}}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．$x,\;y$についての条件$p$を次のように定める．
+
+\vspace{0.3zw}
+\hspace{0.5zw}$p:-x^2+\left(a-2\right)x+a-4<y<x^2-\left(a-4\right)x+3\vspace{0.3zw}$
+
+
+次の各々が成立するための$a$の値の範囲を求めよ．\\
+(1)  どんな$x$に対しても，適当な$y$をとれば，$p$が成り立つ．\\
+(2)  適当な$y$をとれば，どんな$x$に対しても，$p$が成り立つ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{2次関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/黒板風.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$2$変数の$「$すべて$」$と$「$ある$」$}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$2$つの関数$f\left(x\right)=x^2+2x-2,\;g\left(x\right)=-x^2+2x+a+1$について，
+次の各々が成立するような$a$の値の範囲を求めよ．\\
+(1)  $-2\leqq x\leqq 2$を満たすすべての$x_1,\;x_2$に対して$f\left(x_1\right)<g\left(x_2\right)$\\
+(2)  $-2\leqq x\leqq 2$を満たすある$x_1,\;x_2$に対して$f\left(x_1\right)<g\left(x_2\right)$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{2次関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/黒板風.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{ある実数$x$で$2$次不等式が成り立つ条件}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$2$次不等式$ax^2+\left(a-1\right)x+a-1<0$について，\\
+(1)  すべての実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．\\
+(2)  ある実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{2次関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/黒板風.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{すべての実数$x$で$2$次不等式が成り立つ条件}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$2$次不等式$ax^2+\left(a-1\right)x+a-1<0$について，\\
+(1)  すべての実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．\\
+(2)  ある実数$x$に対してこの不等式が成立するための定数$a$の範囲を求めよ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{2次関数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角比.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{平面に下ろした垂線の長さ正四面体}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$1$辺が$6$の正四面体$\text{OABC}$において，点$\text{L},\;M,\;N$は辺$\text{OA},\;\text{OB},\;\text{OC}$を$1:1,\;2:1,\;1:2$に内分する点である．頂点$\text{O}$から平面$\text{LMN}$に下ろした垂線$\text{OH}$の長さを求めよ
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{三角比}}{\text{応用}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角比.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{平面に下ろした垂線の長さ直方体}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$\text{AB}=3,\;\text{AD}=1,\;\text{AE}=2$の直方体$\text{ABCD}-\text{EFGH}$において\\
+(1)  $\triangle \text{AFC}$の面積$S$を求めよ．\\
+(2)  点$\text{B}$から平面$\text{AFC}$に下ろした垂線$\text{BI}$の長さを求めよ．\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{三角比}}{\text{応用}}$}
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\normalsize\underline{無理数の無理数乗は有理数になりえるか}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の各問いに答えよ．\\
+(1)  $\log _34$は無理数であることを示せ．\\
+(2)  $a,\;b$がともに無理数で，$a^b$は有理数であるような
+数$a,\;b$の組を$1$組求めよ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{底に文字を含む対数不等式}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の$x$についての不等式を解け．ただし，$a$は$1$ではない正の実数とする．\\
+(1)  $\log _a\left(2x+{13}\right)>\log _a\left(4-x\right)$\\
+(2)  $\log _a\left(x-a\right)\geqq \log _{a^2}\left(x-a\right)$\\
+(3)  $\log _ax\leqq \log _xa$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数方程式が実数解を持つ条件}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$x$についての方程式$\log _3\left(x-3\right)=\log _9\left(kx-6\right)$が相異なる$2$つの解をもつように，実数$k$の範囲を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{対数方程式}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の方程式を解け．\\
+(1)  $\log _2\left(x^2-2x\right)=\log _2\left(3x-4\right)$\\
+(2)  $\log _2\left(x+2\right)+\log _2\left(x-5\right)=3$\\
+(3)  $\log _{\frac{1}{3}}\left(6-x\right)+2\log _3x=0$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$100^{99}$と$99^{100}$の大小比較}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．${100}^{99}$と${99}^{100}$の大小を判定せよ．ただし，必要なら近似値$\log [{10}]2=0.{3010},\;\log [{10}]3=0.{4771}$を用いて良い．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{常用対数の近似値$〜$津田塾大$〜$}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の値を小数第$1$位まで求めよ．小数第$2$以下は切り捨てよ．\\
+(1)  $\log _{10}2$\\
+(2)  $\log _{10}5$\\
+(3)  $\log _{10}3$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数不等式が表す領域$〜$京大$〜$}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．不等式$\log _xy+\log _yx>2+\left(\log _x2\right)\left(\log _y2\right)$
+を満たす$x,\;y$の組$\left(x,\;y\right)$の範囲を座標平面上に図示せよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数不等式が表す領域 Lv.1 }}\vspace{0.3zw}
+
+\huge 
+\bf\boldmath 問．不等式$1<\log _xy<2$を満たす点$\left(x,\;y\right)$の領域を図示せよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{指数方程式 Lv.2 }}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の各々の等式を満たす実数$x$の値を求めよ．\\
+(1)  $\left(2^x\right)^2-5\cdot 2^x+4=0$\\
+(2)  $9^x-2\cdot 3^x-3=0$\\
+(3)  $4^{x+1}+2\cdot 2^x-2=0$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{指数方程式が実数解を持つ条件}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．方程式$4^x-a\cdot 2^{x+1}+a+2=0$を満たす実数$x$が存在するような実数$a$の値を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{指数方程式の解の配置}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．方程式$9^x+2a\cdot 3^x+2a^2+a-6=0$を満たす$x$の正の解，負の解が$1$つずつ存在するような，定数$a$の値のとる範囲を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{小数首位とその数字}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$\left(\bunsuu{2}{5}\right)^{50}$は小数第何位に初めて$0$でない数字が現れるか．また，その数字を求めよ．ただし，必要ならば$\log _{10}2=0.{3010}$を用いて良い．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$3^{333}$の桁数の桁数を求めよ}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．(1)  $\log _3x=3$を満たす整数$x$を求めよ．\\
+(2)  $\log _3\left(\log _3x\right)=3$を満たす整数$x$は何桁か．また，最高位の数字を求めよ．\\
+(3)  $\log _3\left(\log _3\left(\log _3x\right)\right)=3$を満たす整数$x$の桁数を$n$とするとき，$n$は何桁か．
+必要ならば$\log _{10}2=0.{3010},\;\log _{10}3=0.{4771}$を用いて良い．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{桁数を不等式で表す}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．(1)  ${29}^{100}$は${147}$桁である．${29}^{23}$は何桁の数となるか．\\
+(2)  $\left(1.{25}\right)^n$の整数部分が$3$桁となる自然数$n$はどんな範囲の数か．
+ただし，必要ならば$\log _{10}2=0.{3010},\;\log _{10}3=0.{4771}$を用いて良い．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{桁数，最高位，最高次位}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の問いに答えよ．\\
+(1)  $2^{{2019}}$は何桁か．\\
+(2)  $2^{{2019}}$の最高位の数は何か．\\
+(3)  $2^{{2019}}$の最高次位の数は何か．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{円の通過領域}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．放物線$y=x^2$上を動く点$\text{P}$がある．$P$を中心とし$x$軸に接する円の内部が通過する範囲を図示せよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{直線の通過領域}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$t$が$t>0$の範囲を動くとき，直線$y=2tx-t^2$が通り得る領域を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{点$\left(\alpha +\beta ,\;\alpha \beta \right)$の動く範囲}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．点$\text{P}\left(\alpha ,\;\beta \right)$が$\alpha ^2+\beta ^2<1$を満たして動くとき，点$\text{Q}\left(\alpha +\beta ,\;\alpha \beta \right)$の動く範囲を図示せよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{片側が動く線分の中点の軌跡}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．円$x^2+y^2=1$上の動点$\text{P}$と，点$\text{A}\left(3,\;4\right)$とを結ぶ線分の中点$\text{M}$の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{線型計画法の活用$I$}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．実数$x,\;y$が$x^2+y^2=2,\;x\geqq 0,\;y\geqq 0$を満たして変わるとき，$z=x+y$の最大値，最小値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{線型計画法の基本}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．実数$x,\;y$が条件$x\geqq 0,\;y\geqq 0,\;2x+y\leqq 4,\;x+4y\leqq 6,\;2x+3y\leqq 6$を満たして動くとき，$z=x+y$の最大値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{因数分解された不等式の領域}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次のおのおのの条件を満たす点$\left(x,\;y\right)$の存在範囲を図示せよ．\\
+(1)  $\left(3x-y-5\right)\left(x^2+y^2-{25}\right)\leqq 0$\\
+(2)  $\left(\zettaiti{x}+\zettaiti{y}-1\right)\left(x^2+y^2-1\right)<0$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$2$直線の交点の軌跡}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$t$がすべての実数値を取りながら変化するとき，$xy$平面上の$2$つの直線$tx-y=t,\;x+ty-2t-1=0$
+の交点の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{放物線の直交する$2$接線の交点の軌跡}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．放物線$y=x^2$の異なる$2$接線が直交するとき，この$2$接線の交点$\text{P}$の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{円と直線の$2$交点の中点の軌跡}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．円$C:x^2+y^2=1$と直線$l:y=m\left(x-2\right)$がある．$C$と$l$が異なる$2$点で交わるように$m$の値が変化するとき，$C$と$l$の交点の中点$\text{M}$の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{パラメータ表示された軌跡の除去点}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．変数$t$が全ての実数値をとって変化するとき，次式で定まる点$\text{P}\left(x,\;y\right)$の描く軌跡を求めよ．
+
+\vspace{0.3zw}
+\hspace{0.5zw}$x=\bunsuu{1}{{}t^2+1},\;y=\bunsuu{t}{{}t^2+1}\vspace{0.3zw}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{放物線の頂点の軌跡}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$m$が全ての実数値をとって変化するとき，放物線$y=x^2-2mx+2m$の頂点の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{パラメータ表示された点の軌跡}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．変数$t$が全ての実数値をとって変化するとき，次のおのおの式で定められる点$\text{P}\left(x,\;y\right)$の描く軌跡を求め，図示せよ．\\
+(1)  $x=t-1,\;y=t^2+4t-1$\\
+(2)  $x=t^2-1,\;y=t^4+4t^2-1$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{$2$点からの距離の比が等しい点の軌跡}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$xy$平面上に，$2$定点$\text{A}\left(-3,\;0\right),\;\text{B}\left(3,\;0\right)$がある．$xy$平面上にあって
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\text{AP}:\text{BP}=2:1\vspace{0.3zw}$
+
+
+という条件を満たして動く動点$\text{P}$の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$2$点から等距離の点の軌跡}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$2$点$\text{A}\left(-1,\;3\right),\;\text{B}\left(2,\;1\right)$からの距離が等しい点$\text{P}$の軌跡を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{$1$の立方根，$4$乗根，$5$乗根，$6$乗根}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$1$の平方根，$1$の立方根，$1$の$4$乗根，$1$の$5$乗根，$1$の$6$乗根を求めよ．
+かったるい説明に嫌気がさしたときに見る動画．早口$×$早送りで解説しました．雰囲気を掴んでもらえたらいいと思っています．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{相反方程式}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$4$次方程式$x^4-4x^3+7x^2-8x+4=0$について次の問いに答えよ．\\
+(1)  この$4$次方程式の両辺を$x^2$で割って，$t=x+\bunsuu{2}{x}$とおくことで得られる$t$に関する$2$次方程式を求めよ．\\
+(2)  この$4$次方程式の解をすべて求めよ．\\
+
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{複$2$次方程式}}\vspace{0.3zw}
+
+\HUGE 
+\bf\boldmath 問．方程式$z^4-6z^2+{25}=0$を解け．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{複素数係数の$2$次方程式}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の問いに答えよ．\\
+(1)  $z=x+yi(x,\;y$は実数$)$が，$z^2=i$を満たすように，$x,\;y$の値を定めよ．\\
+(2)  $2$次方程式$w^2+2\left(1+i\right)w+i=0$を解け．\\
+
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{複素数係数$2$次方程式の実数解}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$a$を実数の定数とする．$x$の$2$次方程式
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\left(1+i\right)x^2-\left(a+1+i\right)x+\left(2-ai\right)=0\vspace{0.3zw}$
+
+
+が実数解を持つのは，$a$がどんな値のときか．ただし，$i$は虚数単位である．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{整式$\text{P}\left(x\right)$を$\left(x-1\right)\left(x+1\right)^2$で割った余り}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．整式$\text{P}\left(x\right)$を$x-1$で割ったときの余りが$5,\;\left(x+1\right)^2$で割ったときの余りが$x-8$であるとき，$P$を$\left(x-1\right)\left(x+1\right)^2$で割ったときの余りを求めよ．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{$3$次方程式が重解をもつ条件 Lv.2 }}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$3$次方程式$x^3-2x+k=0$が重解を持つのは，$k$がいかなる値のときか．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{$3$次方程式の虚数解}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$a,\;b$を実数とする．方程式$2x^3+ax^2+bx-6=0$が，$x=1+i$を解に持つとき，残りの解を求めよ．
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/複素数と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$3$次方程式の解と係数の関係}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$3$次方程式$ax^3+bx^2+cx+d=0$において，次が成り立つことを示せ．
+$3$解が$x=\alpha ,\;\beta ,\;\gamma$である$\iff$
+
+\vspace{0.3zw}
+\hspace{0.5zw}$\alpha +\beta +\gamma=-\bunsuu{b}{a},\;\alpha \beta +\beta \gamma+\gamma\alpha =\bunsuu{c}{a},\;\alpha \beta \gamma=-\bunsuu{d}{a}\vspace{0.3zw}$
+
+
+\at(6.4cm,0.2cm){\small\color{bradorange}$\overset{\text{複素数と方程式}}{\text{応用}}$}
+
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角比.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{円に内接する四角形の面積}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．円$O$に内接する四角形$\text{ABCD}$が\\
+\hspace{0.3zw}$\text{AB}=2,\;\text{BC}=3,\;\text{CD}=1,\;\angle \text{ABC}={60}^\circ$\\
+を満たしている．\\
+\large
+(1)  円$O$の半径$R$を求めよ．\\
+(2)  四角形$\text{ABCD}$の面積$S$を求めよ．\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{三角比}}{\text{応用}}$}
+
+
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角比.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{円に内接する四角形$〜$島根大$〜$}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．円に内接する四角形$\text{ABCD}$が$\text{AB}=4,\;\text{BC}=5,\;\text{CD}=7,\;\text{DA}={10}$を満たしている．\\
+(1)  四角形$\text{ABCD}$の面積$S$を求めよ．\\
+(2)  $2$本の対角線$\text{AC},\;\text{BD}$の交点を$\text{E}$とする．$\text{AE}：\text{EC}$を求めよ．\\
+
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{三角比}}{\text{応用}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/三角比.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{円に内接する四角形$〜$東京大$〜$}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．四角形$\text{ABCD}$が，半径$\bunsuu{{{65}}}{8}$の円に内接している．この四角形の周の長さが${44}$で，辺$\text{BC}$と辺$\text{CD}$の長さがいずれも${13}$であるとき，残りの$2$辺$\text{AB}$と$\text{DA}$の長さを求めよ．
+\at(7.2cm,0.2cm){\small\color{bradorange}$\overset{\text{三角比}}{\text{応用}}$}
+
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{区別する$\cdot$しない}}\vspace{0.3zw}
+
+\scriptsize 
+\bf\boldmath 問．$6$個のボールを$3$つの箱に入れるとき，入れ方は何通りか．$1$空箱があってもよい$2$空箱はなしで，それぞれ求めよ．\\
+(1)  $1$から$6$まで異なる番号のついた$6$個のボールを$A,\;B,\;C$と区別された$3$つの箱に入れる場合．\\
+(2)  互いに区別の付かない$6$個のボールを$A,\;B,\;C$と
+区別された$3$つの箱に入れる場合．\\
+(3)  $1$から$6$まで異なる番号のついた$6$個のボールを区
+別のつかない$3$つの箱に入れる場合．\\
+(4)  互いに区別の付かない$6$個のボールを区別のつかない
+$3$つの箱に入れる場合．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{完全順列}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．次の人数でプレゼント交換するとき，受け取り方は何通りあるか．ただし，全員が他人のプレゼントを受け取るとする．\\
+(1)  $1$人\\
+(2)  $2$人\\
+(3)  $3$人\\
+(4)  $4$人\\
+(5)  $5$人\\
+(6)  $6$人\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{重複組合せ Lv.3 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．次の等式$\cdot$不等式を満たす整数の組$\left(x,\;y,\;z\right)$の個数を求めよ．\\
+(1)  $x+y+z=6,\;x\geqq 0,\;y\geqq 0,\;z\geqq 0$\\
+(2)  $x+y+z=6,\;x\geqq 1,\;y\geqq 1,\;z\geqq 1$\\
+(3)  $x+y+z\leqq 6,\;x\geqq 0,\;y\geqq 0,\;z\geqq 0$\\
+(4)  $1\leqq x<y<z\leqq 6$\\
+(5)  $1\leqq x\leqq y\leqq z\leqq 6$\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{最短経路}}\vspace{0.3zw}
+
+\huge 
+\bf\boldmath 問．以下図で$A$地点から$B$地点まで行く最短経路の総数を求めよ．
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{同じものを含む円順列$\cdot$数珠順列}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．白玉$1$個，赤玉$2$個，黄玉$4$個がある．\\
+(1)  これらを机の上に円形に並べる方法は何通りか．\\
+(2)  これらで何通りの首飾りができるか．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{立方体の色塗り}}\vspace{0.3zw}
+
+\small 
+\bf\boldmath 問．立方体に色を塗る塗り方は全部で何通りあるか求めよ．ただし，隣接する面は異なる色であり，かつ回転したり倒したりして同じになる塗り方は$1$通りとする．\\
+(1)  各面に異なる$6$色をすべて用いて塗る．\\
+(2)  各面に異なる$5$色をすべて用いて塗る．\\
+(3)  各面に異なる$4$色をすべて用いて塗る．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{整数をつくる問題 Lv.2 }}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$9$個の数字$2,\;2,\;2,\;2,\;3,\;3,\;3,\;4,\;4$のうち$4$個を使って$4$桁の数をつくる．\\
+(1)  全部で何個できるか．\\
+(2)  $3$の倍数は何個できるか．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{整数をつくる問題 Lv.1 }}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$0,\;1,\;2,\;3,\;4,\;5$から異なる$3$つの数字を選んで$3$桁の整数を作る．このとき，次の数の個数を求めよ．\\
+(1)  異なる整数\\
+(2)  偶数\\
+(3)  $3$の倍数\\
+(4)  異なる数の総和を求めよ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{辞書式に並べる}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$a,\;i,\;k,\;o,\;s,\;y$の$6$文字を辞書式に一列に並べて，文字列を作る．\\
+(1)  $aoisky$は何番目か．\\
+(2)  ${352}$番目の文字列を求めよ．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/場合の数.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{正の約数の個数}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．次の各問いに答えよ．\\
+(1)  ${5400}$の正の約数の個数と約数の総和を求めよ．\\
+(2)  ${10}!$の正の約数の個数を求めよ．\\
+(3)  ${30}!$は最後にいくつ$0$が並ぶか．\\
+(4)  $p$を素数，$n$を正の整数とする．$p^n!$は$p$で何回割れるか．\\
+
+\at(7.0cm,0.2cm){\small\color{bradorange}$\overset{\text{場合の数}}{\text{応用}}$}
+
+
+\end{document}
+

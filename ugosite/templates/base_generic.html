@@ -37,22 +37,16 @@
     <div class="logo"><a href="{% url 'index' %}">Ugosuu</a></div>
     <div class="main-nav">
       <ul>
-        <!-- <li><a href="{% url 'index' %}">Home</a></li> -->
-        <!-- <li><a href="{% url 'articles' %}">記事</a></li> -->
-        <li><a href="{% url 'modules' %}">モジュール</a></li>
-        <li><a href="{% url 'genres' %}">問題</a></li>
-        <!-- <li><a href="{% url 'videos' %}">動画</a></li> -->
-        <!-- <li><a href="{% url 'playlists' %}">再生リスト</a></li> -->
+        <li><a href="{% url 'categorys' %}">カテゴリ</a></li>
+        <li><a href="{% url 'problems' %}">問題</a></li>
+        <li><a href="{% url 'video_search' '1' %}">動画検索</a></li>
+        {% comment %} <li><a href="{% url 'random_video' %}">ランダム動画</a></li> {% endcomment %}
         <li><a href="{% url 'terms' %}">用語</a></li>
-        <!-- <li><a href="{% url 'genres' %}">分野</a></li> -->
         {% if user.is_authenticated %}
         <li><a href="{% url 'logout'%}?next={{request.path}}">User</a>:</li>
-        <!-- <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li> -->
         {% else %}
         <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
         {% endif %}
-        <li><a href="{% url 'profile'%}"> {{ user.get_username }}</a></li>
-        <li><a href="{% url 'folders' %}">Notes</a></li>
       </ul>
     </div>
     {% endblock %}
@@ -60,6 +54,7 @@
 
   <nav class="subnav">
     {% block subnav %}
+    
     {% endblock %}
   </nav>
 
@@ -130,9 +125,42 @@
       </li>
     </ul>
   </footer>
-
-  {% block scripts %}
-  {% endblock %}
 </body>
+
+<script>
+  if(document.querySelector(".player")){
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
+  function add_video(slug,width){
+      document.querySelector(".player").setAttribute("id","player")
+      var player;
+      player = new YT.Player('player',{
+          height: width*9/16,
+          width: width,
+          videoId: slug,
+      });
+      var table
+      table = document.querySelector(".table")
+      if(table){
+          for(let line of table.children){
+                line.addEventListener("click",function(){
+                const timeCord = line.textContent.match(/(?<min>[\d]+):(?<sec>[\d]+)/).groups
+                console.log(timeCord)
+                const time = Number(timeCord["min"])*60+Number(timeCord["sec"])
+                console.log(time)
+                player.seekTo(time, Boolean)
+              })
+            line.setAttribute("href",'javascript:void(0);')
+          }
+      }
+  }
+</script>
+
+{% block scripts %}
+{% endblock %}
+
 </html>
 

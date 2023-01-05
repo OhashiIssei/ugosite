@@ -1,0 +1,209 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{コーシー 4つの証明}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の不等式を証明せよ．\\
+\hfill また，等号成立条件を求めよ．
+
+\Large
+\vspace{0.6zw}
+\hspace{0.2zw}$\left(a^2+b^2+c^2\right)\left(x^2+y^2+z^2\right)$\\
+\hfill $\geqq \left(ax+by+cz\right)^2\vspace{0.3zw}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{コーシー 4つの証明}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．次の不等式を証明せよ．\\
+\hfill また，等号成立条件を求めよ．
+
+\LARGE
+\vspace{0.3zw}
+\hspace{0.5zw}$\left(a^2+b^2\right)\left(x^2+y^2\right)$\\
+\hfill $\geqq \left(ax+by\right)^2\vspace{0.3zw}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{相加相乗不等式の等号成立}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．$x>0,\;y>0$とする．
+
+\huge 
+\vspace{0.3zw}
+\hspace{0.3zw}$\left(x+\bunsuu{1}{y}\right)\left(y+\bunsuu{4}{x}\right)$
+\vspace{0.3zw}
+
+\large
+\hfill の最小値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{分数式の最大値}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$x>0$とする．次の最大値を求めよ．\vspace{0.1zw}
+
+\large
+(1)  \Large$\bunsuu{1}{{}x^2-x+1}$\hspace{0.2zw}
+\large
+(2)  \Large$\bunsuu{x}{{}x^2-x+1}$\vspace{-0.1zw}\\
+\large
+\hspace{4zw}(3)  \LARGE $\bunsuu{{x^2}}{{x^2-x+1}}$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{分数関数の最小値}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath 問．$x>1$とする．関数
+
+\Huge 
+\vspace{0.2zw}
+\hspace{0.3zw}$y=\bunsuu{{x^2-x+1}}{{x-1}}$
+\vspace{0.1zw}
+
+\normalsize
+\hfill の最小値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{相加相乗不等式と最小値}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath 問．$x>0$のとき，次の関数の最小値を求めよ．
+
+\LARGE
+\vspace{0.1zw}
+(1)  $y=2x+\bunsuu{1}{x}$\vspace{-0.3zw}\\
+\huge
+(2)  $y=2x+\bunsuu{1}{{}x^2}$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{相加相乗不等式の証明}}\vspace{0.1zw}
+
+\scriptsize 
+\bf\boldmath 問．正の数$a,\;b,\;c,\;d$に対して，次の不等式を証明せよ．また，\\
+\hfill 等号成立条件を求めよ．
+
+\normalsize
+\vspace{-1zw}
+(1)  $\bunsuu{{a+b}}{2}\geqq \sqrt {ab}$\vspace{0.1zw}\\
+\large
+(2)  $\bunsuu{{a+b+c}}{3}\geqq \sqrt[3]{abc}$\vspace{0.1zw}\\
+\Large
+(3)  $\bunsuu{{a+b+c+d}}{4}\geqq \sqrt[4]{abcd}$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{応用}}$}
+
+
+\end{document}
+

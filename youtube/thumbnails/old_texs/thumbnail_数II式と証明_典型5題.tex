@@ -1,0 +1,157 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{不等式の証明}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．次の不等式を証明せよ．
+
+\vspace{0.3zw}
+\hspace{0.3zw}$a^2+b^2+c^2\geqq ab+bc+ca\vspace{0.3zw}$
+
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{少なくとも1つは$1$に等しい}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$\alpha +\beta +\gamma=\bunsuu{1}{\alpha }+\bunsuu{1}{\beta }+\bunsuu{1}{\gamma}=1\vspace{0.3zw}$
+
+\large 
+ならば，$\alpha ,\;\beta ,\;\gamma$のうち
+
+\LARGE 
+\hspace{0.3zw}少なくとも\vspace{0.2zw}$1$つは$1$に等しい
+
+\large \hfill ことを証明せよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{比例式の計算}}\vspace{0.3zw}
+
+\large 
+\bf\boldmath 問．$x+y=\bunsuu{{y+z}}{2}=\bunsuu{{z+x}}{5}\neq 0$\\
+\hfill のとき，\vspace{-0.3zw}
+
+\LARGE 
+\hspace{0.3zw}$\bunsuu{{xy+yz+zx}}{{x^2+y^2+z^2}}$
+\large の値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{条件つきの等式の証明}}\vspace{0.3zw}
+
+\LARGE 
+\bf\boldmath 問．$a+b+c=0$のとき，
+
+\large
+\vspace{0.5zw}
+\hspace{0.3zw}$a^2\left(b+c\right)+b^2\left(c+a\right)+c^2\left(a+b\right)$\\
+\hfill $+3abc=0$
+
+\LARGE 
+であることを示せ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数II式と証明.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{恒等式の基本}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．次の式が恒等式となるように，定数$a,\;b,\;c,\;d$の値を定めよ．
+
+
+\large
+\vspace{0.3zw}
+\hspace{0.5zw}$x^3=a\left(x-1\right)^3+b\left(x-1\right)^2$\\
+\hfill $+c\left(x-1\right)+d\vspace{0.3zw}$
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ⅱ式と証明}}{\text{典型}}$}
+
+
+\end{document}
+

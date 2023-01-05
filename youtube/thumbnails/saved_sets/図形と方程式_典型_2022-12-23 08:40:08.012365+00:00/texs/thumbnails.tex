@@ -1,0 +1,270 @@
+
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%大きな文字
+\usepackage{fix-cm}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.9176,0.5686,0.5960}
+\definecolor{mizu}{rgb}{0.6156,0.8,0.9955}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+\bf\boldmath
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{応用}}$}
+{\color{orange}\Large\underline{片側が固定された線分の中点の軌跡}}\vspace{0.3zw}
+
+\Large 
+問．円$x^2+y^2=1$上の動点$\text{P}$と，\\
+点$\text{A}\left(3,\;4\right)$を結ぶ
+
+\huge
+\hspace{0.5zw}線分APの中点$\text{M}$の\vspace{-0.2zw}\\
+\hfill 軌跡を求めよ．
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{線形計画法}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath 問．
+
+\Large
+\vspace{-1zw}
+\hspace{1zw}
+$\left\{\begin{array}{l}3x+y\geqq 6\;\\x+3y\geqq 6\;\\x+y\leqq 6\end{array}\right.$のとき，
+
+\Large
+\vspace{0.5zw}
+\hspace{0.5zw}
+$x+2y$の最大値と最小値\large を求めよ．
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{領域の図示 全盛り}}\vspace{0.3zw}
+
+\small
+\bf\boldmath 問．次の不等式が表す領域を図示せよ．
+
+\small
+(1)  $y>x^2+1$ \hspace{2.1zw} (2)  $3x-2y-2\geqq 0$\vspace{0.3zw}\\
+(3)  $x\leqq 2$  \hspace{5zw} (4)  $\left(x+2\right)^2+y^2<1$\vspace{0.3zw}\\
+(5)  $x^2+y^2-6x-2y+1\geqq 0$\vspace{0.3zw}\\
+(6)  $\left\{\begin{array}{l}\hspace{-0.5zw}x^2+y^2<{25}\\\hspace{-0.5zw}y<3x-5\end{array}\right.$
+\hspace{-0.4zw}(7)  $\left(x-y\right)\left(x+y-2\right)<0$\vspace{0.3zw}\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{三角形の重心の軌跡}}\vspace{0.3zw}
+
+\normalsize
+\bf\boldmath 問．$2$点$\text{O}\left(0,\;0\right),\;\text{A}\left(1,\;0\right)$と\\
+\hfill 円$x^2+y^2=9$上を動く点$\text{Q}$を頂点とする
+
+\huge
+\hspace{0.0zw}三角形$\text{OAQ}$の重心$\text{P}$\\
+\hfill の軌跡を求めよ.
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\huge\underline{軌跡 Lv.1}}\vspace{0.5zw}
+
+\large 
+\bf\boldmath 問．$2$点$\text{A}\left(-3,\;0\right),\;\text{B}\left(2,\;0\right)$からの
+
+\huge
+\vspace{0.2zw}
+\hspace{0.0zw}
+距離の比が$3:2$である\\
+\hfill 点$\text{P}$の軌跡を求めよ．
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{円に内接$\cdot$外接する円}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．中心が$\left(4,\;3\right)$で
+
+\huge 
+\hspace{0.1zw}
+円$x^2+y^2=1$に\vspace{-0.1zw}\\
+\hfill 接する円の方程式
+
+\large
+\hfill を求めよ．\\
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{円外から引いた接線}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．点$\left(1,\;3\right)$から
+
+\huge 
+\hspace{0.1zw}
+円$x^2+y^2=5$に\vspace{-0.1zw}\\
+\hfill 引いた接線の方程式\vspace{0.2zw}
+
+\large
+\hfill を求めよ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{円と直線が接する条件}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．
+$\left\{\begin{array}{l} 円：x^2+y^2={10}\ \\直線：y=2x+m\ \end{array}\right.$が\\
+
+\Huge
+\vspace{-0.2zw}
+\hspace{0.5zw}
+接するとき，
+
+\large
+\vspace{0.4zw}
+\hfill 定数$m$の値を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{円と直線が共有点をもつ条件}}\vspace{0.3zw}
+
+\large
+\bf\boldmath 問．
+$\left\{\begin{array}{l} 円：x^2+y^2=8\ \\直線：y=x+m\ \end{array}\right.$が\\
+
+\Huge
+\vspace{-0.2zw}
+\hspace{0.2zw}
+共有点をもつとき，
+
+\large
+\vspace{0.4zw}
+\hfill 定数$m$の値の範囲を求めよ．
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{円と直線の共有点}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．円$x^2+y^2=5$と次の直線の共有点の座標を求めよ．\\
+(1)  $y=x-1$\\
+(2)  $y=2x+5$\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\LARGE\underline{$3$点を通る円の方程式}}\vspace{0.3zw}
+
+\normalsize 
+\bf\boldmath 問．$3$点$\text{A}\left(2,1\right),\text{B}\left(6,3\right),\text{C}\left(-1,2\right)$がある．
+
+\normalsize
+\vspace{0.3zw}
+(1)  $3$点$\text{A},\;\text{B},\;\text{C}$を通る円の方程式を求めよ．
+
+\LARGE
+(2)  三角形$\text{ABC}$の外心の座標と，
+外接円の半径を求めよ．\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+\newpage
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./youtube/thumbnails/templates/smart_background/図形と方程式.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$2$直線の平行$\cdot$垂直条件}}\vspace{0.3zw}
+
+\Large 
+\bf\boldmath 問．$2$直線$\left\{\begin{array}{l}ax+2y=1,\\x+\left(a-1\right)y=3\end{array}\right.$が次の条件を満たすとき，定数$a$の値を求めよ．
+(1)  平行 \hspace{0.2zw} (2)  垂直\\
+
+\at(6.6cm,0.2cm){\small\color{bradorange}$\overset{\text{図形と方程式}}{\text{典型}}$}
+
+
+
+\end{document}
+

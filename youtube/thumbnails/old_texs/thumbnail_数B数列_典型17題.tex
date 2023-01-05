@@ -1,0 +1,279 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{指数型の漸化式}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の条件を満たす数列$\{a_n\}$の一般項を求めよ．
+\[a_1={10},\;a_{n+1}=2a_n+3^n\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{階差型の漸化式}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の条件を満たす数列$\{a_n\}$の一般項を求めよ．
+\[a_1=1,\;a_{n+1}=a_n+3n+1\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{和と一般項の関係式}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．数列$\{a_n\}$の初項から第$n$項までの和$S_n$が
+$S_n=3n-2a_n$であるとき，数列$\{a_n\}$の一般項を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{$x^n+y^n$が整数であることの証明}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$n$は自然数とする．$2$数$x,y$の和と積が整数のとき，$x^n+y^n$は整数であることを、数学的帰納法を用いて証明せよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{一般項の推測}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．次の条件で定められる数列$\{a_n\}$の一般項を推測して、それが正しいことを数学的帰納法によって証明せよ．
+\[a_1=3,\;\left(n+1\right)a_{n+1}=a_n^2-1\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{数学的帰納法による倍数証明}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$n$を自然数とするとき、
+\[5^{n+1}+6^{2n-1}は{31}の倍数\]
+であることを証明せよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{数学的帰納法による不等式証明}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$n$が$3$以上の自然数のとき，
+\[3^n>5n+1\]
+を証明せよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{数学的帰納法による等式証明}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の等式を数学的帰納法によって証明せよ．
+\large
+\[\hspace{-0.5zw}1^3+2^3+3^3+\cdots +n^3=\bunsuu{1}{4}n^2\left(n+1\right)^2\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{数学的帰納法}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．すべての自然数$n$について、次の等式が成立することを証明せよ．
+\large
+\[\hspace{-0.5zw}1^3+2^3+\cdots +n^3=\left(1+2+\cdots +n\right)^2\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{隣接３項間漸化式}}\vspace{0.3zw}\\
+\normalsize 
+\bf\boldmath 問．次の条件によって定められる数列$\{a_n\}$の一般項を求めよ．\\
+(1)  $\left\{\begin{array}{l}a_1=1,\;a_2=2,\;\\a_{n+2}=a_{n+1}+6a_n\end{array}\right.$\\
+(2)  $\left\{\begin{array}{l}a_1=0,\;a_2=2,\;\\a_{n+2}-4a_{n+1}+4a_n=0\end{array}\right.$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{漸化式を解く}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．次の条件によって定められる数列$\{a_n\}$の一般項を求めよ．
+\[a_1=2,\;a_{n+1}=2a_n-3\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{等差数列の和の最大}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．初項${79},$公差$-2$の等差数列$\{a_n\}$について、\\
+(1)  第何項が初めて負となるか．\\
+(2)  初項から第$n$項までの和が最大となるか．また、そのときの和を求めよ．\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{等差数列をなす$3$数の和と積から}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．等差数列をなす$3$数があって，その和が${27},\;$積が${693}$である．この$3$数を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{等差数列であることの証明}}\vspace{0.3zw}\\
+\normalsize 
+\bf\boldmath 問．(1)  一般項が$a_n=3n-4$で表される数列$\{a_n\}$が等差数列であることを示し，初項と公差を求めよ．\\
+(2)  $\left(1\right)$の数列$\{a_n\}$の項を一つおきに取り出して並べた数列$a_1,\;a_3,\;a_5,\;\cdots$が等差数列であることを示し，初項と公差を求めよ．\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{$n$を含む数列の和}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の数列$\{a_n\}$の和$S$を求めよ．
+\normalsize
+\[1\cdot \left(2n-1\right),\;3\cdot \left(2n-3\right),\;5\cdot \left(2n-5\right),\;\]
+\[\hspace{13zw}\vspace{-0.5zw}\cdots ,\;\left(2n-1\right)\cdot 1\;\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{数列の和の和}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の数列$\{a_n\}$の和$S$を求めよ．
+\large 
+\[\hspace{-0.5zw}1,\;1+2,\;1+2+3,\;\cdots ,\;1+2+\cdots +n\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/数B数列.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{等比数列の和の扱い}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．初項から第${10}$項までの和が$6,$
+初項から第${20}$項までの和が${24}$である等比数列$\{a_n\}$の，
+初項から第${30}$項までの和$S$を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{数Ｂ数列}}{\text{典型}}$}
+
+
+\end{document}
+

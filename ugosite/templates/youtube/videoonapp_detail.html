@@ -1,0 +1,66 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+  <title> {{ video.title }}</title>
+{% endblock %}
+
+{% block content %}
+  <h2>{{ video.title }}</h2>
+
+  {% include "youtube-embedding.html" %}
+
+  {% if video.problem %}
+  <h3>問題</h3>
+    <p class = "tex">
+      {{ video.problem | safe }}
+    </p>
+    {% if video.source %}
+      <p class = "source"> {{ video.source | safe }}
+    {% endif %} 
+  {% endif %}
+
+  {% if video.point %}
+  <h3>要点</h3>
+    <p class = "tex">
+      {{ video.point | safe }}
+    </p>
+  {% endif %}
+
+    <p>
+      {{ video.genre }} {{ video.type }}
+    </p>
+
+
+  <p><a href="{{ video.youtube_url }}" target="_blank">Youtubeでみる</a></p>
+  <p><a href="{{ video.youtube_studio_url }}" target="_blank">Youtube Studio で編集する</a></p>
+
+  {% comment %} <h3>関連問題</h3>
+    <ul>
+      {% for v in video.related %}
+      <li>{{ v | linebreaks }}</li>
+      {% endfor %}
+    </ul>  {% endcomment %}
+    
+  {% comment %} <h3>description</h3>
+    {{ video.description | linebreaks}} {% endcomment %}
+
+
+  <h3>この動画を含むプレイリスト</h3>
+  <ul>
+    {% for playlist in video.playlists %}
+        <li>
+          {{ playlist }}
+        </li>
+    {% endfor %}
+  </ul> 
+{% endblock %}
+
+{% block scripts %}
+    <script>
+      function onYouTubePlayerAPIReady() {
+        add_video("{{ video.videoId }}",480)
+      }
+    </script>
+
+
+{% endblock %}

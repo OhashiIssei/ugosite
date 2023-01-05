@@ -1,0 +1,302 @@
+\documentclass[10pt,
+% a4paper,
+%twocolumn,
+fleqn,
+%landscape, 
+% papersize,
+dvipdfmx,
+uplatex
+]{jsarticle}
+
+
+
+\def\maru#1{\textcircled{\scriptsize#1}}%丸囲み番号
+
+% \RequirePackage[2020/09/30]{platexrelease}
+
+%太字設定
+\usepackage[deluxe]{otf}
+
+\usepackage{emathEy}
+
+\usepackage[g]{esvect}
+
+%定理環境
+\usepackage{emathThm}
+%\theoremstyle{boxed}
+\theorembodyfont{\normalfont}
+\newtheorem{Question}{問題}[subsection]
+\newtheorem{Q}{}[subsection]
+\newtheorem{question}[Question]{}
+\newtheorem{quuestion}{}[subsection]
+
+%セクション，大問番号のデザイン
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\thesection}{第\arabic{section}章}
+
+%用紙サイズの詳細設定
+\usepackage{bxpapersize}
+\papersizesetup{size={80mm,45mm}}
+\usepackage[top=0.7zw,bottom=0truemm,left=3truemm,right=133truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+
+%余白など
+\usepackage{setspace} % 行間
+\setlength{\mathindent}{1zw}
+\setlength\parindent{0pt}
+
+
+%色カラーに関する設定
+\usepackage{color}
+\definecolor{shiro}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{kin}{rgb}{0.95703125,0.87109375,0.7421875}
+\definecolor{orange}{rgb}{1,0.7,0.2}
+\definecolor{bradorange}{rgb}{1,0.5,0}
+\color{kin}
+% \pagecolor{hukamido}
+
+\usepackage{at}%図の配置
+% \usepackage{wallpaper}
+
+\begin{document}
+
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{指数関数の最大値$〜$逆数の対称式$〜$}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．関数
+\Large
+\[ y=\left(2^x+2^{-x}\right)-2\left(4^x+4^{-x}\right)\]
+\LARGE
+の最大値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{対数関数の最大値$〜$対数の$2$次式$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の$1\leqq x\leqq {16}$における最大値と最小値を求めよ．
+\[y=\left(\log _2x\right)^2-\log _2x^2-3\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{対数関数の最大値$〜$真数が$2$次式$〜$}}\vspace{0.3zw}\\
+\LARGE  
+\bf\boldmath 問．関数
+\Large
+\[y=\log _2x+\log _2\left({16}-x\right)\]
+\LARGE  
+の最大値を求めよ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数方程式$\cdot$不等式$〜$中級$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の方程式$\cdot$不等式を解け．\\
+(1)  $\log _2x+\log _2\left(x-7\right)=3$\\
+(2)  $2\log _2\left(2-x\right)\leqq \log _2x$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{小数首位$〜$常用対数の利用$〜$}}\vspace{0zw}\\
+\Large 
+\bf\boldmath 問．$\left(\bunsuu{1}{{}30}\right)^{20}$を小数で表したとき，小数第何位に初めて$0$でない数字が現れるか．ただし，
+$\log _{10}3=0.{4771}$とする．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{桁数と最高位の数字$〜$常用対数$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$\log _{10}2=0.{3010},\;\\\ \ \ \ \log _{10}3=0.{4771}$とする．\vspace{0.3zw}\\
+(1)  ${12}^{80}$は何桁の整数か．\\
+(2)  ${12}^{80}$の最高位の数字を求めよ．\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数方程式$\cdot$不等式$〜$初級$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の方程式$\cdot$不等式を解け．\vspace{0.3zw}\\
+(1)  $\log _2x=3$\\
+(2)  $\log _2x<3$\\
+(3)  $\log _{\frac{1}{3}}\left(x-1\right)\leqq 2$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{指数に対数を含む数}}\vspace{0.3zw}\\
+\LARGE
+\bf\boldmath 問．次の式の値を求めよ．\vspace{0.3zw}\\
+(1)  ${10}^{\log _{{10}}3}$\\
+(2)  ${81}^{\log _3{10}}$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数を利用した等式の証明}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$xyz\neq 0,\;2^x=3^y=6^z$のとき，次の等式が成り立つことを証明せよ．\vspace{-0.5cm}
+\[\hspace{1.5cm}\bunsuu{1}{x}+\bunsuu{1}{y}=\bunsuu{1}{z}\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数を他の対数で表す}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 問．$a=\log _23,\;b=\log _37$のとき，$\log _{42}{56}$を$a,\;b$を用いて表せ．
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{底の変換公式}}\vspace{0.3zw}\\
+\large 
+\bf\boldmath 問．次の式を簡単にせよ．\\
+(1)  $\log _48$\\
+(2)  $\log _23\cdot \log _38$\\
+(3)  $\left(\log _23+\log _49\right)\left(\log _34+\log _92\right)$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数の基本性質}}\vspace{0.3zw}\\
+\LARGE
+\bf\boldmath 問．次の式を簡単にせよ．\\
+(1)  $\log _64+\log _69$\\
+(2)  $4\log _2\sqrt 3-\log _2{18}$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{対数の定義}}\vspace{0.3zw}\\
+\Large
+\bf\boldmath 問．次の対数の値を求めよ．\vspace{0.3zw}\\
+$\begin{array}{ll}
+(1)  \log _7{49}&
+(2)  \log _2{64}\\
+(3)  \log _55&
+(4)  \log _41\\
+(5)  \log _2\bunsuu{1}{{}81}&
+(6)  \log _{\frac{1}{5}}{\sqrt{125}}\\
+\end{array}$
+
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\large\underline{指数関数の最大値$〜2$次関数に帰着$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の関数の最大値と最小値を求めよ．また，そのときの$x$の値を求めよ．\vspace{-0.5zw}
+\[\hspace{-0.5zw}y=4^x-2^{x+2}+1\left(-1\leqq x\leqq 2\right)\]
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{指数方程式$\cdot$不等式$〜$中級$〜$}}\vspace{0.3zw}\\
+\LARGE 
+\bf\boldmath 次の方程式$\cdot$不等式を解け．\vspace{0.3zw}\\
+(1)  $5^{2x+1}+4\cdot 5^x-1=0$\\
+(2)  $4^x+2^x-{20}>0$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{指数方程式$\cdot$不等式$〜$初級$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．次の方程式$\cdot$不等式を解け．\vspace{0.3zw}\\
+(1)  $\left(\bunsuu{1}{9}\right)^x=3$\ \ \ 
+(2)  $4^x<8^{x-1}$\\
+(3)  $\left(\bunsuu{1}{5}\right)^x\leqq \bunsuu{1}{{{125}}}$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\newpage
+
+
+
+\at(0cm,0cm){\includegraphics[width=8cm,bb=0 0 1920 1080]{./media_local/smart_background/指数対数.jpeg}}
+{\color{orange}\bf\boldmath\Large\underline{指数計算$〜$逆数の対称式$〜$}}\vspace{0.3zw}\\
+\Large 
+\bf\boldmath 問．$a>0$のとする．$a^{\frac{1}{3}}+a^{\frac{1}{3}}=4$のとき，次の式の値を求めよ．\\
+(1)  $a+a^{-1}$\\
+(2)  $a^{\frac{1}{2}}+a^{\frac{1}{2}}$\\
+
+\at(7cm,0.2cm){\small\color{bradorange}$\overset{\text{指数対数}}{\text{典型}}$}
+
+
+\end{document}
+
